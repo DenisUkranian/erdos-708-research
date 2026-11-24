@@ -1,0 +1,246 @@
+\section{Exact certificates and limitations of local reductions}
+\label{root:certificates}
+
+The companion code uses integer arithmetic and the Python standard
+library. Its certificates are finite statements with explicit
+hypotheses. They do not convert an unsuccessful search into a
+counterexample or a universal theorem.
+
+\subsection{A unified sufficient recognizer}
+
+The program \texttt{exact2n\_recognition.py} keeps the ambient
+length \(M\) fixed. At a current set of \(m\) sources it recognizes
+the full-interval base, Wang's external quadratic base, or
+Theorem~\ref{root:hall-theorem}. Otherwise it may delete a source by
+one of the following proved extension rules:
+\[
+ \Omega(a)\le2;
+\]
+\[
+ pq\mid a,\quad pq\ge2m-1,\quad
+ D_p(A)\le q\,v_p(a/q);
+\]
+\[
+ a=p^e q,\quad p,q\text{ prime},\quad mp^e\le M.
+\]
+Each valid deletion is restored with at most two additional
+positions, so a successful trace proves the exact \(2|A|\) bound
+for every shift. The certificate verifier starts with the original
+source list and recomputes demands, cofactors, numerical witnesses,
+and all Hall rows. It does not rerun the recognizer's choice heuristic;
+it does share the exact arithmetic helpers. If the rules stop, the
+output is \texttt{UNKNOWN}. No cover is explicitly constructed by
+this recognizer.
+
+For a concrete combination example, let \(\mathcal R\) be all 35
+cubic monomials, with repetitions, on
+\(\{11,13,17,19,23\}\), and set
+\[
+ A=\mathcal R\cup\{4096,11875\},\qquad
+ n=37,\quad M=12167.
+\]
+Every source has at least three prime factors, counting multiplicity.
+The direct Hall certificate fails: at \(d=121\) its lower bound is
+\(-7\), while the fibre has size five. Nevertheless,
+\[
+ 11875=5^4\cdot19,\qquad
+ 5\cdot19=95\ge73,\qquad D_5(A)=4\le19\cdot4.
+\]
+The two-prime rule deletes this source. All Hall rows of the remaining
+36 sources then pass; their minimum margin is zero. Hence every
+length-12167 interval has a cover of size at most 74 for this set.
+Wang's quadratic base is inapplicable both before and after deletion,
+and the prime-power-bank rule alone cannot remove this source because
+\(37\cdot625>12167\).
+
+The saved examples also include deleting the maximum while retaining
+the original ambient length, two successive deletion steps, direct
+base cases, and an unresolved 64-source smooth input. Their validation
+checks the combined proof mechanism rather than sampling interval
+shifts.
+
+\subsection{Necessary arithmetic cores}
+
+The program \texttt{necessary\_core.py} applies necessary conditions
+for a \emph{minimal-cardinality} counterexample. It computes exact
+minimum forced-union cardinalities over a period and rigorous lower
+bounds for their valuations. The latter are sums of individual level
+minima; they are not asserted to equal the minimum total valuation at
+one common shift. It then removes candidates whose required demand
+exceeds the largest possible demand of a source set of the stated
+cardinality.
+
+For example, at
+\[
+ n=100,\qquad M=146969=47\cdot53\cdot59,
+\]
+the forced 47-valuation of the maximum source is at least 112, while
+the largest possible 47-demand of 100 sources from the candidate pool,
+including the maximum, is at most 90. The accompanying exact trace
+therefore excludes these \emph{minimal-counterexample parameters}.
+It does not establish \(g(100)\le200\).
+
+There is also an exact source-only family showing the limits of
+these filters. Its certificate has
+\[
+ n=16384,\qquad M=n^2=268435456,
+\]
+and uses all 30 primes at most 113. Its source and cofactor prime
+supports coincide, its common gcd is one, and its prime-support
+hypergraph is connected. Every source has at least three prime
+occurrences, and every prime-deletion cofactor exceeds \(M/n\).
+All prime-pair products are below \(2n-1\), so the two-prime demand
+tests are vacuous. The forced-union cardinality bound is at most 676,
+well below the available 32766 positions, while the cofactor
+reciprocal mass exceeds one and the finite Hall certificate fails.
+
+This is a witness to the insufficiency of the listed arithmetic
+conditions. It is not a counterexample to the covering conjecture:
+in particular at shift zero the original sources cover themselves.
+No collection of deletion covers satisfying every universal
+minimality requirement is asserted to exist.
+
+\subsection{Why unrestricted cofactor matching cannot be the missing step}
+
+Even for sources with at least three prime factors, the particular
+assignment \(a\mapsto a/P^+(a)\) need not admit a matching. An exact
+example retained from the preceding work is
+\[
+ M=440,\quad I=\{4401,\ldots,4840\},\quad
+ A=\{2k:k\le220\text{ composite},\ k\ne169\}.
+\]
+There are 171 sources. The union of their cofactor neighborhoods has
+only 170 positions: exactly the interval integers divisible by at
+least one of \(4,6,10,14,22\). Thus Hall fails for this proposed
+assignment, although the original product-cover problem allows
+other constructions and a much larger budget. This obstruction
+concerns the proposed matching, not the \(2n\) conjecture.
+
+\section{The remaining mathematical target}
+\label{root:remaining}
+
+The exact and asymptotic goals must be kept distinct. The structural
+core defined by source demands is not automatically the same set as
+the large coordinates of an optimizing dual vector. Nor can separate
+covers for two source parts be combined by adding their valuation
+contributions: an overlapping target is only available once.
+
+\subsection{An exact criterion for asymptotic closure}
+
+The raw boxed dual in Lemma~\ref{an:lp-bridge}, together with Wang's
+uniform raw fractional transfer theorem \cite{Wang}, gives the
+following useful precise target, also recorded in \cite{Earlier}.
+
+\begin{proposition}[Uniform additive-defect criterion]
+\label{root:closure-criterion}
+The unrestricted assertion \(g(n)\le(2+o(1))n\) is equivalent to
+\begin{equation}
+ \forall\varepsilon>0\ \exists C_\varepsilon<\infty\
+ \forall M,I,w:\qquad
+ \Delta_{2+\varepsilon}(M,I,w)\le C_\varepsilon,
+ \label{root:closure-target}
+\end{equation}
+where \(w\) has finite support and \(0\le w_p\le1\), and
+\(C_\varepsilon\) depends only on \(\varepsilon\).
+\end{proposition}
+
+\begin{proof}
+The asymptotic assertion implies, for each \(\varepsilon>0\), a
+bound \(g(n)\le(2+\varepsilon)n+C_\varepsilon\) for all \(n\),
+absorbing finitely many small cardinalities into the constant. It
+bounds every boxed dual objective for every
+\(A\subseteq[2,M]\). If \(\max A<M\), use a contained interval
+of length \(\max A\), whose available target hinge sum is at most
+that on \(I\). Maximize over all such subsets and use
+\[
+ \max_A\left\{\sum_{a\in A}X_w(a)-(2+\varepsilon)|A|\right\}
+ =\sum_{a\le M}(X_w(a)-2-\varepsilon)_+.
+\]
+This proves \eqref{root:closure-target}.
+
+Conversely, \eqref{root:closure-target} and the boxed dual give
+\(L(A,I)\le(2+\varepsilon)n+C_\varepsilon\) uniformly. For
+completeness, the specific external transfer inequality being used
+is as follows. Put \(\ell(0)=0\), and let \(\ell(m)\) be the
+supremum of the raw boxed values on original \(m\)-source
+instances. Then
+\[
+ K_n=\left\lceil\max_{0\le m\le n}
+        \{\ell(m)+2(n-m)\}\right\rceil,
+ \qquad g(n)\le K_n+\pi(2K_n)-1.
+\]
+Since \(\ell(m)\le(2+\varepsilon)m+C_\varepsilon\), this yields
+\(g(n)\le(2+\varepsilon)n+C_\varepsilon+o(n)\).
+Let \(\varepsilon\) tend to zero.
+\end{proof}
+
+\subsection{Rounding is already small on the reduced obstruction class}
+
+For the minimal asymptotic-obstruction sequences constructed above,
+all source primes are below \(K<10n\). Hence
+\[
+ |P_A|\le\pi(10n)=O(n/\log n),\qquad
+ \tau(A,I)\le L(A,I)+O(n/\log n),
+\]
+by Lemma~\ref{an:lp-bridge}. This conclusion concerns these reduced
+instances; it does not assert small rounding loss for an arbitrary
+original instance.
+
+Consequently a more focused sufficient next theorem is a uniform
+fractional bound
+\[
+ L(A,I)\le(2+\delta)n+o(n)
+\]
+on this explicit structural class, for every fixed \(\delta>0\).
+The error must be uniform in the source set, shift, and additive
+minimality parameter. Indeed, use the minimality budget
+\((2+2\delta)n+C\), with \(2+2\delta<10\). As \(C\to\infty\),
+the source cardinality tends to infinity, and the displayed estimates
+would give \(\tau(A,I)<(2+2\delta)n\), a contradiction. Thus the
+outstanding issue on this class is its joint fractional valuation
+bound. That bound is not proved here.
+
+\subsection{A concrete order of attack}
+
+The following are mathematical milestones, rather than a claim
+that the remaining work is routine.
+
+\begin{enumerate}
+\item \textbf{Range and proof audit: completed.} The submitted
+\(n^{5/2}\) proof is reconstructed, its essential restriction is
+identified, and the independently checked quadratic input sets the
+remaining range to \eqref{root:range}.
+\item \textbf{Arbitrarily many small weights: completed.} The
+diffuse theorem controls this class at every scale, including one
+arbitrary exceptional coordinate. No bound on the number of prime
+factors is assumed.
+\item \textbf{A controlled large-weight block: completed within
+its stated range.} The explicit defect allows a fixed or sufficiently
+slowly growing number of exceptions. It does not handle a block as
+large as the source-demand core in the combinatorial reduction.
+\item \textbf{Dense small-prime sources and separated bands:
+completed within their stated classes.} The smooth-source theorem
+and the exact separated-band theorem are actual covering results.
+Neither covers arbitrary combinations of adjacent prime scales.
+\item \textbf{Growing mixed cores: open.} The next substantive
+target is a uniform certificate handling substantial weights on
+intermediate prime scales while retaining a growing dense small-prime
+part. A uniform bound \eqref{root:closure-target} would close the
+asymptotic question. An exact \(2n\) construction would additionally
+have to control the integer position budget without an asymptotic
+rounding allowance.
+\end{enumerate}
+
+One quantitative boundary of the present proof is explicit. In the
+smooth-support argument, the sieve and tail errors behave like
+\(\exp(-c\log M/\log Y)\), whereas the guaranteed model gap is
+\(Y^{-J_\varepsilon}\). Their comparison works when
+\((\log Y)^2\ll\log M\). It does not work at a general polynomial
+cutoff \(Y=M^\alpha\). The separated-band argument handles one
+part of the interaction by producing disjoint exact-part bins, but
+it requires a large gap between the two prime ranges and one large
+occurrence per source.
+
+The package therefore contains verified partial theorems and a
+precise remaining target, not a proof that problem 708 is solved or
+that a numerical fraction of it has been completed.

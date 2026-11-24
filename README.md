@@ -1,6 +1,6 @@
 # Erdős Problem 708 — Research Archive and Proof Certificates
 
-**Status (24 November 2026): Open in general.** This repository is being populated with our recovered work on the Erdős–Surányi interval-product problem, with historical experiments, exact finite certificates, full research reports, counterexamples to intermediate claims, and reproducible scripts. An archived claim is not automatically an established theorem.
+**Status (24 November 2026): Open in general.** This repository collects our recovered work on the Erdős–Surányi interval-product problem, with historical experiments, exact finite certificates, full research reports, counterexamples to intermediate claims, and reproducible scripts. An archived claim is not automatically an established theorem.
 
 ## Problem
 
@@ -10,9 +10,10 @@ Central goals include the asymptotic estimate `g(n) <= (2+o(1))n` and the strong
 
 ## What is included
 
-- [`research/archive_2026_11_24/`](research/archive_2026_11_24/): preserved 292-file consolidation of reports, historical work, corrected arguments, scripts, and provenance. Start with `ERDOS708_ALL_2026-11-24/CURRENT_STATUS.txt` and `CORRECTIONS_LEDGER.csv`. This was collected before the later finite-case update.
+- [`research/archive_2026_11_24/`](research/archive_2026_11_24/): preserved historical consolidation (with four third-party source files omitted in the public release) of reports, historical work, corrected arguments, scripts, and provenance. Start with `ERDOS708_ALL_2026-11-24/CURRENT_STATUS.txt` and `CORRECTIONS_LEDGER.csv`. This was collected before the later finite-case update.
 - [`research/finite_bounds_g6_g9/`](research/finite_bounds_g6_g9/): a 24 November finite-case package, recording `g(6)=8`, `9 <= g(7) <= 10`, `11 <= g(8) <= 12`, and `12 <= g(9) <= 14`. **Its g(7) interval is superseded by the later g(7) proof package.**
 - [`research/g7_exact/`](research/g7_exact/): later 24 November *computer-assisted claim* `g(7)=9` with exact integer certificates, C++/Python verifiers, and replay logs; external dependency on the stated `g(5)<=6` result. This compilation has not independently rerun the entire verifier and does not imply peer review or Lean formalization.
+- [`research/g8_exact/`](research/g8_exact/): the later computer-assisted exact-case result **g(8)=11**, conditional on prior g(5), g(6), and g(7) upper bounds; proof in English, C++/Python verifiers, 57,487 universal certificates, and 28 exact CRT residual checks. Independently replayed on 24 November 2026.
 - [`research/two_bin_certificate/`](research/two_bin_certificate/): a subsequent working package of valuation/weight transfer attempts and counterexamples; distinguish proved component lemmas from unsuccessful global steps.
 
 ## Finite cases — provenance matters
@@ -21,8 +22,10 @@ Central goals include the asymptotic estimate `g(n) <= (2+o(1))n` and the strong
 |---|---|---|
 | 6 | g(6)=8, subject to cited prior finite theorem | `finite_bounds_g6_g9`, `g7_exact` |
 | 7 | g(7)=9, computer-assisted proof **claimed** in newest package | `g7_exact`; rerun `verify_all.py` |
-| 8 | 11 <= g(8) <= 12; exact value not established here | `finite_bounds_g6_g9` |
+| 8 | g(8)=11 in the later computer-assisted package, conditional on g(7)<=9, g(6)<=8, g(5)<=6; the older 11<=g(8)<=12 interval is superseded | `g8_exact`; `finite_bounds_g6_g9` |
 | 9 | 12 <= g(9) <= 14; exact value not established here | `finite_bounds_g6_g9` |
+
+The g(8) upper proof additionally depends on the g(7) and g(6) bounds and an external g(5) result. The g(8) verifier passed independently on 24 November 2026.
 
 The g(7) proof explicitly relies on John Tripodo's November 2026 manuscript for `g(4)` and `g(5)`. No independent verification of that external manuscript was performed for this repository assembly.
 
@@ -43,14 +46,14 @@ Historical counterexamples and correction notes demonstrate that local witness i
 
 ## Reproducibility
 
-The complete `g(7)` package is nested under:
+Once the upload is complete, the `g(7)` package is nested under:
 
 ```sh
 cd research/g7_exact/erdos708_g7_proof
 python3 g7_exact/verify_all.py
 ```
 
-It requires Python 3, a C++17 compiler, and enabled assertions. Other research packages contain independent scripts and instructions inside their own READMEs. Tests are *not* assumed to have been rerun in this assembly. See `MANIFEST_SHA256.txt` for payload hashes.
+It requires Python 3, a C++17 compiler, and enabled assertions. Run the exact g(8) verification using `cd research/g8_exact && python3 verify_all.py`. Other research packages contain independent scripts and instructions inside their own READMEs. Tests are *not* assumed to have been rerun in this assembly. See `MANIFEST_SHA256.txt` for payload hashes.
 
 ## Editorial policy
 
@@ -68,3 +71,6 @@ It requires Python 3, a C++17 compiler, and enabled assertions. Other research p
 ## Suggested repository name
 
 `DenisUkranian/erdos-708-research`
+
+
+**Public-source provenance:** Four files reproducing complete manuscripts of other authors were excluded; see [`EXCLUDED_THIRD_PARTY.md`](EXCLUDED_THIRD_PARTY.md).

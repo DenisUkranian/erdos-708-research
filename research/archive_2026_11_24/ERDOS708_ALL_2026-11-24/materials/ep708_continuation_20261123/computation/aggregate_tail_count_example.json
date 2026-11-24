@@ -1,0 +1,53 @@
+{
+  "primes": [
+    11,
+    13,
+    17
+  ],
+  "weights": [
+    1,
+    1,
+    1
+  ],
+  "M": 221,
+  "x": 2312,
+  "prefix_positive_h1": [
+    [
+      121,
+      2
+    ],
+    [
+      143,
+      2
+    ],
+    [
+      169,
+      2
+    ],
+    [
+      187,
+      2
+    ],
+    [
+      221,
+      2
+    ]
+  ],
+  "target_positive_h1": [
+    [
+      2366,
+      2
+    ],
+    [
+      2420,
+      2
+    ],
+    [
+      2431,
+      3
+    ]
+  ],
+  "prefix_H1": 5,
+  "target_H1": 4,
+  "scope": "Counterexample only to exact prefix domination of an aggregate raw core tail, not to H2 or to Erdos 708."
+}

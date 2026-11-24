@@ -1,0 +1,766 @@
+{
+  "imports": {
+    "math": [
+      "ep708_20261122/analytic/test_peeling.py",
+      "ep708_20261122/combinatorial/build_omega2_certificate.py",
+      "ep708_20261122/combinatorial/verify_omega2_certificate.py",
+      "ep708_20261122/computation/verify_hub_family.py",
+      "ep708_20261122/computation/verify_hub_obstruction.py",
+      "ep708_20261122/erdos708_research_bundle/checks/build_omega2_certificate.py",
+      "ep708_20261122/erdos708_research_bundle/checks/proper_divisor_matching.py",
+      "ep708_20261122/erdos708_research_bundle/checks/test_peeling.py",
+      "ep708_20261122/erdos708_research_bundle/checks/verify_hub_family.py",
+      "ep708_20261122/erdos708_research_bundle/checks/verify_hub_obstruction.py",
+      "ep708_20261122/erdos708_research_bundle/checks/verify_omega2_certificate.py",
+      "ep708_20261122/root/proper_divisor_matching.py",
+      "ep708_20261123/computation/exact2n_certificate.py",
+      "ep708_20261123/computation/h2_crt_search.py",
+      "ep708_20261123/computation/h2_global_phase_milp.py",
+      "ep708_20261123/computation/h2_hinge_ratio_search.py",
+      "ep708_20261123/computation/h2_joint_milp.py",
+      "ep708_20261123/computation/h2_ratio_search.py",
+      "ep708_20261123/computation/h2_six_prime_search.py",
+      "ep708_20261123/computation/h2_sparse_region_search.py",
+      "ep708_20261123/computation/verify_adaptive_certificate.py",
+      "ep708_flow_20261123/combinatorial/hot_divisor_flow.py",
+      "ep708_flow_20261123/verify_root_counterexample.py",
+      "ep708_global_20261123/analytic/test_bank_vector_balance.py",
+      "ep708_global_20261123/audit/joint_bank_closure.py",
+      "ep708_global_20261123/combinatorial/verify_bank_product_counterexample.py",
+      "ep708_jweak_20261123/combinatorial/verify_bounded_occurrence_h1.py",
+      "ep708_ladder_20261123/route_adaptive/test_adaptive_hall.py",
+      "ep708_ladder_20261123/route_certificate/verify_counterexamples.py",
+      "ep708_synthesis_20261123/computation/dense_core_family.py",
+      "ep708_synthesis_20261123/computation/exact2n_recognition.py",
+      "ep708_synthesis_20261123/computation/necessary_core.py",
+      "ep708_synthesis_20261123/computation/seed_repair_probe.py",
+      "ep708_synthesis_20261123/prior_results/computation/exact2n_certificate.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_crt_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_global_phase_milp.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_hinge_ratio_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_joint_milp.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_ratio_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_six_prime_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_sparse_region_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/verify_adaptive_certificate.py",
+      "ep708_top_tail_20261123/certificate/verify_bank_product_counterexample.py"
+    ],
+    "random": [
+      "ep708_20261122/analytic/test_peeling.py",
+      "ep708_20261122/erdos708_research_bundle/checks/proper_divisor_matching.py",
+      "ep708_20261122/erdos708_research_bundle/checks/test_peeling.py",
+      "ep708_20261122/root/proper_divisor_matching.py",
+      "ep708_flow_20261123/combinatorial/hot_divisor_flow.py"
+    ],
+    "pathlib": [
+      "ep708_20261122/combinatorial/build_omega2_certificate.py",
+      "ep708_20261122/combinatorial/verify_omega2_certificate.py",
+      "ep708_20261122/computation/verify_hub_family.py",
+      "ep708_20261122/computation/verify_hub_obstruction.py",
+      "ep708_20261122/erdos708_research_bundle/checks/build_omega2_certificate.py",
+      "ep708_20261122/erdos708_research_bundle/checks/proper_divisor_matching.py",
+      "ep708_20261122/erdos708_research_bundle/checks/verify_exact_certificates.py",
+      "ep708_20261122/erdos708_research_bundle/checks/verify_hub_family.py",
+      "ep708_20261122/erdos708_research_bundle/checks/verify_hub_obstruction.py",
+      "ep708_20261122/erdos708_research_bundle/checks/verify_omega2_certificate.py",
+      "ep708_20261122/root/proper_divisor_matching.py",
+      "ep708_20261122/root/verify_exact_certificates.py",
+      "ep708_20261123/computation/exact2n_certificate.py",
+      "ep708_20261123/computation/h2_crt_search.py",
+      "ep708_20261123/computation/h2_global_phase_milp.py",
+      "ep708_20261123/computation/h2_hinge_ratio_search.py",
+      "ep708_20261123/computation/h2_joint_milp.py",
+      "ep708_20261123/computation/h2_ratio_search.py",
+      "ep708_20261123/computation/h2_six_prime_search.py",
+      "ep708_20261123/computation/h2_sparse_region_search.py",
+      "ep708_20261123/computation/verify_adaptive_certificate.py",
+      "ep708_flow_20261123/combinatorial/hot_divisor_flow.py",
+      "ep708_global_20261123/analytic/test_bank_vector_balance.py",
+      "ep708_global_20261123/audit/joint_bank_closure.py",
+      "ep708_global_20261123/combinatorial/verify_bank_product_counterexample.py",
+      "ep708_jweak_20261123/combinatorial/verify_bounded_occurrence_h1.py",
+      "ep708_synthesis_20261123/computation/dense_core_family.py",
+      "ep708_synthesis_20261123/computation/exact2n_recognition.py",
+      "ep708_synthesis_20261123/computation/necessary_core.py",
+      "ep708_synthesis_20261123/computation/seed_repair_probe.py",
+      "ep708_synthesis_20261123/prior_results/computation/exact2n_certificate.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_crt_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_global_phase_milp.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_hinge_ratio_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_joint_milp.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_ratio_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_six_prime_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_sparse_region_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/verify_adaptive_certificate.py",
+      "ep708_top_tail_20261123/audit/count_top_counterexample.py",
+      "ep708_top_tail_20261123/certificate/verify_bank_product_counterexample.py"
+    ],
+    "json": [
+      "ep708_20261122/combinatorial/build_omega2_certificate.py",
+      "ep708_20261122/combinatorial/verify_omega2_certificate.py",
+      "ep708_20261122/computation/verify_hub_family.py",
+      "ep708_20261122/computation/verify_hub_obstruction.py",
+      "ep708_20261122/erdos708_research_bundle/checks/build_omega2_certificate.py",
+      "ep708_20261122/erdos708_research_bundle/checks/proper_divisor_matching.py",
+      "ep708_20261122/erdos708_research_bundle/checks/verify_exact_certificates.py",
+      "ep708_20261122/erdos708_research_bundle/checks/verify_hub_family.py",
+      "ep708_20261122/erdos708_research_bundle/checks/verify_hub_obstruction.py",
+      "ep708_20261122/erdos708_research_bundle/checks/verify_omega2_certificate.py",
+      "ep708_20261122/root/proper_divisor_matching.py",
+      "ep708_20261122/root/verify_exact_certificates.py",
+      "ep708_20261123/computation/exact2n_certificate.py",
+      "ep708_20261123/computation/h2_crt_search.py",
+      "ep708_20261123/computation/h2_global_phase_milp.py",
+      "ep708_20261123/computation/h2_hinge_ratio_search.py",
+      "ep708_20261123/computation/h2_joint_milp.py",
+      "ep708_20261123/computation/h2_ratio_search.py",
+      "ep708_20261123/computation/h2_six_prime_search.py",
+      "ep708_20261123/computation/h2_sparse_region_search.py",
+      "ep708_20261123/computation/verify_adaptive_certificate.py",
+      "ep708_flow_20261123/combinatorial/hot_divisor_flow.py",
+      "ep708_flow_20261123/verify_root_counterexample.py",
+      "ep708_global_20261123/analytic/test_bank_vector_balance.py",
+      "ep708_global_20261123/audit/joint_bank_closure.py",
+      "ep708_global_20261123/combinatorial/verify_bank_product_counterexample.py",
+      "ep708_jweak_20261123/combinatorial/verify_bounded_occurrence_h1.py",
+      "ep708_ladder_20261123/route_adaptive/test_adaptive_hall.py",
+      "ep708_synthesis_20261123/computation/dense_core_family.py",
+      "ep708_synthesis_20261123/computation/exact2n_recognition.py",
+      "ep708_synthesis_20261123/computation/necessary_core.py",
+      "ep708_synthesis_20261123/computation/seed_repair_probe.py",
+      "ep708_synthesis_20261123/prior_results/computation/exact2n_certificate.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_crt_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_global_phase_milp.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_hinge_ratio_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_joint_milp.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_ratio_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_six_prime_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_sparse_region_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/verify_adaptive_certificate.py",
+      "ep708_top_tail_20261123/audit/count_top_counterexample.py",
+      "ep708_top_tail_20261123/certificate/verify_bank_product_counterexample.py"
+    ],
+    "hashlib": [
+      "ep708_20261122/computation/verify_hub_family.py",
+      "ep708_20261122/erdos708_research_bundle/checks/verify_hub_family.py",
+      "ep708_global_20261123/combinatorial/verify_bank_product_counterexample.py",
+      "ep708_jweak_20261123/combinatorial/verify_bounded_occurrence_h1.py",
+      "ep708_top_tail_20261123/certificate/verify_bank_product_counterexample.py"
+    ],
+    "verify_hub_obstruction": [
+      "ep708_20261122/computation/verify_hub_family.py",
+      "ep708_20261122/erdos708_research_bundle/checks/verify_hub_family.py"
+    ],
+    "argparse": [
+      "ep708_20261122/erdos708_research_bundle/checks/proper_divisor_matching.py",
+      "ep708_20261122/root/proper_divisor_matching.py",
+      "ep708_20261123/computation/exact2n_certificate.py",
+      "ep708_20261123/computation/h2_crt_search.py",
+      "ep708_20261123/computation/h2_global_phase_milp.py",
+      "ep708_20261123/computation/h2_hinge_ratio_search.py",
+      "ep708_20261123/computation/h2_joint_milp.py",
+      "ep708_20261123/computation/h2_ratio_search.py",
+      "ep708_20261123/computation/h2_six_prime_search.py",
+      "ep708_20261123/computation/h2_sparse_region_search.py",
+      "ep708_global_20261123/audit/joint_bank_closure.py",
+      "ep708_ladder_20261123/route_adaptive/test_adaptive_hall.py",
+      "ep708_synthesis_20261123/computation/dense_core_family.py",
+      "ep708_synthesis_20261123/computation/exact2n_recognition.py",
+      "ep708_synthesis_20261123/computation/necessary_core.py",
+      "ep708_synthesis_20261123/prior_results/computation/exact2n_certificate.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_crt_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_global_phase_milp.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_hinge_ratio_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_joint_milp.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_ratio_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_six_prime_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_sparse_region_search.py"
+    ],
+    "time": [
+      "ep708_20261122/erdos708_research_bundle/checks/proper_divisor_matching.py",
+      "ep708_20261122/root/proper_divisor_matching.py",
+      "ep708_20261123/computation/h2_crt_search.py",
+      "ep708_20261123/computation/h2_global_phase_milp.py",
+      "ep708_20261123/computation/h2_hinge_ratio_search.py",
+      "ep708_20261123/computation/h2_joint_milp.py",
+      "ep708_20261123/computation/h2_ratio_search.py",
+      "ep708_20261123/computation/h2_six_prime_search.py",
+      "ep708_20261123/computation/h2_sparse_region_search.py",
+      "ep708_synthesis_20261123/computation/necessary_core.py",
+      "ep708_synthesis_20261123/computation/seed_repair_probe.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_crt_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_global_phase_milp.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_hinge_ratio_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_joint_milp.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_ratio_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_six_prime_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_sparse_region_search.py"
+    ],
+    "numpy": [
+      "ep708_20261122/erdos708_research_bundle/checks/proper_divisor_matching.py",
+      "ep708_20261122/root/proper_divisor_matching.py",
+      "ep708_20261123/computation/exact2n_certificate.py",
+      "ep708_20261123/computation/h2_crt_search.py",
+      "ep708_20261123/computation/h2_global_phase_milp.py",
+      "ep708_20261123/computation/h2_hinge_ratio_search.py",
+      "ep708_20261123/computation/h2_joint_milp.py",
+      "ep708_20261123/computation/h2_ratio_search.py",
+      "ep708_20261123/computation/h2_six_prime_search.py",
+      "ep708_20261123/computation/h2_sparse_region_search.py",
+      "ep708_flow_20261123/combinatorial/hot_divisor_flow.py",
+      "ep708_global_20261123/analytic/test_bank_vector_balance.py",
+      "ep708_global_20261123/audit/joint_bank_closure.py",
+      "ep708_ladder_20261123/route_adaptive/test_adaptive_hall.py",
+      "ep708_synthesis_20261123/computation/seed_repair_probe.py",
+      "ep708_synthesis_20261123/prior_results/computation/exact2n_certificate.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_crt_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_global_phase_milp.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_hinge_ratio_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_joint_milp.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_ratio_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_six_prime_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_sparse_region_search.py",
+      "ep708_top_tail_20261123/audit/count_top_counterexample.py"
+    ],
+    "scipy": [
+      "ep708_20261122/erdos708_research_bundle/checks/proper_divisor_matching.py",
+      "ep708_20261122/root/proper_divisor_matching.py",
+      "ep708_20261123/computation/exact2n_certificate.py",
+      "ep708_20261123/computation/h2_crt_search.py",
+      "ep708_20261123/computation/h2_global_phase_milp.py",
+      "ep708_20261123/computation/h2_hinge_ratio_search.py",
+      "ep708_20261123/computation/h2_joint_milp.py",
+      "ep708_20261123/computation/h2_ratio_search.py",
+      "ep708_20261123/computation/h2_six_prime_search.py",
+      "ep708_20261123/computation/h2_sparse_region_search.py",
+      "ep708_flow_20261123/combinatorial/hot_divisor_flow.py",
+      "ep708_global_20261123/analytic/test_bank_vector_balance.py",
+      "ep708_global_20261123/audit/joint_bank_closure.py",
+      "ep708_ladder_20261123/route_adaptive/test_adaptive_hall.py",
+      "ep708_synthesis_20261123/computation/seed_repair_probe.py",
+      "ep708_synthesis_20261123/prior_results/computation/exact2n_certificate.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_crt_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_global_phase_milp.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_hinge_ratio_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_joint_milp.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_ratio_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_six_prime_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_sparse_region_search.py"
+    ],
+    "fractions": [
+      "ep708_20261122/erdos708_research_bundle/checks/verify_exact_certificates.py",
+      "ep708_20261122/root/verify_exact_certificates.py",
+      "ep708_20261123/computation/exact2n_certificate.py",
+      "ep708_20261123/computation/h2_crt_search.py",
+      "ep708_20261123/computation/h2_global_phase_milp.py",
+      "ep708_20261123/computation/h2_hinge_ratio_search.py",
+      "ep708_20261123/computation/h2_joint_milp.py",
+      "ep708_20261123/computation/h2_ratio_search.py",
+      "ep708_20261123/computation/h2_six_prime_search.py",
+      "ep708_20261123/computation/h2_sparse_region_search.py",
+      "ep708_20261123/computation/verify_adaptive_certificate.py",
+      "ep708_flow_20261123/verify_root_counterexample.py",
+      "ep708_global_20261123/audit/joint_bank_closure.py",
+      "ep708_ladder_20261123/route_certificate/verify_counterexamples.py",
+      "ep708_synthesis_20261123/computation/dense_core_family.py",
+      "ep708_synthesis_20261123/computation/exact2n_recognition.py",
+      "ep708_synthesis_20261123/prior_results/computation/exact2n_certificate.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_crt_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_global_phase_milp.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_hinge_ratio_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_joint_milp.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_ratio_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_six_prime_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_sparse_region_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/verify_adaptive_certificate.py"
+    ],
+    "__future__": [
+      "ep708_20261123/computation/exact2n_certificate.py",
+      "ep708_flow_20261123/combinatorial/hot_divisor_flow.py",
+      "ep708_global_20261123/audit/joint_bank_closure.py",
+      "ep708_synthesis_20261123/computation/dense_core_family.py",
+      "ep708_synthesis_20261123/computation/exact2n_recognition.py",
+      "ep708_synthesis_20261123/computation/necessary_core.py",
+      "ep708_synthesis_20261123/prior_results/computation/exact2n_certificate.py"
+    ],
+    "collections": [
+      "ep708_20261123/computation/exact2n_certificate.py",
+      "ep708_flow_20261123/combinatorial/hot_divisor_flow.py",
+      "ep708_global_20261123/audit/joint_bank_closure.py",
+      "ep708_ladder_20261123/route_certificate/verify_counterexamples.py",
+      "ep708_synthesis_20261123/computation/dense_core_family.py",
+      "ep708_synthesis_20261123/computation/exact2n_recognition.py",
+      "ep708_synthesis_20261123/computation/necessary_core.py",
+      "ep708_synthesis_20261123/prior_results/computation/exact2n_certificate.py"
+    ],
+    "functools": [
+      "ep708_20261123/computation/exact2n_certificate.py",
+      "ep708_synthesis_20261123/computation/exact2n_recognition.py",
+      "ep708_synthesis_20261123/computation/necessary_core.py",
+      "ep708_synthesis_20261123/prior_results/computation/exact2n_certificate.py"
+    ],
+    "itertools": [
+      "ep708_20261123/computation/exact2n_certificate.py",
+      "ep708_flow_20261123/combinatorial/hot_divisor_flow.py",
+      "ep708_jweak_20261123/combinatorial/verify_bounded_occurrence_h1.py",
+      "ep708_synthesis_20261123/computation/dense_core_family.py",
+      "ep708_synthesis_20261123/computation/exact2n_recognition.py",
+      "ep708_synthesis_20261123/prior_results/computation/exact2n_certificate.py"
+    ],
+    "typing": [
+      "ep708_20261123/computation/exact2n_certificate.py",
+      "ep708_synthesis_20261123/computation/exact2n_recognition.py",
+      "ep708_synthesis_20261123/prior_results/computation/exact2n_certificate.py"
+    ],
+    "h2_crt_search": [
+      "ep708_20261123/computation/h2_global_phase_milp.py",
+      "ep708_20261123/computation/h2_hinge_ratio_search.py",
+      "ep708_20261123/computation/h2_joint_milp.py",
+      "ep708_20261123/computation/h2_ratio_search.py",
+      "ep708_20261123/computation/h2_six_prime_search.py",
+      "ep708_20261123/computation/h2_sparse_region_search.py",
+      "ep708_synthesis_20261123/computation/seed_repair_probe.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_global_phase_milp.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_hinge_ratio_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_joint_milp.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_ratio_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_six_prime_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_sparse_region_search.py"
+    ],
+    "h2_global_phase_milp": [
+      "ep708_20261123/computation/h2_joint_milp.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_joint_milp.py"
+    ],
+    "h2_hinge_ratio_search": [
+      "ep708_20261123/computation/h2_six_prime_search.py",
+      "ep708_20261123/computation/h2_sparse_region_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_six_prime_search.py",
+      "ep708_synthesis_20261123/prior_results/computation/h2_sparse_region_search.py"
+    ],
+    "importlib": [
+      "ep708_flow_20261123/combinatorial/hot_divisor_flow.py"
+    ],
+    "copy": [
+      "ep708_synthesis_20261123/computation/exact2n_recognition.py"
+    ],
+    "heapq": [
+      "ep708_synthesis_20261123/computation/necessary_core.py"
+    ],
+    "array": [
+      "ep708_synthesis_20261123/computation/necessary_core.py"
+    ],
+    "dataclasses": [
+      "ep708_synthesis_20261123/computation/necessary_core.py"
+    ],
+    "sys": [
+      "ep708_synthesis_20261123/computation/seed_repair_probe.py"
+    ]
+  },
+  "references": [
+    {
+      "path": "ep708_20261122/analytic/chen-main.tex",
+      "line": 1407,
+      "text": "\\input{sec_signed}"
+    },
+    {
+      "path": "ep708_20261122/analytic/chen-main.tex",
+      "line": 1409,
+      "text": "\\input{sec_h17}"
+    },
+    {
+      "path": "ep708_20261122/analytic/chen-main.tex",
+      "line": 1411,
+      "text": "\\input{sec_chain19}"
+    },
+    {
+      "path": "ep708_20261122/analytic/chen-main.tex",
+      "line": 1413,
+      "text": "\\input{sec_h97}"
+    },
+    {
+      "path": "ep708_20261122/analytic/chen-main.tex",
+      "line": 1415,
+      "text": "\\input{sec_h883}"
+    },
+    {
+      "path": "ep708_20261122/analytic/chen-main.tex",
+      "line": 1417,
+      "text": "\\input{sec_remains}"
+    },
+    {
+      "path": "ep708_20261122/analytic/erdos708-smooth-hinge.tex",
+      "line": 274,
+      "text": "\\bibliography{references}"
+    },
+    {
+      "path": "ep708_20261122/analytic/wang-main.tex",
+      "line": 19,
+      "text": "\\input{frontmatter.tex}"
+    },
+    {
+      "path": "ep708_20261122/analytic/wang-main.tex",
+      "line": 251,
+      "text": "\\input{raw-transfer.tex}"
+    },
+    {
+      "path": "ep708_20261122/analytic/wang-main.tex",
+      "line": 252,
+      "text": "\\input{five-prime.tex}"
+    },
+    {
+      "path": "ep708_20261122/combinatorial/build_omega2_certificate.py",
+      "line": 7,
+      "text": "ROOT = Path(__file__).resolve().parent"
+    },
+    {
+      "path": "ep708_20261122/combinatorial/verify_omega2_certificate.py",
+      "line": 7,
+      "text": "ROOT = Path(__file__).resolve().parent"
+    },
+    {
+      "path": "ep708_20261122/combinatorial/verify_omega2_certificate.py",
+      "line": 8,
+      "text": "data = json.loads((ROOT / \"omega2_hall_certificate.json\").read_text())"
+    },
+    {
+      "path": "ep708_20261122/computation/verify_hub_family.py",
+      "line": 53,
+      "text": "    Path(__file__).with_name(\"hub_family_certificates.json\").write_text("
+    },
+    {
+      "path": "ep708_20261122/computation/verify_hub_obstruction.py",
+      "line": 93,
+      "text": "    output = Path(__file__).with_name(\"hub_obstruction_certificate.json\")"
+    },
+    {
+      "path": "ep708_20261122/erdos708_research_bundle/checks/build_omega2_certificate.py",
+      "line": 7,
+      "text": "ROOT = Path(__file__).resolve().parent"
+    },
+    {
+      "path": "ep708_20261122/erdos708_research_bundle/checks/verify_exact_certificates.py",
+      "line": 64,
+      "text": "    out = Path(__file__).with_name('exact_auxiliary_certificates.json')"
+    },
+    {
+      "path": "ep708_20261122/erdos708_research_bundle/checks/verify_hub_family.py",
+      "line": 53,
+      "text": "    Path(__file__).with_name(\"hub_family_certificates.json\").write_text("
+    },
+    {
+      "path": "ep708_20261122/erdos708_research_bundle/checks/verify_hub_obstruction.py",
+      "line": 93,
+      "text": "    output = Path(__file__).with_name(\"hub_obstruction_certificate.json\")"
+    },
+    {
+      "path": "ep708_20261122/erdos708_research_bundle/checks/verify_omega2_certificate.py",
+      "line": 7,
+      "text": "ROOT = Path(__file__).resolve().parent"
+    },
+    {
+      "path": "ep708_20261122/erdos708_research_bundle/checks/verify_omega2_certificate.py",
+      "line": 8,
+      "text": "data = json.loads((ROOT / \"omega2_hall_certificate.json\").read_text())"
+    },
+    {
+      "path": "ep708_20261122/root/verify_exact_certificates.py",
+      "line": 64,
+      "text": "    out = Path(__file__).with_name('exact_auxiliary_certificates.json')"
+    },
+    {
+      "path": "ep708_20261123/computation/exact2n_certificate.py",
+      "line": 475,
+      "text": "        report = verify_recorded_result(json.loads(args.verify.read_text()))"
+    },
+    {
+      "path": "ep708_20261123/computation/exact2n_certificate.py",
+      "line": 482,
+      "text": "        raw = json.loads(args.sources.read_text())"
+    },
+    {
+      "path": "ep708_20261123/computation/exact2n_certificate.py",
+      "line": 491,
+      "text": "    output = args.output or Path(__file__).with_name('exact2n_demo_results.json')"
+    },
+    {
+      "path": "ep708_20261123/computation/h2_crt_search.py",
+      "line": 198,
+      "text": "    p=argparse.ArgumentParser();p.add_argument('--seconds',type=int,default=240);p.add_argument('--out',default=str(Path(__file__).with_name('h2_crt_search_results.json')));p.add_argument('--test',action='store_true');a=p.parse_args()"
+    },
+    {
+      "path": "ep708_20261123/computation/h2_global_phase_milp.py",
+      "line": 62,
+      "text": "        Path(__file__).with_name('h2_global_phase_results.json').write_text(json.dumps(records,indent=2))"
+    },
+    {
+      "path": "ep708_20261123/computation/h2_hinge_ratio_search.py",
+      "line": 76,
+      "text": "    p=argparse.ArgumentParser();p.add_argument('--seconds',type=int,default=240);p.add_argument('--out',default=str(Path(__file__).with_name('h2_hinge_ratio_results.json')));a=p.parse_args();run(a.seconds,a.out)"
+    },
+    {
+      "path": "ep708_20261123/computation/h2_joint_milp.py",
+      "line": 61,
+      "text": "        Path(__file__).with_name('h2_joint_milp_results.json').write_text(json.dumps(records,indent=2))"
+    },
+    {
+      "path": "ep708_20261123/computation/h2_ratio_search.py",
+      "line": 78,
+      "text": "    p=argparse.ArgumentParser();p.add_argument('--seconds',type=int,default=240);p.add_argument('--out',default=str(Path(__file__).with_name('h2_ratio_search_results.json')));a=p.parse_args();run(a.seconds,a.out)"
+    },
+    {
+      "path": "ep708_20261123/computation/h2_six_prime_search.py",
+      "line": 80,
+      "text": "    p=argparse.ArgumentParser();p.add_argument('--seconds',type=int,default=120);p.add_argument('--out',default=str(Path(__file__).with_name('h2_six_prime_results.json')));a=p.parse_args();run(a.seconds,a.out)"
+    },
+    {
+      "path": "ep708_20261123/computation/h2_sparse_region_search.py",
+      "line": 79,
+      "text": "    p=argparse.ArgumentParser();p.add_argument('--seconds',type=int,default=240);p.add_argument('--out',default=str(Path(__file__).with_name('h2_sparse_region_results.json')));a=p.parse_args();run(a.seconds,a.out)"
+    },
+    {
+      "path": "ep708_20261123/computation/verify_adaptive_certificate.py",
+      "line": 80,
+      "text": "    Path(__file__).with_name('adaptive_certificate_checks.json').write_text(json.dumps(result,indent=2))"
+    },
+    {
+      "path": "ep708_continuation_20261123/erdos708_continuation.tex",
+      "line": 202,
+      "text": "\\input{sections/core_gluing.tex}"
+    },
+    {
+      "path": "ep708_continuation_20261123/erdos708_continuation.tex",
+      "line": 203,
+      "text": "\\input{sections/transfer.tex}"
+    },
+    {
+      "path": "ep708_continuation_20261123/erdos708_continuation.tex",
+      "line": 204,
+      "text": "\\input{sections/shared_core_matching.tex}"
+    },
+    {
+      "path": "ep708_continuation_20261123/erdos708_continuation.tex",
+      "line": 205,
+      "text": "\\input{sections/block_support.tex}"
+    },
+    {
+      "path": "ep708_continuation_20261123/erdos708_continuation.tex",
+      "line": 206,
+      "text": "\\input{sections/separated_support.tex}"
+    },
+    {
+      "path": "ep708_continuation_20261123/erdos708_continuation.tex",
+      "line": 207,
+      "text": "\\input{sections/moment_bound.tex}"
+    },
+    {
+      "path": "ep708_continuation_20261123/erdos708_continuation.tex",
+      "line": 208,
+      "text": "\\input{sections/remaining.tex}"
+    },
+    {
+      "path": "ep708_flow_20261123/combinatorial/hot_divisor_flow.py",
+      "line": 17,
+      "text": "HERE = Path(__file__).resolve().parent"
+    },
+    {
+      "path": "ep708_global_20261123/analytic/test_bank_vector_balance.py",
+      "line": 135,
+      "text": "    Path(__file__).with_name(\"bank_vector_balance_cases.json\").write_text("
+    },
+    {
+      "path": "ep708_global_20261123/audit/joint_bank_closure.py",
+      "line": 241,
+      "text": "        record = json.loads(args.verify.read_text())"
+    },
+    {
+      "path": "ep708_global_20261123/combinatorial/verify_bank_product_counterexample.py",
+      "line": 14,
+      "text": "ROOT = Path(__file__).resolve().parent"
+    },
+    {
+      "path": "ep708_global_20261123/combinatorial/verify_bank_product_counterexample.py",
+      "line": 16,
+      "text": "data = json.loads(CERTIFICATE.read_text())"
+    },
+    {
+      "path": "ep708_global_20261123/combinatorial/verify_bank_product_counterexample.py",
+      "line": 119,
+      "text": "    \"certificate_sha256\": hashlib.sha256(CERTIFICATE.read_bytes()).hexdigest(),"
+    },
+    {
+      "path": "ep708_jweak_20261123/combinatorial/verify_bounded_occurrence_h1.py",
+      "line": 10,
+      "text": "ROOT = Path(__file__).resolve().parent"
+    },
+    {
+      "path": "ep708_jweak_20261123/combinatorial/verify_bounded_occurrence_h1.py",
+      "line": 12,
+      "text": "data = json.loads(certificate_path.read_text())"
+    },
+    {
+      "path": "ep708_jweak_20261123/combinatorial/verify_bounded_occurrence_h1.py",
+      "line": 94,
+      "text": "    \"certificate_sha256\": sha256(certificate_path.read_bytes()).hexdigest(),"
+    },
+    {
+      "path": "ep708_synthesis_20261123/computation/dense_core_family.py",
+      "line": 146,
+      "text": "        assert json.loads(args.verify.read_text())==result"
+    },
+    {
+      "path": "ep708_synthesis_20261123/computation/dense_core_family.py",
+      "line": 149,
+      "text": "        target=args.output or Path(__file__).with_name('dense_core_family_certificate.json')"
+    },
+    {
+      "path": "ep708_synthesis_20261123/computation/exact2n_recognition.py",
+      "line": 486,
+      "text": "        print(json.dumps(verify_document(json.loads(args.verify.read_text())), indent=2))"
+    },
+    {
+      "path": "ep708_synthesis_20261123/computation/exact2n_recognition.py",
+      "line": 495,
+      "text": "            raw = json.loads(args.sources.read_text())"
+    },
+    {
+      "path": "ep708_synthesis_20261123/computation/exact2n_recognition.py",
+      "line": 501,
+      "text": "        target = args.output or Path(__file__).with_name(default_name)"
+    },
+    {
+      "path": "ep708_synthesis_20261123/computation/necessary_core.py",
+      "line": 285,
+      "text": "        saved=json.loads(args.verify.read_text())"
+    },
+    {
+      "path": "ep708_synthesis_20261123/computation/necessary_core.py",
+      "line": 289,
+      "text": "        assert saved==json.loads(json.dumps(result))"
+    },
+    {
+      "path": "ep708_synthesis_20261123/computation/necessary_core.py",
+      "line": 294,
+      "text": "        target=args.output or Path(__file__).with_name(f'core_n{args.n}_M{args.M}.json')"
+    },
+    {
+      "path": "ep708_synthesis_20261123/computation/seed_repair_probe.py",
+      "line": 14,
+      "text": "sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'ep708_20261123' / 'computation'))"
+    },
+    {
+      "path": "ep708_synthesis_20261123/computation/seed_repair_probe.py",
+      "line": 62,
+      "text": "    Path(__file__).with_name('seed_repair_probe_results.json').write_text(json.dumps(out,indent=2)+'\\n')"
+    },
+    {
+      "path": "ep708_synthesis_20261123/erdos708_synthesis.tex",
+      "line": 247,
+      "text": "\\input{sections/combinatorial.tex}"
+    },
+    {
+      "path": "ep708_synthesis_20261123/erdos708_synthesis.tex",
+      "line": 248,
+      "text": "\\input{sections/analytic.tex}"
+    },
+    {
+      "path": "ep708_synthesis_20261123/erdos708_synthesis.tex",
+      "line": 249,
+      "text": "\\input{sections/separated_bands.tex}"
+    },
+    {
+      "path": "ep708_synthesis_20261123/erdos708_synthesis.tex",
+      "line": 250,
+      "text": "\\input{sections/computation_and_remaining.tex}"
+    },
+    {
+      "path": "ep708_synthesis_20261123/prior_results/computation/exact2n_certificate.py",
+      "line": 475,
+      "text": "        report = verify_recorded_result(json.loads(args.verify.read_text()))"
+    },
+    {
+      "path": "ep708_synthesis_20261123/prior_results/computation/exact2n_certificate.py",
+      "line": 482,
+      "text": "        raw = json.loads(args.sources.read_text())"
+    },
+    {
+      "path": "ep708_synthesis_20261123/prior_results/computation/exact2n_certificate.py",
+      "line": 491,
+      "text": "    output = args.output or Path(__file__).with_name('exact2n_demo_results.json')"
+    },
+    {
+      "path": "ep708_synthesis_20261123/prior_results/computation/h2_crt_search.py",
+      "line": 198,
+      "text": "    p=argparse.ArgumentParser();p.add_argument('--seconds',type=int,default=240);p.add_argument('--out',default=str(Path(__file__).with_name('h2_crt_search_results.json')));p.add_argument('--test',action='store_true');a=p.parse_args()"
+    },
+    {
+      "path": "ep708_synthesis_20261123/prior_results/computation/h2_global_phase_milp.py",
+      "line": 62,
+      "text": "        Path(__file__).with_name('h2_global_phase_results.json').write_text(json.dumps(records,indent=2))"
+    },
+    {
+      "path": "ep708_synthesis_20261123/prior_results/computation/h2_hinge_ratio_search.py",
+      "line": 76,
+      "text": "    p=argparse.ArgumentParser();p.add_argument('--seconds',type=int,default=240);p.add_argument('--out',default=str(Path(__file__).with_name('h2_hinge_ratio_results.json')));a=p.parse_args();run(a.seconds,a.out)"
+    },
+    {
+      "path": "ep708_synthesis_20261123/prior_results/computation/h2_joint_milp.py",
+      "line": 61,
+      "text": "        Path(__file__).with_name('h2_joint_milp_results.json').write_text(json.dumps(records,indent=2))"
+    },
+    {
+      "path": "ep708_synthesis_20261123/prior_results/computation/h2_ratio_search.py",
+      "line": 78,
+      "text": "    p=argparse.ArgumentParser();p.add_argument('--seconds',type=int,default=240);p.add_argument('--out',default=str(Path(__file__).with_name('h2_ratio_search_results.json')));a=p.parse_args();run(a.seconds,a.out)"
+    },
+    {
+      "path": "ep708_synthesis_20261123/prior_results/computation/h2_six_prime_search.py",
+      "line": 80,
+      "text": "    p=argparse.ArgumentParser();p.add_argument('--seconds',type=int,default=120);p.add_argument('--out',default=str(Path(__file__).with_name('h2_six_prime_results.json')));a=p.parse_args();run(a.seconds,a.out)"
+    },
+    {
+      "path": "ep708_synthesis_20261123/prior_results/computation/h2_sparse_region_search.py",
+      "line": 79,
+      "text": "    p=argparse.ArgumentParser();p.add_argument('--seconds',type=int,default=240);p.add_argument('--out',default=str(Path(__file__).with_name('h2_sparse_region_results.json')));a=p.parse_args();run(a.seconds,a.out)"
+    },
+    {
+      "path": "ep708_synthesis_20261123/prior_results/computation/verify_adaptive_certificate.py",
+      "line": 80,
+      "text": "    Path(__file__).with_name('adaptive_certificate_checks.json').write_text(json.dumps(result,indent=2))"
+    },
+    {
+      "path": "ep708_top_tail_20261123/audit/count_top_counterexample.py",
+      "line": 58,
+      "text": "Path(__file__).with_suffix(\".json\").write_text(json.dumps(out, indent=2) + \"\\n\")"
+    },
+    {
+      "path": "ep708_top_tail_20261123/certificate/verify_bank_product_counterexample.py",
+      "line": 14,
+      "text": "ROOT = Path(__file__).resolve().parent"
+    },
+    {
+      "path": "ep708_top_tail_20261123/certificate/verify_bank_product_counterexample.py",
+      "line": 16,
+      "text": "data = json.loads(CERTIFICATE.read_text())"
+    },
+    {
+      "path": "ep708_top_tail_20261123/certificate/verify_bank_product_counterexample.py",
+      "line": 119,
+      "text": "    \"certificate_sha256\": hashlib.sha256(CERTIFICATE.read_bytes()).hexdigest(),"
+    },
+    {
+      "path": "ep708_top_tail_20261123/sources/wang_main.tex",
+      "line": 19,
+      "text": "\\input{frontmatter.tex}"
+    },
+    {
+      "path": "ep708_top_tail_20261123/sources/wang_main.tex",
+      "line": 251,
+      "text": "\\input{raw-transfer.tex}"
+    },
+    {
+      "path": "ep708_top_tail_20261123/sources/wang_main.tex",
+      "line": 252,
+      "text": "\\input{five-prime.tex}"
+    }
+  ]
+}

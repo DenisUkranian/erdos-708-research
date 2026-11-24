@@ -1,0 +1,205 @@
+PASS analytic cutoff arithmetic
+
+VERIFY g7_theory/check_g6_independent.py
+{
+  "status": "PASS",
+  "cutoff_exclusive": 9360,
+  "checked_maxima": 155,
+  "actual_source_subsets": 1045917,
+  "distinct_demands": 74220,
+  "prime_union_demands": 67918,
+  "ordinary_bin_demands": 5940,
+  "cumulative_gcd_demands": 362,
+  "cumulative_gcd_certificates": 277,
+  "seconds": 2.274
+}
+
+VERIFY g7_exact/verify_lower9_simple.py
+{
+  "status": "PASS",
+  "A": [
+    289,
+    323,
+    361,
+    391,
+    437,
+    493,
+    551
+  ],
+  "M": 551,
+  "N": 69587443,
+  "interval": [
+    69587168,
+    69587718
+  ],
+  "shift": 69587167,
+  "demand": [
+    5,
+    5,
+    2,
+    2
+  ],
+  "center": [
+    2,
+    2,
+    1,
+    1
+  ],
+  "lower_with_center": 9,
+  "lower_without_center": 12,
+  "cover": [
+    69587443,
+    69587460,
+    69587462,
+    69587466,
+    69587472,
+    69587477,
+    69587481,
+    69587494,
+    69587500
+  ],
+  "tau": 9
+}
+
+VERIFY g7_exact/smooth/verify_smooth9.py
+{
+  "status": "PASS",
+  "theorem": "For every set of seven distinct 7-smooth integers >=2 and every interval of max(A) consecutive positive integers, a product cover of at most nine points exists.",
+  "prior_bounds": [
+    "g(5)<=6",
+    "g(6)<=8"
+  ],
+  "analytic_tail_from": 12555,
+  "analytic_rows": [
+    {
+      "prime": 2,
+      "last_bad_sufficient_estimate": 1997
+    },
+    {
+      "prime": 3,
+      "last_bad_sufficient_estimate": 4508
+    },
+    {
+      "prime": 5,
+      "last_bad_sufficient_estimate": 12554
+    },
+    {
+      "prime": 7,
+      "last_bad_sufficient_estimate": 12284
+    }
+  ],
+  "finite": {
+    "status": "PASS_PENDING_CRT_VERIFICATION",
+    "smooth_maxima": 358,
+    "clique_maxima": 94,
+    "largest_clique_maximum": 567,
+    "actual_seven_cliques": 3413772,
+    "unique_demands": 135961,
+    "prime_union": 57018,
+    "ordinary_bins": 283,
+    "cumulative_gcd": 78041,
+    "crt_dominated": 619,
+    "seconds": 0.269179
+  },
+  "CRT": "ALL_PASS rows=318 nodes=99864 exact=6049 sec=0.246675",
+  "seconds": 4.031
+}
+
+VERIFY g7_exact/one/verify_one.py
+{
+  "status": "PASS",
+  "theorem": "No least-M, maximal-sum counterexample to g(7)<=9 with exactly one active prime >=11 exists, subject to the stated global reductions.",
+  "prior_bounds": [
+    "g(2)<=2",
+    "g(3)<=4",
+    "g(4)<=5",
+    "g(5)<=6",
+    "g(6)<=8"
+  ],
+  "global_finite_cutoff": 24696,
+  "enumeration": {
+    "configs": 59982,
+    "raw": 24796,
+    "pair": 34408,
+    "closure": 8,
+    "graph": 147,
+    "residual": 623,
+    "leaves": 7006656,
+    "unique": 658925,
+    "core": 170069,
+    "union": 51088,
+    "fullpack": 203,
+    "unknown": 252176
+  },
+  "certificate_files": {
+    "slots9.txt": 252105,
+    "slots9_extra.txt": 70
+  },
+  "slot_certificates_independently_checked": 252175,
+  "passed_maximal_demands_rechecked_in_python": 120285,
+  "hand_proved_exception": {
+    "M": 55,
+    "primes": [
+      2,
+      3,
+      5,
+      11
+    ],
+    "demand": [
+      4,
+      9,
+      2,
+      4
+    ],
+    "reference": "ONE_LARGE_PROOF.md, final hand lemma"
+  },
+  "seconds": 20.596
+}
+
+VERIFY g7_exact/two/verify_two.py
+PASS complete two-prime envelope: {'pairs': 1123, 'configs': 128915, 'eligible': 2980414, 'closed': 2784139, 'residual': 196275, 'maxM': 24696, 'z': [162482, 33781, 0, 12]}
+PASS complete colored-clique replay: configs=50660 cliques=112998 closed=67663 unresolved=45335
+PASS full-source expansion: 116394 sets, 33939 demands
+PASS all 24511 nine-slot certificates by exact gcd and divisibility
+PASS independent certificate domination of all 33939 demands
+{
+  "status": "PASS",
+  "seconds": 12.481,
+  "finite_maximum": 24696,
+  "residual_actual_maximum": 665,
+  "full_source_sets": 116394,
+  "demands": 33939,
+  "certificates": 24511,
+  "source_sha256": {
+    "envelope.cpp": "a12d9a4312871a8afaf7ed9af4c8bca179403d30f4bd60963911f2f448fe5cc6",
+    "enumerate_nontrivial.cpp": "a3e946007e475550b384cc63221f63745ee38920f313b25f191a6ff24a5b3c50",
+    "full_demands.py": "f670ba47ed075c8923d55caba314ca210c52378f7af12a8993077ed0d4e67785"
+  }
+}
+
+VERIFY g7_exact/three/verify_all_three.py
+PASS low_support3 162 complete source sets and certificates
+PASS high_c2 283 complete source sets and certificates
+PASS complete finite envelope: {'triples': 6294, 'maxima': 656193, 'classes': 850366, 'passed': 850364, 'unresolved': 2, 'seconds': 43.9459}
+SHA256 three_large_envelope.cpp f4491c8eb8455954251c0417f0203dcefc3c6cc74035be6139be3949cb11076f
+PASS: independent enumeration 17640 raw; 1096 complete eligible sets
+PASS: all 1096 nine-slot certificates, arbitrary interval shifts
+PASS: complete three-large-prime verification chain
+
+{
+  "status": "PASS",
+  "theorem": "g(7)=9 in the at-most covering convention",
+  "mathematical_inputs": [
+    "g(2)<=2",
+    "g(3)<=4",
+    "g(4)<=5",
+    "g(5)<=6"
+  ],
+  "external_finite_source": "https://hexagonmath.org/pdf/2611.00694v1",
+  "g6_upper_bound": "independently replayed in this bundle",
+  "analytic_general_cutoff": 24697,
+  "finite_maximum": 24696,
+  "all_computational_components_passed": true,
+  "scope": "Computer-assisted proof with exact integer checks; not a Lean formalization of the new result.",
+  "seconds": 85.162
+}

@@ -1,0 +1,72 @@
+{
+  "date": "2026-11-23",
+  "objective_proved": false,
+  "pdf_pages": 10,
+  "files": [
+    {
+      "path": "erdos708_dot_audit.pdf",
+      "bytes": 372993,
+      "sha256": "c08fb5590d58fb323b498a5bcd62cc789ebc30dcc23ee36f6cc5c232d2748524"
+    },
+    {
+      "path": "erdos708_dot_audit.tex",
+      "bytes": 31299,
+      "sha256": "b6d2d49aad6ea03f1a09701ca8ccdef5604c1e873462d2d476a5e5835c5591b4"
+    },
+    {
+      "path": "README.txt",
+      "bytes": 2828,
+      "sha256": "80467bb44c49a866dad8b9939aec06b8809b4ceab4186069558c840b0df0ae23"
+    },
+    {
+      "path": "STATUS.json",
+      "bytes": 1153,
+      "sha256": "68a3cb7bed219702926691d3cc2d8d89948f25a17d9eb13ed9cab18ab0ec2477"
+    },
+    {
+      "path": "SOURCE_PROVENANCE.json",
+      "bytes": 1958,
+      "sha256": "2f9bcae10e887243fd249273ba1e97389be8d9e7da43250304480fdd54fcc7a7"
+    },
+    {
+      "path": "THREE_FOUR_CERTIFICATE_AUDIT.md",
+      "bytes": 20259,
+      "sha256": "32e6f59395716522e482a8249674d6b09a4dd52d35be6688b80e87f8e450fff8"
+    },
+    {
+      "path": "audit/DOT_LARGE_PRIME_REDUCTIONS_AUDIT.md",
+      "bytes": 12641,
+      "sha256": "098d0fa9b9c02b2e900e5eb5336278ebac1f86e2528dbe2f7a7adfee842545b7"
+    },
+    {
+      "path": "notes/ARITHMETIC_UNION_OBSTRUCTION.md",
+      "bytes": 6005,
+      "sha256": "2e2c9886ce990f00828e03ef44a3defa833d63de8abbdc083f76e123d815967f"
+    },
+    {
+      "path": "notes/FULL_TAIL_FIRST_MOMENT_INPUT.md",
+      "bytes": 7266,
+      "sha256": "695a1e688a3637b6cd091af21a8619860342606ca15cbe30495a93f4b690a85b"
+    },
+    {
+      "path": "notes/FULL_TAIL_MGF_INPUT.md",
+      "bytes": 8478,
+      "sha256": "f629171bf0dd34e9b196fbb2444de9485ce254895c7b0df4055b719e5f630a1c"
+    },
+    {
+      "path": "notes/GLOBAL_OPTIMIZER_INPUT.md",
+      "bytes": 10725,
+      "sha256": "a2bfdf26d0feb433e50384eef9240c805a43ae6a3ac2b90f38556312deae99c6"
+    },
+    {
+      "path": "notes/NEAR_QUADRATIC_PROOF.md",
+      "bytes": 12221,
+      "sha256": "ed6624d3ff4eafb059b0c15f0751200c6b10a7a5f3d5ad5fdc24167224a903d8"
+    }
+  ],
+  "validation": {
+    "math": "Internal cross-checking of stated proofs and all explicit scope restrictions",
+    "layout": "Every page rendered; contact sheet and selected full pages inspected; no overfull or undefined-reference diagnostics",
+    "new_g_values_computed": false
+  }
+}

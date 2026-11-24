@@ -1,0 +1,176 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=.87in]{geometry}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue,pdftitle={Erdos 708: exact common-factor descent and the gluing obstruction}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\pos}[1]{\left(#1\right)_+}
+\setlength{\emergencystretch}{2em}
+\title{Erd\H{o}s 708: exact common-factor descent\protect\\and the gluing obstruction}
+\author{Research continuation; no claim of an asymptotic solution}
+\date{24 November 2026}
+\begin{document}
+\maketitle
+\noindent\textbf{Status.} This attempt does not prove $g(n)\le(2+o(1))n$, and does not prove exact $2n$. It establishes an exact descent for an entire divisibility class, proves its bounded-error minimal-counterexample consequences, and records a checked obstruction to gluing these consequences using incidence information alone. The earlier false unrestricted kernel transfer is not used.
+
+\section{The objective}
+For finitely supported prices $0\le w_p\le1$, set
+\[
+ X(t)=\sum_p w_pv_p(t),\qquad
+ J_c(w;M,I)=\sum_{a\le M}\pos{X(a)-c}-\sum_{b\in I}\pos{X(b)-1},
+\]
+where $I$ is any interval of $M$ consecutive positive integers and $c=2+\delta>2$. The source set of a joint optimum is its own strict full tail $A=\{a\le M:X(a)>c\}$.
+The required uniform bound $J_c\le C_\delta$ is still unproved. If established for every $\delta>0$, it would give the required raw fractional asymptotic; Wang's raw finite-envelope theorem then supplies the integer asymptotic. Its primary text was reread for this continuation:
+\begin{center}\small
+\url{https://github.com/science-prince/erdos-708-interval-divisor-covers/blob/main/papers/main-paper/raw-transfer.tex}.
+\end{center}
+The transfer theorem is not reproved here, and no individual-instance rounding claim is substituted for it.
+
+\section{An exact descent through a common divisor}
+For $1\le g\le M$, write
+\[
+ t=X(g),\qquad N=\lfloor M/g\rfloor,
+ \qquad I/g=\{v:gv\in I\}.
+\]
+The last set has either $N$ or $N+1$ consecutive positive integers. Define the defect of the \emph{entire} divisibility class
+\[
+ D_g=\sum_{\substack{a\le M\\g\mid a}}\pos{X(a)-c}
+ -\sum_{\substack{b\in I\\g\mid b}}\pos{X(b)-1}.
+\]
+
+\begin{theorem}\label{thm:descent}
+If $t<1$, put $s=1-t$ and
+\[
+ w'_p=\frac{\min(w_p,s)}s,\qquad c'=\frac{c-t}{1-t}.
+\]
+For every $N$-term subinterval $J_0\subseteq I/g$,
+\begin{equation}\label{eq:descent}
+ \boxed{D_g\le sJ_{c'}(w';N,J_0).}
+\end{equation}
+If $t\ge1$, then
+\begin{equation}\label{eq:hot}
+ \boxed{D_g\le-N\min(t-1,c-1)\le0.}
+\end{equation}
+These statements are uniform in the shift and all prime powers and do not assume optimality.
+\end{theorem}
+
+\begin{proof}
+Suppose first that $t<1$. Define the two raw additive functions
+\[
+ Y(u)=\sum_p\min(w_p,s)v_p(u),\qquad
+ L(u)=X(u)-Y(u)=\sum_p(w_p-s)_+v_p(u).
+\]
+The crucial target identity is exact:
+\begin{equation}\label{eq:clip}
+ \pos{X(u)-s}=L(u)+\pos{Y(u)-s}.
+\end{equation}
+If $L(u)=0$ this is immediate. Otherwise a prime occurrence with original price greater than $s$ divides $u$; its clipped contribution is already $s$, so $Y(u)\ge s$ and both sides equal $X(u)-s$.
+
+For every real $\theta$ one also has
+\[
+ \pos{X(u)-\theta}\le L(u)+\pos{Y(u)-\theta}.
+\]
+Every nonnegative raw additive function transfers linearly from the prefix to an equal-length interval:
+\begin{equation}\label{eq:linear}
+ \sum_{u\le N}L(u)\le\sum_{v\in J_0}L(v).
+\end{equation}
+Indeed, expand each $v_p$ into all indicators $1_{p^j\mid u}$. The interval contains at least $\lfloor N/p^j\rfloor$ multiples of every $p^j$.
+
+Complete additivity gives $X(gu)=t+X(u)$ even when $g$ and $u$ share primes. Dropping the possible extra target quotient position increases the defect. Apply the source inequality at $\theta=c-t$, the target identity \eqref{eq:clip}, and \eqref{eq:linear}. The linear terms cancel in the required direction, giving
+\[
+ D_g\le\sum_{u\le N}\pos{Y(u)-(c-t)}
+ -\sum_{v\in J_0}\pos{Y(v)-s}
+ =sJ_{c'}(w';N,J_0).
+\]
+All normalized prices lie in $[0,1]$. Primes above $N$ can be removed on the right: they occur only on the target side, so their deletion can only increase that right side.
+
+If $t\ge1$, the target hinge equals $X(v)+t-1$, while the source hinge is at most $X(u)+(t-c)_+$. Equation~\eqref{eq:linear}, now for $L=X$, yields
+\[
+ D_g\le N[(t-c)_+-(t-1)]=-N\min(t-1,c-1).
+\]
+This proves both cases.
+\end{proof}
+
+For $c=2+\delta$ the new threshold is
+\[
+ c'=2+\frac{\delta+t}{1-t}\ge2+\delta,
+\]
+with strict increase whenever $t>0$. Thus a cold common divisor shortens the interval and raises the normalized source threshold. No original prime-row equality is transferred to the new prices or the quotient problem.
+
+\section{Minimal violations with a fixed additive allowance}
+\begin{corollary}\label{cor:min}
+Fix $B\ge0$. Suppose $M$ is the smallest prefix length admitting $J_c(w;M,I)>B$, where the minimization is over all price vectors and all positive intervals of that length. Then every $2\le g\le M$ satisfies
+\begin{equation}\label{eq:cuts}
+ \boxed{D_g\le
+ \begin{cases}
+ (1-X(g))B,&X(g)<1,\\
+ 0,&X(g)\ge1.
+ \end{cases}}
+\end{equation}
+The strict full source tail has gcd one.
+\end{corollary}
+\begin{proof}
+For a cold $g$, Theorem~\ref{thm:descent} gives a normalized instance of length $N<M$ and threshold $c'\ge c$. Minimality gives $J_c\le B$ on that shorter instance, and increasing the source threshold gives $J_{c'}\le J_c$. This proves its part of \eqref{eq:cuts}. The other part is \eqref{eq:hot}.
+
+If every source in the strict full tail were divisible by some $g>1$, the complete source hinge would be its $g$-part. The full target penalty is at least its $g$-part, so $J_c\le D_g\le B$, a contradiction.
+\end{proof}
+
+Taking $B=0$ shows that every nonunit full divisibility-class defect is nonpositive at a shortest positive instance. The formulation for general $B$ is the one relevant to the desired uniform bounded-error theorem; it does not assume exact nonpositivity at small lengths.
+
+\section{Why these cuts do not yet glue}
+The inequalities for different $g$ use the entire target hinge whenever $g\mid b$. Summing them can therefore use one actual target position several times. Neither the descent nor the corollary provides a partition of that hinge.
+
+The accompanying note \texttt{ALL\_DIVISIBILITY\_CUTS\_GLOBAL\_OBSTRUCTION.md} proves that a purely incidence-based inference from these cuts is false. Its model has twenty formal prime coordinates, source profiles consisting of all five-subsets and $102$ copies of each pair, and target profiles consisting of $272$ copies of each pair and $646$ copies of the full twenty-set. Empty source profiles equalize the total sizes. At prices $1/2$ and $c=21/10$,
+\[
+ n=\binom{20}{5}=15504,\qquad
+ F=32946=\frac{17}{8}n,\qquad
+ J_c=\frac{1938}{5}=\frac n{40}>0.
+\]
+The note proves analytically that these prices are the unique global maximizer, with exact selected rows and complementarity. Every nonempty full divisibility-class cut holds, all divisor counts are dominated by the target counts, single-coordinate and pair counts agree exactly, all proved binary Rosser subset inequalities hold, and every proper cold-core quotient has global maximum zero for all new prices. The finite rational checker verifies the arithmetic of those assertions; the analytic proof establishes the global conclusion.
+
+\textbf{This model is not an integer interval and is not a counterexample to Erd\H{o}s 708.} Its precise arithmetic failure is already visible for a three-coordinate modulus: the source count is $136$, the target count is $646$, and their difference is $510$. For an actual modulus $d$ and actual $M$-term interval,
+\[
+ \#\{b\in I:d\mid b\}-\lfloor M/d\rfloor\in\{0,1\}.
+\]
+The simultaneous numerical restrictions on these counts, beyond mere domination, still have to enter the gluing argument. The model also fails the proposed higher integer-threshold comparison $(4,2)$; that comparison has not been established here and is not silently included among the proved cuts.
+
+\section{A full-tail refinement of the remaining gcd energy}
+Suppose carrier copies $h\le\sqrt M$ are assigned to distinct sources $a\in A$, with $h\mid a$ and at most one counted copy per source. Put
+\[
+ N_d=\sum_{h:d\mid h}m_h,\qquad
+ K_\tau=\#\{b\in I:X(b)>\tau\}.
+\]
+For $d\ge2$ and $X(d)\le c-1$, the quotients of those sources are distinct and have load greater than $c-X(d)\ge1$. The earlier short-block divisor count, applied at this actual level, gives
+\begin{equation}\label{eq:Nd}
+ \boxed{N_d\le\min\left(n,\left\lfloor\frac Md\right\rfloor,
+ \frac{8K_{c-X(d)}^2}{d^2}\right).}
+\end{equation}
+Here $M/d\le M/2$, exactly the required range of that counting lemma.
+
+For the cold part of the Euler expansion of the gcd energy, \eqref{eq:Nd} yields
+\[
+ G_{\rm cold}\le\frac{n^2}{M}
+ +\frac8M\sum_hm_h
+ \sum_{\substack{d\mid h,\ d\ge2\\X(d)\le1}}
+ \frac{\varphi(d)}{d^2}K_{c-X(d)}^2.
+\]
+This retains the actual divisor loads, higher target levels, and every carrier repetition. Replacing all levels by $K_1=O_\delta(n)$ and splitting the divisor sum near $K_1/\sqrt n$ still only gives
+\[
+ G_{\rm cold}\le n^2/M+O_\delta(n^3/M).
+\]
+It is not $o(n)$ in the unresolved subquadratic sparse branch. No sufficient improvement using the original whole-prime rows was obtained.
+
+\section{The support-stable alternative remains unproved}
+The previous residual-capacity envelope chooses a reduced support and reduced prices separately for every source:
+\[
+ C_w(a)=\inf_{0\le v\le w}
+ \{K^v_{h_v(a)}(a)+X_w(a)-X_v(a)\}.
+\]
+The proposed simultaneous transfer $\sum_{a\le M}C_w(a)\le\sum_{b\in I}K_M^w(b)$ has neither been proved nor refuted by this attempt. The note \texttt{STABLE\_ENVELOPE\_TRANSFER\_AUDIT.md} records its precise definitions, reproducible directed search, and remaining gap.
+
+Two exact checks prevent treating this alternative as an automatic repair. With $a=30$ and $w_2=w_3=w_5=3/5$, its value is $C_w(30)=1/5$ even though $X_w(30)=9/5<2$. Thus the envelope still pays some sources outside the required tail. At unit prices on squarefree arguments it equals $(\Omega(a)-2)_+$, whose divisor-expansion coefficient at $210$ is $2-4=-2$. Support stabilization therefore does not produce nonnegative divisor coefficients and does not by itself justify transfer between intervals. Neither observation refutes the proposed transfer; both identify missing proof steps.
+
+\paragraph{Final scope.} The exact descent and its minimality consequences are new proved reductions. The numerical joint allocation among overlapping banks remains unproved, both for the needed sparse estimate and for the unrestricted dense branch. The support-stable kernel transfer remains a separate unproved candidate. No new value of $g(n)$ was computed, and no restricted-profile theorem is substituted for the requested general asymptotic.
+\end{document}

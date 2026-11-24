@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-23",
+  "problem": "Erdos 708",
+  "objective": "g(n) <= (2+o(1)) n uniformly over original instances",
+  "objective_proved": false,
+  "exact_2n_proved": false,
+  "counterexample_to_original_problem": false,
+  "proved_in_checkpoint": [
+    "Near-quadratic positive-global-extremum exclusion for fixed delta,kappa>0",
+    "Conditional periodic-core J_2 bound with n-scale errors, including repeated primes",
+    "Large-prime reductions with explicit hypotheses",
+    "Actual arithmetic obstruction to O(root-count) fixed-union discrepancy",
+    "Whole-row lower bound for common selected L1 constant replacement",
+    "Conditional exact-state transfer without a common period"
+  ],
+  "unproved": [
+    "Uniform o(n) weighted loss for adaptive first-group carriers as M/n^2 tends to zero",
+    "General small-period or adequate one-sided core reduction for arbitrary optimal weights",
+    "Uniform bound J_(2+delta) <= C_delta"
+  ],
+  "verification": "Internal mathematical derivation and cross-checking; not external peer review or Lean verification",
+  "publication": "No external publication or person-directed messages performed"
+}

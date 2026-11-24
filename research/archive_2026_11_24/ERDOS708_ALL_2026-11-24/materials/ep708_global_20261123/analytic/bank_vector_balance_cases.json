@@ -1,0 +1,63 @@
+[
+  {
+    "M": 60,
+    "shift": 1000,
+    "primes": [
+      2,
+      3,
+      5,
+      7
+    ],
+    "candidate_count": 19,
+    "solver_status": 2,
+    "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+  },
+  {
+    "M": 120,
+    "shift": 2310,
+    "primes": [
+      2,
+      3,
+      5,
+      7,
+      11,
+      13
+    ],
+    "candidate_count": 44,
+    "solver_status": 2,
+    "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+  },
+  {
+    "M": 240,
+    "shift": 30030,
+    "primes": [
+      2,
+      3,
+      5,
+      7,
+      11,
+      13,
+      17
+    ],
+    "candidate_count": 90,
+    "solver_status": 2,
+    "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+  },
+  {
+    "M": 400,
+    "shift": 100000,
+    "primes": [
+      2,
+      3,
+      5,
+      7,
+      11,
+      13,
+      17,
+      19
+    ],
+    "candidate_count": 156,
+    "solver_status": 2,
+    "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+  }
+]

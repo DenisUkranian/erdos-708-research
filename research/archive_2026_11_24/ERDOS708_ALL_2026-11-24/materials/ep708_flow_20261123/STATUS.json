@@ -1,0 +1,20 @@
+{
+  "date": "2026-11-23",
+  "J_weak": "UNPROVED",
+  "general_asymptotic": "UNPROVED",
+  "exact_2n": "NOT_ESTABLISHED",
+  "main_report_pages": 6,
+  "proved_global_results": [
+    "optimal coverage identity",
+    "exact prime-conserving maximum-flow formula under proper-subset minimality",
+    "canonical weighted-root target certificate",
+    "uniform finite empirical-state total-variation bound"
+  ],
+  "rejected_intermediate_claims": [
+    "independent exact-sieve comparison for each root",
+    "uniform small logarithmic-cap loss without minimal-obstruction conditions",
+    "automatic heterogeneous-weight extension of the constant-weight local criterion"
+  ],
+  "sufficient_but_unproved": "For every actual minimal obstruction, at least one optimal dual vector has logarithmic-cap loss at most delta*m+o_delta(m), uniformly in the instance.",
+  "verification": "Exact rational counterexample check; internal independent proof audits; rendered PDF review. No external referee review or formal proof-assistant claim."
+}

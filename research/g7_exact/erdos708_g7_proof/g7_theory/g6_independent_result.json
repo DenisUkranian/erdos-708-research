@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "cutoff_exclusive": 9360,
+  "checked_maxima": 155,
+  "actual_source_subsets": 1045917,
+  "distinct_demands": 74220,
+  "prime_union_demands": 67918,
+  "ordinary_bin_demands": 5940,
+  "cumulative_gcd_demands": 362,
+  "cumulative_gcd_certificates": 277,
+  "seconds": 2.325
+}

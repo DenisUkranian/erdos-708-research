@@ -1,0 +1,171 @@
+\section{Exact coefficient two for separated prime bands}
+\label{sec:separated-bands}
+
+The following result permits a growing, possibly dense small-prime support.
+Its source restriction is that every source outside the pure small-prime
+part contains exactly one large prime occurrence. The proof assigns targets
+in disjoint exact smooth-part classes and then uses one global repair phase.
+It does not combine separate covers of the two source parts.
+
+Let $A\subseteq\{2,\ldots,M\}$ be a set of $n$ distinct integers and let
+$I=\{x+1,\ldots,x+M\}$, where $x\in\mathbb Z_{\ge0}$. The length $M$
+is an ambient bound and need not equal $\max A$. Let $2\le Y<Z$, let $Q$
+be a subset of the primes at most $Y$, and let $R$ be a finite set of primes
+at least $Z$. Write
+\[
+ Q^\Pi=\prod_{q\in Q}q,
+ \qquad \vartheta(Q)=\prod_{q\in Q}(1-1/q),
+ \qquad \pi_R(T)=\#\{r\in R:r\le T\}.
+\]
+Both empty products equal one, and one is regarded as $Q$-smooth. Partition
+the sources as $A=A_Q\sqcup A_R$, where each source in $A_Q$ is $Q$-smooth
+and each source in $A_R$ has the form
+\begin{equation}
+ a=d(a)r(a),\qquad d(a)\ \text{$Q$-smooth},\quad r(a)\in R.
+ \label{eq:sep-source-form}
+\end{equation}
+Thus the large prime has exponent one; sources with two large prime
+occurrences are not included in this hypothesis.
+
+We use the decreasing error function $e(\kappa)\to0$ from
+Lemma~\ref{an:sieve}. In particular, for every real interval $J$ of length
+$T\ge Y^\kappa$, uniformly over its shift and the choice of $Q$,
+\begin{equation}
+ \#\{m\in J:(m,Q^\Pi)=1\}
+ \ge (1-e(\kappa))\vartheta(Q)T,
+ \qquad \kappa\ge4.
+ \label{eq:sep-sieve}
+\end{equation}
+This is the fundamental-lemma input of \cite{Lagarias,GranvilleSound}; it
+includes nonintegral interval lengths. We also use absolute constants
+$c_0,C_0>0$ in the standard Mertens and Chebyshev bounds
+\begin{equation}
+ \prod_{p\le Y}(1-1/p)\ge\frac{c_0}{\log Y},
+ \qquad \pi(T)\le\frac{C_0T}{\log T}
+ \quad(Y,T\ge2).
+ \label{eq:sep-prime-estimates}
+\end{equation}
+No numerical values for the resulting separation exponent are asserted.
+
+\begin{proposition}[A finite support comparison]
+\label{prop:sep-finite}
+Suppose $\kappa\ge4$, $e(\kappa)<1$, $Z\ge Y^\kappa$, and
+\begin{equation}
+ (1-e(\kappa))\vartheta(Q)
+ \ge \sup_{T\ge Z}\frac{\pi_R(T)}T.
+ \label{eq:sep-finite-condition}
+\end{equation}
+Then, for every source set satisfying \eqref{eq:sep-source-form},
+\begin{equation}
+ \tau(A,I)\le 2|A_R|+\sum_{a\in A_Q}\Omega(a).
+ \label{eq:sep-cover-bound}
+\end{equation}
+For finite $R=\{r_1<\cdots<r_s\}\ne\varnothing$, the supremum in
+\eqref{eq:sep-finite-condition} is $\max_{1\le j\le s}j/r_j$; for empty
+$R$ it is zero.
+\end{proposition}
+
+\begin{proof}
+For each distinct $d$ occurring in \eqref{eq:sep-source-form}, define
+\[
+ m_d=\#\{a\in A_R:d(a)=d\},\qquad T_d=M/d,
+ \qquad B_d=\{b\in I:d\mid b,\ (b/d,Q^\Pi)=1\}.
+\]
+Every $b\in B_d$ has exact $Q$-part $d$: the product of all its prime
+powers at primes in $Q$ equals $d$. Hence the sets $B_d$ are pairwise
+disjoint, including the case $d=1$. Distinct sources with this cofactor
+have distinct primes $r\le T_d$, so
+\begin{equation}
+ m_d\le\pi_R(T_d),\qquad T_d\ge Z.
+ \label{eq:sep-fibre}
+\end{equation}
+The multiples of $d$ in $I$, after division by $d$, are the integer points
+of $(x/d,(x+M)/d]$, which has real length $T_d$. Therefore
+\eqref{eq:sep-sieve} and \eqref{eq:sep-finite-condition} give
+\[
+ |B_d|\ge(1-e(\kappa))\vartheta(Q)T_d
+ \ge\pi_R(T_d)\ge m_d.
+\]
+Choose $m_d$ distinct targets from each $B_d$ and assign them to the
+corresponding sources. Since the bins are disjoint, all $|A_R|$ assigned
+targets are distinct. Their product is divisible by
+$\prod_{a\in A_R}d(a)$.
+
+The sum of the remaining positive prime-valuation deficits relative to
+$\prod A$ is at most
+\[
+ |A_R|+\sum_{a\in A_Q}\Omega(a).
+\]
+There is one possible unit for each removed prime $r(a)$, together with
+all units of the pure $Q$ sources; extra factors already supplied by the
+chosen targets only help. Since $\prod A\mid M!\mid\prod I$, each still
+missing unit can be supplied by an unused target. Such a repair decreases
+the total positive deficit by at least one. Beginning with $|A_R|$ assigned
+targets, this one global repair phase proves \eqref{eq:sep-cover-bound}.
+
+Finally, $\pi_R(T)/T$ decreases between its jumps at the primes of $R$,
+which gives the displayed finite expression for its supremum.
+\end{proof}
+
+For a particular source set, the proof only needs
+$(1-e(\kappa))\vartheta(Q)T_d\ge m_d$ for its actual fibres. Condition
+\eqref{eq:sep-finite-condition} is a support-only sufficient comparison.
+
+\begin{theorem}[Absolute power separation]
+\label{thm:sep-power}
+There is an absolute constant $\kappa_0\ge4$ such that whenever
+$Y\ge2$ and $Z\ge Y^{\kappa_0}$, every source set of the form
+\eqref{eq:sep-source-form} satisfies \eqref{eq:sep-cover-bound}, for every
+ambient $M\ge\max A$ and every integer shift $x\ge0$. In particular, if
+$A_Q=\varnothing$, then $\tau(A,I)\le2n$.
+\end{theorem}
+
+\begin{proof}
+Choose an absolute $\kappa_0$ such that
+\[
+ e(\kappa_0)\le\tfrac12,
+ \qquad \kappa_0\ge\frac{2C_0}{c_0}.
+\]
+This is possible because $e(\kappa)\to0$. For every $T\ge Z\ge
+Y^{\kappa_0}$, the subset relation for $Q$ and
+\eqref{eq:sep-prime-estimates} give
+\[
+ (1-e(\kappa_0))\vartheta(Q)
+ \ge\frac{c_0}{2\log Y}
+ \ge\frac{C_0}{\log T}
+ \ge\frac{\pi_R(T)}T.
+\]
+Proposition~\ref{prop:sep-finite} applies.
+\end{proof}
+
+The constant $\kappa_0$ is not computed or claimed to be practical. The
+theorem is a finite statement for all parameters meeting its separation
+condition. It implies the proposed asymptotic class $Z\to\infty$,
+$\log Y=o(\log Z)$; for example, $Y=M^{o(1)}$ and $Z=M^\alpha$ for any
+fixed $\alpha>0$ eventually satisfy the condition. The restriction to one
+large prime occurrence per source remains essential to the stated result.
+
+\begin{corollary}[Pure small-prime sources]
+\label{cor:sep-pure}
+Under the hypotheses of Theorem~\ref{thm:sep-power},
+\begin{equation}
+ \tau(A,I)\le2n+\sum_{a\in A_Q}(\Omega(a)-2)_+.
+ \label{eq:sep-excess}
+\end{equation}
+Thus $\tau(A,I)\le2n$ if every source in $A_Q$ has at most two prime
+factors with multiplicity. More generally, it is enough that
+$\sum_{a\in A_Q}\Omega(a)\le2|A_Q|$. Along any sequence with
+$n\to\infty$ and $\sum_{a\in A_Q}(\Omega(a)-2)_+=o(n)$, the upper
+bound is $(2+o(1))n$, uniformly in the shift.
+\end{corollary}
+
+\begin{proof}
+Subtract $2n=2|A_R|+2|A_Q|$ from \eqref{eq:sep-cover-bound}, and bound
+each possibly negative term $\Omega(a)-2$ by its positive part.
+\end{proof}
+
+This is an upper-bound result; no matching lower coefficient is asserted.
+An unrestricted pure $Q$ component may have large excess in
+\eqref{eq:sep-excess}, and sources with multiple $R$ occurrences remain
+outside the theorem. Consequently the argument does not settle the
+unrestricted exact or asymptotic problem.

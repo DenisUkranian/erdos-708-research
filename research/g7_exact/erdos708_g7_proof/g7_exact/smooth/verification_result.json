@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "theorem": "For every set of seven distinct 7-smooth integers >=2 and every interval of max(A) consecutive positive integers, a product cover of at most nine points exists.",
+  "prior_bounds": [
+    "g(5)<=6",
+    "g(6)<=8"
+  ],
+  "analytic_tail_from": 12555,
+  "analytic_rows": [
+    {
+      "prime": 2,
+      "last_bad_sufficient_estimate": 1997
+    },
+    {
+      "prime": 3,
+      "last_bad_sufficient_estimate": 4508
+    },
+    {
+      "prime": 5,
+      "last_bad_sufficient_estimate": 12554
+    },
+    {
+      "prime": 7,
+      "last_bad_sufficient_estimate": 12284
+    }
+  ],
+  "finite": {
+    "status": "PASS_PENDING_CRT_VERIFICATION",
+    "smooth_maxima": 358,
+    "clique_maxima": 94,
+    "largest_clique_maximum": 567,
+    "actual_seven_cliques": 3413772,
+    "unique_demands": 135961,
+    "prime_union": 57018,
+    "ordinary_bins": 283,
+    "cumulative_gcd": 78041,
+    "crt_dominated": 619,
+    "seconds": 0.27975
+  },
+  "CRT": "ALL_PASS rows=318 nodes=99864 exact=6049 sec=0.233159",
+  "seconds": 3.749
+}

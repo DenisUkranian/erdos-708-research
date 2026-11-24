@@ -1,0 +1,12 @@
+{
+  "date": "2026-11-22",
+  "general_problem_solved": false,
+  "exact_2n_proved": false,
+  "asymptotic_2_proved": false,
+  "unproved_input": "global H2",
+  "pdf_pages": 9,
+  "unconditional_result": "If every source has a prime factor >2n-1, tau <= 2n-t <= 2n-1 (n>=2).",
+  "conditional_result": "H2 implies g(n) <= 2n+pi(q_n)-1, q_n=min{Z>=2: Z>=2n+pi(Z)-1}.",
+  "tests_are_not_general_proofs": true,
+  "independent_mathematical_audit": "All-scale extension and conditional transfer checked in a separate reasoning pass; not formal or human peer review."
+}

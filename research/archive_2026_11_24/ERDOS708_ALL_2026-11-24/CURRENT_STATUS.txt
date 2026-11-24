@@ -1,0 +1,171 @@
+ERDOS PROBLEM 708 — CONSOLIDATED RESEARCH STATUS
+Archive assembly checkpoint: 24 November 2026 (Europe/Kyiv)
+Basis: eleven main local reports dated 22–23 November 2026, their STATUS
+records, proof notes, and the subsequent internal correction/audit notes.
+
+READ THIS FIRST
+The unrestricted asymptotic g(n) <= (2+o(1)) n is NOT PROVED in these files.
+The unrestricted exact bound g(n) <= 2n is NOT PROVED either. No verified
+counterexample to either original assertion is supplied. “Proved” below
+means a proof recorded in the working material, with the stated internal
+audits; it does not mean external peer review or formal verification.
+Archiving preserves earlier drafts and rejected arguments as research
+history. Their presence must not be read as endorsement of every old claim.
+
+The eleven local main PDFs have 141 pages in total. READING_ORDER.csv
+identifies them, newest useful entry first. CORRECTIONS_LEDGER.csv records
+important restrictions and superseded or disproved shortcuts. Original
+paths in these indexes are provenance locators; the archive assembler may
+provide a separate content-hash alias map for relocated or deduplicated files.
+
+1. THE ORIGINAL PROBLEM AND THE COMMON FRACTIONAL ENDPOINT
+For n distinct integers A, M=max A, every interval I of M consecutive
+positive integers should contain a small set whose product is divisible
+by the product of A. The work also uses a fixed ambient M >= max A during
+source deletions, without shortening the target interval.
+
+For clipped prime weights 0 <= w_p <= 1, write
+  X(t) = sum_p w_p v_p(t),       H_X(b) = (X(b)-1)_+,
+  J_c(w) = sum_{a<=M}(X(a)-c)_+ - sum_{b in I} H_X(b).
+A uniform J_(2+delta)(w) <= C_delta, for every fixed delta>0, is a
+sufficient endpoint. Wang's cited raw fractional-to-integer transfer
+already supplies the passage to the desired integer asymptotic; that
+transfer is not the missing step of the latest programme.
+
+The older exact fixed-n objective keeps M as a required source:
+  X(M) + Top_(n-1){X(a):2<=a<M} - sum_I H_X.
+This is an exact maximization over source sets with max A=M, but choosing
+a top set at arbitrary weights does not itself imply paired optimality.
+
+2. EXTERNAL INPUTS — DO NOT RELABEL THEM AS NEW RESULTS
+The archived source snapshots cite Ziming Wang's interval-divisor-covers
+manuscript for the exact long-interval gate M >= 16 n^2 => at most 2n
+selected positions, and its raw-transfer.tex for the asymptotic transfer.
+The earlier Chen work and standard sieve/prime-counting inputs remain
+attributed in the reports. The reconstructed dot bound M >= 32 n^(5/2)
+is a valid working argument in its stated range, but is weaker than the
+already cited quadratic gate. Its three-large-occurrence proof requires
+c^2 K >= 1 and does not establish a fixed-C quadratic theorem by itself.
+
+3. GENERAL REDUCTIONS NOW RECORDED
+At a genuine global maximum of J_c, c=2+delta, choose the entire strict
+tail A={a<=M:X(a)>c}, n=|A|. Then these are the SAME A,w and a paired
+primal optimum z, with F=L_raw(A,I):
+  max_w J_c = max_S (L_raw(S,I)-c|S|),
+  F=cn+J_c,   z_b=1 when X(b)>1,
+  sum_I z_b v_p(b)=sum_A v_p(a) for every active prime p.
+These balances concern whole raw prime rows, including every power; they
+are not separate prime-power-level equalities. They must not be moved to
+an unrelated source set, modified weight profile, or nonadditive model.
+
+The global-surplus and dot reports record bounded reciprocal mean,
+bounded total source load O_delta(n), and exponential integrability
+relative to the full tail's own cardinality. In particular, for a subset
+of t sources, its excess weighted demand is at most
+  2 B_delta t log(2n/t).
+Thus o(n) exceptional sources have o(n) weighted demand on this class.
+All source prime factors, even zero-price factors, are O_delta(n), and
+there are O_delta(n/log n) active prime rows. The relevant positive-
+extremum range is cn < M < 16 n^2.
+
+The dot audit records a general near-quadratic exclusion: for each fixed
+delta,kappa>0, there is no sequence of positive global maxima with
+n->infinity and M >= kappa n^2. The remaining unbounded branch is
+M=o(n^2). This statement is about true full-tail global maxima, with no
+assumed small support or prescribed weight profile.
+
+4. THE LATEST PROOF LADDERS — ESTABLISHED STEPS
+The newest report is ep708_ladder_20261123/erdos708_proof_ladders.tex.
+It spends part of the asymptotic slack on complements of load at most
+  tau=1+delta/2,  gamma=delta/2.
+A source a may use target b if X(a/gcd(a,b)) <= tau. If a single target
+budget serves source fractions theta_a and the total unserved fraction
+is t=sum(1-theta_a), with extra accounting error E, then
+  J_c <= 2 B_delta t log(2n/t) - gamma(n-t) + E.
+A sufficiently small FIXED fraction depending on delta suffices for a
+contradiction; every rung need not demand an o(n) exceptional set.
+
+Adaptive-Hall reductions: a maximum-deficit source set is an upset under
+divisibility. Its complementary cut obeys an exact arithmetic closure
+condition. A hot common divisor can pay its entire cluster with an extra
+unit per source. Every source has either a pure substantial-price carrier
+or a numerically small hot carrier, with a controlled residual light-prime
+cutoff. High-light source fibres have a small normalized demand density,
+including all repeated and inactive cofactors. These facts do not yet
+control overlap among different banks.
+
+Diffuse-transfer reductions: for a raw load V with individual prices at
+most eta and bounded reciprocal mean, a one-sided concentration bound
+holds uniformly in EVERY shifted quotient interval of length N:
+  sum_J (mu_N-V)_+ <= psi(eta) N,  psi(eta)->0.
+There is also a prefix L1 bound. Exact original row balances turn these
+into a general vanishing small-price-demand estimate on each positive-
+density branch n/M >= rho_0>0. Conditional exact-profile cells retain the
+correct sieve density when their genuine length gap is available.
+
+Most importantly for sparse tails, demand-normalized common clipping
+transfers one target budget with error O_delta(Lambda psi(eta) n), rather
+than O(M). A stronger cluster normalization retains the unit reserve of
+one-bank credit. These estimates apply without a prescribed prime count
+or weight profile. They do NOT show that the model budget captures enough
+source demand.
+
+5. PRECISE CURRENT OPEN OBLIGATIONS
+The preferred cluster formulation sets
+  S_2=sum_A(X(a)-2),
+chooses first-crossing roots g, and normalizes each cluster by
+  alpha_g = [sum_{a in A_g}(X(a)-2)] / [sum_{b in I:g|b}H_X(b)].
+The proved identity and norm bound use
+  R(b)=sum_{g|b}alpha_g,
+  sum_I H_X(b)R(b)=S_2,
+  sum_g alpha_g M/g=O_delta(n).
+A diffuse model H_model and a common clipped capture functional Q_Lambda
+then satisfy
+  J_c <= S_2-delta n-Q_Lambda(H_model)
+         +O_delta(Lambda psi(eta)n).
+The still UNPROVED arithmetic target is
+  Q_(Lambda_delta)(H_model) >= S_2-delta n/2,
+uniformly on the genuine positive-global-optimum class. Lambda_delta must
+be fixed before eta is made small, or a quantitative dependence must prove
+Lambda(eta) psi(eta)->0. An uncontrolled parameter choice is circular.
+
+An alternative sufficient target is a small-deficit relaxed Hall bound
+on the exact arithmetic cuts, retaining the true original row balances.
+A joint truncated lcm-energy estimate or an all-occurrence stopping
+certificate might supply it. No such terminal inequality is proved in
+the archive. Pairwise cold gcds alone do not control all multiway charges.
+
+6. RESTRICTED RESULTS AND NEGATIVE EVIDENCE
+The earlier reports contain valid, explicitly restricted exact or
+asymptotic classes: rough/cofactor-support conditions, fixed or controlled
+cores, and separated prime bands. The three/four-external-occurrence
+certificate uses an actual small periodic core and external primes above
+M^(1/5); later repairs retain repeated primes and relative row errors.
+It is not a normalization theorem for arbitrary optimal weights.
+
+The exact numerical certificates and CRT constructions refute specified
+stronger shortcuts, including coordinatewise bank domination,
+same-threshold transfer, independent root budgets, and unamplified
+uniform routing. They do not refute the original conjecture or the
+unproved lemma restricted to true positive global extrema. Finite solver
+searches and matching probes are diagnostic evidence only; the latest
+work computes no new g(n).
+
+7. KEY SOURCE LOCATORS
+Latest general report and full route notes:
+  /workspace/scratch/bc195f199be3/ep708_ladder_20261123/
+Near-quadratic exclusion and dot repairs:
+  /workspace/scratch/bc195f199be3/ep708_dot_20261123/
+Full-tail moments and global-surplus formulation:
+  /workspace/scratch/bc195f199be3/ep708_surplus_20261123/
+Top-tail and bank-product counterexamples:
+  /workspace/scratch/bc195f199be3/ep708_top_tail_20261123/
+Older fixed-ambient J_weak normalization and identities:
+  /workspace/scratch/bc195f199be3/ep708_global_20261123/
+  /workspace/scratch/bc195f199be3/ep708_jweak_20261123/
+  /workspace/scratch/bc195f199be3/ep708_flow_20261123/
+Earlier structural/source-class programme:
+  /workspace/scratch/bc195f199be3/ep708_continuation_20261123/
+  /workspace/scratch/bc195f199be3/ep708_synthesis_20261123/
+  /workspace/scratch/bc195f199be3/ep708_20261123/
+  /workspace/scratch/bc195f199be3/ep708_20261122/

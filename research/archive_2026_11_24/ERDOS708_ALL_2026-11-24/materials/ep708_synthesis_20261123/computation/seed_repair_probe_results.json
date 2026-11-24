@@ -1,0 +1,150 @@
+{
+  "scope": "Auxiliary seed lemma probe; not an Erdos708 counterexample search certificate",
+  "attempts": 16993,
+  "elapsed_seconds": 180.02343011199991,
+  "records": [
+    {
+      "M": 60,
+      "n": 7,
+      "sources": [
+        16,
+        24,
+        30,
+        32,
+        36,
+        54,
+        60
+      ],
+      "primes": [
+        2,
+        3,
+        5
+      ],
+      "phases": [
+        [
+          106,
+          128
+        ],
+        [
+          66,
+          243
+        ],
+        [
+          136,
+          625
+        ]
+      ],
+      "selected_indices": [
+        10,
+        12,
+        18,
+        36,
+        42,
+        48,
+        60
+      ],
+      "deficit": 0,
+      "seed_cost": 7,
+      "candidate_gap": -7,
+      "milp_status": 0,
+      "numerical_dual_bound": -28.0,
+      "not_a_proof_of_nonexistence": true
+    },
+    {
+      "M": 60,
+      "n": 5,
+      "sources": [
+        16,
+        32,
+        45,
+        56,
+        60
+      ],
+      "primes": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "phases": [
+        [
+          80,
+          128
+        ],
+        [
+          91,
+          243
+        ],
+        [
+          93,
+          625
+        ],
+        [
+          315,
+          2401
+        ]
+      ],
+      "selected_indices": [
+        16,
+        42,
+        46,
+        48,
+        58
+      ],
+      "deficit": 0,
+      "seed_cost": 5,
+      "candidate_gap": -5,
+      "milp_status": 0,
+      "numerical_dual_bound": -20.0,
+      "not_a_proof_of_nonexistence": true
+    }
+  ],
+  "best": {
+    "M": 60,
+    "n": 5,
+    "sources": [
+      16,
+      32,
+      45,
+      56,
+      60
+    ],
+    "primes": [
+      2,
+      3,
+      5,
+      7
+    ],
+    "phases": [
+      [
+        80,
+        128
+      ],
+      [
+        91,
+        243
+      ],
+      [
+        93,
+        625
+      ],
+      [
+        315,
+        2401
+      ]
+    ],
+    "selected_indices": [
+      16,
+      42,
+      46,
+      48,
+      58
+    ],
+    "deficit": 0,
+    "seed_cost": 5,
+    "candidate_gap": -5,
+    "milp_status": 0,
+    "numerical_dual_bound": -20.0,
+    "not_a_proof_of_nonexistence": true
+  }
+}

@@ -1,0 +1,170 @@
+\section{A uniform exclusion for large weighted means}
+\label{mo:section}
+
+The following estimates give a further restriction on a possible raw dual
+witness. They apply to arbitrary clipped weights, independently of the
+structure of the source set.
+Let $M\ge4$, let $0\le w_p\le1$ be supported on primes $p\le M$, and set
+\[
+ X(a)=\sum_{p\le M}w_pv_p(a),\qquad
+ \mu=\sum_{p\le M}\frac{w_p}{p-1},\qquad
+ \nu=\sum_{p\le M}\frac{w_p^2p}{(p-1)^2}.
+\]
+Expectations in this section are over a uniform integer in $\{1,\ldots,M\}$.
+Put $J=\lfloor\log_2M\rfloor$ and
+\begin{equation}
+ \epsilon_M=
+ \frac{\pi(M)+(J+1)\pi(\sqrt M)}{M}
+       +\frac1{\lfloor\sqrt M\rfloor}.
+ \label{mo:error}
+\end{equation}
+
+\begin{lemma}[Uniform first and second moments]
+\label{mo:moments}
+One has
+\begin{equation}
+ \mu-\epsilon_M\le \mathbb EX\le\mu,\qquad
+ \mathbb EX^2\le\mu^2+\nu,\qquad
+ \nu\le\min\left\{2\mu,\frac76\mu+\frac{49}{48}\right\}.
+ \label{mo:bounds}
+\end{equation}
+Moreover,
+\[
+ \epsilon_M\le\frac{\pi(M)}M+\frac{J+3}{\sqrt M}
+ =O\left(\frac1{\log M}+\frac{\log M}{\sqrt M}\right)=o(1).
+\]
+\end{lemma}
+
+\begin{proof}
+Let $j_p=\lfloor\log M/\log p\rfloor$. Prime-power counting gives
+\[
+ \mathbb EX=\frac1M\sum_{p\le M}w_p
+                    \sum_{j=1}^{j_p}\left\lfloor\frac M{p^j}\right\rfloor.
+\]
+Compare this with $\mu=\sum_pw_p\sum_{j\ge1}p^{-j}$.
+The first-level floor errors total at most $\pi(M)/M$.
+At levels $j\ge2$, only primes at most $\sqrt M$ occur, each with
+at most $J-1$ further floor errors. For those primes the omitted tail is
+\[
+ \sum_{j>j_p}p^{-j}
+  =\frac1{p^{j_p}(p-1)}
+  <\frac p{M(p-1)}\le\frac2M.
+\]
+For $p>\sqrt M$, the tail starts at level two, and
+\[
+ \sum_{p>\sqrt M}\frac1{p(p-1)}
+ \le\sum_{k>\sqrt M}\frac1{k(k-1)}
+ =\frac1{\lfloor\sqrt M\rfloor}.
+\]
+Adding these bounds proves the mean estimate. The asserted error
+asymptotic follows from Chebyshev's upper bound for $\pi$;
+see, for example, \cite{GranvilleSound}.
+
+For distinct primes $p,q$, divisibility by both levels $p^j,q^k$ gives
+\[
+ \mathbb E[v_p(a)v_q(a)]
+ \le\sum_{j,k\ge1}\frac1{p^jq^k}
+ =\frac1{(p-1)(q-1)}.
+\]
+At one prime,
+\[
+ \mathbb E[v_p(a)^2]
+ \le\sum_{j\ge1}\frac{2j-1}{p^j}
+ =\frac{p+1}{(p-1)^2}.
+\]
+Expanding $X^2$ proves $\mathbb EX^2\le\mu^2+\nu$.
+No independence assumption is used.
+The inequality $\nu\le2\mu$ follows from $w_p^2\le w_p$ and
+$p/(p-1)\le2$.
+
+For the sharper envelope, every $p\ge7$ contributes at most
+$(7/6)w_p/(p-1)$ to $\nu$. The maximum possible excesses at $p=2,3,5$
+are respectively $5/6$, $1/6$, and $1/48$. Their sum is $49/48$,
+proving the last part of \eqref{mo:bounds}.
+\end{proof}
+
+\begin{theorem}[A sufficient mean threshold]
+\label{mo:threshold}
+For all $M$ with $\epsilon_M\le1/2$, the condition
+\begin{equation}
+ \mu\ge\frac{241}{136}+4\epsilon_M
+ \label{mo:threshold-simple}
+\end{equation}
+implies, for every positive $M$-term interval $I$,
+\begin{equation}
+ \sum_{a=1}^M(X(a)-2)_+
+ \le\sum_{b\in I}(X(b)-1)_+.
+ \label{mo:h2}
+\end{equation}
+The limiting sufficient threshold is
+$241/136=1.7720588235\ldots$.
+\end{theorem}
+
+\begin{proof}
+For any nonnegative random variable with mean $m$ and second moment $q$,
+\[
+ \mathbb E\min(X,2)
+ =\frac{m+2-\mathbb E|X-2|}{2}
+ \ge\frac{m+2-\sqrt{q-4m+4}}2.
+\]
+Thus $q\le m^2+4m-4$ is sufficient for capped mean at least one.
+Put $\epsilon=\epsilon_M$. Since $m\ge\mu-\epsilon$, it is enough that
+\[
+ \nu\le4\mu-4-(2\mu+4)\epsilon+\epsilon^2.
+\]
+The sharper envelope in Lemma~\ref{mo:moments} reduces this to
+\begin{equation}
+ \left(\frac{17}{6}-2\epsilon\right)\mu
+ \ge\frac{241}{48}+4\epsilon-\epsilon^2.
+ \label{mo:threshold-exact}
+\end{equation}
+At $\mu=241/136+4\epsilon$, the left side minus the right side equals
+\[
+ \epsilon\left(\frac{773}{204}-7\epsilon\right)\ge0
+ \qquad(0\le\epsilon\le1/2).
+\]
+The coefficient of $\mu$ is positive, so larger $\mu$ also satisfy
+\eqref{mo:threshold-exact}. In this range $\mu-\epsilon>0$, which
+justifies using monotonicity of $m^2+4m$ on the nonnegative half-line.
+
+Finally, every prime-power count in $I$ is at least its prefix count,
+and hence $\sum_I X\ge\sum_{a\le M}X(a)$. Therefore
+\[
+ \begin{split}
+ &\sum_{a\le M}(X(a)-2)_+-\sum_{b\in I}(X(b)-1)_+\\
+ &\qquad\le M-\sum_{a\le M}\min(X(a),2)\le0.
+ \end{split}
+\]
+This proves \eqref{mo:h2}.
+\end{proof}
+
+The exact sufficient threshold in \eqref{mo:threshold-exact} is
+\[
+ \mu\ge
+ \frac{241/48+4\epsilon_M-\epsilon_M^2}{17/6-2\epsilon_M}.
+\]
+The simpler estimate $\mu\ge2+4\epsilon_M$ also follows directly
+from $\nu\le2\mu$ and
+\[
+ \min(x,2)\ge ax-\frac{a^2x^2}{8}\quad(0\le a\le1),
+ \qquad a=\frac4{\mu+2}.
+\]
+These thresholds are sufficient; optimality is not asserted.
+Primes greater than $M$ must be omitted when computing $\mu$.
+They have zero prefix contribution, and restoring them on the target
+side only strengthens \eqref{mo:h2}.
+
+For a distinct source subset $A\subseteq[2,M]$, the hinge inequality
+implies that the corresponding raw dual objective is at most $2|A|$.
+Thus a dual witness exceeding this bound must lie below the mean
+threshold. This does not bound the number of substantial coordinates:
+for any integer $N\ge2$, choose $N$ distinct primes greater than $N^2$
+and assign each weight one. Their mean is at most $N/(N^2-1)\to0$,
+despite $N$ substantial weights. This is an example of weight vectors,
+not a counterexample instance. More generally, a mean bound controls only
+\[
+ \sum_{\{p:w_p\ge\eta\}}\frac1{p-1}\le\frac\mu\eta
+ \qquad(\eta>0),
+\]
+and does not resolve the interaction of a growing core with the other
+prime coordinates.

@@ -1,0 +1,12 @@
+{
+  "target": "J_weak on the full normalized minimal-obstruction class",
+  "target_proved": false,
+  "general_asymptotic_proved": false,
+  "exact_2n_proved": false,
+  "new_restricted_cover_theorem_claimed": false,
+  "finite_g_values_computed": false,
+  "main_proved_result": "Exact joint optimal block-deletion loss <= original LP optimum",
+  "certificate_scope": "Auxiliary H1 same-threshold discrepancy only",
+  "certificate_status": "PASS",
+  "pdf_pages": 10
+}

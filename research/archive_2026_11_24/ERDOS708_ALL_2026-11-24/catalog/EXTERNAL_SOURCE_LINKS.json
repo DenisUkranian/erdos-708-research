@@ -1,0 +1,241 @@
+[
+  {
+    "url": "https://arxiv.org/html/2603.28636v1",
+    "mentioned_in": [
+      "materials/ep708_surplus_20261123/audit/ALL_COFACTOR_HALL_DEFICIENCY.md"
+    ]
+  },
+  {
+    "url": "https://arxiv.org/pdf/1301.5293",
+    "mentioned_in": [
+      "materials/ep708_top_tail_20261123/analytic/REJECTED_SELBERG_BRIDGE.md"
+    ]
+  },
+  {
+    "url": "https://arxiv.org/pdf/1412.5029",
+    "mentioned_in": [
+      "materials/ep708_surplus_20261123/analytic/ROOTWISE_SIEVE_OBSTRUCTION.md"
+    ]
+  },
+  {
+    "url": "https://dms.umontreal.ca/~andrew/PDF/Book.To1.4.pdf",
+    "mentioned_in": [
+      "materials/ep708_continuation_20261123/analytic/GLUING_ARBITRARY_PURE_CORE.md",
+      "materials/ep708_continuation_20261123/combinatorial/UNIFORM_RAW_MOMENTS.md",
+      "materials/ep708_continuation_20261123/erdos708_continuation.tex",
+      "materials/ep708_flow_20261123/analytic/TRUNCATED_TAIL_AND_MIXED_WEIGHT_BARRIER.md",
+      "materials/ep708_ladder_20261123/PROVENANCE.json",
+      "materials/ep708_ladder_20261123/erdos708_proof_ladders.tex",
+      "materials/ep708_synthesis_20261123/analytic/DIFFUSE_RAW_WEIGHTS.md",
+      "materials/ep708_synthesis_20261123/analytic/SEPARATED_PRIME_BANDS.md",
+      "materials/ep708_synthesis_20261123/erdos708_synthesis.tex"
+    ]
+  },
+  {
+    "url": "https://doi.org/10.1016/j.jnt.2024.01.008",
+    "mentioned_in": [
+      "materials/ep708_dot_20261123/SOURCE_PROVENANCE.json",
+      "materials/ep708_dot_20261123/erdos708_dot_audit.tex",
+      "materials/ep708_dot_20261123/notes/FULL_TAIL_FIRST_MOMENT_INPUT.md",
+      "materials/ep708_surplus_20261123/erdos708_surplus_tail.tex"
+    ]
+  },
+  {
+    "url": "https://doi.org/10.5281/zenodo.22267395",
+    "mentioned_in": [
+      "materials/ep708_dot_20261123/sources/chen_README.md"
+    ]
+  },
+  {
+    "url": "https://doi.org/10.5281/zenodo.22660853",
+    "mentioned_in": [
+      "materials/ep708_20261122/analytic/wang-main.tex",
+      "materials/ep708_top_tail_20261123/sources/wang_main.tex"
+    ]
+  },
+  {
+    "url": "https://doi.org/10.5281/zenodo.24342718",
+    "mentioned_in": [
+      "materials/ep708_20261122/erdos708_research_note.html",
+      "materials/ep708_20261122/erdos708_research_note.tex"
+    ]
+  },
+  {
+    "url": "https://doi.org/10.5281/zenodo.24366998",
+    "mentioned_in": [
+      "materials/ep708_20261122/analytic/erdos708-smooth-hinge.tex",
+      "materials/ep708_20261122/erdos708_research_note.html",
+      "materials/ep708_20261122/erdos708_research_note.tex"
+    ]
+  },
+  {
+    "url": "https://github.com/chy4pro/erdos-708-explicit-upper-bounds",
+    "mentioned_in": [
+      "materials/ep708_20261122/analytic/wang-main.tex",
+      "materials/ep708_20261122/computation/README.md",
+      "materials/ep708_20261122/erdos708_research_note.html",
+      "materials/ep708_20261122/erdos708_research_note.tex",
+      "materials/ep708_20261123/erdos708_partial_results.tex",
+      "materials/ep708_jweak_20261123/erdos708_jweak_attempt.tex",
+      "materials/ep708_synthesis_20261123/README.txt",
+      "materials/ep708_synthesis_20261123/erdos708_synthesis.tex",
+      "materials/ep708_top_tail_20261123/sources/wang_main.tex"
+    ]
+  },
+  {
+    "url": "https://github.com/chy4pro/erdos-708-explicit-upper-bounds/blob/main/README.md",
+    "mentioned_in": [
+      "materials/ep708_dot_20261123/SOURCE_PROVENANCE.json"
+    ]
+  },
+  {
+    "url": "https://github.com/chy4pro/erdos-708-explicit-upper-bounds`",
+    "mentioned_in": [
+      "materials/ep708_20261122/analytic/ANALYTIC_RESULTS.md"
+    ]
+  },
+  {
+    "url": "https://github.com/dpreil-ydlp/open-problems/blob/master/math/erdos708/NOTES.md",
+    "mentioned_in": [
+      "materials/ep708_20261122/computation/README.md",
+      "materials/ep708_20261122/erdos708_research_note.html",
+      "materials/ep708_20261122/erdos708_research_note.tex"
+    ]
+  },
+  {
+    "url": "https://github.com/pathscale/erdos-708-asymptotic",
+    "mentioned_in": [
+      "materials/ep708_20261122/erdos708_research_note.html",
+      "materials/ep708_20261122/erdos708_research_note.tex"
+    ]
+  },
+  {
+    "url": "https://github.com/pathscale/erdos-708-asymptotic`",
+    "mentioned_in": [
+      "materials/ep708_20261122/analytic/ANALYTIC_RESULTS.md"
+    ]
+  },
+  {
+    "url": "https://github.com/pathscale/erdos-708-remediation`",
+    "mentioned_in": [
+      "materials/ep708_20261122/analytic/ANALYTIC_RESULTS.md"
+    ]
+  },
+  {
+    "url": "https://github.com/science-prince/erdos-708-interval-divisor-covers",
+    "mentioned_in": [
+      "materials/ep708_20261122/erdos708_research_note.html",
+      "materials/ep708_20261122/erdos708_research_note.tex",
+      "materials/ep708_20261123/erdos708_partial_results.tex",
+      "materials/ep708_continuation_20261123/STATUS.json",
+      "materials/ep708_continuation_20261123/computation/HEREDITARY_RAW_INTEGER_TRANSFER.md",
+      "materials/ep708_continuation_20261123/erdos708_continuation.tex",
+      "materials/ep708_dot_20261123/sources/wang_README.md",
+      "materials/ep708_global_20261123/erdos708_global_gap.tex",
+      "materials/ep708_synthesis_20261123/README.txt",
+      "materials/ep708_synthesis_20261123/analytic/SUBEXPONENTIAL_DENSE_SUPPORT.md",
+      "materials/ep708_synthesis_20261123/computation/RECOGNITION_README.md",
+      "materials/ep708_synthesis_20261123/computation/recognition_examples.json",
+      "materials/ep708_synthesis_20261123/erdos708_synthesis.tex"
+    ]
+  },
+  {
+    "url": "https://github.com/science-prince/erdos-708-interval-divisor-covers/blob/main/README.md",
+    "mentioned_in": [
+      "materials/ep708_dot_20261123/SOURCE_PROVENANCE.json"
+    ]
+  },
+  {
+    "url": "https://github.com/science-prince/erdos-708-interval-divisor-covers/blob/main/docs/RESULTS.md",
+    "mentioned_in": [
+      "materials/ep708_continuation_20261123/erdos708_continuation.tex",
+      "materials/ep708_global_20261123/erdos708_global_gap.tex",
+      "materials/ep708_jweak_20261123/erdos708_jweak_attempt.tex"
+    ]
+  },
+  {
+    "url": "https://github.com/science-prince/erdos-708-interval-divisor-covers/blob/main/papers/main-paper/main.tex",
+    "mentioned_in": [
+      "materials/ep708_dot_20261123/SOURCE_PROVENANCE.json",
+      "materials/ep708_dot_20261123/erdos708_dot_audit.tex",
+      "materials/ep708_ladder_20261123/PROVENANCE.json",
+      "materials/ep708_ladder_20261123/erdos708_proof_ladders.tex",
+      "materials/ep708_surplus_20261123/erdos708_surplus_tail.tex",
+      "materials/ep708_top_tail_20261123/README.md",
+      "materials/ep708_top_tail_20261123/analytic/WANG_PRIMARY_AND_EXACT_TOP_TAIL.md",
+      "materials/ep708_top_tail_20261123/erdos708_top_tail_gap.tex"
+    ]
+  },
+  {
+    "url": "https://github.com/science-prince/erdos-708-interval-divisor-covers/blob/main/papers/main-paper/raw-transfer.tex",
+    "mentioned_in": [
+      "materials/ep708_dot_20261123/SOURCE_PROVENANCE.json",
+      "materials/ep708_dot_20261123/erdos708_dot_audit.tex",
+      "materials/ep708_ladder_20261123/PROVENANCE.json",
+      "materials/ep708_ladder_20261123/erdos708_proof_ladders.tex",
+      "materials/ep708_surplus_20261123/erdos708_surplus_tail.tex",
+      "materials/ep708_top_tail_20261123/README.md",
+      "materials/ep708_top_tail_20261123/analytic/WANG_PRIMARY_AND_EXACT_TOP_TAIL.md",
+      "materials/ep708_top_tail_20261123/erdos708_top_tail_gap.tex"
+    ]
+  },
+  {
+    "url": "https://github.com/science-prince/erdos-708-interval-divisor-covers/releases/tag/v1.0.0",
+    "mentioned_in": [
+      "materials/ep708_dot_20261123/sources/wang_README.md"
+    ]
+  },
+  {
+    "url": "https://github.com/science-prince/erdos-708-interval-divisor-covers`",
+    "mentioned_in": [
+      "materials/ep708_20261122/analytic/ANALYTIC_RESULTS.md"
+    ]
+  },
+  {
+    "url": "https://hexagonmath.org/2611.00694v1",
+    "mentioned_in": [
+      "materials/ep708_20261122/erdos708_research_note.html",
+      "materials/ep708_20261122/erdos708_research_note.tex"
+    ]
+  },
+  {
+    "url": "https://terrytao.wordpress.com/2013/12/11/mertens-theorems/",
+    "mentioned_in": [
+      "materials/ep708_20261123/erdos708_partial_results.tex",
+      "materials/ep708_continuation_20261123/analytic/GLUING_ARBITRARY_PURE_CORE.md",
+      "materials/ep708_continuation_20261123/erdos708_continuation.tex",
+      "materials/ep708_dot_20261123/SOURCE_PROVENANCE.json",
+      "materials/ep708_dot_20261123/erdos708_dot_audit.tex",
+      "materials/ep708_dot_20261123/notes/ARITHMETIC_UNION_OBSTRUCTION.md",
+      "materials/ep708_flow_20261123/analytic/TRUNCATED_TAIL_AND_MIXED_WEIGHT_BARRIER.md",
+      "materials/ep708_synthesis_20261123/erdos708_synthesis.tex",
+      "materials/ep708_top_tail_20261123/combinatorial/DENSE_H1_LINEAR_DISCREPANCY.md",
+      "materials/ep708_top_tail_20261123/erdos708_top_tail_gap.tex"
+    ]
+  },
+  {
+    "url": "https://www.erdosproblems.com/708",
+    "mentioned_in": [
+      "materials/ep708_20261122/analytic/chen-main.tex",
+      "materials/ep708_20261122/analytic/wang-main.tex",
+      "materials/ep708_20261122/erdos708_research_note.html",
+      "materials/ep708_20261122/erdos708_research_note.tex",
+      "materials/ep708_20261123/erdos708_partial_results.tex",
+      "materials/ep708_dot_20261123/sources/chen_README.md",
+      "materials/ep708_jweak_20261123/erdos708_jweak_attempt.tex",
+      "materials/ep708_top_tail_20261123/sources/wang_main.tex"
+    ]
+  },
+  {
+    "url": "https://zenodo.org/records/24366897/files/erdos708-paper.tex?download=1",
+    "mentioned_in": [
+      "materials/ep708_20261122/computation/README.md"
+    ]
+  },
+  {
+    "url": "https://zenodo.org/records/24366998",
+    "mentioned_in": [
+      "materials/ep708_20261123/erdos708_partial_results.tex"
+    ]
+  }
+]

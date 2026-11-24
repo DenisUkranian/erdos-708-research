@@ -1,0 +1,815 @@
+\section{A controlled core and a one-prime remainder}
+\label{cg:section}
+
+The central point of this section is a joint comparison. The core and
+the remainder coordinates use one target hinge, even when many possible
+remainder primes have large weights. The source restriction is that
+each source uses at most one \emph{distinct} remainder prime; arbitrary
+powers of that prime are permitted. No ordering or separation of prime
+sizes is assumed.
+
+All prime sets below are finite, all weights are nonnegative, and all
+intervals have positive integer points. At real length $T>0$, a prefix
+means $\{n\in\mathbb Z:1\le n\le T\}$ and an interval means the
+integer points of $(x,x+T]$, $x\ge0$. For a prime set $F$, put
+$F^\Pi=\prod_{q\in F}q$, with the empty product equal to one.
+
+\subsection{Precise inherited analytic inputs}
+
+We use the following conditional diffuse comparison from
+\cite{Synthesis}. Its proof uses partial prime-power carriers and a
+uniform interval version of the fundamental sieve lemma
+\cite{Lagarias,GranvilleSound}. The statements below include the
+quantifiers and constants needed here; the inherited proofs are included
+in the companion archive.
+
+\begin{proposition}[Conditional diffuse level comparison]
+\label{cg:conditional-input}
+There is an absolute constant $C>0$ for which the functions
+\[
+ e(u)=C\bigl((u/2)^{-u/4}+2^{1-u/2}\bigr)\quad(u\ge4),
+ \qquad
+ e_k(u)=3^ke(u/2)+3\cdot4^k2^{1-u/2}\quad(u\ge8)
+\]
+have the following property. Let $F$ contain at most $k$ primes, let
+$L\cap F=\varnothing$, and put
+\[
+ V(n)=\sum_{p\in L}w_pv_p(n),\qquad
+ 0\le w_p\le\eta,\qquad
+ \mu=\sum_{p\in L}\frac{w_p}{p-1}.
+\]
+For $\ell>\eta$, set
+\[
+ r=\lfloor\ell/\eta\rfloor\ge16,\qquad
+ j=\lfloor r/2\rfloor,\qquad \kappa=r-j.
+\]
+If
+\begin{equation}
+ (1+e_k(\kappa))\mu+\eta2^{k+1-j}
+ \le(\ell-\eta)(1-e_k(r)),
+ \qquad e_k(r)<1,
+ \label{cg:conditional-condition}
+\end{equation}
+then, for every $T>0$, every interval $J$ of real length $T$, and
+every $s\ge0$,
+\begin{equation}
+ \#\{a\le T:(a,F^\Pi)=1, V(a)>s+\ell\}
+ \le\#\{b\in J:(b,F^\Pi)=1, V(b)>s\}.
+ \label{cg:conditional-level}
+\end{equation}
+The excluded primes may have arbitrary sizes, including sizes exceeding
+$T$.
+
+When $F=\varnothing$, the sharper unconditioned coefficient retained
+in the same carrier proof is
+\begin{equation}
+ \#\{a\le T:V(a)>s+\ell\}
+ \le
+ \frac{(1+e(\kappa))\mu+\eta2^{1-j}}
+      {(\ell-\eta)(1-e(r))}
+ \#\{b\in J:V(b)>s\},
+ \label{cg:unconditional-ratio}
+\end{equation}
+provided $e(r)<1$; here $r\ge8$ suffices.
+\end{proposition}
+
+For clarity, the numerator of the ratio in
+\eqref{cg:unconditional-ratio}, divided by $\ell-\eta$, bounds
+the source count per unit of a common carrier sum. The target count is
+at least that carrier sum times $1-e(r)$. Thus the displayed quotient
+is retained without a second loss in the comparison.
+
+The following elementary alternative is also proved in
+\cite{Synthesis}. Let $\mathbb E_0$ denote averaging over
+$1,\ldots,M$. If the light support lies in $p\le M$, then
+\begin{equation}
+ \mu-3\eta\le\mathbb E_0V\le\mu,
+ \qquad \mathbb E_0(V-\mu)^2\le8\eta\mu.
+ \label{cg:moment-input}
+\end{equation}
+In particular, if $0<d\le1$, $\eta\le d^2/32$, and
+$\mu\ge1+d$, then
+\begin{equation}
+ \sum_{a=1}^M\min(V(a),2)\ge M.
+ \label{cg:high-mean-input}
+\end{equation}
+For any nonnegative raw load $X$, prime-power counts give
+$\sum_I X\ge\sum_{a\le M}X(a)$. Consequently
+\begin{equation}
+ \sum_{a\le M}(X(a)-2)_+-\sum_{b\in I}(X(b)-1)_+
+ \le M-\sum_{a\le M}\min(X(a),2).
+ \label{cg:automatic}
+\end{equation}
+Thus \eqref{cg:high-mean-input} proves the full-prefix hinge inequality
+at threshold two, and adding nonnegative coordinates preserves this
+sufficient condition. Primes greater than $M$ must be removed before
+computing the mean in this alternative. They change no source value;
+restoring them only increases the target hinge.
+
+\begin{lemma}[A threshold uniform in the number of exclusions]
+\label{cg:uniform-eta}
+For every $0<\varepsilon\le1$ there is $c_\varepsilon>0$ such that,
+for every integer $k\ge0$, setting
+\[
+ \eta=\frac{c_\varepsilon}{k+1},\qquad \ell=1+\varepsilon
+\]
+makes \eqref{cg:conditional-level} valid whenever
+$\mu\le1+\varepsilon/2$. We may also require
+$c_\varepsilon\le\varepsilon^2/128$ for $0<\varepsilon\le1$.
+\end{lemma}
+
+\begin{proof}
+For $u\ge16$,
+\[
+ e_k(u)\le3C3^k2^{-u/4}+6\cdot4^k2^{-u/2}.
+\]
+Indeed $(u/4)^{-u/8}\le2^{-u/4}$ for $u/4\ge4$.
+Choose $R_\varepsilon\ge16$ so that
+\[
+ 3C2^{-R_\varepsilon/4}+6\cdot2^{-R_\varepsilon/2}
+ \le\varepsilon/16.
+\]
+Then $u\ge16k+R_\varepsilon$ implies
+$e_k(u)\le\varepsilon/16$. Choose $c_\varepsilon$ with
+\[
+ c_\varepsilon\le\varepsilon^2/128,
+ \qquad
+ \frac{1+\varepsilon}{c_\varepsilon}
+ \ge\max\{32,\,2R_\varepsilon+2\}.
+\]
+For $\eta=c_\varepsilon/(k+1)$, the integers in
+Proposition~\ref{cg:conditional-input} satisfy
+\[
+ r\ge32k+2R_\varepsilon,\qquad
+ \kappa\ge16k+R_\varepsilon,\qquad j\ge k+1.
+\]
+Hence both sieve errors are at most $\varepsilon/16$, and
+$\eta2^{k+1-j}\le\eta$. At $\mu\le1+\varepsilon/2$, the
+right-hand lower bound in \eqref{cg:conditional-condition} minus
+its left-hand upper bound is at least
+\[
+ (1+\varepsilon-\eta)(1-\varepsilon/16)
+ -(1+\varepsilon/16)(1+\varepsilon/2)-\eta
+ \ge\frac{46}{128}\varepsilon-\frac{191}{2048}\varepsilon^2>0.
+\]
+Here $\eta\le\varepsilon/128$ was used. This proves the uniform
+choice. Subsequent shrinking of $c_\varepsilon$ is harmless.
+\end{proof}
+
+\subsection{Gluing increments into one target hinge}
+
+\begin{lemma}[One-prime source gluing]
+\label{cg:gluing}
+Let $R$ be a finite prime set, let $C(n)\ge0$ satisfy
+$C(r^jt)=C(t)$ for every $r\in R$ and $j\ge0$, and let
+$u_r:\mathbb Z_{\ge0}\to[0,1]$ be nondecreasing with $u_r(0)=0$.
+Put $U(n)=\sum_{r\in R}u_r(v_r(n))$, $\ell>0$, and $c=1+\ell$.
+Suppose $0<\rho\le1$ and $A_0,B_0\ge0$ have these properties:
+\begin{align}
+ \sum_{a\le M}(C(a)-c)_+
+ &\le\rho\sum_{b\in I}(C(b)-1)_++A_0,
+ \label{cg:base-assumption}\\
+ \#\{a\le N:C(a)>s+\ell\}
+ &\le\rho\#\{b\in J:C(b)>s\}+B_0
+ \label{cg:level-assumption}
+\end{align}
+for all positive integer $N$, all $N$-term intervals $J$, and all
+$0\le s\le1$. If $A\subseteq[2,M]$ is distinct and each source
+has at most one distinct $R$-prime, then
+\begin{equation}
+ \sum_{a\in A}(C(a)+U(a)-c)_+
+ \le\rho\sum_{b\in I}(C(b)+U(b)-1)_+
+       +A_0+B_0|R|.
+ \label{cg:gluing-conclusion}
+\end{equation}
+More precisely, the last error may be replaced by
+$A_0+\sum_{r\in R}\min\{B_0,m_r\}$, where
+$m_r=\#\{a\in A:r\mid a\}$.
+\end{lemma}
+
+\begin{proof}
+For $h\in\{c,1\}$, define the nonnegative increment
+\[
+ D_{h,r}(n)=(C(n)+u_r(v_r(n))-h)_+-(C(n)-h)_+.
+\]
+Telescoping the profile and integrating the derivative of the hinge
+gives the exact identity
+\begin{equation}
+ D_{h,r}(n)=\sum_{j\ge1}\mathbf1_{r^j\mid n}
+  \int_{u_r(j-1)}^{u_r(j)}\mathbf1_{C(n)>h-v}\,dv.
+ \label{cg:increment}
+\end{equation}
+For each $j$, divide multiples of $r^j$ by $r^j$. The source
+quotients form a prefix of length $N=\lfloor M/r^j\rfloor$,
+whereas the target quotients form an interval with at least $N$
+consecutive positions. When $N>0$, take an $N$-term subinterval
+and apply \eqref{cg:level-assumption} at $s=1-v\in[0,1]$.
+The unused target positions contribute nonnegatively. When $N=0$,
+the source count is zero. Invariance of $C$ under $r$-powers and
+\eqref{cg:increment} now give
+\begin{equation}
+ \sum_{a\le M}D_{c,r}(a)
+ \le\rho\sum_{b\in I}D_{1,r}(b)+B_0,
+ \label{cg:per-prime}
+\end{equation}
+because $\sum_{j\ge1}(u_r(j)-u_r(j-1))\le1$.
+Thus the error is paid once per prime, not once per prime power.
+
+At each source, at most one remainder coordinate is nonzero, so
+\begin{equation}
+ (C(a)+U(a)-c)_+=(C(a)-c)_++\sum_{r\in R}D_{c,r}(a).
+ \label{cg:source-identity}
+\end{equation}
+This identity is only needed on the source set. Every summand is
+nonnegative, so distinctness permits us to enlarge source sums to the
+prefix when applying \eqref{cg:base-assumption} and
+\eqref{cg:per-prime}.
+
+For $x,z_i\ge0$, one has
+\begin{equation}
+ (x-1)_++\sum_i\bigl((x+z_i-1)_+-(x-1)_+\bigr)
+ \le\left(x+\sum_i z_i-1\right)_+.
+ \label{cg:superadditive}
+\end{equation}
+If $x\ge1$ this is equality. Otherwise put $t=1-x>0$ and use
+$\sum_i(z_i-t)_+\le(\sum_i z_i-t)_+$. Applying
+\eqref{cg:superadditive} pointwise on the targets proves
+\eqref{cg:gluing-conclusion}; the base target hinge has been used once.
+
+For the refinement, the actual source increment
+$S_r=\sum_{a\in A}D_{c,r}(a)$ is at most $m_r$, since each
+increment is at most one and vanishes off the $r$-multiples.
+It is also at most $\rho\sum_I D_{1,r}+B_0$ by
+\eqref{cg:per-prime}. These two bounds imply
+$S_r\le\rho\sum_I D_{1,r}+\min\{B_0,m_r\}$, proving the
+sharper assertion.
+\end{proof}
+
+\begin{lemma}[Simultaneous restoration of raw tails]
+\label{cg:tails}
+Let $P_0$ be any finite set of coordinates capped at one, and write
+\[
+ Y(n)=V(n)+\sum_{p\in P_0}\min\{w_pv_p(n),1\},\qquad
+ T(n)=\sum_{p\in P_0}(w_pv_p(n)-1)_+,
+\]
+where $V(n)\ge0$. If, for a distinct prefix subset $A$,
+\[
+ \sum_{a\in A}(Y(a)-c)_+\le\sum_{b\in I}(Y(b)-1)_++E_0,
+\]
+then the same estimate holds with $Y$ replaced by $Y+T$.
+\end{lemma}
+
+\begin{proof}
+Pointwise, $(Y+T-c)_+\le T+(Y-c)_+$. Moreover,
+\[
+ (Y+T-1)_+=T+(Y-1)_+,
+\]
+because $T>0$ forces at least one capped coordinate to equal one,
+and hence $Y\ge1$. Each summand of $T$ is a nondecreasing
+prime-power profile vanishing at exponent zero. Expanding it in
+nonnegative increments times $\mathbf1_{p^j\mid n}$ shows
+\[
+ \sum_{a\in A}T(a)\le\sum_{a\le M}T(a)\le\sum_{b\in I}T(b).
+\]
+Combining these inequalities proves the assertion. All tails are
+restored in this single comparison.
+\end{proof}
+
+\subsection{Diffuse cores and one unrestricted core coordinate}
+
+\begin{theorem}[A diffuse core with arbitrary one-prime remainders]
+\label{thm:cg-diffuse}
+For every $\varepsilon>0$ there is $\eta_\varepsilon>0$ with the
+following property. Let $E,R$ be disjoint finite prime sets and put
+\[
+ X(n)=V(n)+W(n),\qquad
+ V(n)=\sum_{p\in E}w_pv_p(n),\qquad
+ W(n)=\sum_{r\in R}w_rv_r(n),
+\]
+where $0\le w_p\le\eta_\varepsilon$ for $p\in E$ and
+$w_r\ge0$ is unrestricted for $r\in R$. If
+$A\subseteq\{2,\ldots,M\}$ is distinct and each source is
+divisible by at most one distinct $R$-prime, then, for every shift,
+\begin{equation}
+ \sum_{a\in A}(X(a)-2-\varepsilon)_+
+ \le\sum_{b\in I}(X(b)-1)_+.
+ \label{cg:diffuse-hinge}
+\end{equation}
+Arbitrary powers of that one remainder prime and arbitrary unweighted
+cofactors are allowed. All thresholds are independent of the sizes and
+cardinalities of the prime sets.
+\end{theorem}
+
+\begin{proof}
+It suffices to treat $0<\varepsilon\le1$. Put
+$\ell=1+\varepsilon$, $c=2+\varepsilon$, and
+\[
+ \rho_\varepsilon=\frac{1+3\varepsilon/4}{1+\varepsilon}<1.
+\]
+Choose $\eta=\eta_\varepsilon\le\varepsilon^2/128$ so small
+that, with $r,j,\kappa$ as in
+Proposition~\ref{cg:conditional-input},
+\begin{equation}
+ \frac{(1+e(\kappa))(1+\varepsilon/2)+\eta2^{1-j}}
+      {(\ell-\eta)(1-e(r))}\le\rho_\varepsilon,
+ \qquad e(r)<1,\quad r\ge8.
+ \label{cg:strict-choice}
+\end{equation}
+Such a choice exists: the ratio tends to
+$(1+\varepsilon/2)/(1+\varepsilon)$ as $\eta\downarrow0$.
+
+Discard core primes greater than $M$, and compute
+$\mu=\sum_{p\in E}w_p/(p-1)$ on the remaining support.
+If $\mu\ge1+\varepsilon/2$, equations
+\eqref{cg:high-mean-input} and \eqref{cg:automatic} give the
+stronger full-prefix threshold-two inequality after adding $W$.
+Restriction to $A$ proves the assertion.
+
+Suppose $\mu\le1+\varepsilon/2$. Equations
+\eqref{cg:unconditional-ratio} and \eqref{cg:strict-choice} give
+\[
+ \#\{a\le T:V(a)>s+\ell\}
+ \le\rho_\varepsilon\#\{b\in J:V(b)>s\}
+ \qquad(T>0, s\ge0).
+\]
+This comparison is uniform at every smaller length as well.
+Integrating over $s\ge1$ gives its base hinge version at thresholds
+$c$ and one. Apply Lemma~\ref{cg:gluing} with $C=V$,
+$u_r(e)=\min\{w_re,1\}$, and $A_0=B_0=0$. This proves
+\begin{equation}
+ \sum_{a\in A}(V(a)+U(a)-c)_+
+ \le\rho_\varepsilon\sum_{b\in I}(V(b)+U(b)-1)_+.
+ \label{cg:strict-capped}
+\end{equation}
+Dropping the factor $\rho_\varepsilon\le1$ and applying
+Lemma~\ref{cg:tails} to all $R$-coordinates restores their arbitrary
+raw weights and powers. Finally restore the removed core primes on the
+target side. This proves \eqref{cg:diffuse-hinge}.
+\end{proof}
+
+In the low-mean case, if every source has at most one remainder
+\emph{occurrence} and $w_r\le1$, its remainder tail is zero.
+Then \eqref{cg:strict-capped} yields the strict raw comparison with
+factor $\rho_\varepsilon$ as well. Arbitrary remainder powers need
+only the non-strict comparison in the theorem.
+
+\begin{theorem}[One arbitrary core coordinate]
+\label{thm:cg-one-heavy}
+For every $\varepsilon>0$ there is $\eta_\varepsilon^*>0$ such
+that Theorem~\ref{thm:cg-diffuse} remains valid when one prime
+$q\in E$ has an arbitrary nonnegative raw weight and every other
+core weight is at most $\eta_\varepsilon^*$. The number of
+possible remainder primes and their weights are still unrestricted.
+\end{theorem}
+
+\begin{proof}
+Again take $0<\varepsilon\le1$ and $\ell=1+\varepsilon$.
+Write
+\[
+ V_0(n)=\sum_{p\in E\setminus\{q\}}w_pv_p(n),\qquad
+ C(n)=V_0(n)+w_qv_q(n).
+\]
+Choose $\eta_\varepsilon^*$ no larger than the $k=1$ threshold
+in Lemma~\ref{cg:uniform-eta}. Discard light primes above $M$
+before computing their mean $\mu_0$.
+The high-mean case $\mu_0\ge1+\varepsilon/2$ follows from
+\eqref{cg:high-mean-input} and \eqref{cg:automatic} after adding
+both the $q$-coordinate and the remainder load.
+
+In the low-mean case, the conditional input gives
+\begin{equation}
+ \#\{a\le T:(a,q)=1, V_0(a)>s+\ell\}
+ \le\#\{b\in J:(b,q)=1, V_0(b)>s\}
+ \quad(s\ge0).
+ \label{cg:one-conditional}
+\end{equation}
+We claim that the unrestricted core $C$ itself satisfies
+\begin{equation}
+ \#\{a\le T:C(a)>s+\ell\}
+ \le\#\{b\in J:C(b)>s\}
+ \quad(T>0, s\ge0).
+ \label{cg:one-level}
+\end{equation}
+Decompose integers uniquely as $q^jt$ with $(t,q)=1$.
+For every $j$ with $s-w_qj\ge0$, apply
+\eqref{cg:one-conditional} at real length $T/q^j$, to the scaled
+target interval and shifted level $s-w_qj$.
+If $w_q=0$, these are all pieces. Otherwise the negative shifted
+levels form the single suffix
+\[
+ j\ge j_0,\qquad j_0=\lfloor s/w_q\rfloor+1.
+\]
+On this suffix the target condition is automatic, since $V_0\ge0$.
+The source count is at most $\lfloor T/q^{j_0}\rfloor$, whereas
+the target count of the entire suffix is exactly the number of
+$q^{j_0}$-multiples in $J$, which is at least that number.
+All target exponents belong to this comparison, including $q^j>T$.
+The boundary $w_qj=s$ belongs to the nonnegative-level case, not
+to the suffix. Summing proves \eqref{cg:one-level} without error.
+
+Integrating \eqref{cg:one-level} over $s\ge1$ gives the base
+hinge comparison. The function $C$ is nonnegative and invariant
+under every remainder-prime power. Lemma~\ref{cg:gluing}, now
+with $\rho=1$ and zero errors, glues all capped remainder profiles.
+Lemma~\ref{cg:tails} restores their tails. This proves the result.
+The same suffix argument would permit any nondecreasing nonnegative
+$q$-adic profile, although only the raw profile is needed here.
+\end{proof}
+
+\subsection{Finite variation of a capped exceptional upper set}
+
+For several exceptional core coordinates, the negative-level pieces
+need not form a single prime-power suffix. Their collective discrepancy
+can nevertheless be bounded independently of the interval length.
+
+\begin{lemma}[A finite divisor expansion]
+\label{lem:cg-variation}
+Let $F$ contain at most $k$ primes, each with $w_q\ge\eta>0$, and
+put
+\[
+ Z(n)=\sum_{q\in F}\min\{w_qv_q(n),1\},\qquad
+ f_s(n)=\mathbf1_{Z(n)>s}\quad(s\ge0).
+\]
+For every real $T>0$ and interval $J$ of length $T$,
+\begin{equation}
+ \left|\sum_{a\le T}f_s(a)-\sum_{b\in J}f_s(b)\right|
+ \le4^k\binom{k+\lfloor s/\eta\rfloor}{k}.
+ \label{cg:variation-bound}
+\end{equation}
+If $s\ge k$, or if $F$ is empty, the difference is zero.
+\end{lemma}
+
+\begin{proof}
+The empty case is immediate. Write $F=\{q_1,\ldots,q_f\}$,
+$f\le k$, and set $b_i=\lceil1/w_{q_i}\rceil$.
+Let $u_i(j)=\min\{w_{q_i}j,1\}$ and
+\[
+ g_s(j_1,\ldots,j_f)=\mathbf1_{\sum_i u_i(j_i)>s}.
+\]
+For a nonnegative integer vector $\mathbf j$, define its mixed
+divisor coefficient by
+\begin{equation}
+ a_{\mathbf j}(s)=
+ \sum_{\substack{e_i\in\{0,1\}\\ e_i\le j_i\ (1\le i\le f)}}
+ (-1)^{\sum_i e_i}g_s(\mathbf j-\mathbf e).
+ \label{cg:finite-difference}
+\end{equation}
+Thus subtraction of one is allowed only in positive coordinates.
+Telescoping separately in every coordinate gives the exact identity
+\begin{equation}
+ f_s(n)=\sum_{\mathbf j:\,\prod_iq_i^{j_i}\mid n}a_{\mathbf j}(s).
+ \label{cg:divisor-expansion}
+\end{equation}
+If $j_i>b_i$ for any coordinate, the two adjacent layers of that
+capped profile coincide, and its mixed difference is zero.
+Consequently the expansion is finite. Also
+$|a_{\mathbf j}(s)|\le2^f$.
+
+For a nonzero vector $\mathbf j$, put $z_i=(j_i-1)_+$.
+If $\sum_i u_i(z_i)>s$, all corners in
+\eqref{cg:finite-difference} equal one, and their alternating sum
+vanishes. The zero vector also has coefficient zero, since $s\ge0$
+and $g_s(\mathbf0)=0$. A nonzero coefficient therefore requires
+\[
+ \sum_i u_i(z_i)\le s.
+\]
+On the relevant grid $j_i\le b_i$, one has $z_i<b_i$, so
+$u_i(z_i)=w_{q_i}z_i\ge\eta z_i$. Hence every nonzero
+coefficient satisfies
+\begin{equation}
+ \sum_i z_i\le s/\eta.
+ \label{cg:corner-support}
+\end{equation}
+There are $\binom{f+\lfloor s/\eta\rfloor}{f}$ possible vectors
+of nonnegative integers $z_i$ satisfying \eqref{cg:corner-support}.
+Each zero coordinate $z_i=0$ permits $j_i=0$ or $1$; a positive
+$z_i$ determines $j_i$ uniquely. Thus
+\begin{equation}
+ \sum_{\mathbf j}|a_{\mathbf j}(s)|
+ \le4^f\binom{f+\lfloor s/\eta\rfloor}{f}
+ \le4^k\binom{k+\lfloor s/\eta\rfloor}{k}.
+ \label{cg:variation-norm}
+\end{equation}
+
+For each divisor $d$, its count in $J$ is either
+$\lfloor T/d\rfloor$ or $\lfloor T/d\rfloor+1$.
+Its prefix count is $\lfloor T/d\rfloor$. Each divisor-count
+discrepancy thus has absolute value at most one. The triangle
+inequality and \eqref{cg:variation-norm} prove
+\eqref{cg:variation-bound} in both signs. This two-sided version
+will be needed when the aggregate core tail is restored.
+Finally, $Z(n)\le f\le k$, so $f_s$ vanishes for $s\ge k$.
+\end{proof}
+
+\subsection{Aggregating negative levels before estimating them}
+
+\begin{lemma}[The collective exceptional-level defect]
+\label{lem:cg-level-defect}
+Let \(F,L\) be disjoint, let \(F\) contain at most \(k\) primes with
+\(w_q\ge\eta>0\), and define
+\[
+ \begin{aligned}
+ V(n)&=\sum_{p\in L}w_pv_p(n),&
+ X_F(n)&=\sum_{q\in F}w_qv_q(n),\\
+ Z(n)&=\min\{X_F(n),1\},& C(n)&=V(n)+Z(n).
+ \end{aligned}
+\]
+Suppose the conditional comparison \eqref{cg:conditional-level}
+holds for \(V,F,\ell\) at every nonnegative level and every real
+length. Then, for all \(s\ge0\), all real \(T>0\), and intervals
+\(J\) of length \(T\),
+\begin{equation}
+ \begin{split}
+ &\#\{a\le T:C(a)>s+\ell\}-\#\{b\in J:C(b)>s\}\\
+ &\qquad\le
+ \sum_{a\le T}\mathbf1_{Z(a)>s}
+       -\sum_{b\in J}\mathbf1_{Z(b)>s}.
+ \end{split}
+ \label{cg:aggregate-defect}
+\end{equation}
+In particular, the level defect for \(0\le s\le1\) is at most
+\[
+ B_{\eta,k}=4^k\binom{k+\lfloor1/\eta\rfloor}{k}
+ \quad(k\ge1),
+\]
+and, with \(c=1+\ell\), the base hinge has no defect:
+\begin{equation}
+ \sum_{a\le M}(C(a)-c)_+-\sum_{b\in I}(C(b)-1)_+
+ \le0.
+ \label{cg:base-defect}
+\end{equation}
+The aggregate cap also satisfies
+\begin{equation}
+ \left|\sum_{a\le T}Z(a)-\sum_{b\in J}Z(b)\right|
+ \le B_{\eta,k}.
+ \label{cg:aggregate-cap-variation}
+\end{equation}
+For \(k=0\), \(B_{\eta,0}=0\).
+\end{lemma}
+
+\begin{proof}
+Decompose each positive integer uniquely as \(n=ht\), where \(h\)
+is its full \(F\)-smooth part and \((t,F^\Pi)=1\). Thus
+\[
+ C(ht)=Z(h)+V(t).
+\]
+For every \(h\) with \(Z(h)\le s\), apply the conditional input at
+length \(T/h\), in the scaled target interval, at the nonnegative
+level \(s-Z(h)\). The defect from this exact part is nonpositive.
+
+For \(h\) with \(Z(h)>s\), the target condition holds automatically,
+because \(V(t)\ge0\). The source contribution is at most the
+unrestricted prefix count with this exact \(F\)-part. Sum all these
+pieces before estimating their discrepancy. The sum is precisely
+the difference of the two exceptional upper-set counts on the
+right of \eqref{cg:aggregate-defect}. All target exact parts are
+included, even those with \(h>T\). This proves the displayed
+comparison; no error has been assigned separately to each smooth
+part.
+
+For \(0\le s<1\), the exceptional upper set is unchanged by
+individual coordinate caps:
+\[
+ \mathbf1_{Z(n)>s}
+ =\mathbf1_{X_F(n)>s}
+ =\mathbf1_{\sum_{q\in F}\min\{w_qv_q(n),1\}>s}.
+\]
+Lemma~\ref{lem:cg-variation} therefore bounds its discrepancy in
+both signs by \(B_{\eta,k}\). At \(s\ge1\), the upper set is
+empty. This proves the level error on \(s\in[0,1]\).
+Integrating \eqref{cg:aggregate-defect} over \(s\ge1\) gives
+\eqref{cg:base-defect}, since its right side is now identically
+zero. Finally,
+\[
+ Z(n)=\int_0^1\mathbf1_{Z(n)>s}\,ds.
+\]
+Integrating the two-sided discrepancy bound over this unit interval
+proves \eqref{cg:aggregate-cap-variation}.
+\end{proof}
+
+\subsection{The uniform controlled-core theorem}
+
+\begin{theorem}[Controlled substantial core coordinates]
+\label{thm:cg-controlled}
+For every \(\varepsilon>0\) there is \(c_\varepsilon>0\) such
+that the following holds for every integer \(k\ge0\). Put
+\[
+ \eta=\frac{c_\varepsilon}{k+1}.
+\]
+Let \(E,R\) be disjoint finite prime sets. All but at most \(k\)
+weights in \(E\) are at most \(\eta\); the remaining core weights
+and all \(R\)-weights may be arbitrary nonnegative numbers. Define
+\[
+ X(n)=\sum_{p\in E\cup R}w_pv_p(n).
+\]
+If \(A\subseteq\{2,\ldots,M\}\) is distinct and each source is
+divisible by at most one distinct \(R\)-prime, then
+\begin{equation}
+ \sum_{a\in A}(X(a)-2-\varepsilon)_+
+       -\sum_{b\in I}(X(b)-1)_+
+ \le B_{\varepsilon,k}(1+|R|)
+ \label{cg:controlled-defect}
+\end{equation}
+for every positive \(M\)-term interval. Arbitrary powers of the
+one remainder prime and arbitrary unweighted cofactors are allowed.
+For \(k\ge1\), one may take
+\begin{equation}
+ B_{\varepsilon,k}
+ =4^k\binom{k+\lfloor1/\eta\rfloor}{k}.
+ \label{cg:error-constants}
+\end{equation}
+For \(k=0\), take \(B_{\varepsilon,0}=0\). The constant is
+independent of \(M\), the prime values, the weights, and the interval
+shift. One may restrict \(R\) to the primes occurring in the
+sources. More precisely, the whole right side of
+\eqref{cg:controlled-defect} may be replaced by
+\begin{equation}
+ B_{\varepsilon,k}+\sum_{r\in R}\min\{B_{\varepsilon,k},m_r\},
+ \qquad m_r=\#\{a\in A:r\mid a\}.
+ \label{cg:fibre-refinement}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+It suffices to treat \(0<\varepsilon\le1\). Choose
+\(c_\varepsilon\) as in Lemma~\ref{cg:uniform-eta} and put
+\[
+ F=\{p\in E:w_p>\eta\},\qquad L=E\setminus F,\qquad
+ V(n)=\sum_{p\in L}w_pv_p(n).
+\]
+Then \(|F|\le k\), and every \(F\)-weight is at least \(\eta\).
+Discard light primes above \(M\) before computing
+\(\mu_L=\sum_{p\in L}w_p/(p-1)\). If
+\(\mu_L\ge1+\varepsilon/2\), the moment alternative
+\eqref{cg:high-mean-input} applies because
+\(\eta\le\varepsilon^2/128\). Adding all the remaining
+nonnegative coordinates and using \eqref{cg:automatic} proves
+\eqref{cg:controlled-defect} with zero error.
+
+It remains to assume \(\mu_L\le1+\varepsilon/2\). The conditional
+level comparison is now available uniformly at every real length,
+with excluded set \(F\) and gap \(\ell=1+\varepsilon\).
+Cap the whole substantial core at one, and cap each remainder
+coordinate at one:
+\[
+ \begin{split}
+ X_F(n)&=\sum_{q\in F}w_qv_q(n),\qquad
+ Z(n)=\min\{X_F(n),1\},\qquad T_F(n)=X_F(n)-Z(n),\\
+ U(n)&=\sum_{r\in R}\min\{w_rv_r(n),1\},\\
+ T_R(n)&=\sum_{r\in R}(w_rv_r(n)-1)_+,\qquad
+ C(n)=V(n)+Z(n).
+ \end{split}
+\]
+Thus \(X=C+U+T_F+T_R\). Lemma~\ref{lem:cg-level-defect}
+gives a level error \(B_{\varepsilon,k}\) on \(s\in[0,1]\)
+and zero base hinge error. The function \(C\) is
+invariant under every \(R\)-prime power. Lemma~\ref{cg:gluing},
+with \(\rho=1\) and \(A_0=0\), therefore gives
+\[
+ \sum_{a\in A}(C(a)+U(a)-2-\varepsilon)_+
+ \le\sum_{b\in I}(C(b)+U(b)-1)_+
+       +B_{\varepsilon,k}|R|.
+\]
+
+The aggregate core tail is not a sum of separate prime-power
+profiles, so it requires a separate justified estimate. Linear raw
+prime-power counting and \eqref{cg:aggregate-cap-variation} give
+\begin{equation}
+ \begin{split}
+ \sum_{a\le M}T_F(a)-\sum_{b\in I}T_F(b)
+ &=\sum_{a\le M}X_F(a)-\sum_{b\in I}X_F(b)
+       +\sum_{b\in I}Z(b)-\sum_{a\le M}Z(a)\\
+ &\le B_{\varepsilon,k}.
+ \end{split}
+ \label{cg:aggregate-tail}
+\end{equation}
+Since \(T_F\ge0\), restriction to \(A\) preserves this upper
+bound. The remainder tails retain exact domination,
+\(\sum_A T_R\le\sum_I T_R\), as in Lemma~\ref{cg:tails}.
+If \(T_F+T_R>0\), then \(C+U\ge1\): either \(Z=1\), or
+one capped remainder coordinate equals one. Consequently
+\[
+ (X-1)_+=(T_F+T_R)+(C+U-1)_+,
+ \qquad
+ (X-2-\varepsilon)_+
+ \le T_F+T_R+(C+U-2-\varepsilon)_+.
+\]
+Restoring these tails therefore costs at most one additional
+\(B_{\varepsilon,k}\), not a separate cost for each exceptional
+coordinate or smooth part. Restoring light primes above \(M\)
+only increases the target load. This proves
+\eqref{cg:controlled-defect}.
+
+Primes of \(R\) absent from \(A\) may be removed before the proof
+and restored only on the target side. The refined error
+\eqref{cg:fibre-refinement} follows from the refined assertion of
+Lemma~\ref{cg:gluing}; the aggregate tail restoration adds the
+single \(B_{\varepsilon,k}\) in \eqref{cg:fibre-refinement}.
+\end{proof}
+
+The coefficient in the theorem is not asserted to be optimal.
+In particular, Theorem~\ref{thm:cg-one-heavy} proves zero error
+when \(k=1\) and the light threshold is chosen for that theorem.
+The finite-variation estimate is designed to remain uniform for a
+growing number of substantial core coordinates.
+
+The error in \eqref{cg:aggregate-tail} cannot simply be replaced by
+an assertion of exact prefix dominance for aggregate tails. Take
+\(F=\{11,13,17\}\), all weights one, \(M=221\), and
+\(I=\{2313,\ldots,2533\}\). The tail
+\(T_F=(X_F-1)_+\) has prefix sum five: its positive contributions
+occur at \(121,143,169,187,221\), each with value one. On \(I\),
+the sum is four: \(2366\) and \(2420\) contribute one each, while
+\(2431=11\cdot13\cdot17\) contributes two. This is a counterexample
+to that intermediate dominance assertion, not to a hinge theorem
+or to problem 708.
+
+\begin{corollary}[Exponential growth of the error constant]
+\label{cg:error-growth}
+For \(k\ge1\), the constant above satisfies
+\begin{equation}
+ B_{\varepsilon,k}\le D_\varepsilon^k,\qquad
+ D_\varepsilon=4e(1+2/c_\varepsilon).
+ \label{cg:quantitative-errors}
+\end{equation}
+In the notation \(A_{\varepsilon,k}+B_{\varepsilon,k}|R|\),
+one may take \(A_{\varepsilon,k}=B_{\varepsilon,k}\).
+In particular, with no remainder primes, at most \(k\) substantial
+weights cause a full-prefix hinge defect at most \(D_\varepsilon^k\),
+uniformly in the ambient length.
+\end{corollary}
+
+\begin{proof}
+For \(k\ge1\),
+\[
+ \lfloor1/\eta\rfloor\le2k/c_\varepsilon.
+\]
+Apply \(\binom Nk\le(eN/k)^k\) in
+\eqref{cg:error-constants}. The no-remainder assertion follows
+by taking the full distinct prefix as the source set in the theorem.
+\end{proof}
+
+\subsection{What the controlled estimate excludes}
+
+Let \(n=|A|\to\infty\), and suppose the number of active remainder
+primes satisfies \(|R|\le C_0n/\log n\), for a fixed constant
+\(C_0\). Fix \(\varepsilon>0\) and \(0<\gamma<1\). If
+\begin{equation}
+ k\le\frac{(1-\gamma)\log\log n}{\log D_\varepsilon},
+ \qquad
+ \#\{p\in E:w_p>c_\varepsilon/(k+1)\}\le k,
+ \label{cg:controlled-range}
+\end{equation}
+then
+\[
+ B_{\varepsilon,k}|R|
+ =O\!\left(\frac{n}{(\log n)^\gamma}\right)=o(n),
+ \qquad B_{\varepsilon,k}=O((\log n)^{1-\gamma})=o(n).
+\]
+Since \(x\le2+\varepsilon+(x-2-\varepsilon)_+\), the raw
+dual objective of every such vector is at most
+\begin{equation}
+ \sum_{a\in A}X(a)-\sum_{b\in I}(X(b)-1)_+
+ \le(2+\varepsilon)n+o(n).
+ \label{cg:dual-exclusion}
+\end{equation}
+All error bounds here are independent of \(M\); no relation
+between \(M\) and \(n\) is needed for this deduction. In the
+minimal-obstruction class described later, the prime bound
+\(p<cn\), with fixed \(c>2\), gives the required bound on
+\(|R|\) by Chebyshev's estimate.
+
+In particular, \eqref{cg:controlled-range} excludes a witness with
+objective at least \((2+2\varepsilon)n\) for all sufficiently large
+\(n\). It does not exclude an arbitrarily small excess over
+\((2+\varepsilon)n\). This distinction is important when interpreting
+an asymptotic estimate as a restriction on possible witnesses.
+The theorem permits arbitrarily many substantial remainder weights;
+the controlled count in \eqref{cg:controlled-range} is entirely
+inside the designated core.
+
+There is also an integer source-class consequence, proved with the
+rounding step in Corollary~\ref{cor:tr-small-core}. If a designated
+core has size \(o(\log\log M)\) and each source has at most one
+distinct prime outside it, then
+\(\tau(A,I)\le(2+o(1))|A|\), uniformly, without any separation of
+prime sizes. In that application all core weights are unrestricted:
+the number of substantial ones is bounded by the size of the core
+for every dual vector.
+
+That integer corollary records what follows from the controlled-weight
+method. The separate construction in
+Theorem~\ref{thm:sc-polylog} permits a designated core of size
+\((\log M)^a\) for any fixed \(a<2\), and
+Corollary~\ref{cor:sc-chebyshev-core} permits
+\(c_0(\log M)^2/\log\log M\) core primes for an absolute \(c_0>0\).
+Those constructions do not, by themselves,
+increase the number of substantial coordinates handled uniformly
+inside an unrestricted larger core in \eqref{cg:controlled-range}.
+
+The unrestricted demand core can have size
+\(O(\sqrt{n/\log n})\), much larger than the controlled range above.
+The finite-variation errors therefore do not establish the
+unrestricted asymptotic conjecture. A general proof would have to
+bound their joint contribution more economically, or bypass these
+upper-set discrepancies while retaining the single target budget.

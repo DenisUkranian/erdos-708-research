@@ -1,0 +1,50 @@
+ERDOS #708 — LOCAL ARCHIVE INVENTORY REVIEW
+Assembled 2026-11-24 (Europe/Kyiv date).
+
+Scope: existing local files in all 11 ep708* research trees. This is an inventory and preservation review, not a new mathematical verification. No original research file was changed and no numerical search was rerun. No AGENTS.md was found in the accessible workspace inventory.
+
+1. Coverage and deduplication
+707 files were inspected at metadata/content-hash level. 342 substantive candidate paths reduce to 262 unique SHA-256 payloads, totaling 12,127,210 bytes before compression. The 11 prior ZIP archives contain 298 file members; all CRC checks pass, and every member is byte-identical to a file already present in the local tree. There are no ZIP-only files to recover, and no nested ZIP needs to be kept in the compact archive.
+
+Candidate extension counts (before deduplication): {".html": 1, ".json": 94, ".md": 140, ".pdf": 15, ".py": 46, ".tex": 36, ".txt": 10}
+
+2. Project groups
+- ep708_20261122: 53 substantive paths; 1,517,680 bytes before duplicate removal.
+- ep708_20261123: 39 substantive paths; 1,187,852 bytes before duplicate removal.
+- ep708_continuation_20261123: 36 substantive paths; 1,356,370 bytes before duplicate removal.
+- ep708_dot_20261123: 16 substantive paths; 522,236 bytes before duplicate removal.
+- ep708_flow_20261123: 20 substantive paths; 441,505 bytes before duplicate removal.
+- ep708_global_20261123: 31 substantive paths; 2,991,715 bytes before duplicate removal.
+- ep708_jweak_20261123: 21 substantive paths; 864,602 bytes before duplicate removal.
+- ep708_ladder_20261123: 22 substantive paths; 550,649 bytes before duplicate removal.
+- ep708_surplus_20261123: 15 substantive paths; 435,293 bytes before duplicate removal.
+- ep708_synthesis_20261123: 69 substantive paths; 4,885,118 bytes before duplicate removal.
+- ep708_top_tail_20261123: 20 substantive paths; 509,521 bytes before duplicate removal.
+
+3. Preserve these material classes
+- All 11 distinct principal research PDFs and their TeX sources. In particular, synthesis and continuation reports have separate sections/*.tex files that are required for rebuilding.
+- All mathematical notes, audit/counterexample notes, and status/provenance snapshots. Older claims are historical evidence, not an assertion that the general problem is solved.
+- All Python implementations and exact JSON certificates/results, including exploratory and failed-approach data. These were obtained earlier and should remain in the archive without being presented as new calculations.
+- The original requirements.txt, which pins numpy==2.3.5 and scipy==1.17.0. Most exact checkers need only the Python standard library; matching/LP/MILP and numerical searches also use NumPy/SciPy.
+- Source snapshots by Chen and Wang, and the local README/provenance descriptions identifying them. Preserve them as third-party reference snapshots, not as our complete source repositories.
+- Historical manifests and checksums, explicitly labeled as referring to their original bundles. They should not be confused with the consolidated archive manifest.
+- erdos708_research_note.html is a distinct output representation, not a byte duplicate; retain if the goal is all obtained substantive files.
+
+4. Safe omissions
+All .log files were checked at their headers and are TeX/font-build logs, not computational result logs. The compile_*.txt files, build directories, tex_cache, __pycache__, .aux/.out/.toc/.pyc/.fmt files, rendered QA pages/contact sheets, and qa/pages.json can be omitted. Research outputs are retained in JSON/notes. The unrelated dm39125_review directory (circle manuscript referee report and image) is outside problem 708. There are no other non-hidden local top-level project directories.
+
+5. Reproducibility and alias risks
+- Do not silently drop a required neighboring certificate or imported helper merely because it hashes to the same bytes elsewhere. Either retain the small path-dependent duplicate files or provide an alias-restoration script that reconstructs the original ep708* directory tree from a complete hash/alias map.
+- seed_repair_probe.py imports h2_crt_search from sibling ep708_20261123/computation using its original two-level-relative directory structure. Preserve or reconstruct this layout.
+- Several verifier scripts read a neighboring JSON file through Path(__file__).with_name(...); these pairings must survive consolidation.
+- The main synthesis and continuation TeX documents use sections/... relative inputs. Compile them from their own project directories or use a build script that changes directory.
+- Local third-party source snapshots are incomplete as standalone manuscripts: Chen main inputs sec_signed, sec_h17, sec_chain19, sec_h97, sec_h883, sec_remains, but only the final three are locally present in ep708_20261123/reference; Wang main inputs frontmatter.tex, raw-transfer.tex and five-prime.tex, with frontmatter.tex absent locally. This is not a missing file from our generated reports. Record the limitation rather than describing the source snapshots as fully buildable repositories.
+- Existing reports have historical status fields and rejected hypotheses. Keep the latest current-status index separate and point readers to proof_ladders and dot_audit before earlier attempts.
+
+6. Exact machine-readable outputs
+LOCAL_FILE_INVENTORY.json: every local path, size, hash, inclusion/exclusion decision; all duplicate groups; every prior ZIP member and its local byte matches.
+ZIP_ONLY_MEMBERS.json: empty array, confirming no members require extraction.
+REPRODUCTION_REFERENCES.json: Python imports and path-sensitive references, plus TeX input declarations.
+
+7. High-priority gaps beyond this local task
+Only the parent agent can determine which Library PDFs differ from these local versions and which other chats have recoverable files. Preserve differing bytes as distinct versions; do not infer equality from a shared filename. A search result or chat summary is not a complete transcript. This inventory establishes local completeness, not exhaustive access to every past chat.

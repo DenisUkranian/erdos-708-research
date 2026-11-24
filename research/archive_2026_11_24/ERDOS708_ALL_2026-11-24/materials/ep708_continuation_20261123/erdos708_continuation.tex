@@ -1,0 +1,243 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=23mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,array}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[colorlinks=true,linkcolor=MidnightBlue,urlcolor=MidnightBlue,citecolor=MidnightBlue]{hyperref}
+\usepackage{microtype,fancyhdr}
+\hypersetup{pdftitle={Erdos 708: Controlled Cores and Joint Divisor Certificates},pdfauthor={Research working note prepared for Denis Paliy},pdfsubject={Further partial results; the unrestricted conjectures remain unresolved}}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Erd\H{o}s 708: controlled cores and joint certificates}
+\fancyhead[R]{\small 23 November 2026}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\DeclareMathOperator{\lcm}{lcm}
+\title{\textbf{Erd\H{o}s Problem 708:\\Controlled Cores and Joint Divisor Certificates}\\[5pt]
+\large Further partial results and an explicit remaining inequality}
+\author{Research working note prepared for Denis Paliy\\
+\small AI-assisted derivations with separate internal mathematical audits}
+\date{23 November 2026}
+\begin{document}
+\maketitle
+\begin{center}
+\fcolorbox{MidnightBlue}{blue!3}{\parbox{0.92\linewidth}{
+\textbf{Status.} The unrestricted bounds \(2n\) and \((2+o(1))n\)
+remain unproved in this investigation. The new results below close
+several specific gaps in the previous argument. They include an
+asymptotic coefficient-two theorem with a polylogarithmic prime core,
+without a gap between prime sizes, and a separate theorem for small
+and large prime bands with arbitrarily small fixed large-prime
+exponent. Complete new proofs and inherited proof dependencies are
+provided. Internal cross-checks are not external peer review or
+formal verification; no priority claim is made.
+}}
+\end{center}
+\begin{abstract}
+We continue the investigation of product-divisibility covers of
+intervals. A joint hinge comparison handles an arbitrary diffuse
+core and any number of possible remainder primes, provided each
+source uses at most one distinct remainder prime. A single arbitrary
+core coordinate causes no error. For \(k\) substantial core
+coordinates, an aggregate cap and a finite divisor expansion of
+upper sets yield an error at most \(B_{\varepsilon,k}(1+|R|)\),
+independent of the ambient length, with
+\(B_{\varepsilon,k}\le D_\varepsilon^k\). A separate direct
+construction strengthens the resulting integer source class:
+\((2+o(1))n\) positions suffice when a designated core has at most
+\(c_0(\log M)^2/\log\log M\) primes for a sufficiently small
+absolute \(c_0>0\), and each source has at most one distinct prime
+outside it. This includes every fixed power \((\log M)^a\),
+\(0<a<2\). In a
+different regime, a discounted signed divisor certificate allows
+bounded positive overlap and absorbs arbitrary pure-core sources.
+It proves the same integer bound when source primes lie below
+\(\exp(o(\sqrt{\log M}))\) or above \(M^\alpha\), for every fixed
+\(\alpha>0\), and for an explicit shrinking exponent. A uniform
+moment calculation also excludes all sufficiently large dual means.
+We isolate the remaining growing-core hinge estimate that would
+imply the unrestricted asymptotic conjecture.
+\end{abstract}
+\begingroup
+\small
+\setcounter{tocdepth}{1}
+\setlength{\parskip}{1pt}
+\makeatletter
+\renewcommand{\l@section}[2]{\@dottedtocline{1}{0em}{2em}{#1}{#2}}
+\makeatother
+\tableofcontents
+\endgroup
+\newpage
+
+\section{Scope, common notation, and the previous checkpoint}
+\label{ct:scope}
+
+Let \(A\subseteq\{2,\ldots,M\}\) contain \(n\) distinct integers,
+and let \(I=\{x+1,\ldots,x+M\}\), where \(x\ge0\) is an integer.
+The smallest cardinality of a subset \(B\subseteq I\) for which
+\(\prod A\mid\prod B\) is denoted by \(\tau(A,I)\).
+All selected target positions are distinct. The original problem
+takes \(M=\max A\); an ambient length \(M\ge\max A\) is essential
+when sources are deleted during an induction.
+It suffices to consider positive intervals: an interval containing
+zero has a singleton cover, and an entirely negative interval is
+reflected by taking absolute values.
+
+The preceding report \cite{Synthesis} consolidated the submitted
+\(32n^{5/2}\) argument, the forced-bank structural reduction, and
+several fractional and integer covering theorems. The quadratic
+range used here is an external theorem in Wang's written appendix:
+\begin{equation}
+ M\ge16n^2\quad\Longrightarrow\quad\tau(A,I)\le2n.
+ \label{ct:quadratic}
+\end{equation}
+Its ambient formulation was checked in the preceding investigation
+\cite[Appendix A]{Wang}. It is not a new result of this continuation.
+Selecting the whole interval also gives \(\tau\le2n\) when
+\(M\le2n\). Any remaining unrestricted exact obstruction is therefore
+inside \(2n<M<16n^2\). This is a containing range, not a claim that
+every smaller subrange remains untreated: Wang's result catalogue
+also records a narrow large-size range just above \(2n\).
+
+The earlier report and the inherited analytic proof notes are
+included in the companion archive. In particular, precise
+conditional diffuse and sieve estimates used below are stated
+where needed and linked to their full inherited proofs. All new
+gluing, finite-difference, overlap, transfer, and moment arguments
+are proved in this report.
+
+\subsection{A map of the additional conclusions}
+
+\begin{center}
+\small
+\begin{tabular}{p{0.47\linewidth}p{0.45\linewidth}}
+\toprule
+Hypothesis or gap & New conclusion\\
+\midrule
+Diffuse core; at most one distinct outside prime per source
+& One shared hinge comparison, even with arbitrarily many possible outside primes and arbitrary powers\\
+One arbitrary substantial core coordinate
+& The same comparison with zero additive error\\
+At most \(k\) substantial core coordinates
+& Error at most \(B_{\varepsilon,k}(1+|R|)\), with no dependence on \(M\)\\
+A designated core of at most \(c_0(\log M)^2/\log\log M\) primes; one distinct outside prime per source
+& Integer \((2+o(1))n\), without any prime-size separation\\
+Arbitrary pure-core sources under the separated-support hypotheses below
+& Pure-core contraction and a common hinge budget close the previous additive-excess gap\\
+Prime support below \(Y\) or above \(M^\alpha\), \(\log Y=o(\sqrt{\log M})\)
+& Integer \((2+o(1))n\) for every fixed \(\alpha>0\); no separate bound on large-prime multiplicity\\
+Clipped dual mean at least \(241/136+o(1)\)
+& Exact \(H_2\) for every interval shift\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{The common fractional objective}
+
+Put \(D_p=\sum_{a\in A}v_p(a)\), and let \(P\) be the source
+prime support. The raw boxed fractional cover is
+\begin{equation}
+ L(A,I)=\min\left\{\sum_{b\in I}z_b:
+ 0\le z_b\le1,\quad
+ \sum_{b\in I}v_p(b)z_b\ge D_p\ (p\in P)\right\}.
+ \label{ct:lp}
+\end{equation}
+It is feasible because
+\begin{equation}
+ \prod A\mid M!\mid\prod I,
+ \qquad \prod I=M!\binom{x+M}{M}.
+ \label{ct:supply}
+\end{equation}
+For weights \(w_p\ge0\), define
+\[
+ X_w(a)=\sum_{p\in P}w_pv_p(a),\qquad
+ H_I(w)=\sum_{b\in I}(X_w(b)-1)_+,
+\]
+and, for a real \(c\ge0\),
+\[
+ \Delta_c(A,I,w)=\sum_{a\in A}(X_w(a)-c)_+-H_I(w).
+\]
+Ordinary linear-programming duality gives
+\begin{equation}
+ L(A,I)=\max_{w\ge0}
+ \left\{\sum_{a\in A}X_w(a)-H_I(w)\right\}.
+ \label{ct:dual}
+\end{equation}
+The maximum may be restricted to \(0\le w_p\le1\). Indeed, while
+\(w_p>1\), every target divisible by \(p\) has load greater than one.
+The slope of the displayed objective in that coordinate is
+\(D_p-\sum_{b\in I}v_p(b)\le0\), by \eqref{ct:supply}.
+Reducing that coordinate to one cannot decrease the objective.
+Repeating this operation proves the clipping assertion.
+
+Since \(t\le c+(t-c)_+\), a uniform estimate
+\begin{equation}
+ \Delta_c(A,I,w)\le E\quad(0\le w_p\le1)
+ \label{ct:hinge-target}
+\end{equation}
+implies \(L(A,I)\le cn+E\). The proofs below compare all source
+pieces against this \emph{one} target hinge. Independent covers or
+independent hinge budgets cannot simply be added at coefficient two.
+
+An optimal vertex of \eqref{ct:lp} has at most \(|P|\) coordinates
+strictly between zero and one. Otherwise a nonzero perturbation
+supported on those coordinates preserves the active valuation rows,
+contradicting extremality. Rounding these coordinates upward gives
+\begin{equation}
+ \tau(A,I)\le L(A,I)+|P|.
+ \label{ct:round}
+\end{equation}
+The fixed-ambient minimality argument below makes \(|P|=o(n)\)
+where this rounding estimate is needed.
+
+\input{sections/core_gluing.tex}
+\input{sections/transfer.tex}
+\input{sections/shared_core_matching.tex}
+\input{sections/block_support.tex}
+\input{sections/separated_support.tex}
+\input{sections/moment_bound.tex}
+\input{sections/remaining.tex}
+
+\clearpage
+\begin{thebibliography}{9}
+\bibitem{Wang}
+Z. Wang, \emph{Fractional-to-Integer Transference and Five-Prime
+Bounds for Interval Divisor Covers}, public working manuscript,
+version 1.0.0, 21 October 2026. Appendix A gives the quadratic
+coefficient-two gate.
+\href{https://github.com/science-prince/erdos-708-interval-divisor-covers}{Primary repository}
+and \href{https://github.com/science-prince/erdos-708-interval-divisor-covers/blob/main/docs/RESULTS.md}{result catalogue}.
+Consulted 23 November 2026.
+
+\bibitem{Synthesis}
+\emph{Erd\H{o}s Problem 708: Synthesis and Further Partial Results},
+AI-assisted working note prepared for Denis Paliy, 23 November 2026,
+27 pp. Included as \texttt{inherited/erdos708\_synthesis.pdf} in the
+companion archive, together with the analytic proof notes on which
+the present continuation depends. Internal research document;
+no external review or priority claim.
+
+\bibitem{Lagarias}
+J. C. Lagarias, \emph{Math 675: Combinatorial Sieve: Fundamental
+Lemma}, theorem and interval example, pp. 1--2.
+\href{https://websites.umich.edu/~lagarias/675notes/Estimate5-2015.pdf}{University of Michigan lecture notes}.
+
+\bibitem{GranvilleSound}
+A. Granville and K. Soundararajan, \emph{Multiplicative number
+theory: The pretentious approach}, Chapter 1, Theorem 1.4.2.
+\href{https://dms.umontreal.ca/~andrew/PDF/Book.To1.4.pdf}{Author-hosted text}.
+
+\bibitem{TaoMertens}
+T. Tao, \emph{Mertens' theorems}, 11 December 2013.
+\href{https://terrytao.wordpress.com/2013/12/11/mertens-theorems/}{Author's exposition}.
+\end{thebibliography}
+\end{document}

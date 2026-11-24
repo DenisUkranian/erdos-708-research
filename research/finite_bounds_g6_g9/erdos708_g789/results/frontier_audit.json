@@ -1,0 +1,376 @@
+{
+  "status": "PASS",
+  "random_direct_comparison_tests": 350,
+  "small_M_max": 240,
+  "maxima_checked": 61,
+  "all_exact_demand_vectors": 588195,
+  "checks": [
+    {
+      "M": 30,
+      "candidates": 8,
+      "all_demands": 1,
+      "frontier": 1
+    },
+    {
+      "M": 32,
+      "candidates": 9,
+      "all_demands": 9,
+      "frontier": 7
+    },
+    {
+      "M": 36,
+      "candidates": 10,
+      "all_demands": 36,
+      "frontier": 18
+    },
+    {
+      "M": 40,
+      "candidates": 11,
+      "all_demands": 86,
+      "frontier": 30
+    },
+    {
+      "M": 42,
+      "candidates": 12,
+      "all_demands": 167,
+      "frontier": 42
+    },
+    {
+      "M": 44,
+      "candidates": 13,
+      "all_demands": 307,
+      "frontier": 71
+    },
+    {
+      "M": 45,
+      "candidates": 14,
+      "all_demands": 668,
+      "frontier": 151
+    },
+    {
+      "M": 48,
+      "candidates": 15,
+      "all_demands": 970,
+      "frontier": 218
+    },
+    {
+      "M": 50,
+      "candidates": 16,
+      "all_demands": 1324,
+      "frontier": 231
+    },
+    {
+      "M": 54,
+      "candidates": 12,
+      "all_demands": 177,
+      "frontier": 70
+    },
+    {
+      "M": 56,
+      "candidates": 13,
+      "all_demands": 302,
+      "frontier": 93
+    },
+    {
+      "M": 60,
+      "candidates": 14,
+      "all_demands": 522,
+      "frontier": 153
+    },
+    {
+      "M": 63,
+      "candidates": 15,
+      "all_demands": 693,
+      "frontier": 179
+    },
+    {
+      "M": 64,
+      "candidates": 16,
+      "all_demands": 1000,
+      "frontier": 253
+    },
+    {
+      "M": 66,
+      "candidates": 17,
+      "all_demands": 1361,
+      "frontier": 290
+    },
+    {
+      "M": 70,
+      "candidates": 18,
+      "all_demands": 2591,
+      "frontier": 561
+    },
+    {
+      "M": 72,
+      "candidates": 19,
+      "all_demands": 3355,
+      "frontier": 733
+    },
+    {
+      "M": 75,
+      "candidates": 20,
+      "all_demands": 3991,
+      "frontier": 733
+    },
+    {
+      "M": 80,
+      "candidates": 17,
+      "all_demands": 1564,
+      "frontier": 352
+    },
+    {
+      "M": 81,
+      "candidates": 18,
+      "all_demands": 1894,
+      "frontier": 378
+    },
+    {
+      "M": 84,
+      "candidates": 19,
+      "all_demands": 2399,
+      "frontier": 454
+    },
+    {
+      "M": 88,
+      "candidates": 20,
+      "all_demands": 2933,
+      "frontier": 550
+    },
+    {
+      "M": 90,
+      "candidates": 21,
+      "all_demands": 5345,
+      "frontier": 1027
+    },
+    {
+      "M": 96,
+      "candidates": 22,
+      "all_demands": 5919,
+      "frontier": 1084
+    },
+    {
+      "M": 98,
+      "candidates": 23,
+      "all_demands": 6800,
+      "frontier": 1089
+    },
+    {
+      "M": 99,
+      "candidates": 24,
+      "all_demands": 8918,
+      "frontier": 1452
+    },
+    {
+      "M": 100,
+      "candidates": 25,
+      "all_demands": 12426,
+      "frontier": 2077
+    },
+    {
+      "M": 105,
+      "candidates": 21,
+      "all_demands": 6028,
+      "frontier": 1337
+    },
+    {
+      "M": 108,
+      "candidates": 22,
+      "all_demands": 6914,
+      "frontier": 1518
+    },
+    {
+      "M": 110,
+      "candidates": 23,
+      "all_demands": 7938,
+      "frontier": 1564
+    },
+    {
+      "M": 112,
+      "candidates": 24,
+      "all_demands": 11185,
+      "frontier": 2236
+    },
+    {
+      "M": 120,
+      "candidates": 21,
+      "all_demands": 5991,
+      "frontier": 1448
+    },
+    {
+      "M": 125,
+      "candidates": 22,
+      "all_demands": 6708,
+      "frontier": 1442
+    },
+    {
+      "M": 126,
+      "candidates": 23,
+      "all_demands": 8152,
+      "frontier": 1712
+    },
+    {
+      "M": 128,
+      "candidates": 24,
+      "all_demands": 9166,
+      "frontier": 1906
+    },
+    {
+      "M": 132,
+      "candidates": 22,
+      "all_demands": 4723,
+      "frontier": 950
+    },
+    {
+      "M": 135,
+      "candidates": 23,
+      "all_demands": 8428,
+      "frontier": 1743
+    },
+    {
+      "M": 140,
+      "candidates": 24,
+      "all_demands": 9497,
+      "frontier": 1910
+    },
+    {
+      "M": 144,
+      "candidates": 25,
+      "all_demands": 10479,
+      "frontier": 2102
+    },
+    {
+      "M": 147,
+      "candidates": 26,
+      "all_demands": 11550,
+      "frontier": 2085
+    },
+    {
+      "M": 150,
+      "candidates": 27,
+      "all_demands": 13474,
+      "frontier": 2462
+    },
+    {
+      "M": 154,
+      "candidates": 28,
+      "all_demands": 14531,
+      "frontier": 2590
+    },
+    {
+      "M": 160,
+      "candidates": 25,
+      "all_demands": 12145,
+      "frontier": 2485
+    },
+    {
+      "M": 162,
+      "candidates": 26,
+      "all_demands": 13379,
+      "frontier": 2526
+    },
+    {
+      "M": 165,
+      "candidates": 27,
+      "all_demands": 15041,
+      "frontier": 2708
+    },
+    {
+      "M": 168,
+      "candidates": 28,
+      "all_demands": 20975,
+      "frontier": 3866
+    },
+    {
+      "M": 175,
+      "candidates": 29,
+      "all_demands": 22342,
+      "frontier": 3957
+    },
+    {
+      "M": 176,
+      "candidates": 30,
+      "all_demands": 24643,
+      "frontier": 4361
+    },
+    {
+      "M": 180,
+      "candidates": 31,
+      "all_demands": 30622,
+      "frontier": 5462
+    },
+    {
+      "M": 189,
+      "candidates": 30,
+      "all_demands": 22106,
+      "frontier": 3794
+    },
+    {
+      "M": 192,
+      "candidates": 31,
+      "all_demands": 24124,
+      "frontier": 4145
+    },
+    {
+      "M": 196,
+      "candidates": 29,
+      "all_demands": 16524,
+      "frontier": 2702
+    },
+    {
+      "M": 198,
+      "candidates": 30,
+      "all_demands": 18839,
+      "frontier": 3099
+    },
+    {
+      "M": 200,
+      "candidates": 31,
+      "all_demands": 25362,
+      "frontier": 4305
+    },
+    {
+      "M": 210,
+      "candidates": 27,
+      "all_demands": 14320,
+      "frontier": 2950
+    },
+    {
+      "M": 216,
+      "candidates": 28,
+      "all_demands": 15126,
+      "frontier": 3060
+    },
+    {
+      "M": 220,
+      "candidates": 29,
+      "all_demands": 16483,
+      "frontier": 3077
+    },
+    {
+      "M": 224,
+      "candidates": 30,
+      "all_demands": 22327,
+      "frontier": 4275
+    },
+    {
+      "M": 225,
+      "candidates": 31,
+      "all_demands": 24249,
+      "frontier": 4532
+    },
+    {
+      "M": 231,
+      "candidates": 32,
+      "all_demands": 26446,
+      "frontier": 4850
+    },
+    {
+      "M": 240,
+      "candidates": 29,
+      "all_demands": 22620,
+      "frontier": 4776
+    }
+  ],
+  "seconds": 55.22786259651184
+}

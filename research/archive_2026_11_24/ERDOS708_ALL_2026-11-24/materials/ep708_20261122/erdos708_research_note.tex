@@ -1,0 +1,595 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,array}
+\usepackage{microtype}
+\usepackage[hyphens]{url}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,hypertexnames=false]{hyperref}
+\usepackage{enumitem}
+\hypersetup{pdftitle={Erdos Problem 708: Verified Partial Arguments and the Remaining Gap},pdfauthor={Working research note prepared for Denis Paliy},pdfsubject={Partial research results; the general conjecture remains unresolved}}
+\setlist{itemsep=3pt,topsep=5pt}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem*{remark}{Scope}
+\DeclareMathOperator{\lcm}{lcm}
+\newcommand{\vp}{v_p}
+\newcommand{\pos}[1]{\left(#1\right)_+}
+\newcommand{\PP}{\mathcal P}
+\newcommand{\II}{I_{x,M}}
+\title{Erd\H{o}s Problem 708:\\Verified Partial Arguments and the Remaining Gap}
+\author{Working research note prepared for Denis Paliy}
+\date{22 November 2026}
+\begin{document}
+\maketitle
+\begin{center}
+\fbox{\parbox{0.91\textwidth}{\textbf{Status: the general problem is not solved in this note.}
+Neither $g(n)\le 2n$ nor $g(n)\le(2+o(1))n$ has been proved here.
+Theorems explicitly marked conditional depend on the unproved inequality
+$(H_2)$. The finite computations below do not establish a universal theorem.
+This is an AI-assisted research record, with no claim of literature priority,
+formal verification, journal acceptance, or independent human review.}}
+\end{center}
+
+\begin{abstract}
+We give a self-contained whole-cofactor extension argument valid at every
+interval length, including a saving for each distinct largest prime among
+the nonsmooth sources. Combined with a boxed linear relaxation, it gives a
+conditional bound $g(n)\le 2n+\pi(q_n)-1$, where
+$q_n=\min\{Z\ge2:Z\ge2n+\pi(Z)-1\}$, from the global hinge inequality
+$(H_2)$. Thus this conditional route has no remaining interval-size gap.
+An unconditional consequence covers sets whose every member has a prime
+factor greater than $2n-1$. We also give exact obstructions to two
+overly strong proof strategies, including a family on which a particular
+independent-prime charging bound has unbounded relative error while a
+valid cover uses $2n-2$ positions. Proofs, computations, assumptions, and
+attribution are separated throughout.
+\end{abstract}
+
+\section{The intended problem and the proof boundary}
+Let $A\subset\mathbb Z_{\ge2}$ have $n$ distinct elements. Put
+$M=\max A$ and
+\[
+ \II=\{x+1,\ldots,x+M\},\qquad x\in\mathbb Z_{\ge0}.
+\]
+Define
+\[
+ \tau(A,\II)=\min\left\{|B|:B\subseteq\II,\quad
+              \prod_{a\in A}a\mid\prod_{b\in B}b\right\},
+ \qquad g(n)=\sup_{A,x}\tau(A,\II).
+\]
+Every chosen interval position is used at most once. We use the intended
+``at most'' convention, not a literal exact-cardinality wording that can
+fail merely because an interval is too short. The questions are
+\[
+ g(n)\stackrel{?}{\le}2n,\qquad
+ g(n)\stackrel{?}{\le}(2+o(1))n.
+\]
+The recent finite-case paper of Tripodo explicitly leaves the general
+question open \cite{tripodo}. This note addresses that general question,
+without presenting small cases or a conditional reduction as its solution.
+
+Several arguments below work more generally with $M\ge\max A$.
+The whole interval is always a cover, because
+\[
+ \prod_{a\in A}a\mid M!,\qquad
+ \prod_{b\in\II}b=M!\binom{x+M}{M}.
+\]
+Consequently $M\le2n$ is immediate. Intervals containing zero are trivial;
+all-negative intervals reduce to positive intervals by reflection.
+
+\paragraph{Attribution.}
+The linear-programming formulation and the global raw-relaxation transfer
+are developed in Wang's source \cite{wang}. The cumulative-gcd extension
+and proper-divisor matching approach occur in Bergstr\"om's manuscripts
+\cite{berg-asym,berg-hinge}. The collision charging argument is already in
+Chen and is restated in Preil's notes \cite{chen,preil}. We rederive the
+parts used below and extend the whole-cofactor statement to all scales.
+No assertion of novelty or priority is made for these reformulations.
+
+\section{Whole-cofactor extension without a scale restriction}
+The next elementary lemma will keep repeated prime powers properly paid.
+
+\begin{lemma}[One-step extension]\label{lem:extension}
+Suppose $H\mid\prod_{b\in B}b$, where $B\subseteq\II$,
+$1\le h\le M$, and
+\[
+ \gcd(H,h)\le\left\lfloor\frac{M}{|B|+1}\right\rfloor.
+\]
+Then one unused position can be added so that the enlarged product is
+divisible by $Hh$. A unit request $h=1$ can instead be skipped.
+\end{lemma}
+\begin{proof}
+If an unused multiple of $h$ exists, select it. Otherwise at least one
+multiple of $h$ lies in $B$, so $h$ and $H$ both divide the current product.
+Therefore $\lcm(H,h)$ divides that product. Write $d=\gcd(H,h)$.
+The interval has at least $\lfloor M/d\rfloor\ge |B|+1$ multiples of $d$;
+one is unused. Multiplying by it supplies the missing factor in
+$Hh=d\lcm(H,h)$.
+\end{proof}
+
+Fix an integer $Z\ge2$. Let $A_0$ be the sources with largest prime factor
+at most $Z$. Write $r=|A\setminus A_0|$ and let $t$ be the number of
+distinct largest prime factors of sources in $A\setminus A_0$.
+
+\begin{theorem}[All-scale whole-cofactor extension]\label{thm:peeling}
+Let $B_0\subseteq\II$ cover $A_0$, and suppose $r>0$. Set
+\[
+ K=|B_0|+2r-t.
+\]
+If $Z\ge K$, then $B_0$ extends to a cover of $A$ of size at most $K$.
+There is no assumption $Z^2>M$.
+\end{theorem}
+\begin{proof}
+Group the remaining sources by their largest prime factor $p>Z$:
+$a_{p,1},\ldots,a_{p,m_p}$. We maintain a target integer $H$ known to
+divide the product of the selected positions. Extra prime factors in
+those positions do not change the definition of $H$.
+
+\emph{Stage 1: one complete source per group.}
+Process the groups in increasing $p$. Before a group is processed, $H$
+is the product of the smooth sources and one source from each earlier
+group. Thus $p\nmid H$, and
+\[
+ \gcd(H,a_{p,1})\le a_{p,1}/p\le M/p<M/Z.
+\]
+Before every addition $|B|+1\le |B_0|+t\le K\le Z$. The integer gcd
+therefore satisfies Lemma~\ref{lem:extension}. This stage uses at most
+$t$ additional positions and multiplies $H$ by each $a_{p,1}$.
+
+\emph{Stage 2: the chosen prime of each remaining source.}
+For each group we must multiply the target by $p^{m_p-1}$.
+If $p^2\le M$, the interval contains at least
+\[
+ \lfloor M/p\rfloor\ge p>Z\ge K
+\]
+multiples of $p$. A fresh multiple exists before every requested
+addition. Adding one per copy is valid even if other parts of the target
+also contain $p$.
+
+If $p^2>M$, every source contains $p$ to exponent at most one. Moreover
+no source in a different group contains $p$: a larger largest prime $q$
+would give $pq>M$, and a smaller largest prime cannot occur together
+with $p$. Thus the target before processing this group contains exactly
+one copy of $p$. The actual current product may contain more; write its
+$p$-valuation as $u\ge1$. If $u\ge m_p$, nothing is needed. Otherwise
+there are at least $\lfloor M/p\rfloor\ge m_p$ interval multiples of $p$,
+because the $m_p$ sources are distinct multiples of $p$ at most $M$.
+At most $u$ selected positions are divisible by $p$. Hence at least
+$m_p-u$ are unused; selecting these suffices. This adds at most $m_p-1$
+positions and preserves every other required valuation.
+Summed over groups, Stage 2 uses at most $r-t$ new positions.
+
+\emph{Stage 3: whole remaining cofactors.}
+For each $j\ge2$ put $d=a_{p,j}/p$. If $d>1$, then
+\[
+ |\II\cap d\mathbb Z|\ge\lfloor M/d\rfloor\ge p>Z\ge K.
+\]
+Select a fresh multiple of each such $d$, disjoint from all earlier
+positions. The cofactor may contain more copies of $p$ or other primes
+larger than $Z$; all of it is paid on this fresh position. At most $r-t$
+positions are added. Finally,
+\[
+ |B|\le |B_0|+t+(r-t)+(r-t)=K,
+\]
+and the factorization of the sources proves the required divisibility.
+\end{proof}
+
+\begin{corollary}[An unconditional class]\label{cor:rough}
+For $n\ge2$, suppose each $a\in A$ has a prime divisor greater than
+$2n-1$. If $t$ is the number of distinct largest prime factors in $A$,
+then
+\[
+ \tau(A,\II)\le2n-t\le2n-1.
+\]
+\end{corollary}
+\begin{proof}
+Set $Z=2n-1$, $A_0=\varnothing$, $B_0=\varnothing$, and $r=n$.
+Since $t\ge1$, the budget $K=2n-t$ is at most $Z$. Apply
+Theorem~\ref{thm:peeling}.
+\end{proof}
+\begin{remark}
+This corollary is a restricted theorem, not an assumption that can be
+made for an arbitrary input. Integers composed of primes at most $2n-1$
+remain a genuine obstruction to applying it to all of Problem 708.
+\end{remark}
+
+\section{The exact missing inequality and a conditional consequence}
+For weights $w_p\in[0,1]$ on primes $p\le M$, set
+\[
+ X_w(k)=\sum_{p\le M}w_pv_p(k),\qquad u_+=\max(u,0).
+\]
+The unproved global inequality in this route is
+\begin{equation}\tag{$H_2$}\label{eq:h2}
+ \sum_{a=1}^{M}\pos{X_w(a)-2}
+ \le \sum_{b\in\II}\pos{X_w(b)-1}
+ \quad\text{for every }M,x,w.
+\end{equation}
+We do not prove \eqref{eq:h2} here. The following consequences keep it
+as an explicit hypothesis.
+
+\subsection{Boxed relaxation and dual clipping}
+For $D_p(A)=\sum_{a\in A}v_p(a)$, define
+\[
+ L(A,I)=\min\left\{\sum_{b\in I}z_b:
+ 0\le z_b\le1,\quad\sum_{b\in I}v_p(b)z_b\ge D_p(A)
+ \text{ for all demanded }p\right\}.
+\]
+The upper boxes $z_b\le1$ are essential: an interval position cannot be
+used repeatedly. The term ``raw'' in the cited source refers to the
+coefficients $v_p(b)$, not to removal of those boxes.
+The feasible set is nonempty by the whole-interval observation. Finite
+linear-programming duality gives
+\begin{equation}\label{eq:dual}
+ L(A,I)=\max_{w_p\ge0}\left[
+  \sum_{a\in A}X_w(a)-\sum_{b\in I}\pos{X_w(b)-1}\right].
+\end{equation}
+If $w_p=1+\delta>1$, lower it to one. For every multiple of $p$ the
+right hinge remains in its linear region. Its total decrease is exactly
+$\delta\sum_{b\in I}v_p(b)$, whereas the source term decreases by
+$\delta D_p(A)$. The former is at least the latter, because
+\[
+ \sum_{b\in I}v_p(b)
+ \ge\sum_{e\ge1}\lfloor M/p^e\rfloor
+ \ge D_p(A).
+\]
+Thus clipping cannot reduce the dual objective, and weights in $[0,1]$
+suffice. If \eqref{eq:h2} holds, then
+\[
+ \sum_{a\in A}X_w(a)
+ \le 2|A|+\sum_{a=1}^M\pos{X_w(a)-2}
+ \le 2|A|+\sum_{b\in I}\pos{X_w(b)-1}.
+\]
+Therefore $L(A,I)\le2|A|$.
+
+Conversely, if $L(A,I)\le2|A|$ holds for all source subsets of
+$\{1,\ldots,M\}$, apply \eqref{eq:dual} to
+$A=\{a\le M:X_w(a)>2\}$ to recover \eqref{eq:h2}.
+The hinge formulation is therefore a substantive covering statement,
+not an innocuous estimate that can be omitted from the proof.
+
+\subsection{Rounding and all interval lengths}
+\begin{theorem}[Conditional; assumes global $(H_2)$]\label{thm:conditional}
+Let
+\[
+ q_n=\min\{Z\in\mathbb Z:Z\ge2,\quad Z\ge2n+\pi(Z)-1\}.
+\]
+If the global inequality \eqref{eq:h2} holds, then
+\[
+ g(n)\le 2n+\pi(q_n)-1
+       =2n+(2+o(1))\frac{n}{\log n}.
+\]
+In particular the asymptotic question would be answered for every
+interval length. This does not prove the exact inequality $g(n)\le2n$.
+\end{theorem}
+\begin{proof}
+The minimum exists: $Z=4n$ works since $\pi(4n)\le2n$.
+Split the sources at $Z=q_n$, and let $m$ be the number of smooth
+sources. If $m>0$, solve their boxed relaxation. An optimal vertex has
+at most $\pi(Z)$ fractional coordinates: otherwise its fractional
+columns are dependent on the tight demand rows, permitting a nonzero
+two-sided feasible perturbation. Rounding all fractional coordinates up
+preserves feasibility. If some coordinate is fractional, the increase
+is strictly less than their number; if none is fractional, the solution
+is already integral. Since $L\le2m$ and $\pi(Z)\ge1$, both cases give
+\[
+ |B_0|\le2m+\pi(Z)-1.
+\]
+If $m=0$, take $B_0=\varnothing$ instead. If there are no rough sources,
+we are done by the same rounding bound. Otherwise the budget in
+Theorem~\ref{thm:peeling} satisfies
+\[
+ |B_0|+2(n-m)-t\le2n+\pi(Z)-1\le Z.
+\]
+For $m=0$ it is even at most $2n-1$. The extension theorem applies at
+every $M$ and gives the finite bound. The integer function $Z-\pi(Z)$
+advances by zero or one at each step, so minimality (including the
+immediate case $n=1$) gives $q_n-\pi(q_n)=2n-1$.
+Together with $q_n\le4n$ and $\pi(x)=O(x/\log x)$, this implies
+$q_n=2n+O(n/\log n)$; the prime number
+theorem yields $\pi(q_n)=(2+o(1))n/\log n$.
+\end{proof}
+
+Wang's existing raw transfer already implies the sufficient conditional
+bound $g(n)\le2n+\pi(4n)-1$ from $(H_2)$ for all $M$ \cite{wang}.
+The threshold refinement above does not supply the missing hypothesis.
+
+\section{A collision charging bound cannot close the problem by itself}
+Choose, for each $a\in A$, an interval multiple $b_a$. Let $t$ be the
+number of distinct chosen multiples and let $S_b$ be the union of the
+prime supports of sources assigned to $b$. The known collision bound is
+\begin{equation}\label{eq:hub}
+ \tau(A,I)\le U:=t+\sum_{a\in A}\omega(a)-\sum_b|S_b|,
+\end{equation}
+where $\omega$ counts distinct prime factors \cite{chen,preil}.
+For completeness, for each prime $p$ the source-to-target graph matching
+$a$ to multiples of $p^{v_p(a)}$ satisfies Hall by nested neighborhoods:
+\[
+ \#\{a:p^e\mid a\}\le\lfloor M/p^e\rfloor
+ \le\#\{b\in I:p^e\mid b\}.
+\]
+Start a partial matching by assigning the largest $p$-valuation source
+in each relevant collision group to its chosen multiple. Augmenting
+paths extend it to a full matching while preserving the set of matched
+right vertices, although individual assignments can change. If $k_p$
+sources contain $p$ and $c_p$ such groups exist, this adds $k_p-c_p$
+new right vertices. Taking their union over $p$ proves \eqref{eq:hub}.
+
+\subsection{A small exact obstruction}
+Take
+\[
+ A=\{60,66,70,78,84,90\},\quad M=90,\quad L=\lcm(A)=180180,
+\]
+and $I=\{L-44,\ldots,L+45\}$. Each source exceeds $45$ and divides
+$L$, so its unique interval multiple is $L$. Every source has three
+distinct prime factors, whose union is $\{2,3,5,7,11,13\}$. Therefore
+every choice forces
+\[
+ U=1+18-6=13>12=2n.
+\]
+The actual product-cover optimum is only four, as established by exact
+0/1 dynamic programming in the accompanying code. A cover is
+\[
+ B=\{180140,180144,180145,180180\}.
+\]
+Its valuations at the demanded primes are
+\[
+\begin{array}{c|rrrrrr}
+ &2&3&5&7&11&13\\\hline
+ \prod A&8&6&3&2&1&1\\
+ \prod B&8&6&3&2&1&1
+\end{array}
+\]
+The displayed cover alone suffices to show that this obstruction is to
+the charging bound, not to Problem 708. The minimality claim is separately
+certified by exhaustive dynamic programming, not by a solver tolerance.
+
+\subsection{Unbounded overestimate on a whole family}
+\begin{proposition}\label{prop:family}
+For any fixed integer $s\ge3$, there is a family of genuine instances
+with $\gcd(A)=1$, connected prime support, and $2n<M<16n^2$, on which
+the forced expression $U$ in \eqref{eq:hub} is at least $(s-o(1))n$.
+For the same intervals there is an explicit cover with $2n-2$ positions.
+\end{proposition}
+\begin{proof}
+Let $D$ be the product of the first $s$ primes. Let odd $K\to\infty$
+satisfy $\gcd(K,D)=1$ and $K\ge2D$. Set
+\[
+ A_K=\{Dk:(K+1)/2\le k\le K\}\cup\{(D-1)K\},
+ \quad n=(K+3)/2,\quad M=DK.
+\]
+The extra source is not divisible by $D$ and is distinct from the others.
+The consecutive indices in the first group have gcd one, so
+$\gcd(A_K)=\gcd(D,(D-1)K)=1$. The first group shares the prime support
+of $D$, and the extra source shares the prime factors of $K$ with $DK$;
+hence the support is connected. All sources exceed $M/2$.
+
+Put $L=\lcm(A_K)$ and take
+$I_K=\{L-M/2+1,\ldots,L+M/2\}$. Every source has the unique multiple
+$L$. All active primes are at most $K$, and each source in the first
+group has at least $s$ distinct prime factors. Thus
+\[
+ U=1+\sum_{a\in A_K}\omega(a)-|\PP(A_K)|
+ \ge1+s(n-1)-\pi(K)=(s-o(1))n.
+\]
+The size conditions on $M$ hold for all sufficiently large $K$.
+
+To construct a small actual cover, select all $K$ multiples of $D$ in
+$I_K$. After division by $D$, they are $K$ consecutive integers whose
+product is divisible by $K!$. The product of the original selected
+multiples is therefore divisible by $D^K K!$. Writing $h=(K-1)/2$, its
+product divided by the first group's source product is a multiple of
+$D^h h!$. As $h\ge D-1$, this supplies $D-1$. There are exactly $D$
+multiples of $K$ in $I_K$, and exactly one is also a multiple of $D$
+because $\gcd(K,D)=1$. Add one of the others; it supplies the remaining
+factor $K$ without reusing a position. The cover size is
+$K+1=2n-2$.
+\end{proof}
+
+This family rules out the proposed universal numerical bound $U\le2n$
+even after simple gcd and connectedness reductions. It does not rule out
+using the same initial multiples with a more effective joint repair.
+
+\section{Proper-divisor matching: a sufficient hypothesis, not a proof}
+Let $\Omega(m)=\sum_p v_p(m)$ count prime factors with multiplicity, and
+let $\mathcal S_M=\{m\le M:\Omega(m)\ge3\}$. The following sufficient
+condition appears in Bergstr\"om's work \cite{berg-asym,berg-hinge}:
+\begin{equation}\label{eq:matching}
+ \text{There is an injection }f:\mathcal S_M\hookrightarrow\II
+ \text{ with }(m/p)\mid f(m)\text{ for some prime }p\mid m.
+\end{equation}
+If it holds, then $X_w(f(m))\ge X_w(m)-1$. Since $X_w(m)>2$ requires
+$\Omega(m)\ge3$, summing
+$\pos{X_w(f(m))-1}\ge\pos{X_w(m)-2}$ proves $(H_2)$.
+No universal proof of \eqref{eq:matching} was obtained in this work.
+
+\subsection{Removing only the largest prime is false}
+Here is an exact small obstruction to that restricted rule. Set
+\[
+ M=440,\qquad x=4400,\qquad I=\{4401,\ldots,4840\},
+\]
+and let
+\[
+ S=\{2k:4\le k\le220,\ k\text{ composite},\ k\ne169\}.
+\]
+There are $220-1-\pi(220)-1=171$ sources in $S$, all with
+$\Omega(m)\ge3$. The neighbor set for the rule
+$(m/P^+(m))\mid b$ is exactly the set of interval multiples of
+\[
+ 4,\ 6,\ 10,\ 14,\ 22.
+\]
+Indeed every composite $k\le220$ other than $13^2$ has a prime factor
+at most $11$ remaining after its largest prime is removed. Conversely
+the sources $2p^2$, $p\in\{2,3,5,7,11\}$, generate all five displayed
+divisibility classes.
+
+To count the neighbors, write even positions as $4620+2j$ with
+$-109\le j\le110$. Because $2310=2\cdot3\cdot5\cdot7\cdot11$,
+a position is a neighbor exactly when $j$ is divisible by one of these
+five primes. There are $85$ such positive $j\le110$, $84$ negative
+ones, and zero, for a total of $170$. The positive excluded integers
+are $1$ and the $24$ primes from $13$ to $109$.
+Thus Hall fails: $171>170$. Allowing removal of any prime, as in
+\eqref{eq:matching}, is a different assertion and is not refuted.
+
+\subsection{The full rule also fails if all composites are included}
+Replacing $\Omega(m)\ge3$ by $\Omega(m)\ge2$ makes the full any-prime
+rule false. An exact certificate in the archive uses
+\[
+ M=11763,\qquad H=5881,\qquad \pi(M)=1409.
+\]
+It supplies a set $T$ of $1411$ distinct offsets in $[-H,H]$, together
+with a residue $c_p$ for every prime $p\le M$, satisfying
+\[
+ c_p+k\not\equiv0\pmod p\quad(k\in T).
+\]
+The Chinese remainder theorem gives a center $C>H$ with
+$C\equiv c_p\pmod p$ for every such prime. In the $M$-term interval
+$[C-H,C+H]$, all $1411$ positions $C+k$ have no prime factor at most
+$M$. None can be a neighbor of a composite source $m\le M$, since
+every quotient $m/p$ is a nontrivial integer at most $M$.
+
+There are $M-1-\pi(M)=10353$ composite sources but at most
+$M-1411=10352$ neighbors, proving a Hall violation. The exact verifier
+checks every residue condition, a hexadecimal CRT representative, and
+the whole neighborhood. For all-composite sources that neighborhood is
+exactly the interval positions divisible by a prime $q\le M/2$:
+every nontrivial quotient has such a prime divisor, while source $2q$
+permits quotient $q$. Its verified size is $10352$.
+
+This construction assumes no prime-tuple conjecture. The certificate
+and its standard-library verifier are the finite evidence for the
+displayed counts; no minimality or priority is claimed. It refutes only
+the extension to $\Omega\ge2$, not \eqref{eq:matching} with
+$\Omega\ge3$, $(H_2)$, or Problem 708. In fact this all-composite
+instance has $M<2|A|$, so the original $2n$ cover bound is immediate by
+selecting the whole interval.
+
+\subsection{Finite experiments and their limits}
+The matching code independently checks every returned assignment by
+integer divisibility. A failed matching exports a Hall-deficient set
+and recomputes its complete neighborhood exactly.
+The unrestricted rule was tested in the following two batches:
+\begin{center}
+\begin{tabular}{@{}lll@{}}\toprule
+Lengths $M$ & Shifts per length & Executed checks\\\midrule
+Every $8\le M\le250$ & 100 & 24,300\\
+$M=10,20,\ldots,2000$ & 100 & 20,000\\\bottomrule
+\end{tabular}
+\end{center}
+No failure was found. These are sampled shifts, not exhaustive residue
+classes; some checks overlap between batches. Shifts include small
+integers, $M^2$, $M!-\lfloor M/2\rfloor$, and seeded random large
+integers. The results do not prove \eqref{eq:matching}, $(H_2)$, or either
+version of the original conjecture.
+
+\section{Two analytical shortcuts that do not discharge \texorpdfstring{$(H_2)$}{(H2)}}
+\subsection{A false sparse numerical comparison and a valid replacement}
+The sparse binary argument in \cite{berg-hinge} uses the comparison
+\[
+ \frac{\mu}{1+\mu}>\frac{\mu^2+\sigma_2}{2},
+ \qquad \mu=\sum_{p\in S}\frac1p<1,
+ \quad \sigma_2=\sum_{p\in S}\frac1{p^2}.
+\]
+It is false for $S=\{2,3,7\}$:
+\[
+ \mu=\frac{41}{42},\quad \sigma_2=\frac{673}{1764},\qquad
+ \frac{41}{83}<\frac{1177}{1764}.
+\]
+This refutes that numerical step, not $(H_2)$.
+
+A correct elementary substitute is available with an explicit condition.
+For $k=|S|$ and any interval $J$ of $L$ positive integers, two-term
+Bonferroni gives
+\[
+ \#\{b\in J:\exists p\in S,\ p\mid b\}
+ \ge L\left(\mu-\frac{\mu^2-\sigma_2}{2}\right)
+      -\frac{k(k+1)}2.
+\]
+Meanwhile a union bound over prime squares and distinct prime pairs gives
+\[
+ \#\{a\le L:\Omega_S(a)\ge2\}
+ \le\frac L2(\mu^2+\sigma_2).
+\]
+Thus the first count dominates the second whenever
+$L\mu(1-\mu)\ge k(k+1)/2$. This is only a level-count comparison under
+an additional hypothesis; it is not the full fractional-weight theorem.
+
+\subsection{Averaging binary weights loses a linear term}
+For $t\in[0,1]$, let $S_t=\{p:w_p\ge t\}$ and
+$\Omega_t(b)=\sum_{p\in S_t}v_p(b)$. Then
+\[
+ X_w(b)=\int_0^1\Omega_t(b)\,dt,\qquad
+ \int_0^1\pos{\Omega_t(b)-1}\,dt
+ =X_w(b)-\max_{p\mid b}w_p,
+\]
+where the maximum is zero when the weighted support is empty. The
+difference between this integral and the needed hinge is
+\[
+ \min(X_w(b),1)-\max_{p\mid b}w_p\ge0.
+\]
+It need not be a negligible error: when $w_2=1/2$ and all other weights
+vanish, it is $1/2$ at every multiple of four, totaling about $M/8$.
+Even a binary proof would therefore require additional control of these
+gaps to extend by this averaging argument to arbitrary real weights.
+
+\section{Reproduction and final status}
+The accompanying archive contains this \LaTeX{} source, its PDF, Python
+verification scripts, and machine-readable output. No third-party paper
+sources are bundled. The standard-library checks can be run with
+\begin{verbatim}
+python checks/verify_exact_certificates.py
+python checks/verify_hub_obstruction.py
+python checks/verify_hub_family.py
+python checks/verify_omega2_certificate.py
+\end{verbatim}
+The matching search additionally uses NumPy and SciPy. The construction
+stress check is separate from the theorem's proof. The product-cover
+dynamic program processes each interval position exactly once and stores
+the least cardinality for each capped valuation state; its optima are
+therefore exact, without floating-point optimization.
+
+The all-scale extension and conditional transfer were independently
+rederived by a separate reasoning pass, including the distinction between
+the target product and incidental prime factors of selected positions.
+This is a mathematical audit, not a Lean proof or human peer review.
+
+\paragraph{What remains unresolved.}
+The missing step is a proof of $(H_2)$, a sufficiently uniform weakened
+version implying a $2+o(1)$ fractional coefficient, or a different direct
+covering argument. Even proving $(H_2)$ and applying the rounding above
+would leave the stronger exact $2n$ bound to be settled. The computations,
+special classes, and counterexamples to auxiliary rules in this note do
+not fill those gaps.
+
+\begin{thebibliography}{9}
+\raggedright
+\bibitem{problem} T. F. Bloom (editor), Erd\H{o}s Problem 708.
+\url{https://www.erdosproblems.com/708}.
+\bibitem{wang} Ziming Wang, \emph{Erd\H{o}s 708 interval divisor covers},
+repository and source \texttt{papers/main-paper/raw-transfer.tex}.
+\url{https://github.com/science-prince/erdos-708-interval-divisor-covers}.
+\bibitem{berg-asym} C. Bergstr\"om, \emph{Erd\H{o}s 708 asymptotic},
+whole-cofactor peeling and hinge reductions.
+\url{https://github.com/pathscale/erdos-708-asymptotic};
+\url{https://doi.org/10.5281/zenodo.24342718}.
+\bibitem{berg-hinge} C. Bergstr\"om,
+\emph{Scaled-Interval Hinge Telescoping, Difference-of-Convex Obstructions,
+and Smooth Proper-Divisor Matching for Erd\H{o}s Problem 708},
+19 November 2026. \url{https://doi.org/10.5281/zenodo.24366998}.
+\bibitem{chen} Haoyu Chen,
+\emph{Explicit upper bounds for the Erd\H{o}s--Sur\'anyi function $g(n)$},
+version 14, source repository.
+\url{https://github.com/chy4pro/erdos-708-explicit-upper-bounds}.
+\bibitem{preil} D. Preil, \emph{Erd\H{o}s 708 notes}, Theorem B.
+\url{https://github.com/dpreil-ydlp/open-problems/blob/master/math/erdos708/NOTES.md}.
+\bibitem{tripodo} John Tripodo,
+\emph{Sharp finite cases of the Erd\H{o}s--Sur\'anyi interval-product
+problem: $g(4)=5$ and $g(5)=6$}, manuscript dated 19 November 2026,
+Hexagon version 1. \url{https://hexagonmath.org/2611.00694v1}.
+\end{thebibliography}
+\end{document}

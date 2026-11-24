@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-23",
+  "goal": "g(n) <= (2+o(1))n uniformly for Erdos 708",
+  "general_asymptotic_proved": false,
+  "exact_2n_proved": false,
+  "new_g_values_computed": false,
+  "new_dot_text_found": false,
+  "dot_basis": "Latest accessible user-supplied package and prior audited notes",
+  "remaining": [
+    "Relaxed adaptive Hall/capacity cut with true row balances",
+    "Uniform amplified model-capture inequality with controlled parameter order"
+  ],
+  "proved_notes": [
+    "COMMON_COMPLETION_CRITERION.md",
+    "route_adaptive/ADAPTIVE_HALL_LADDER.md",
+    "route_adaptive/SMALL_ROOT_UNION_COUNTEREXAMPLE.md",
+    "route_adaptive/TWO_CARRIER_REDUCTION.md",
+    "route_certificate/CLUSTER_NORMALIZED_CERTIFICATE.md",
+    "route_certificate/NORMALIZED_COFACTOR_CERTIFICATE.md",
+    "route_core/CONDITIONAL_DIFFUSE_CELLS.md",
+    "route_core/DIFFUSE_BANK_TRANSFER.md",
+    "route_core/JOINT_CLIPPED_DIFFUSE_TRANSFER.md",
+    "route_core/SMALL_ROOT_DIFFUSE_CORE_DICHOTOMY.md"
+  ]
+}

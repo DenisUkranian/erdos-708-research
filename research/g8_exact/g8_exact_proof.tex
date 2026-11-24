@@ -1,0 +1,153 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array}
+\usepackage{xcolor,hyperref,microtype}
+\hypersetup{colorlinks=true,linkcolor=blue!60!black,urlcolor=blue!60!black}
+\setlength{\parskip}{0.35em}
+\setlength{\parindent}{0pt}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\om}{\Omega}
+\newcommand{\val}{v}
+\newcommand{\GG}{\operatorname{gcd}}
+\newcommand{\wt}{\operatorname{wt}}
+\begin{document}
+\begin{center}
+{\Large\bfseries The exact value $g(8)=11$ in Erd\H{o}s Problem 708}\par
+\vspace{4pt}
+{\large An exact-integer computer-assisted proof}\par
+\vspace{5pt}
+24 November 2026\par
+\vspace{2pt}
+\end{center}
+\textbf{Scope.} For a set $A$ of $n$ distinct integers at least $2$, put $M=\max A$ and $I_x=\{x+1,\ldots,x+M\}$ for $x\ge0$. Define
+\[
+\tau(A,I_x)=\min\bigl\{|B|:B\subseteq I_x,\ \prod_{a\in A}a\mid\prod_{b\in B}b\bigr\},\qquad
+ g(n)=\sup_{|A|=n,x\ge0}\tau(A,I_x).
+\]
+All positions in $B$ must be distinct. The ``at most'' convention is essential.
+
+\begin{theorem}\label{thm:main}
+Assume the previously established bounds $g(5)\le6$, $g(6)\le8$, and $g(7)\le9$. Then $g(8)=11$. The upper bound is certified by exact finite computation; the lower bound has a short direct proof.
+\end{theorem}
+The previous $g(7)=9$ certificate package, including its $g(6)\le8$ dependency, is included in the accompanying archive. The bound $g(5)=6$ is reported with a Lean formalization by J.~Tripodo (2026, \url{https://hexagonmath.org/pdf/2611.00694v1}). These are explicit mathematical dependencies, not re-proven in this note.
+
+\section*{1. Universal extension lemmas}
+\begin{lemma}[One missing prime unit]\label{lem:repair}
+Suppose a selected product covers $\prod A/p$, with $p$ prime. It can be extended to cover $\prod A$ using at most one additional, previously unselected interval position.
+\end{lemma}
+\begin{proof}
+Since the elements of $A$ are distinct and at most $M$, their product divides $M!$. Also
+\[M!\mid\prod_{j=1}^{M}(x+j),\]
+because that product is $M!\binom{x+M}{M}$. If the selected product is deficient in $p$-valuation, an unused interval position divisible by $p$ must therefore exist.
+\end{proof}
+\begin{lemma}[Consequences of $g(7)\le9$]\label{lem:small}
+An eight-source instance admits an eleven-point cover if any source $a$ has (i) a prime divisor at least $11$; (ii) at most two prime factors counted with multiplicity; or (iii) $11a\le M$.
+\end{lemma}
+\begin{proof}
+Cover the seven other sources in at most nine points. For (i), fix $p\mid a$, $p\ge11$: the interval contains at least $\lfloor M/(a/p)\rfloor\ge p\ge11$ multiples of $a/p$, so an unused one is available; one prime-unit repair finishes. For (ii), repair the at most two missing prime units, by iterating Lemma~\ref{lem:repair}. For (iii), one unused multiple of $a$ exists, since there are at least eleven multiples but at most nine used positions.
+\end{proof}
+\begin{lemma}[Fresh-factor packing]\label{lem:bin}
+Suppose $r$ sources are already covered with at most $k$ positions and the product of the remaining sources factors as $h_{k+1}\cdots h_{k+t}$ with $1\le h_j\le\lfloor M/j\rfloor$. Then all sources are covered with at most $k+t$ interval positions.
+\end{lemma}
+\begin{proof}
+At step $j$ at most $j-1$ interval positions have been selected, whereas the interval contains at least $j$ multiples of $h_j$. Choose one not used previously. Factors equal to $1$ may be omitted.
+\end{proof}
+
+\section*{2. An analytic gate: all $M\ge11538$}
+Suppose all prime factors of the eight sources belong to $\{2,3,5,7\}$. Remove any three sources $a,b,c$. By $g(5)\le6$ the five remaining ones are covered in at most six points. We seek to pack the prime factors of $abc$ into five multiplicative bins of capacities
+\[
+ C_j=\left\lfloor\frac Mj\right\rfloor,\qquad j=7,8,9,10,11.
+\]
+Insert each prime factor $p\le7$ into any bin where it fits. If a factor $p$ cannot be placed, every current bin content $u_j$ satisfies $p u_j>C_j$; since both sides are integers, $pu_j\ge C_j+1>M/j$. As the rejected factor and all five contents divide $abc$, one obtains
+\[
+ M^3\ge abc\ge p\prod_{j=7}^{11}u_j
+ >\frac{M^5}{(7\cdot8\cdot9\cdot10\cdot11)p^4}.
+\]
+Hence failed insertion forces
+\[
+ M^2< 55440p^4\le55440\cdot7^4=133111440.
+\]
+But $11537^2<133111440<11538^2$. Therefore, for \emph{every} $M\ge11538$, a five-bin packing exists and Lemma~\ref{lem:bin} gives $\tau(A,I_x)\le11$ for every shift. By Lemma~\ref{lem:small}, only $7$-smooth instances with $M\le11537$ remain.
+
+\section*{3. Complete finite source reduction}
+Lemma~\ref{lem:small} permits restriction to eight $7$-smooth integers, each with $\om(a)\ge3$ and $11a>M$. The interval itself covers the claim for $M\le11$, and sources with $\om(M)\le2$ have already been eliminated.
+
+For every eligible $7$-smooth maximum $M\le11537$, construct a candidate list $C(M)$ of smaller eligible source integers $a$ for which the greedy factorization test \texttt{pack} does \emph{not} find a valid three-bin packing of $aM$ into capacities
+\[
+ \left\lfloor\frac M9\right\rfloor,\qquad
+ \left\lfloor\frac M{10}\right\rfloor,\qquad
+ \left\lfloor\frac M{11}\right\rfloor.
+\]
+If such a packing exists, the other six sources are covered with eight points by $g(6)\le8$, and Lemma~\ref{lem:bin} gives eleven points in total. Similarly, place an edge between two vertices of $C(M)$ only when their product fails the same \emph{sufficient} packing test. A surviving seven-vertex subset must be a clique. Further reject any triple $a,b,c$ that \emph{does} pack into the five capacities $\lfloor M/j\rfloor$ for $j=7,\dots,11$: the other five sources are covered in six points.
+
+Crucially, \texttt{pack} reports success only after explicitly allocating every prime factor with multiplicity and checking each numerical capacity. A reported failure is never treated as an impossibility theorem; it merely retains an instance for further checking. The source enumerator explores all seven-vertex cliques obeying the triple constraints.
+
+\begin{center}\begin{tabular}{lr}\toprule
+Quantity & Exact output\\\midrule
+Maximum size of an eligible candidate list & 54\\
+Values of $M$ with survivors & 50\\
+Largest surviving $M$ & 252\\
+Distinct surviving eight-source sets & 1,691,461\\
+Distinct $(M,D_2,D_3,D_5,D_7)$ vectors & 57,515\\\bottomrule
+\end{tabular}\end{center}
+The four prime demands $D_p=\sum_{a\in A}\val_p(a)$ completely determine the remaining covering question at a fixed $M$. Deduplication by these integer vectors is therefore exact.
+
+\section*{4. Universal cumulative-GCD certificates}
+\begin{lemma}[Cumulative GCD]\label{lem:gcd}
+Let $h_1,\ldots,h_t$ be positive integers, with $t\le11$ and $h_j\le M$, such that
+\[
+ \GG\left(\prod_{i<j}h_i,h_j\right)\le\left\lfloor\frac Mj\right\rfloor
+ \quad(1\le j\le t).
+\]
+For every interval $I_x$ of length $M$, a set of at most $t$ distinct positions has product divisible by $\prod_{j=1}^t h_j$.
+\end{lemma}
+\begin{proof}
+Proceed inductively. Let $H=\prod_{i<j}h_i$ divide the product of the previously chosen points. If an unused multiple of $h_j$ exists, add it. Otherwise some previously selected point is a multiple of $h_j$, so $\operatorname{lcm}(H,h_j)$ divides the current product. At least $j$ interval points are multiples of $d=\GG(H,h_j)$, and at most $j-1$ have been used. Adding a fresh multiple of $d$ supplies $Hh_j=d\operatorname{lcm}(H,h_j)$. This never reuses a point.
+\end{proof}
+For each surviving $(M,D_2,D_3,D_5,D_7)$, the exact integer dynamic program in the supplied \texttt{C++} certificate generator explores all attainable accumulated prime-exponent states over at most eleven slots, enforcing Lemma~\ref{lem:gcd} at each transition. For \textbf{57,487} vectors it emits an explicit sequence $h_1,\dots,h_{11}$. A separate Python verifier checks each numerical $h_j$, all eleven cumulative-GCD inequalities, and the four final valuation demands from scratch. No solver tolerance is involved.
+
+\section*{5. All 28 exceptional vectors: exact CRT check}
+The \textbf{28} remaining vectors all have $M\le54$. For an active prime $p$ with demand $D_p$, take $r=\min\{D_p,\lfloor\log_p M\rfloor\}$ and $q=p^r$. For every $x\bmod q$, form the row
+\[
+ \left(\min\{\val_p(x+j),r\}\right)_{j=1}^M.
+\]
+These rows give valid lower valuation profiles for every possible shift, and the moduli for distinct primes are coprime. The Chinese remainder theorem makes the joint search complete over all shifts (possibly overcounting equivalent patterns).
+
+The standalone \texttt{crt11.cpp} recursively examines all such prime rows. It prunes a branch only if the currently fixed primes can be covered within the remaining budget \emph{and} an independently valid cover is available for the unfixed prime supports. Different prime supports are disjoint as valuation constraints, so taking a union of their covering sets is always safe: overlapping interval positions are not counted twice. For grouped unfixed prime powers, each bin is a product of powers of distinct primes and at most $M$; one multiple exists in the interval, and coincident choices are harmless because the bin demands are coprime.
+
+Unpruned branches are checked by exact $0$--$1$ multicover over the $M$ target positions, grouping identical valuation profiles while retaining their multiplicities. The full replay reports
+\[
+ \boxed{\texttt{ALL\_PASS: 28 rows; 2,800 branch nodes; 92 exact multicover calls.}}
+\]
+This establishes the \emph{universal} upper bound $g(8)\le11$, conditional on the previously stated small-$n$ bounds.
+
+\clearpage
+\section*{6. Explicit lower bound $g(8)\ge11$}
+Choose
+\[
+ A=\{37^2,37\cdot41,37\cdot43,37\cdot47,37\cdot53,41\cdot53,43\cdot53,47\cdot53\}
+\]
+so that $M=2491$ and the demands at $\{37,41,43,47,53\}$ are $(6,2,2,2,4)$. Let
+\[
+ x=246043396342067361,\qquad b_*=x+1246.
+\]
+The point $b_*$ has active valuation vector $(2,1,1,1,1)$. All other points in $I_x$ are divisible by \emph{at most one} of the five active primes: the product of any two is at least $37\cdot41=1517$, while the distance from $b_*$ to either endpoint is at most $1245$. No other point has a factor $37^2$ since $1369>1245$. No point in the interval has a factor $53^2$, because $b_*\bmod53^2=1378$ and its nearest $53^2$-multiples are at distances $1378$ and $1431$.
+
+If $b_*$ is selected, the residual requirements $(4,1,1,1,3)$ need at least ten distinct other points, since every such point supplies at most one active prime and at most one unit of $37$ or $53$. Thus at least eleven points are needed. Without $b_*$ one needs at least six points for $37$, four for $53$, and one each for $41,43,47$, hence at least thirteen.
+
+Exactly eleven points \emph{suffice}. Select the interval positions with offsets
+\[
+ t\in\{25,27,62,80,99,133,136,1199,1203,1205,1246\};\qquad b=x+t.
+\]
+Their product has active valuations $(6,3,3,3,4)$, which dominate $(6,2,2,2,4)$. Hence $\tau(A,I_x)=11$ and $g(8)\ge11$. A separate $0$--$1$ dynamic program also returns optimum $11$ for this example.
+
+\section*{7. Exact reproduction and standing}
+The accompanying ZIP contains all exact input demands, 57,487 explicit universal slot certificates, the 28 CRT exceptions, all generator/checker sources, and the earlier $g(7)=9$ proof package. With Python 3 and a C++17 compiler, run
+\begin{center}\texttt{python3 verify\_all.py}\end{center}
+It regenerates the finite source set, verifies every supplied certificate, re-runs the exhaustive CRT checks, checks the lower witness and the analytic threshold, and exits with \texttt{ALL CHECKS PASS} only if every stage succeeds.
+
+\textbf{Verification status.} This is a reproducible computer-assisted mathematical proof, not a new Lean formalization or an externally refereed theorem. The upper bound explicitly relies on the supplied earlier $g(7)=9$ and $g(6)=8$ proofs. The general asymptotic Erd\H{o}s 708 question remains separate.
+\end{document}

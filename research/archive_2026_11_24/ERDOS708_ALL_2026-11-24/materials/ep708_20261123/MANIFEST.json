@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "research_date": "2026-11-23",
+  "scope": "Internally audited restricted-class results; unrestricted Erdős708 remains unproved.",
+  "pdf_validation": {
+    "pages": 14,
+    "all_pages_rendered_and_visually_inspected": true,
+    "overfull_underfull_or_undefined_reference_warnings": false
+  },
+  "files": [
+    {
+      "path": "README.txt",
+      "bytes": 7145,
+      "sha256": "5259cbe15dc0949288c8315b70273ff7460f0cb5c1778e5ece6989dee2c9690c"
+    },
+    {
+      "path": "STATUS.json",
+      "bytes": 11707,
+      "sha256": "6f6a6cad872059d44f3f31f528bfe53f942d578417b92e0c724fa976121be62f"
+    },
+    {
+      "path": "erdos708_partial_results.tex",
+      "bytes": 38037,
+      "sha256": "7ee3e5451f3d8735a5e193633195e50f1202bad98f02a1031e71066ae5f6336d"
+    },
+    {
+      "path": "erdos708_partial_results.pdf",
+      "bytes": 369417,
+      "sha256": "94f5fe69ac51627e52b9e5e12630baae29d6288e280e4df9c860b888cdf17c40"
+    },
+    {
+      "path": "analytic/AMPLIFICATION.md",
+      "bytes": 8973,
+      "sha256": "720b63eccec01de1dc85722d7e8d00821860bb66cfdd1b6c304bfcbfba777f86"
+    },
+    {
+      "path": "analytic/HALF_HARMONIC_H2.md",
+      "bytes": 6444,
+      "sha256": "13094f1bed8175a9df5a155f7f24ab2598443808f5201dc00137ba05ea27c5fb"
+    },
+    {
+      "path": "analytic/LEVEL_AND_ANCHORS.md",
+      "bytes": 6737,
+      "sha256": "a5fc2087f4472fd66fa30e142a68166c4406b3fb8aed7dbc0eb8f728f6996c94"
+    },
+    {
+      "path": "analytic/SMALL_PRIME_EXCEPTIONS.md",
+      "bytes": 5618,
+      "sha256": "40815520312d78ed1b90c5cffb66c14fdabfbb30439659eeb8a7811ca6ee0c7a"
+    },
+    {
+      "path": "analytic/SPARSE_SUPPORT_H2.md",
+      "bytes": 4830,
+      "sha256": "9572a6afd3aff8689a5a164e95062e64c92932a49155d5f28edcb3f0411e9bdc"
+    },
+    {
+      "path": "combinatorial/ARBITRARY_ANCHOR_MATCHING.md",
+      "bytes": 7485,
+      "sha256": "8782ef9539bbbd086afab7ba325d758d84963bec4c00aef000e86891d2d8e320"
+    },
+    {
+      "path": "combinatorial/HALF_HARMONIC_AUDIT.md",
+      "bytes": 1392,
+      "sha256": "f35eb37750f65ca334aa70d54a9288037e5d28717aaa1ca3a858f491b85e0a68"
+    },
+    {
+      "path": "combinatorial/ORDERED_CARRIER_H2.md",
+      "bytes": 6184,
+      "sha256": "0e23321b447baf450164a8403d843e7247eacbd1c500e7dc2746b2d8b0d05665"
+    },
+    {
+      "path": "combinatorial/SPARSE_MATCHING_EXACT2N_AUDIT.md",
+      "bytes": 7759,
+      "sha256": "55bb48b261628cb928868e5ff638df73f4616310c197c9ef2c0c84fe7a513522"
+    },
+    {
+      "path": "combinatorial/SPARSE_SUPPORT_AUDIT.md",
+      "bytes": 3974,
+      "sha256": "881d1fc2d9169d0422d3adfdfed271f1b4a077606764de017732aec21a211776"
+    },
+    {
+      "path": "combinatorial/TRUNCATED_CARRIER_AUDIT.md",
+      "bytes": 5558,
+      "sha256": "a41b4b4801a7408efbd0c2f40e1914ed4a85af098016b45cbf51114e0e7db62b"
+    },
+    {
+      "path": "combinatorial/TWO_ANCHOR_H2.md",
+      "bytes": 5034,
+      "sha256": "8ff1b5a20190804954c7c592bb1cc847fa4d2706275ed3c463a9c632b8649dd4"
+    },
+    {
+      "path": "computation/FINITE_CRT_MODEL.md",
+      "bytes": 7082,
+      "sha256": "d256c5b8a6ff6d24d26a600f2ce5be54d69713bf17b2ee0a25364122755f72e4"
+    },
+    {
+      "path": "computation/adaptive_certificate_checks.json",
+      "bytes": 23255,
+      "sha256": "43ed47b91d88966f3896e70fd0aa6fe696c7209db7815894bef4ff6964cbe436"
+    },
+    {
+      "path": "computation/exact2n_certificate.py",
+      "bytes": 23241,
+      "sha256": "4e3524fa2c480744505e704d613e2a56fbde82cde2299919085d334c5e2e76f0"
+    },
+    {
+      "path": "computation/exact2n_demo_results.json",
+      "bytes": 400401,
+      "sha256": "63b26cdf01b54f7be0d797b913c61f8996f518c7d84633f97ad4238ae0a283b4"
+    },
+    {
+      "path": "computation/h2_crt_search.py",
+      "bytes": 8172,
+      "sha256": "51813f64b9b1ca4b8be1e595c1a7daa0f5d3e01ca64768c7f2c3c1765197e31d"
+    },
+    {
+      "path": "computation/h2_crt_search_results.json",
+      "bytes": 9209,
+      "sha256": "2179051a49b6a88fc80bb754fb45c426d92980a8e56ce47eb74d3d81a673c1e3"
+    },
+    {
+      "path": "computation/h2_global_phase_milp.py",
+      "bytes": 3387,
+      "sha256": "2e396f2e3ada7563e96cb825c2ed39ddc85dd56fa1502fccf84f0cd21c9ceb18"
+    },
+    {
+      "path": "computation/h2_global_phase_results.json",
+      "bytes": 4254,
+      "sha256": "acd6b1151ec1ea81844b53192709fc1c42074b9e0ba15ee8aafd25d169e950ca"
+    },
+    {
+      "path": "computation/h2_hinge_ratio_results.json",
+      "bytes": 7746,
+      "sha256": "9e599d5ed8573aab56bddd184f096048d43b2d0561e3cf50628cb57959e9eb6c"
+    },
+    {
+      "path": "computation/h2_hinge_ratio_search.py",
+      "bytes": 3921,
+      "sha256": "e016b48e41df2e03250d44fa0a1dc3c3b6cb623e041f26b65a2927ff6a7ff119"
+    },
+    {
+      "path": "computation/h2_joint_milp.py",
+      "bytes": 3286,
+      "sha256": "6576d81c08a95cf1b828b7e6037619a4099e5739cef83c82678a03a88fecc88f"
+    },
+    {
+      "path": "computation/h2_joint_milp_results.json",
+      "bytes": 2413,
+      "sha256": "c3a90a737477beb73241d95d23267c769a743d6a824ff1b9d27a8bfdab05bb50"
+    },
+    {
+      "path": "computation/h2_ratio_search.py",
+      "bytes": 4023,
+      "sha256": "60e16abff64a2c1aa5ef7aeaa8aaf15a787bc0ddb6d71c8f4829171c61563e03"
+    },
+    {
+      "path": "computation/h2_ratio_search_results.json",
+      "bytes": 95546,
+      "sha256": "1354820739baf6c0b127b007ed6cb078724af53f89d3e2b061e343f6f84e9fd0"
+    },
+    {
+      "path": "computation/h2_six_prime_results.json",
+      "bytes": 11542,
+      "sha256": "b6fa4d3d3016cb894bbf381682bc9e032ab0515a139fa7086d3355daff2a11f5"
+    },
+    {
+      "path": "computation/h2_six_prime_search.py",
+      "bytes": 4329,
+      "sha256": "9591ad8e48e0ebce4f96e732fcebec56b02d614a5691848fe736ea23b575e3ec"
+    },
+    {
+      "path": "computation/h2_sparse_region_results.json",
+      "bytes": 7217,
+      "sha256": "687bf2618c501857107d0e2267138d5169d6327569798285b6bf10d383855ab5"
+    },
+    {
+      "path": "computation/h2_sparse_region_search.py",
+      "bytes": 4251,
+      "sha256": "a65bdaaf6968084bf388d7a42bc86e800afee6c7da142a05cbcc3bba2a293405"
+    },
+    {
+      "path": "computation/verify_adaptive_certificate.py",
+      "bytes": 3456,
+      "sha256": "13387b674202dcad8525a7852523daef1c91e67778267d068551670a2448fe02"
+    }
+  ]
+}

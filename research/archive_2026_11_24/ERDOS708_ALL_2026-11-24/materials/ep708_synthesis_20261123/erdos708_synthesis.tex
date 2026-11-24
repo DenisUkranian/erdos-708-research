@@ -1,0 +1,290 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=23mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,array}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[colorlinks=true,linkcolor=MidnightBlue,urlcolor=MidnightBlue,citecolor=MidnightBlue]{hyperref}
+\usepackage{microtype,fancyhdr}
+\hypersetup{pdftitle={Erdos Problem 708: Synthesis and Further Partial Results},pdfauthor={Research working note prepared for Denis Paliy},pdfsubject={Partial results; unrestricted exact and asymptotic conjectures remain unresolved}}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Erd\H{o}s 708: synthesis and further partial results}
+\fancyhead[R]{\small 23 November 2026}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\DeclareMathOperator{\lcm}{lcm}
+\title{\textbf{Erd\H{o}s Problem 708:\\Synthesis and Further Partial Results}\\[5pt]
+\large Prime-bank reductions, diffuse weights,\\dense smooth supports, and separated prime bands}
+\author{Research working note prepared for Denis Paliy\\
+\small AI-assisted derivations with separate internal mathematical audits}
+\date{23 November 2026}
+\begin{document}
+\maketitle
+\begin{center}
+\fcolorbox{MidnightBlue}{blue!3}{\parbox{0.92\linewidth}{
+\textbf{Status.} Neither the unrestricted exact bound \(2n\) nor the
+unrestricted asymptotic bound \((2+o(1))n\) is proved here. The principal
+new covering result treats all source prime factors below
+\(\exp(o(\sqrt{\log M}))\). A separate exact theorem allows one large
+prime per source together with a growing set of much smaller primes.
+The proofs received internal cross-checks; external review, formal
+verification, and priority are not claimed.
+}}
+\end{center}
+\begin{abstract}
+We consolidate the submitted \(32n^{5/2}\) argument with an earlier
+cofactor-matching approach, and distinguish both from the already
+available quadratic theorem of Ziming Wang. We prove structural
+restrictions on a minimal counterexample by using forced prime-deletion
+banks and total prime demands. On the analytic side, a partial
+prime-power crossing argument and the fundamental lemma of the sieve
+give a uniform approximate hinge inequality for arbitrarily many
+sufficiently small raw weights. A controlled exceptional block incurs
+an explicit defect. A sieve approximation of exact smooth-part counts
+then yields \((2+o(1))n\) for dense source prime supports below
+\(\exp(o(\sqrt{\log M}))\). Exact smooth-part bins also yield \(2n\)
+for a separated-band class. Portable certificates combine the older
+Hall condition with the new deletion rules. The remaining obstruction
+involves a growing prime core and interactions across intermediate
+prime scales.
+\end{abstract}
+\begingroup
+\small
+\setcounter{tocdepth}{1}
+\setlength{\parskip}{1pt}
+\makeatletter
+\renewcommand{\l@section}[2]{\@dottedtocline{1}{0em}{2em}{#1}{#2}}
+\makeatother
+\tableofcontents
+\endgroup
+\newpage
+
+\section{Problem, baseline, and the merged result map}
+\label{root:scope}
+
+Let \(A\subseteq\{2,\ldots,M\}\) consist of \(n\) distinct integers,
+and let
+\[
+ I_x=\{x+1,\ldots,x+M\},\qquad x\in\mathbb Z_{\ge0}.
+\]
+Write \(\tau(A,I_x)\) for the smallest cardinality of a subset
+\(B\subseteq I_x\) such that \(\prod_{a\in A}a\mid\prod_{b\in B}b\).
+The original problem takes \(M=\max A\). In deletion arguments the
+ambient \(M\) is kept fixed, even if the maximum source is deleted.
+The global extremal function is
+\[
+ g(n)=\sup_{|A|=n,\,x\ge0}\tau(A,I_x),\qquad M=\max A.
+\]
+The targets are \(g(n)\le2n\), or at least
+\(g(n)\le(2+o(1))n\). A target position can be used only once.
+
+For every positive integer \(d\),
+\begin{equation}
+ \left\lfloor\frac Md\right\rfloor
+ \le N_I(d):=\#(I_x\cap d\mathbb Z)
+ \le\left\lceil\frac Md\right\rceil.
+ \label{root:counts}
+\end{equation}
+The elementary full-supply identity is
+\begin{equation}
+ \prod A\mid M!\mid\prod I_x,
+ \qquad \prod I_x=M!\binom{x+M}{M}.
+ \label{root:supply}
+\end{equation}
+Consequently, whenever a selected product is deficient in a prime
+valuation, an unused target containing that prime exists. Adding it
+reduces the sum of the positive valuation deficits by at least one.
+This repair principle never reuses a selected position.
+
+\subsection{The quadratic range is an external input}
+
+Chen's public work includes the sufficient range \(M\ge8n^3\)
+for an exact \(2n\) cover \cite{Chen}. The submitted argument at
+\(M\ge32n^{5/2}\) is reconstructed completely below. However, Wang's
+written appendix already proves
+\begin{equation}
+ M\ge16n^2\quad\Longrightarrow\quad\tau(A,I_x)\le2n.
+ \label{root:wang}
+\end{equation}
+We checked its full proof, including the difficult-divisor Hall
+argument and the shared position budget \cite[Appendix A]{Wang}.
+Thus the quadratic order is not a new conclusion of this synthesis.
+The further user-supplied summaries asserted a quadratic threshold
+but did not include its complete proof; we use the checked explicit
+theorem \eqref{root:wang} instead of treating those summaries as a proof.
+
+At the other end, \(M\le2n\) is immediate by selecting the whole
+interval. The unresolved unrestricted exact range is therefore
+\begin{equation}
+ \boxed{2n<M<16n^2.}
+ \label{root:range}
+\end{equation}
+Wang's work also supplies a uniform linear upper bound and a
+fractional-to-integer transfer theorem; we identify explicitly below
+where these external inputs are used. They are public working
+results, not claimed here as externally refereed results.
+
+\subsection{What is established in this package}
+
+\begin{center}
+\small
+\begin{tabular}{p{0.43\linewidth}p{0.47\linewidth}}
+\toprule
+Class or reduction & Conclusion and scope\\
+\midrule
+All source sets with \(M\ge16n^2\) & Exact \(2n\); external theorem \cite{Wang}\\
+Submitted \(M\ge32n^{5/2}\) argument & Reconstructed; its three-large-factor step has a separate range condition\\
+Finite cofactor criterion & Exact \(2n\), for every shift; retained from the earlier note\\
+All source primes \(\ge M^\alpha\), fixed \(\alpha>1/(2e)\) & Exact \(2n\) for sufficiently large \(M\); retained and reproved\\
+All source primes \(\le Y(M)\), \(\log Y=o(\sqrt{\log M})\) & \((2+o(1))n\), uniformly over shifts; proved below\\
+One separated large prime per source & Exact \(2n\), allowing a growing dense small-prime support; proved below\\
+Arbitrary support, sufficiently small individual raw weights & Uniform \(H_{2+\varepsilon}\), even with one arbitrary exceptional weight\\
+At most \(k\) weights exceeding \(c_\varepsilon/(k+1)\) & Explicit hinge defect at most \(2^{k+1}(1+\log_2 M)^{k+1}\)\\
+Minimal counterexample in the remaining range & A core of size \(O(\sqrt{n/\log n})\), with at most one outside-prime occurrence per source\\
+Unified finite recognizer & Exact all-shift certificates for inputs satisfying a sequence of sufficient rules; otherwise UNKNOWN\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The earlier full working note is included in the companion bundle
+\cite{Earlier}. It also records fixed-support, reciprocal-mass, and
+fixed-anchor results. The current note supplies complete proofs for
+its principal additional claims. Computational searches are not used
+to establish a universal mathematical assertion.
+
+\section{Retained cofactor matching and rough-source covers}
+\label{root:hall}
+
+For a composite \(a\in A\), let \(p(a)=P^+(a)\) be its largest
+prime factor and put \(d(a)=a/p(a)\). Let \(Q\) be the union of the
+prime supports of these cofactors, and let
+\[
+ r_A(d)=\#\{a\in A:a\text{ composite},\ d(a)=d\}.
+\]
+
+\begin{theorem}[Finite all-shift Hall criterion]
+\label{root:hall-theorem}
+If, for every distinct composite-source cofactor \(d\),
+\begin{equation}
+ \left\lfloor\frac Md\right\rfloor
+ -\sum_{\substack{q\in Q\\dq\le M}}
+       \left\lceil\frac M{dq}\right\rceil
+ \ge r_A(d),
+ \label{root:hall-finite}
+\end{equation}
+then \(\tau(A,I_x)\le2n\) for every shift \(x\ge0\).
+\end{theorem}
+
+\begin{proof}
+Give a composite source all target neighbors divisible by its
+cofactor. For a subset of the composite sources let \(D\) be its set
+of distinct cofactors. Each \(d\in D\) is \(Q\)-smooth and
+\(dP^+(d)\le M\). Define
+\[
+ K_D(b)=\sum_{d\in D}
+ \left(\mathbf1_{d\mid b}
+       -\sum_{\substack{q\in Q\\q\le M/d}}
+            \mathbf1_{dq\mid b}\right).
+\]
+At most one summand can be positive. Indeed, a positive term forces
+\(d\) to be the full smooth part of \(b\) over the primes
+\(Q\cap[2,M/d]\). If \(d_1<d_2\) both had this property, the larger
+prime set associated with \(d_1\) would have the smaller smooth part,
+a contradiction. A positive term has value one, and all other terms
+are nonpositive. Outside the union of the neighborhoods every term
+vanishes. Hence \(K_D\) is bounded above by the indicator of that
+union. Summing and using \eqref{root:counts} and
+\eqref{root:hall-finite} gives a union size at least
+\(\sum_{d\in D}r_A(d)\), and thus at least the size of the chosen
+source subset. Hall's theorem provides distinct cofactor carriers.
+
+Prime sources, whose quotient is one, may be assigned afterward to
+unused positions. There is room because \(n\le M-1\). The selected
+\(n\) positions supply the product of all cofactors. At most \(n\)
+prime units remain missing; \eqref{root:supply} allows the same
+number of unused-position repairs. The total is at most \(2n\).
+\end{proof}
+
+\begin{corollary}[Rough sources]
+\label{root:rough}
+Fix \(\alpha>1/(2e)\). If every prime divisor of every source is at
+least \(M^\alpha\), then \(\tau(A,I_x)\le2n\) for every shift, once
+\(M\) is sufficiently large depending on \(\alpha\).
+\end{corollary}
+
+\begin{proof}
+Every cofactor prime \(q\) satisfies \(q\le P^+(a)\) and
+\(qP^+(a)\mid a\), so \(q\le\sqrt M\). When
+\(1/(2e)<\alpha<1/2\), Mertens' prime reciprocal estimate gives
+\[
+ \sum_{q\in Q}\frac1q
+ \le\log\frac1{2\alpha}+o(1)<1.
+\]
+For \(T=M/d\), each cofactor has \(T\ge P^+(a)\ge M^\alpha\), and
+its fibre contains at most \(\pi(T)\) sources. The left side of
+\eqref{root:hall-finite} is at least
+\[
+ T\left(1-\sum_{q\in Q,\,q\le T}\frac1q\right)-\pi(T)-1.
+\]
+Since \(\sup_{T\ge M^\alpha}(2\pi(T)+1)/T=o(1)\), this is at
+least \(\pi(T)\) for sufficiently large \(M\). Apply the theorem.
+For \(\alpha>1/2\) all sources are prime; at \(\alpha=1/2\) the
+only possible composite boundary is a square and the same finite
+criterion applies. The standard prime estimates used here follow
+from Mertens' theorem and the elementary prime-counting upper bound
+\cite{TaoMertens}.
+\end{proof}
+
+\input{sections/combinatorial.tex}
+\input{sections/analytic.tex}
+\input{sections/separated_bands.tex}
+\input{sections/computation_and_remaining.tex}
+
+\clearpage
+\begin{thebibliography}{9}
+\bibitem{Chen}
+H. Chen, \emph{Explicit upper bounds for the Erd\H{o}s--Sur\'anyi
+function \(g(n)\)}, public working manuscript and accompanying
+certificates. \href{https://github.com/chy4pro/erdos-708-explicit-upper-bounds}{Primary repository}.
+Consulted 23 November 2026.
+
+\bibitem{Wang}
+Z. Wang, \emph{Fractional-to-Integer Transference and Five-Prime
+Bounds for Interval Divisor Covers}, public working manuscript,
+version 1.0.0, 21 October 2026. In particular Appendix A,
+``The quadratic coefficient-two gate.''
+\href{https://github.com/science-prince/erdos-708-interval-divisor-covers}{Primary repository}.
+Consulted 23 November 2026.
+
+\bibitem{Lagarias}
+J. C. Lagarias, \emph{Math 675: Combinatorial Sieve: Fundamental
+Lemma}, theorem and interval example, pp. 1--2.
+\href{https://websites.umich.edu/lagarias/675notes/Estimate5-2015.pdf}{University of Michigan lecture notes}.
+
+\bibitem{GranvilleSound}
+A. Granville and K. Soundararajan, \emph{Multiplicative number
+theory: The pretentious approach}, Chapter 1, Theorem 1.4.2.
+\href{https://dms.umontreal.ca/~andrew/PDF/Book.To1.4.pdf}{Author-hosted text}.
+
+\bibitem{TaoMertens}
+T. Tao, \emph{Mertens' theorems}, 11 December 2013.
+\href{https://terrytao.wordpress.com/2013/12/11/mertens-theorems/}{Author's exposition}.
+
+\bibitem{Earlier}
+\emph{Partial Results on Erd\H{o}s Problem 708: Divisor
+certificates, exact covers for rough source sets, and a precise
+remaining obstruction}, earlier AI-assisted working note prepared
+for Denis Paliy, 23 November 2026, 14 pp. Included as
+\texttt{prior\_results/erdos708\_partial\_results.pdf} in this package.
+Internal research document; no publication or priority claim.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,21 @@
+{
+  "retrieval": "No newer dot proof was accessible in targeted personal-context and recent-file checks for this turn.",
+  "external_sources": [
+    {
+      "title": "Wang raw transfer",
+      "url": "https://github.com/science-prince/erdos-708-interval-divisor-covers/blob/main/papers/main-paper/raw-transfer.tex",
+      "previously_verified_file_sha": "652a6c28dc52abd22116084746aff569021207a7"
+    },
+    {
+      "title": "Wang main manuscript",
+      "url": "https://github.com/science-prince/erdos-708-interval-divisor-covers/blob/main/papers/main-paper/main.tex",
+      "previously_verified_file_sha": "17f471ea0073e00e8b0245505a62529c643cbf60"
+    },
+    {
+      "title": "Granville and Soundararajan, Theorem 1.4.2",
+      "url": "https://dms.umontreal.ca/~andrew/PDF/Book.To1.4.pdf",
+      "checked": "2026-11-23"
+    }
+  ],
+  "scope": "New proofs are internal research results; no external validation or unrestricted completion is claimed."
+}

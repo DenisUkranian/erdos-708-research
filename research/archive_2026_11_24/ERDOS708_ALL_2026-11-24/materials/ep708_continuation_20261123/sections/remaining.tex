@@ -1,0 +1,199 @@
+\section{The exact remaining asymptotic target}
+\label{ct:remaining}
+
+\subsection{Minimality already removes the rounding problem}
+
+Fix \(c>2\), an ambient \(M\), and an interval \(I\). If an
+instance fails \(\tau(A,I)\le c|A|\), replace \(A\) by a failing
+subset of smallest cardinality, set \(m=|A|\), and write
+\[
+ K=\lfloor c(m-1)\rfloor+1.
+\]
+Every deletion has an integer cover of size at most \(K-1\).
+Adding two unused positions would give a cover within the budget
+\(\lfloor cm\rfloor\), so the forced-bank arguments apply.
+For completeness, their short proofs are retained here.
+
+For every prime occurrence \(q\mid a\), all interval multiples
+of \(a/q\) belong to every deletion cover of \(A\setminus\{a\}\).
+Otherwise a fresh multiple supplies \(a/q\), and at most one extra
+unused position repairs the missing \(q\)-unit. Full supply
+\eqref{ct:supply} guarantees that repair. Since there are at least
+\(q\) such multiples, all source primes satisfy
+\begin{equation}
+ p<K<cm.
+ \label{ct:prime-cap}
+\end{equation}
+
+If \(pq\mid a\), counting occurrences and allowing \(p=q\),
+and \(pq\ge K\), then
+\begin{equation}
+ D_p>v_p\left(\prod_{\substack{b\in I\\a/q\mid b}}b\right)
+ \ge qv_p(a/q).
+ \label{ct:pair-bank}
+\end{equation}
+If the first strict inequality failed, the forced bank would
+already pay the full \(p\)-demand. There are at least \(pq\ge K\)
+targets divisible by \(a/(pq)\); one is fresh relative to a cover
+of size \(K-1\). Add it, then repair at most one \(q\)-unit.
+This again contradicts minimal failure.
+
+Define the demand core and its complement by
+\begin{equation}
+ E=\{p\in P:p\le\sqrt K\}\cup\{p\in P:D_p>p\},
+ \qquad R=P\setminus E.
+ \label{ct:demand-core}
+\end{equation}
+Every source has at most one \emph{occurrence} from \(R\), and
+that prime is its unique largest prime. Indeed, if \(r\in R\)
+and another occurrence \(q\ge r\) were in the same source, then
+\(rq>K\), while \(D_r\le r\le qv_r(a/q)\), contrary to
+\eqref{ct:pair-bank}. In particular,
+\begin{equation}
+ R\subset(\sqrt K,K),\qquad
+ |P|\le\pi(cm)=O_c(m/\log m).
+ \label{ct:round-small}
+\end{equation}
+
+The quadratic gate forces \(M<16m^2\). For
+\(H=\{p:D_p>p\}\), the logarithmic demand budget is
+\[
+ \sum_{p\in H}p\log p
+ <\sum_pD_p\log p
+ =\sum_{a\in A}\log a
+ \le m\log M.
+\]
+Chebyshev's bound gives \(p_j\gg j\log(j+1)\) for the
+\(j\)-th prime. Thus the left side, for \(h=|H|\), is at least
+a constant times \(h^2\log^2(h+1)\). Separating
+\(h<m^{1/4}\) from its complement gives
+\begin{equation}
+ |E|=O_c\bigl(\sqrt{m/\log m}\bigr).
+ \label{ct:core-size}
+\end{equation}
+This reproduces the sharper structural bound in \cite{Synthesis}
+without an additive-budget parameter. Minimality is always taken
+at fixed \(M\); no interval is shortened after a deletion.
+
+\subsection{A sufficient inequality for full asymptotic closure}
+
+Fix \(\delta>0\) and take \(c=2+3\delta\) in the preceding
+minimality argument. The remaining analytic goal is the following
+uniform estimate for the just-described minimal-obstruction class:
+\begin{equation}
+ \boxed{\quad
+ \sup_{0\le w_p\le1}\Delta_{2+\delta}(A,I,w)=o(m).
+ \quad}
+ \label{ct:open-hinge}
+\end{equation}
+The supremum is over \emph{all} clipped core weights, with no
+bound on how many exceed a small threshold. The estimate must be
+uniform in \(M<16m^2\), the interval shift, the distinct sources,
+and their prime arithmetic.
+
+To see that this goal suffices, suppose arbitrarily large instances
+failed the budget \((2+3\delta)n\), and pass at fixed ambient
+length to a minimal failing subset of size \(m\). The quadratic
+gate gives \(m>\sqrt M/4\), so \(m\to\infty\). By
+\eqref{ct:open-hinge} and duality,
+\(L(A,I)\le(2+\delta)m+o(m)\). By
+\eqref{ct:round-small} and \eqref{ct:round}, the same bound holds
+for \(\tau(A,I)\), contradicting the chosen budget for large
+\(m\). Since \(\delta\) is arbitrary, the unrestricted
+\((2+o(1))n\) assertion would follow.
+
+The new controlled-core theorem bounds the supremum restricted to
+vectors having at most
+\[
+ k\le \frac{(1-\gamma)\log\log m}{\log D_\delta},
+ \qquad 0<\gamma<1,
+\]
+core weights exceeding \(c_\delta/(k+1)\) by \(o(m)\). Arbitrarily many
+substantial weights in \(R\) are allowed. The unrestricted demand
+core in \eqref{ct:core-size} can be much larger, so the result
+does not establish \eqref{ct:open-hinge} for every vector.
+
+The separate moment theorem excludes dual vectors with mean
+\(\sum_{p\le M}w_p/(p-1)\ge241/136+o(1)\).
+The separated-support theorem excludes its stated source classes.
+Combining these exclusions does not show that every remaining
+instance belongs to one of them.
+
+The direct construction and its strengthening in
+Corollary~\ref{cor:sc-chebyshev-core} give a further source-level
+restriction, independent of the weights. For the sufficiently
+small absolute \(c_0>0\) of that corollary, the demand core of a
+sufficiently large minimal asymptotic obstruction must satisfy
+\[
+ |E|>c_0\frac{(\log M)^2}{\log\log M}.
+\]
+Indeed, the one-outside-prime property already holds by
+\eqref{ct:demand-core}, so a smaller core would place that source
+set inside the new integer theorem. Consequently any hypothetical
+obstruction sequence has
+\[
+ \liminf\frac{\log|E|}{\log\log M}\ge2,
+ \qquad |E|=O_c\bigl(\sqrt{m/\log m}\bigr).
+\]
+There is still a large gap between these necessary bounds. This is
+not a proof that such an obstruction exists.
+
+\subsection{What has been closed and what still has to change}
+
+The following steps are now established within this proof programme:
+
+\begin{enumerate}
+\item The diffuse core and the one-prime remainder share a single
+target budget. No separate core cover is added to a remainder cover.
+\item All raw prime-power tails are retained. Capping is an exact
+intermediate device, followed by a justified simultaneous restoration.
+\item A controlled substantial core incurs a finite upper-set error,
+independent of \(M\). Each remainder prime pays that error once,
+regardless of its exponent range.
+\item Fixed-ambient minimality reduces integer rounding to \(o(m)\).
+The raw-to-integer passage is no longer an unproved final step.
+\item A direct common-core construction handles the core size
+bound \(c_0(\log M)^2/\log\log M\), while retaining arbitrary
+outside prime powers. Nested matching supplies all outside demands;
+exact core-part bins and a sparse exceptional repair supply the
+shared core demands.
+\item In the separated-support regime, arbitrary pure-core sources
+are absorbed, positive certificate overlap is bounded, and the
+old positive lower bound on the fixed large-prime exponent is removed.
+\end{enumerate}
+
+For the unrestricted asymptotic target, the next proof must control
+the joint contribution of many substantial core coordinates more
+economically than the variation bound
+\(B_{\delta,k}(1+|R|)\). It is sufficient to prove
+\eqref{ct:open-hinge}; it is not necessary to bound each upper-set
+discrepancy separately. Any such proof must preserve the shared
+target budget and the dependence between the core, the remainders,
+and the source demands.
+
+For the exact target \(2n\), even a proof of
+\eqref{ct:open-hinge} would leave an additional task: removing the
+\(o(n)\) slack and the rounding loss, or constructing an exact
+integer cover directly. The present note therefore distinguishes
+the exact and asymptotic endpoints throughout.
+
+\subsection{Two shortcuts that do not establish the missing step}
+
+The upper set of smooth parts cannot always be counted in a prefix
+as though that prefix minimized its count among intervals of equal
+length. The set of integers divisible by \(2\) or \(3\) contains
+two members of \(\{1,2,3\}\), but only one member of
+\(\{5,6,7\}\). This disproves that intermediate count claim;
+it is not a counterexample to problem 708. The finite-difference
+error in the controlled-core proof is what repairs this step.
+
+Also, the statement ``for every fixed \(\alpha>0\)'' in the
+separated-support theorem cannot be used with an arbitrary
+instance-dependent \(\alpha\to0\). The shrinking-exponent example
+is valid because its quantitative error conditions are checked
+separately. Primes between its stated bounds \(Y(M)\) and \(Z(M)\)
+remain outside that source class.
+
+The archive contains the complete proof notes, their mathematical
+audit records, and the inherited inputs. No finite search is used
+as evidence of a universal conclusion in this continuation.

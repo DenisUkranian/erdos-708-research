@@ -1,0 +1,141 @@
+{
+  "description": "Actual interval H1 discrepancy of order k^4 despite at most four substantial prime occurrences in every prefix source; not a J_weak or Erdos708 counterexample.",
+  "primes": [
+    1009,
+    1013,
+    1019,
+    1021,
+    1031,
+    1033,
+    1039,
+    1049,
+    1051,
+    1061,
+    1063,
+    1069,
+    1087,
+    1091,
+    1093,
+    1097,
+    1103,
+    1109,
+    1117,
+    1123
+  ],
+  "number_of_primes": 20,
+  "maximum_prefix_occurrences": 4,
+  "M": 1590446354641,
+  "half_width": 795223177320,
+  "weights": "w_p=1 on the listed primes and zero elsewhere",
+  "interval": "I=[C-half_width,C+half_width], inclusive",
+  "crt_conditions": [
+    {
+      "prime": 1009,
+      "modulus": 1045817322864049,
+      "center_residue": 522908661431520
+    },
+    {
+      "prime": 1013,
+      "modulus": 1066712113176293,
+      "center_residue": 533356056587640
+    },
+    {
+      "prime": 1019,
+      "modulus": 1098679244081099,
+      "center_residue": 549339622040040
+    },
+    {
+      "prime": 1021,
+      "modulus": 1109503586489101,
+      "center_residue": 554751793244040
+    },
+    {
+      "prime": 1031,
+      "modulus": 1164912556234151,
+      "center_residue": 582456278116560
+    },
+    {
+      "prime": 1033,
+      "modulus": 1176255338740393,
+      "center_residue": 588127669369680
+    },
+    {
+      "prime": 1039,
+      "modulus": 1210814847429199,
+      "center_residue": 605407423714080
+    },
+    {
+      "prime": 1049,
+      "modulus": 1270215596480249,
+      "center_residue": 635107798239600
+    },
+    {
+      "prime": 1051,
+      "modulus": 1282370681030251,
+      "center_residue": 641185340514600
+    },
+    {
+      "prime": 1061,
+      "modulus": 1344549883801301,
+      "center_residue": 672274941900120
+    },
+    {
+      "prime": 1063,
+      "modulus": 1357270227241543,
+      "center_residue": 678635113620240
+    },
+    {
+      "prime": 1069,
+      "modulus": 1396009989636349,
+      "center_residue": 698004994817640
+    },
+    {
+      "prime": 1087,
+      "modulus": 1517566463014207,
+      "center_residue": 758783231506560
+    },
+    {
+      "prime": 1091,
+      "modulus": 1545694825126451,
+      "center_residue": 772847412562680
+    },
+    {
+      "prime": 1093,
+      "modulus": 1559914552888693,
+      "center_residue": 779957276443800
+    },
+    {
+      "prime": 1097,
+      "modulus": 1588667963745257,
+      "center_residue": 794333981872080
+    },
+    {
+      "prime": 1103,
+      "modulus": 1632591617145743,
+      "center_residue": 816295808572320
+    },
+    {
+      "prime": 1109,
+      "modulus": 1677481467044549,
+      "center_residue": 838740733521720
+    },
+    {
+      "prime": 1117,
+      "modulus": 1738864998085357,
+      "center_residue": 869432499042120
+    },
+    {
+      "prime": 1123,
+      "modulus": 1786071256261843,
+      "center_residue": 893035628130360
+    }
+  ],
+  "center_hex": "0x1ce30fcf20adef1486aecdd14e26c3365f399ef14eede708558037affe7a3854ab366742498da3b8d008c83e86a78eddf1c8323a8fc93dcffff4d87ac044e32c0dea8bd763dc0d95d08413c9365ec86350c546898277690bce3a0dcbfe6a76c9bf5afdab84d5c11230bafd28ce35f5ba7ed2a51026a9eaf056e109c04dc2",
+  "period_hex": "0x2b33d04f0e979a156530126a695b1be0c0d42ad4fa6d5c51a336dadbe59b52aaa271cd6592c330b992dc4af42a1db85f517954eb0d394a1d827a93a1b29b01c8c130bfa76884530875d3cfed9f4ea637b13b4bf690e2e0a10d13ca6bd325f4a47519df895bc2609d5029c3bf77ff5c594d66c7c1abf1f94dcd2d5a82e6a3",
+  "pair_count_excess": 89,
+  "triple_count_excess": 573,
+  "raw_power_tail_excess": 39,
+  "capped_hinge_deficit": 4360,
+  "raw_hinge_deficit": 4321,
+  "proved_raw_hinge_deficit_lower_bound": 3626
+}

@@ -1,0 +1,91 @@
+{
+  "status": "Unrestricted asymptotic not proved; counterexamples only to specified intermediate steps.",
+  "date": "2026-11-23",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 4592,
+      "sha256": "8f1dbea7c8778900ed2cc1b8d3afd9068584caebb2f0f940a0998fe75b72840c"
+    },
+    {
+      "path": "analytic/REJECTED_SELBERG_BRIDGE.md",
+      "bytes": 6417,
+      "sha256": "21f4bd035799dd67163a02038e66abaad97c1694ef578153ecfbdba86f5c3616"
+    },
+    {
+      "path": "analytic/TOP_TAIL_BANK_COUNTERLEMMA.md",
+      "bytes": 6893,
+      "sha256": "99fa05b217b262ee9d2f87545ed9411fa754775643801a1b6902b3f9ba22dca9"
+    },
+    {
+      "path": "analytic/WANG_PRIMARY_AND_EXACT_TOP_TAIL.md",
+      "bytes": 6428,
+      "sha256": "ba81ed35efd4063048157eb7b9178afaeb9b37f1be20d307513aa650919be81d"
+    },
+    {
+      "path": "audit/OFFSET_TRANSPORT_AUDIT.md",
+      "bytes": 6242,
+      "sha256": "58a071093bbe8e6670a67c754954027441d88e495ae43cd528e8ef665f7ef9a2"
+    },
+    {
+      "path": "audit/STRICT_LEVEL_ROWS_AND_BANK_RESIDUAL.md",
+      "bytes": 7983,
+      "sha256": "5fd502413f5bce3fde961fad2cff129c908356ca0d1e46840d3b9519450e3091"
+    },
+    {
+      "path": "audit/count_top_counterexample.json",
+      "bytes": 537,
+      "sha256": "a8712d6615036152e9c6b491d13ec8dff16beeebb91c9d3847979773e4b1b8fb"
+    },
+    {
+      "path": "audit/count_top_counterexample.py",
+      "bytes": 1786,
+      "sha256": "595bc4f56075e16a8f562b62b751652744322c15d789728133e91562199bc7ec"
+    },
+    {
+      "path": "certificate/BANK_PRODUCT_COUNTEREXAMPLE.md",
+      "bytes": 7416,
+      "sha256": "8da141d90bf9e53bb8bb8260e8b475c2f87177d1b7ad55583ae78b4eef7a39f1"
+    },
+    {
+      "path": "certificate/bank_product_certificate.json",
+      "bytes": 110478,
+      "sha256": "6da6d75f3f7a2580c0eb0cb6ac1c4d2c17c4358b2f9ac1ae82a66941956ca92b"
+    },
+    {
+      "path": "certificate/bank_product_verification.json",
+      "bytes": 840,
+      "sha256": "09bef2534b7487960e7ec7f27f20305a63c1beeab6a37b060774c7c5cfb7ed72"
+    },
+    {
+      "path": "certificate/verify_bank_product_counterexample.py",
+      "bytes": 5297,
+      "sha256": "52d4577fe36a4992687340b55ec68d33c55dc9ec69f52c3bb2f756010189342c"
+    },
+    {
+      "path": "combinatorial/DENSE_H1_LINEAR_DISCREPANCY.md",
+      "bytes": 6130,
+      "sha256": "9714d4748549068fc75917a782c03b6990e6353b8a843996de9bf24a6f7b037d"
+    },
+    {
+      "path": "combinatorial/EXACT_TOP_TAIL_AND_JOINT_RESIDUAL.md",
+      "bytes": 6795,
+      "sha256": "c039d3e6b541be7f6a65f50e0500b2f5454ea3d7b0b7915c4c6e217586f9ace9"
+    },
+    {
+      "path": "combinatorial/MAX_RATIO_THRESHOLD_VARIATIONS.md",
+      "bytes": 5560,
+      "sha256": "5e7a184f8ff4ffa6448407a29c27e9b1f79a629bbf86b6887f269de55356f386"
+    },
+    {
+      "path": "erdos708_top_tail_gap.pdf",
+      "bytes": 284537,
+      "sha256": "c7840558905452048273051c6132865e1f1f005afb1ca669880cbcd7a0f2cf61"
+    },
+    {
+      "path": "erdos708_top_tail_gap.tex",
+      "bytes": 12175,
+      "sha256": "38a3e9ca0182d7eb3558d8f1ffdcd7274716d45e452a82957243259d8bde41b5"
+    }
+  ]
+}

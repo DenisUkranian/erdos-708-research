@@ -1,0 +1,49 @@
+ERDOS 708 — CONSOLIDATED MATERIALS, 24 NOVEMBER 2026
+
+Start with CURRENT_STATUS.txt and reports/erdos708_proof_ladders.pdf.
+READING_ORDER.csv covers all eleven principal reports (141 pages total).
+CORRECTIONS_LEDGER.csv records 22 corrections and scope restrictions.
+
+This archive preserves the recovered research, including failed approaches,
+exact certificates, numerical outputs, scripts, and source snapshots. It does
+not claim a proof of the unrestricted asymptotic or the exact 2n bound.
+
+CONTENTS
+reports/: the eleven generated PDF reports, one copy of each original.
+materials/: unique research notes, TeX sources, scripts, data, and historical
+status records, grouped by their original project directories.
+saved_pdf_versions/: the eleven separately saved PDF versions. Their bytes
+differ from the generated originals, but pdftotext -layout output agrees.
+Both binary forms are preserved rather than silently replacing one.
+history/: chat-claim chronology and precise retrieval coverage. This is a
+review of available records, not a complete export of every private chat.
+catalog/: file hashes, original paths, saved versions, prior ZIP membership,
+source links, and reproduction dependencies.
+
+COMPACTNESS AND ORIGINAL PATHS
+Each substantive local payload is stored once by SHA-256. Repeated historical
+paths are recorded in catalog/PATH_ALIASES.json. Eleven old ZIP containers are
+omitted because every member has an identical preserved payload. Their hashes
+and member lists are retained. Generated images used only for layout checks,
+TeX build caches/logs, and compiled intermediates are omitted.
+
+For a fully reconstructed project layout with every original substantive
+path, run: python3 restore_project_layout.py
+This creates restored_projects/ next to this file. It uses only local files,
+does not rerun calculations, and refuses to overwrite different bytes.
+Run scripts from that reconstructed layout when they import neighboring files.
+Historical absolute paths printed inside notes remain provenance references.
+
+For archive integrity, run: python3 verify_archive.py
+No third-party Python package is needed for these two utilities.
+Research script dependencies and existing requirements.txt are preserved.
+Third-party manuscript snapshots are not complete repositories; their known
+missing inputs are documented in history/LOCAL_INVENTORY_REVIEW.txt.
+
+COVERAGE
+Reviewed eleven local project trees; compared 22 independently saved items;
+checked all 11 prior ZIPs and 298 member records; performed three successful
+parent-context history searches. No new independent dot transcript or newer
+report was recovered. Earlier and later unseen chats cannot be ruled out by
+search results. No new mathematical search, g(n) computation, or publication
+was performed in making this archive.

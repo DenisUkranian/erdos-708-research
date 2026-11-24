@@ -1,0 +1,105 @@
+{
+  "status": "J_weak not proved",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 4018,
+      "sha256": "4e1f0e0c3a37e461b55e0a3654025fd77bc783d42f46ddebf43bd26c5c4f0e03"
+    },
+    {
+      "path": "STATUS.json",
+      "bytes": 464,
+      "sha256": "a62ae170eabaf37803512d983a2f13c9711d6b9d001a9f3700c801d8b62f5032"
+    },
+    {
+      "path": "analytic/DENSE_LIGHT_CORE_CONCENTRATION.md",
+      "bytes": 8254,
+      "sha256": "183862194806e43917f5c898d9f1c2129c067ad724b503b804b8fc234b07ac23"
+    },
+    {
+      "path": "analytic/JOINT_GLUING_DIAGNOSIS.md",
+      "bytes": 6422,
+      "sha256": "3ae04d10f2706d050c814cf175e211fba8ecc74710f351f8a4386ca50545dd10"
+    },
+    {
+      "path": "analytic/SPARSE_BOUNDED_HEAVY_OCCURRENCES.md",
+      "bytes": 6406,
+      "sha256": "eaab21f6e7d31cb5ad321d653e928f1ba0501c6d9a8aa0834026a85aa0626d82"
+    },
+    {
+      "path": "analytic/SPARSE_HOT_BONFERRONI.md",
+      "bytes": 7683,
+      "sha256": "fb88cbec9e1067917a6efacabcdd9a932257cede10f1168313ef472bb219e459"
+    },
+    {
+      "path": "audit/ATOM_LP_MINIMALITY_AND_COMPONENT_BANKS.md",
+      "bytes": 11656,
+      "sha256": "d13480fb6b097f7d8c4c802bc14dbd7af1475e08b2e91961043be34bfe68767a"
+    },
+    {
+      "path": "audit/FINAL_AUDIT.md",
+      "bytes": 1146,
+      "sha256": "bad505675796e6e34c09c20f2b113655ce2911009f1ed3cb3b759f391b555bb8"
+    },
+    {
+      "path": "audit/FOURIER_SAME_THRESHOLD_BARRIER.md",
+      "bytes": 5338,
+      "sha256": "9dfa522b52a9c671c545e479c47526eb40525da4056cedcd16e0c3726c05fc1f"
+    },
+    {
+      "path": "audit/GLOBAL_SPARSE_MEAN_AND_HOTSET.md",
+      "bytes": 9883,
+      "sha256": "55c9b07c8307486ab5e8040b79d2ea4fe215c77ff59822d54076fb0671a5f73a"
+    },
+    {
+      "path": "combinatorial/BOUNDED_OCCURRENCE_H1_BARRIER.md",
+      "bytes": 6398,
+      "sha256": "05b9cc788ed3da2094ae45b7f726ee40c1f5195b6deaae4db96dbb36f29c9277"
+    },
+    {
+      "path": "combinatorial/HOT_DIVISOR_PARTITIONS.md",
+      "bytes": 7370,
+      "sha256": "1a0681298b3e5c92b62fca1d65b1fdb38a58d4534f19ef2f5f3e0abeb53f942a"
+    },
+    {
+      "path": "combinatorial/OPTIMAL_BAND_DELETION.md",
+      "bytes": 10090,
+      "sha256": "74935645d3b5930f8f2b60d4eeec25990d822b01e9c44e6d011e646466ce01ad"
+    },
+    {
+      "path": "combinatorial/bounded_occurrence_h1_certificate.json",
+      "bytes": 3585,
+      "sha256": "8c8aa23af5c74ddb6ba9d6333a16587a31d28ecf042d82b5238acbd9c11107d4"
+    },
+    {
+      "path": "combinatorial/bounded_occurrence_h1_verification.json",
+      "bytes": 779,
+      "sha256": "ab7567cc2136bd3310d4390a74584ce0d12386582a625cab9ee5b27036a001b5"
+    },
+    {
+      "path": "combinatorial/verify_bounded_occurrence_h1.py",
+      "bytes": 4401,
+      "sha256": "2f5234978ab51d29b02f1526c8d58f33eb822ced4ffaf5358b7901d34ce71636"
+    },
+    {
+      "path": "erdos708_jweak_attempt.pdf",
+      "bytes": 378021,
+      "sha256": "782c0d7adc146d04366272200db1d0b843972a486edf4db55894b1130eac7e2e"
+    },
+    {
+      "path": "erdos708_jweak_attempt.tex",
+      "bytes": 28356,
+      "sha256": "c36832e783f5e14d4ca8ade5821d0b2b5bbba018cd39f364c1353447e7382cbf"
+    },
+    {
+      "path": "prior/erdos708_global_gap.pdf",
+      "bytes": 331299,
+      "sha256": "a3cf77eb70196c1ddf3c998290e5824fa3667ce2e3e269ef2c6efbc2391552a8"
+    },
+    {
+      "path": "prior/erdos708_global_gap.tex",
+      "bytes": 29574,
+      "sha256": "92a67a88cfb477407b67306c80115bd0827b3b9cdb29de92a16245baa37441fe"
+    }
+  ]
+}

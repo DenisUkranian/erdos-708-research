@@ -1,0 +1,215 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=.87in]{geometry}
+\usepackage{hyperref,enumitem}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\pos}[1]{\left(#1\right)_+}
+\setlength{\emergencystretch}{2em}
+\title{Erd\H{o}s 708: a stronger arithmetic count\protect\\and the remaining overlap term}
+\author{Research continuation; no claim of an asymptotic solution}
+\date{24 November 2026}
+\begin{document}
+\maketitle
+\noindent\textbf{Status.} The general asymptotic $g(n)\le(2+o(1))n$ remains unproved in this work. This continuation proves a quadratic count of small hot divisors, a joint bound for intersection-rounding errors with repeated carriers, and a quantitative necessary condition on low prices. It also records a robust three-block reduction. None of these statements is presented as a completed interval-capacity estimate. The user's counterexample to unrestricted full-prefix kernel transfer remains valid; that transfer is not used here.
+
+\paragraph{Available dot material.} The accessible conversation history and reports were checked again. No newer accessible dot result beyond the already audited counterexample and finite-variation formulas was found. This note does not claim access to a separate live dot session.
+
+\section{The extremal setting and the precise target}
+Let $I$ be an interval of $M$ consecutive positive integers, and let
+\[
+ X(t)=\sum_p w_p v_p(t),\qquad 0\le w_p\le1.
+\]
+Fix $c=2+\delta>2$. For a positive global maximum of
+\[
+ J_c(w)=\sum_{a\le M}\pos{X(a)-c}-\sum_{b\in I}\pos{X(b)-1},
+\]
+write $A=\{a\le M:X(a)>c\}$, $n=|A|$, and let $z$ be a paired optimum of the original boxed raw covering problem. Thus
+\[
+ F:=\sum_{b\in I}z_b=cn+J_c(w),\qquad
+ \sum_{b\in I}z_bv_p(b)=\sum_{a\in A}v_p(a)\quad(w_p>0).
+\]
+Also $z_b=1$ when $X(b)>1$ and $z_b=0$ when $X(b)<1$.
+The previously established extremal inputs are
+\[
+ K:=\#\{b\in I:X(b)>1\}\le C_c n,
+ \qquad \mu:=\sum_p\frac{w_p}{p-1}\le C_c.
+\]
+The earlier conditional first-moment theorem gives, uniformly over every shorter prefix and every fixed threshold, a bound for the average load on its complete upper tail in terms of $c$ and the bound on $\mu$. The relevant earlier proofs are included in the archive under \texttt{new\_attempt/prior\_inputs/}.
+
+For the old kernel and its two reserves the desired estimate remains
+\[
+ \Gamma-R_A-R_I\le o_\delta(n).
+\]
+Its exact left side is $\Phi_A(w)-2n=J_c(w)+\delta n$. This identity is not an estimate and is not counted as new progress.
+
+\section{A quadratic count from a short interval block}
+\begin{theorem}[Short-block divisor count]\label{thm:short}
+Let $S\subseteq I$, $|S|=K$, and let $D$ be an integer with $1\le2D\le M$. Put
+\[
+ \mathcal H_D=\{d\le D:I\cap d\mathbb Z\subseteq S\},
+ \qquad q=\left\lfloor\frac{M}{2D}\right\rfloor.
+\]
+Then
+\begin{equation}\label{eq:count}
+ \boxed{\displaystyle
+ |\mathcal H_D|\le
+ \binom{\lfloor K/q\rfloor}{2}
+ \le8\left(\frac{KD}{M}\right)^2.}
+\end{equation}
+\end{theorem}
+\begin{proof}
+Partition the first $2Dq$ positions of $I$ into $q$ disjoint consecutive blocks of length $2D$. Some block $B$ contains at most $\lfloor K/q\rfloor$ points of $S$. Every $d\le D$ has at least two consecutive multiples in $B$. If $d\in\mathcal H_D$, those two positions lie in $S\cap B$ and have difference exactly $d$. Therefore all distinct $d\in\mathcal H_D$ occur among the positive pair differences of $S\cap B$, proving the first inequality. Since $M/(2D)\ge1$, one has $q\ge M/(4D)$; now use $\binom{k}{2}\le k^2/2$. This retains every endpoint error and is uniform in the shift.
+\end{proof}
+
+Let $H(y)=\#\{d\le y:X(d)>1\}$. Every multiple of a hot integer is hot. Apply Theorem~\ref{thm:short} with $S=\{b\in I:X(b)>1\}$ and $D=\lfloor y\rfloor$ to obtain
+\begin{equation}\label{eq:hot}
+ \boxed{H(y)\le8(Ky/M)^2\qquad(1\le y\le M/2).}
+\end{equation}
+In particular, for $T=M/(K+1)$ and $CT\le M/2$,
+\[
+ H(CT)\le8C^2.
+\]
+This replaces the earlier $O(C^7)$ gcd-clustering estimate in its applicable range. For every fixed $B>0$, at the genuine extremum,
+\begin{equation}\label{eq:sqrt}
+ \boxed{H(B\sqrt M)=O_{c,B}(n^2/M).}
+\end{equation}
+In the sparse regime $n/M\to0$, this is $o(n)$ even when $n/\sqrt M\to\infty$.
+
+The earlier conditional first-moment estimate applies to the complete hot tail in $[1,\lfloor B\sqrt M\rfloor]$, with the same uniform bound on $\mu$. Hence, in the sparse regime $n/M\to0$, it also gives
+\begin{equation}\label{eq:weighted}
+ \boxed{\sum_{\substack{d\le B\sqrt M\\X(d)>1}}X(d)
+       =O_{c,B}(n^2/M)=o(n).}
+\end{equation}
+Both sums count each integer $d$ once. They do not count its repeated use as a source carrier or the selected mass of its target multiples.
+
+\section{Repeated carriers: all floor errors can be summed once}
+Let $h\le\sqrt M$ range over distinct carriers, with nonnegative total demands $m_h$ satisfying $\sum_hm_h\le n$. Define
+\[
+ \alpha_h=\frac{m_hh}{M},\qquad
+ Z(b)=\sum_h\alpha_h\mathbf1_{h\mid b}.
+\]
+For every pair $h,k$,
+\[
+ \#(I\cap h\mathbb Z\cap k\mathbb Z)
+ \le\frac{M\gcd(h,k)}{hk}+1.
+\]
+Therefore, including diagonal terms and every repeated-carrier demand,
+\begin{equation}\label{eq:moment}
+ \boxed{\sum_{b\in I}Z(b)^2
+ \le\frac1M\sum_{h,k}m_hm_k\gcd(h,k)+\frac{n^2}{M}.}
+\end{equation}
+Indeed the entire $+1$ contribution is
+\[
+ \left(\sum_h\alpha_h\right)^2
+ \le\left(\frac{\sqrt M}{M}\sum_hm_h\right)^2
+ \le\frac{n^2}{M}.
+\]
+This is a joint estimate, not a separate error charge for each bank family. In the sparse branch the rounding term is $o(n)$. The main gcd term in \eqref{eq:moment} is still uncontrolled; a cold gcd may be numerically large. The inequality does not by itself establish a Hall or shared-penalty bound.
+
+There is also a concrete obstruction to using pairwise cold gcds as a joint payment rule. Give $2,3,5,7,11,13$ price $3/5$, take all $15$ distinct pair products $h$, and put $b=M=30030$. All $h\le143<\sqrt M$ are hot, every pairwise gcd of distinct roots has load at most $3/5$, but
+\[
+ \sum_h(X(h)-1)=15/5=3>13/5=X(b)-1.
+\]
+Even the corresponding distinct integers $a_h=h^2<M$ are genuine high-load source candidates: $X(a_h)=12/5>2+1/10$. This example is not a positive global optimum and does not refute the desired asymptotic. It refutes only the asserted local payment rule.
+
+The exact accounting identity uses the accumulated lcm. For any $h_1,\ldots,h_r\mid b$, set $L_j=\operatorname{lcm}(h_1,\ldots,h_j)$. Complete additivity gives
+\begin{equation}\label{eq:lcm}
+ \boxed{\sum_{j=1}^r(X(h_j)-1)=X(L_r)-1+
+ \sum_{j=2}^r\bigl(X(\gcd(h_j,L_{j-1}))-1\bigr).}
+\end{equation}
+This follows by telescoping $X(\operatorname{lcm}(u,v))+X(\gcd(u,v))=X(u)+X(v)$, including all powers. Thus coldness of every gcd with the accumulated lcm is sufficient for a common payment. Pairwise coldness is insufficient.
+
+For comparison, direct convolution of \eqref{eq:hot} only gives a weaker bound. If $T=M/(K+1)\ge2$, and $E$ is the set of $a\le M$ admitting $a=hk$ with both factors hot, then
+\[
+ |E|\le8K^2\sum_{\substack{T<h\le\sqrt M\\X(h)>1}}h^{-2}.
+\]
+Dyadic summation using \eqref{eq:hot} yields
+\begin{equation}\label{eq:twohot}
+ |E|\le256\frac{K^4}{M^2}
+ \left[1+\log_2^+\left(\frac{\sqrt M}{T}\right)\right].
+\end{equation}
+This can exceed $n$ in the remaining sparse range. Replacing it by $O(K^2/M)$ would require an additional theorem; it is not a consequence of the new divisor count.
+The dyadic argument uses $M\ge16$; for $M<16$ the set $E$ is empty, since a hot integer is at least $4$.
+
+\section{A quantitative obstruction to deleting all low prices}
+We use the earlier exact binary theorem: for every set $P$ of primes, with $N_P(t)=\sum_{p\in P}v_p(t)$,
+\begin{equation}\label{eq:binary}
+ \sum_{a\le M}\pos{N_P(a)-2}
+ \le\sum_{b\in I}\pos{N_P(b)-1}.
+\end{equation}
+Its complete product-truncated proof is included in the archive. This theorem includes every prime power and has no interval-error term.
+
+Take any subset $P$ of the original active primes. Combining \eqref{eq:binary} with their exact original row balances gives
+\begin{align}
+ \sum_{\substack{b\in I\\N_P(b)>0}}z_b
+ \le{}&\sum_{a\in A}\min(N_P(a),2)
+       -\sum_{\substack{a\le M\\a\notin A}}\pos{N_P(a)-2}\notag\\
+ &+\sum_{b\in I}(1-z_b)\pos{N_P(b)-1}.\label{eq:cut}
+\end{align}
+To verify it, use $\sum_A N_P=\sum_Iz_bN_P(b)$ and the pointwise identity
+\[
+ zN-(N-1)_+=z\mathbf1_{N>0}-(1-z)(N-1)_+.
+\]
+Thus all the inequalities \eqref{eq:cut} are valid simultaneously, without changing the source set or replacing whole-prime rows by exponent-layer equations.
+
+Now choose $P=\{p:w_p>1/2\}$. When $N_P(b)\ge2$, the target is hot and $z_b=1$, so the last term in \eqref{eq:cut} vanishes. Consequently the selected mass of targets containing such a prime is at most $2n$. The selected mass containing none is at least $F-2n$. Every selected target has $X(b)\ge1$. Exact row balance for the complementary price range therefore proves
+\begin{equation}\label{eq:low}
+ \boxed{\sum_{0<w_p\le1/2} w_p\sum_{a\in A}v_p(a)
+       \ge F-2n>\delta n.}
+\end{equation}
+So deleting all prices at most $1/2$ cannot have $o(n)$ weighted source cost at a positive optimizer. Equation~\eqref{eq:low} is a necessary condition for the full class, not an upper bound proving the desired asymptotic.
+
+\section{A robust three-block reduction}
+\begin{lemma}\label{lem:three}
+For every $a$ with $U=X(a)>2+\delta$, there are positive integers $u,v,t$ with $a=uvt$ and
+\[
+ X(uv),\ X(ut),\ X(vt)>1+\delta/2.
+\]
+All prime occurrences, including repeated and zero-price occurrences, are retained.
+\end{lemma}
+\begin{proof}
+Put $C=(3U-2-\delta)/4$. Then $C>1$, $U<2C$, and $C<U-1-\delta/2$. Pack positive occurrence weights, in nonincreasing order, by first fit into bins of capacity $C$. If a fourth bin is opened for an item $x\le C/2$, the three old bins together with $x$ have total load greater than $3C-2x\ge2C>U$. If $x>C/2$, each old bin has a first item of weight at least $x$, and those items together with $x$ have total load at least $4x>2C>U$. Both are impossible. Assign the three bins to $u,v,t$, distributing zero-price factors arbitrarily. Each complementary product has load at least $U-C=(U+2+\delta)/4>1+\delta/2$.
+\end{proof}
+
+If $R_\tau(M)$ is the set of products $a=uvt\le M$ with all three pair products of load greater than $\tau$, Lemma~\ref{lem:three} gives $A\subseteq R_{1+\delta/2}(M)$. Their three pair divisors satisfy
+\[
+ (uv)(ut)(vt)=a^2\le M^2.
+\]
+A bound of the form
+\[
+ |R_{1+\delta/2}(M)|
+ \le C_\delta K^{3/2}/\sqrt M+O_\delta(\sqrt M)
+\]
+would exclude the entire remaining subquadratic sparse branch. It is \textbf{unproved}. Pair-factor projections are not independent target positions, so invoking a product-measure triangle inequality here would leave the essential arithmetic step unjustified.
+
+\subsection*{Sources with no two hot complementary factors}
+There is a useful corollary of the earlier minimal-hot-divisor argument, but it does not remove the remaining error. Suppose $a\notin E$ and $S=X(a)>2+\delta$. Then
+\[
+ S\le3.
+\]
+Indeed, if $S>3$, the first block whose load crosses $1$ has load at most $2$, and its complement is also hot. Now let $m\mid a$ be inclusion-minimal with $X(m)>1$. Its complement is cold and deleting any one occurrence from $m$ is cold. Hence
+\[
+ X(m)\ge S-1,\qquad w_p\ge X(m)-1\ge S-2>\delta
+ \quad\text{for every occurrence }p\text{ in }m.
+\]
+Writing $X_{>\delta}$ and $X_{\le\delta}$ for the two price ranges, every divisor $d\mid a$ therefore satisfies
+\[
+ X(d)>1\iff X_{>\delta}(d)>1,
+ \qquad X_{\le\delta}(a)\le1,
+ \qquad \Omega_{>\delta}(a)<3/\delta.
+\]
+The first equivalence follows by taking a minimal hot divisor inside $d$. It does not preserve source excess. For example, with $\delta=1/10$, three distinct prime occurrences of price $3/5$ and four of price $1/10$ have total load $11/5>21/10$. Every hot divisor needs at least two of the three large-price occurrences, so two disjoint hot factors are impossible. Removing the small prices preserves the hot/cold status of every divisor but lowers the source load to $9/5$. This is a local example, not a claimed global optimum or an interval counterexample. Thus this reduction supplies no $o(n)$ bound for the removed source demand.
+
+\section{What remains open in this attempt}
+In the sparse branch, \eqref{eq:sqrt}--\eqref{eq:weighted} control distinct small hot divisors, and \eqref{eq:moment} controls all intersection-rounding errors on the scale $o(n)$. The numerical gcd term and the actual shared target capacity remain to be bounded with the carrier multiplicities retained.
+
+In the positive-density branch, $n\asymp M$, the error $n^2/M$ is not $o(n)$ and the distinct-divisor estimate does not settle the common-budget comparison. No general replacement for that branch's outstanding arithmetic estimate was found.
+
+The archive also contains an exact abstract countermodel satisfying global full-tail optimality, exact selected rows, and every unweighted integer-threshold subset inequality. It is explicitly not an integer interval: mixed mandatory banks are absent. Its purpose is to prevent an invalid completion based only on those extracted inequalities. It is not a counterexample to Erd\H{o}s 708.
+
+The new stable-envelope LP formula is recorded separately, with all support changes accounted for. Its aggregate interval transfer remains unproved. No finite value of $g(n)$ was computed. Neither the asymptotic target nor the exact $2n$ bound is claimed.
+\end{document}

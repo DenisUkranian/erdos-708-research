@@ -1,0 +1,1064 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=23mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,array}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[colorlinks=true,linkcolor=MidnightBlue,urlcolor=MidnightBlue,citecolor=MidnightBlue]{hyperref}
+\usepackage{microtype}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Erd\H{o}s 708: partial results}
+\fancyhead[R]{\small 23 November 2026}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\pos}[1]{\left(#1\right)_+}
+\newcommand{\ind}{\mathbf 1}
+\newcommand{\pp}{P^+}
+\newcommand{\vp}{v_p}
+\newcommand{\sm}{\operatorname{sm}}
+\newcommand{\Om}{\Omega}
+\newcommand{\HH}{\mathcal H}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\ZZ}{\mathbb Z}
+\newcommand{\RR}{\mathbb R}
+\DeclareMathOperator{\lcm}{lcm}
+\title{\textbf{Partial Results on Erd\H{o}s Problem 708}\\[4pt]
+\large Divisor certificates, exact covers for rough source sets,\\
+and a precise remaining obstruction}
+\author{Research working note prepared for Denis Paliy\\
+\small AI-assisted derivations with independent internal audits}
+\date{23 November 2026}
+\begin{document}
+\maketitle
+\begin{center}
+\fcolorbox{MidnightBlue}{blue!3}{\parbox{0.92\linewidth}{
+\textbf{Status.} The unrestricted inequalities \(g(n)\le 2n\) and
+\(g(n)\le(2+o(1))n\) are \textbf{not proved here}. This note gives
+unconditional theorems for explicit classes, including an exact \(2n\)
+theorem when all source prime factors are at least \(M^\alpha\),
+\(\alpha>1/(2e)\), for sufficiently large \(M\).
+The proofs have been independently checked within this research session;
+they have not been externally refereed or formalized. No priority claim
+is made. Finite searches are not used as substitutes for proofs.
+}}
+\end{center}
+\begin{abstract}
+For a set \(A\) of \(n\) distinct integers greater than one and
+\(M=\max A\), the product-cover problem asks for a small subset of every
+interval of \(M\) consecutive integers whose product is divisible by
+\(\prod A\). We construct a signed divisor certificate that proves Hall's
+condition for the quotients \(a/P^+(a)\), under an explicit condition on
+the prime support of those quotients. A prime-valuation repair then
+produces at most \(2n\) distinct interval elements. The cofactor primes
+are at most \(\sqrt M\), giving the rough-source exponent \(1/(2e)\).
+A second, ordered-prefix certificate proves a weighted hinge inequality
+and a stronger level-set comparison when reciprocal-prime mass is below
+one with a controlled rounding term. We also record an asymptotic
+version allowing fixed small primes, a fixed-support uniformity theorem,
+and a complete finite CRT formulation for counterexample searches.
+\end{abstract}
+\begingroup
+\small
+\setcounter{tocdepth}{1}
+\setlength{\parskip}{1pt}
+\makeatletter
+\renewcommand{\l@section}[2]{\@dottedtocline{1}{0em}{2em}{#1}{#2}}
+\makeatother
+\tableofcontents
+\endgroup
+\newpage
+
+\section{Problem and separation of claims}
+
+Let \(A\subset\ZZ_{\ge2}\) be a set of \(n\) distinct integers, put
+\(M=\max A\), and write
+\[
+ I_x=\{x+1,\ldots,x+M\},\qquad x\in\ZZ_{\ge0}.
+\]
+Define
+\[
+ \tau(A,I_x)=\min\{|B|:B\subseteq I_x,\ \prod_{a\in A}a\mid\prod_{b\in B}b\},
+ \qquad
+ g(n)=\sup_{|A|=n,\ x\ge0}\tau(A,I_x).
+\]
+Each interval position may be selected only once. The stronger target is
+\(g(n)\le2n\); the asymptotic target is \(g(n)\le(2+o(1))n\).
+The historical lower bound has leading coefficient two. Primary modern
+working sources and their limitations are listed in
+Section~\ref{sec:refs}; the new derivations below are stated separately
+from those inputs.
+
+We shall repeatedly use the elementary counts
+\[
+ \left\lfloor\frac M d\right\rfloor
+ \le N_I(d):=\#\{b\in I:d\mid b\}
+ \le \left\lceil\frac M d\right\rceil
+ \le \frac M d+1.
+ \tag{1.1}
+\]
+Also
+\[
+ \prod A\mid M!\mid\prod I_x.
+ \tag{1.2}
+\]
+The first divisibility uses distinctness of the sources. The second
+follows from \(\prod I_x=M!\binom{x+M}{M}\).
+
+\begin{center}
+\small
+\begin{tabular}{p{0.40\linewidth}p{0.50\linewidth}}
+\toprule
+Statement & Status in this note\\
+\midrule
+Unrestricted \(g(n)\le2n\) & Open; not established\\
+Unrestricted \(g(n)\le(2+o(1))n\) & Open; not established\\
+Explicit sparse cofactor-support criterion & Exact \(2n\), proved\\
+All source primes \(\ge M^\alpha\), \(\alpha>1/(2e)\) & Exact \(2n\) for all sufficiently large \(M\), proved\\
+Cofactor reciprocal mass \(\le1-\delta\), fixed \(\delta>0\) & \(2n+o(n)\) uniformly in this class, proved using a cited long-interval theorem\\
+Ordered prime-support condition & Weighted hinge and level-set inequalities, proved\\
+Any fixed finite source prime support \(P\) & \(2n+|P|-1\) for sufficiently large \(M\), proved\\
+CRT optimization experiments & Search evidence only; no general upper bound\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{An exact \(2n\) theorem from cofactor matching}
+\label{sec:exact}
+
+For \(a\ge2\), let \(p(a)=P^+(a)\) be its largest prime factor and
+\(d(a)=a/p(a)\). Let \(A_c\) be the composite members of \(A\). Define
+\[
+ P=\{p:p\mid a\text{ for some }a\in A_c\},\qquad
+ Q=\{q:q\mid d(a)\text{ for some }a\in A_c\}.
+ \tag{2.1}
+\]
+For a prime set \(R\), put
+\[
+ \pi_R(t)=\#\{p\in R:p\le t\},\qquad H_R(t)=\sum_{\substack{p\in R\\p\le t}}\frac1p.
+ \tag{2.2}
+\]
+The empty-composite case is immediate: choose a multiple of each prime
+source and take their union, using at most \(n\) positions.
+
+\begin{theorem}[Finite cofactor-support criterion]
+\label{thm:exact}
+Suppose \(A_c\ne\varnothing\). If for every distinct quotient
+\(d=d(a)\), \(a\in A_c\), with \(T=M/d\), one has
+\[
+ H_Q(T)+\frac{\pi_Q(T)+\pi_P(T)+1}{T}\le1,
+ \tag{2.3}
+\]
+then every \(I_x\) contains a set \(B\) with \(|B|\le2n\) and
+\(\prod A\mid\prod B\).
+\end{theorem}
+
+\begin{proof}
+Give each composite source \(a\) all target neighbors \(b\in I_x\)
+satisfying \(d(a)\mid b\). We verify Hall's condition.
+
+Fix an arbitrary subset \(S\subseteq A_c\), and let
+\(D=\{d(a):a\in S\}\) be its distinct quotient set. Every \(d\in D\)
+is \(Q\)-smooth and
+\[
+ dP^+(d)\le M.
+ \tag{2.4}
+\]
+Indeed, if \(d=a/p(a)\), then \(P^+(d)\le p(a)\) and \(dp(a)=a\le M\).
+For \(b\in I_x\), define the signed certificate
+\[
+ K_D(b)=\sum_{d\in D}
+ \left(\ind_{d\mid b}-
+       \sum_{\substack{q\in Q\\q\le M/d}}\ind_{dq\mid b}\right).
+ \tag{2.5}
+\]
+At most one summand can be positive. To see this, positivity for \(d\)
+means \(d\mid b\) and no prime \(q\in Q\), \(q\le M/d\), divides \(b/d\).
+Together with (2.4), this says
+\[
+ d=\sm_{Q\cap[2,M/d]}(b),
+ \tag{2.6}
+\]
+where the smooth part includes the \emph{full} powers of the indicated
+primes in \(b\). If \(d_1<d_2\), the prime set on the right of (2.6)
+for \(d_1\) contains the one for \(d_2\). The corresponding smooth part
+is therefore at least as large, contradicting \(d_1<d_2\) if both
+were fixed points.
+
+Within \(I_x\), outside \(N(S)=\bigcup_{d\in D}(I_x\cap d\ZZ)\),
+all summands vanish.
+Inside it, the possible positive summand equals one and all others
+are nonpositive. Hence
+\[
+ K_D(b)\le\ind_{b\in N(S)}.
+ \tag{2.7}
+\]
+Using (1.1) and \(T=M/d\),
+\[
+ \begin{split}
+ |N(S)|
+ &\ge\sum_{d\in D}\left[N_I(d)-
+                \sum_{\substack{q\in Q\\q\le T}}N_I(dq)\right]\\
+ &\ge\sum_{d\in D}
+       \left[T(1-H_Q(T))-\pi_Q(T)-1\right]\\
+ &\ge\sum_{d\in D}\pi_P(T).
+ \end{split}
+ \tag{2.8}
+\]
+For each quotient \(d\), every source in its fibre has the form \(dp\)
+with a prime \(p\in P\), \(p\le M/d\). Distinct sources give distinct
+such primes. Thus
+\[
+ |S|\le\sum_{d\in D}\pi_P(M/d).
+ \tag{2.9}
+\]
+Equations (2.8)--(2.9) prove Hall's condition. Match all composite
+sources injectively. Prime sources have quotient one, so they may be
+assigned afterward to unused positions; \(n\le M-1\) guarantees room.
+We obtain \(n\) distinct positions \(B_0=\{b_a:a\in A\}\) with
+\[
+ \prod_{a\in A}d(a)\mid\prod B_0.
+ \tag{2.10}
+\]
+
+It remains to supply the removed prime units. If
+\(m_p=\#\{a\in A:p(a)=p\}\), the current deficit in the \(p\)-valuation
+relative to \(\prod A\) is at most \(m_p\). The sum of all positive
+deficits is therefore at most \(\sum_p m_p=n\).
+Whenever a deficit remains, (1.2) ensures that some \emph{unused}
+interval position contains that prime: otherwise the full interval
+would have the same deficient valuation. Add such a position.
+Each addition decreases the total deficit by at least one.
+At most \(n\) additions finish the cover, proving \(|B|\le2n\).
+\end{proof}
+
+\begin{corollary}[An exact integer test using the actual fibres]
+\label{cor:finite}
+Let \(r_A(d)=\#\{a\in A_c:d(a)=d\}\). It is enough to check, for every
+distinct composite-source quotient \(d\),
+\[
+ \left\lfloor\frac M d\right\rfloor
+ -
+ \sum_{\substack{q\in Q\\q\le M/d}}
+ \left\lceil\frac M{dq}\right\rceil
+ \ \ge\ r_A(d).
+ \tag{2.11}
+\]
+This is a sufficient certificate valid for \emph{every} shift, not a
+test of a single interval.
+\end{corollary}
+\begin{proof}
+Use the exact floor/ceiling version of (2.8) and
+\(|S|\le\sum_{d\in D}r_A(d)\).
+\end{proof}
+
+\begin{corollary}[A simple support condition]
+\label{cor:cardinality}
+Let \(P_0\) consist of \(k\) primes, all at least \(3k+1\).
+Every finite set of distinct \(P_0\)-smooth integers satisfies the
+exact \(2n\) conclusion, for every interval.
+\end{corollary}
+\begin{proof}
+In (2.3), use \(H_Q(T)\le k/y\),
+\(\pi_Q(T)+\pi_P(T)+1\le2k+1\), and \(T\ge y=\min P_0\).
+The left side is at most \((3k+1)/y\le1\).
+\end{proof}
+
+For example, the 21 primes from 101 through 199 satisfy this condition
+since \(101>3\cdot21+1=64\). Arbitrarily high powers are allowed.
+This is a theorem about all finite source sets on that support, not
+only squarefree triple products.
+
+\section{Exact covers for rough source sets}
+\label{sec:rough}
+
+\begin{lemma}[The cofactor primes are small]
+For \(Q\) in (2.1), one has \(Q\subseteq[2,\sqrt M]\).
+\end{lemma}
+\begin{proof}
+If \(q\mid a/p(a)\), then \(q\le p(a)\) and \(qp(a)\mid a\).
+Consequently \(q^2\le qp(a)\le a\le M\).
+This includes the case \(q=p(a)\), where the largest prime is repeated.
+\end{proof}
+
+\begin{theorem}[Rough-source exponent]
+\label{thm:rough}
+Fix \(\alpha>1/(2e)\). There exists \(M_\alpha\) such that, whenever
+\(M\ge M_\alpha\) and every prime divisor of every \(a\in A\) is at
+least \(M^\alpha\), every interval of length \(M\) has a product cover
+using at most \(2|A|\) distinct elements.
+\end{theorem}
+\begin{proof}
+The case \(\alpha>1/2\) has only prime sources. At \(\alpha=1/2\),
+the possible composite boundary cases satisfy the criterion directly
+for large \(M\). Thus assume \(1/(2e)<\alpha<1/2\).
+The preceding lemma gives
+\[
+ Q\subseteq[M^\alpha,M^{1/2}].
+ \tag{3.1}
+\]
+The prime reciprocal asymptotic implies
+\[
+ H_Q(\infty)\le
+ \sum_{M^\alpha\le q\le M^{1/2}}\frac1q
+ =\log\frac1{2\alpha}+o(1)<1.
+ \tag{3.2}
+\]
+Furthermore the elementary estimate \(\pi(t)=O(t/\log t)\) gives
+\[
+ \sup_{T\ge M^\alpha}\frac{\pi_Q(T)+\pi_P(T)+1}{T}
+ \le\sup_{T\ge M^\alpha}\frac{2\pi(T)+1}{T}=o(1).
+ \tag{3.3}
+\]
+There is a fixed positive gap between \(\log(1/(2\alpha))\) and one.
+For sufficiently large \(M\), (3.2)--(3.3) imply (2.3).
+Apply Theorem~\ref{thm:exact}.
+\end{proof}
+
+The constant is
+\[
+ \frac1{2e}=0.1839397205857\ldots.
+ \tag{3.4}
+\]
+Equation (3.2) requires the \(o(1)\) form of the prime reciprocal
+asymptotic, not merely an \(O(1)\) estimate. It follows, for instance,
+by subtracting the logarithmic Mertens product formula at
+\(M^{1/2}\) and \(M^\alpha\), and using
+\(\log(1-1/p)=-1/p+O(p^{-2})\); see \cite{TaoMertens}.
+No explicit numerical value of \(M_\alpha\) is asserted here.
+
+\section{An asymptotic class allowing small primes}
+\label{sec:asymclass}
+
+\begin{theorem}
+\label{thm:asymclass}
+Fix \(\delta>0\). For all source sets whose cofactor support \(Q\)
+satisfies
+\[
+ \sum_{q\in Q}\frac1q\le1-\delta,
+ \tag{4.1}
+\]
+one has uniformly
+\[
+ \tau(A,I_x)\le2n+o_\delta(n).
+ \tag{4.2}
+\]
+The minimum prime of \(Q\) need not tend to infinity.
+\end{theorem}
+\begin{proof}
+Choose a constant \(T_0=T_0(\delta)\ge2\) such that
+\[
+ \frac{2\pi(T)+1}{T}\le\delta\qquad(T\ge T_0).
+ \tag{4.3}
+\]
+Call a composite source good if \(M/d(a)\ge T_0\), and bad otherwise.
+For all good quotient vertices the proof of Theorem~\ref{thm:exact}
+applies, using (4.1)--(4.3); match them injectively. Prime sources may
+again be included by their full neighborhoods.
+
+If a source is bad, then
+\[
+ P^+(a)\le M/d(a)<T_0.
+ \tag{4.4}
+\]
+It is therefore composed entirely of the fixed finite collection of
+primes below \(T_0\). The number \(b\) of distinct bad sources is at most
+\[
+ b\le\prod_{p<T_0}
+       \left(1+\left\lfloor\frac{\log M}{\log p}\right\rfloor\right)
+ =O_\delta((1+\log M)^{\pi(T_0)}).
+ \tag{4.5}
+\]
+Match the good cofactors and then repair all valuation deficits.
+The removed largest prime units of the good sources cost at most their
+number. Supply the \emph{entire} prime factor demand of the bad sources
+by the same unused-position repair rule. The latter cost is at most
+\(\sum_{\text{bad }a}\Omega(a)\le b\log_2M\).
+The full-interval divisibility (1.2) ensures every repair exists.
+Thus
+\[
+ \tau(A,I_x)\le
+ 2n+O_\delta((1+\log M)^{\pi(T_0)+1}).
+ \tag{4.6}
+\]
+This does not by itself give a bound in \(n\), since \(M\) is unbounded.
+Use the established long-interval result
+\(M\ge16n^2\Rightarrow\tau(A,I_x)\le2n\) from \cite{Wang}.
+In the remaining range \(M<16n^2\), the error in (4.6) is a fixed
+power of \(\log n\), hence \(o_\delta(n)\).
+The older cubic long-interval theorem from \cite{Chen} also suffices
+for this last reduction.
+\end{proof}
+
+The fixed margin \(\delta\) is essential to the stated uniform
+conclusion. We have not proved (4.2) when the reciprocal mass is
+unrestricted, or when its distance from one decays without control.
+
+\subsection{An arbitrary fixed collection of small prime factors}
+
+The exact matching argument can absorb a fixed set of small primes.
+This is a source-set statement; the number of such primes need not
+be two.
+
+\begin{proposition}[Fixed small-prime part]
+\label{prop:fixedanchors}
+Let \(E\) and \(R\) be disjoint finite prime sets, with every member
+of \(E\) smaller than \(y=\min R\). Define
+\[
+ \theta_E=\prod_{q\in E}(1-1/q),\quad C_E=2^{|E|},\quad
+ \rho_y(R)=\sup_{T\ge y}\frac{\pi_R(T)+1}{T},\quad
+ \sigma_y(R)=\sup_{T\ge y}\frac{\pi_R(T)}{T}.
+ \]
+If
+\[
+ \theta_E\left(1-\sum_{r\in R}\frac1r\right)
+ \ge C_E\rho_y(R)+\sigma_y(R),
+ \tag{4.7}
+\]
+then every distinct source set supported on \(E\cup R\), each of whose
+members has a prime factor in \(R\), has an exact \(2n\) cover.
+\end{proposition}
+\begin{proof}
+For a composite source the removed largest prime belongs to \(R\).
+Thus every quotient \(d\) used by a Hall subset has \(T=M/d\ge y\).
+Let \(L_E=\prod_{q\in E}q\) and replace (2.5) by
+\[
+ \sum_{\substack{d\in D\\d\mid b}}
+ \ind_{\gcd(b/d,L_E)=1}
+ \left(1-\sum_{\substack{r\in R\\r\le M/d}}\ind_{r\mid b/d}\right).
+ \tag{4.8}
+\]
+A positive summand forces \(d\) to be the full smooth part of \(b\)
+on \(E\cup(R\cap[2,M/d])\). These prime sets decrease as \(d\)
+increases, so again at most one summand is positive.
+The expression is therefore at most the neighborhood indicator.
+
+Inclusion--exclusion over the fixed set \(E\) counts integers
+coprime to \(L_E\) in a real interval of length \(T\) as
+\(\theta_ET+O(C_E)\), with absolute error at most \(C_E\).
+Each additional \(r\)-divisibility condition has main term
+\(\theta_ET/r\) and the same error, since \(r\notin E\).
+Thus the contribution of \(d\) to the neighborhood lower bound
+is at least
+\[
+ T\theta_E\left(1-\sum_{r\in R}\frac1r\right)
+ -C_E(\pi_R(T)+1)\ge\pi_R(T).
+ \]
+The source fibre over \(d\) has at most \(\pi_R(T)\) members.
+Hall's theorem, separate quotient-one matching for prime sources,
+and the same valuation repair finish the proof.
+\end{proof}
+
+For fixed \(E\) and fixed \(\delta>0\), condition (4.7) holds uniformly
+when \(\sum_{r\in R}1/r\le1-\delta\) and \(y\) is sufficiently large.
+If anchor-only sources are also allowed, their number is bounded
+by a fixed power of \(\log M\). Supplying their full prime-unit demands,
+as in Theorem~\ref{thm:asymclass}, gives the asymptotic \(2n+o(n)\)
+conclusion in this enlarged class. Neither \(E\) nor its cardinality
+may silently grow in that uniform assertion.
+
+\section{Weighted inequalities from ordered prime prefixes}
+\label{sec:hinge}
+
+The preceding exact theorem concerns the full prime factorization of
+the sources. Weighted hinge statements have a different scope: an
+integer may contain prime factors outside the weighted support.
+The two settings must not be conflated.
+
+Let \(P\) be a nonempty finite prime set and \(y=\min P\); the empty
+support is trivial. For \(p\in P\), let
+\(u_p(e)\), \(e\ge0\), be nondecreasing, with \(u_p(0)=0\) and
+\(0\le u_p(e)\le1\). Put
+\[
+ U(a)=\sum_{p\in P}u_p(v_p(a)),\qquad
+ m_p=\sum_{j\ge1}\frac{u_p(j)-u_p(j-1)}{p^j}\le\frac1p,
+ \tag{5.1}
+\]
+and
+\[
+ \rho_y(P)=\sup_{T\ge y}\frac{\pi_P(T)+1}{T}.
+ \tag{5.2}
+\]
+For a finite ordered support \(p_1<\cdots<p_k\), this is exactly
+\(\max_i(i+1)/p_i\).
+
+\begin{theorem}[Ordered level comparison]
+\label{thm:levels}
+If
+\[
+ H_P(\infty)+\rho_y(P)\le1,
+ \tag{5.3}
+\]
+then, for every real \(s\ge0\), every \(M\), and every interval \(I\)
+of \(M\) consecutive positive integers,
+\[
+ \#\{a\le M:U(a)>s+1\}
+ \le
+ \#\{b\in I:U(b)>s\}.
+ \tag{5.4}
+\]
+\end{theorem}
+
+\begin{proof}
+For a \(P\)-smooth \(d>1\), write \(p(d)=P^+(d)\) and
+\(e(d)=v_{p(d)}(d)\). Let \(\mathcal F_s\) contain precisely those \(d\)
+such that
+\[
+ dp(d)\le M,\qquad
+ U(d)>s\ge U(d/p(d)^{e(d)}).
+ \tag{5.5}
+\]
+For a source \(a\) counted on the left of (5.4), form the complete
+prime-power prefixes of its \(P\)-smooth part, in increasing prime
+order. Let \(d\) be the first prefix with weight above \(s\).
+The last added coordinate has weight at most one, so \(U(d)\le s+1\).
+The prefix is proper, since \(U(a)>s+1\); a strictly larger weighted
+prime remains outside \(d\). In particular \(dp(d)\le M\), so
+\(d\in\mathcal F_s\). Counting that outside prime gives
+\[
+ \#\{a\le M:U(a)>s+1\}
+ \le
+ M\sum_{d\in\mathcal F_s}\frac1d
+       \sum_{\substack{q\in P\\q>p(d)}}\frac1q.
+ \tag{5.6}
+\]
+This estimate follows by the union bound over outside primes and
+\(\lfloor M/(dq)\rfloor\le M/(dq)\). Prime factors of \(a\) outside
+\(P\) are harmless.
+
+Use the ordered certificate
+\[
+ K_s(b)=\sum_{d\in\mathcal F_s}
+ \left(\ind_{d\mid b}-
+       \sum_{\substack{q\in P\\q\le p(d)}}\ind_{dq\mid b}\right).
+ \tag{5.7}
+\]
+A positive summand must be an actual complete prime-power prefix of
+the \(P\)-smooth part of \(b\). There is at most one such prefix that
+crosses the threshold \(s\). Every other summand is nonpositive, so
+\[
+ K_s(b)\le\ind_{U(b)>s}.
+ \tag{5.8}
+\]
+For \(T=M/d\ge p(d)\ge y\), interval counting gives
+\[
+ N_I(d)-\sum_{\substack{q\in P\\q\le p(d)}}N_I(dq)
+ \ge
+ T\left(1-H_P(p(d))-\rho_y(P)\right).
+ \tag{5.9}
+\]
+By (5.3), the last bracket is at least
+\(\sum_{q>p(d),\,q\in P}1/q\). Sum (5.8)--(5.9) and compare with
+(5.6).
+\end{proof}
+
+\begin{corollary}[Bounded-profile hinge]
+Under (5.3),
+\[
+ \sum_{a\le M}\pos{U(a)-2}
+ \le \sum_{b\in I}\pos{U(b)-1}.
+ \tag{5.10}
+\]
+\end{corollary}
+\begin{proof}
+Integrate (5.4) over \(s\in[1,\infty)\). All functions are bounded
+for this fixed finite instance.
+\end{proof}
+
+\begin{proposition}[An ordered-increment hinge proof]
+For (5.10), it is enough that for every \(p\in P\),
+\[
+ H_P(p)+\sum_{\substack{q\in P\\q>p}}m_q+\rho_y(P)\le1.
+ \tag{5.11}
+\]
+\end{proposition}
+\begin{proof}
+For a list \(z_i\in[0,1]\) in prime order, let \(S_i=\sum_{j\le i}z_j\),
+\(S=\sum z_i>2\), and
+\[
+ h_i=\pos{S_i-1}-\pos{S_{i-1}-1}.
+ \]
+Then \(0\le h_i\le1\), \(\sum h_i=S-1\), and
+\[
+ \sum_i h_i(S-S_i)=\sum_{i<j}h_ih_j\ge S-2.
+ \tag{5.12}
+\]
+For the equality, every increment after a positive \(h_i\) equals
+the corresponding \(z_j\). For the inequality, the multiaffine
+function \(\sum t_i-\sum_{i<j}t_it_j\) is at most one on the unit
+cube: at a vertex with \(r\) ones it is \(r-\binom r2\le1\).
+
+For each \(P\)-smooth \(d\) with \(dp(d)\le M\), set
+\[
+ h_d=\pos{U(d)-1}-\pos{U(d/p(d)^{e(d)})-1}.
+ \]
+Apply (5.12) to the source prefixes. After summation, the left hinge
+is at most
+\[
+ M\sum_d\frac{h_d}{d}\sum_{q>p(d)}m_q.
+ \]
+Use (5.7) with the coefficient \(h_d\) and without a crossing
+restriction. The positive summands are genuine prefixes; their
+nonnegative coefficients telescope to \(\pos{U(b)-1}\).
+Equation (5.9), multiplied by \(h_d\), and (5.11) finish the proof.
+\end{proof}
+
+\subsection{Return to completely additive prime weights}
+
+For any nonnegative weights \(w_p\), put
+\[
+ X_w(a)=\sum_{p\in P}w_pv_p(a),\quad
+ u_p(e)=\min(w_pe,1),\quad t_p(e)=\pos{w_pe-1},
+ \quad T(a)=\sum_p t_p(v_p(a)).
+ \]
+Then
+\[
+ \pos{X_w(a)-1}=T(a)+\pos{U(a)-1},\qquad
+ \pos{X_w(a)-2}\le T(a)+\pos{U(a)-2}.
+ \tag{5.13}
+\]
+Every \(t_p\) is nondecreasing from zero. Expanding its successive
+increments into prime-power divisibility indicators and using (1.1)
+shows \(\sum_{a\le M}T(a)\le\sum_{b\in I}T(b)\).
+Thus (5.10) implies the raw hinge inequality
+\[
+ \sum_{a\le M}\pos{X_w(a)-2}
+ \le\sum_{b\in I}\pos{X_w(b)-1}.
+ \tag{\(H_2\)}
+\]
+In particular, for each fixed \(\delta>0\), \(H_2\) holds uniformly
+for every finite support with sufficiently large minimum prime and
+\(\sum_{p\in P}1/p\le1-\delta\).
+
+\section{Adding small prime anchors}
+
+\begin{proposition}[One arbitrary extra prime]
+\label{prop:anchor}
+Suppose \(P\) satisfies (5.3), and \(q\notin P\) is any prime.
+Then \(H_2\) holds for all nonnegative raw weights supported on
+\(P\cup\{q\}\).
+\end{proposition}
+\begin{proof}
+First use bounded profiles. Add the \(q\)-profile to \(U\) and
+telescope over its nonnegative increments
+\([u_q(r-1),u_q(r)]\subseteq[0,1]\). At level \(r\), multiples of
+\(q^r\) in the initial interval, after division, form
+\(\{1,\ldots,N\}\), \(N=\lfloor M/q^r\rfloor\).
+The target multiples, after division, form \(N\) or \(N+1\)
+consecutive integers. For an integration value \(v\in[0,1]\), the
+source hinge increment counts \(U>2-v\), whereas the target
+increment counts \(U>1-v\). Theorem~\ref{thm:levels} with
+\(s=1-v\ge0\), applied to any \(N\)-term target subinterval,
+compares these increments. \(U(q^rk)=U(k)\) because \(q\notin P\).
+Add the baseline (5.10), integrate, and then apply (5.13).
+\end{proof}
+
+The conclusion is a hinge inequality for the enlarged support,
+not the level comparison (5.4). It therefore does not automatically
+iterate to arbitrarily many extra primes.
+
+\begin{theorem}[Two arbitrary smaller primes]
+\label{thm:twoanchors}
+Let \(E\) contain at most two primes, all less than \(y\), and let all
+primes in \(R\) be at least \(y\). With \(\theta_E,C_E\) as above, the condition
+\[
+ \sum_{r\in R}\frac1r+\frac{C_E}{\theta_E}\rho_y(R)\le1
+ \tag{6.1}
+\]
+implies the bounded-profile hinge inequality on \(E\cup R\), and
+therefore raw \(H_2\) for all nonnegative weights on that support.
+For \(|E|\le2\), the uniform constant \(C_E/\theta_E\le12\) suffices.
+\end{theorem}
+\begin{proof}
+Use the ordered hinge increments \(h_d\) from the proof of (5.11),
+retaining only positive coefficients and carriers with
+\(T=M/d\ge\max(P^+(d),y)\). A positive increment requires at least
+two distinct active prime coordinates. Consequently
+\(p=P^+(d)\) is no smaller than every prime in \(E\).
+Every nonzero residual source term in (5.12)
+leaves a strictly larger prime from \(R\); it also leaves a cofactor
+coprime to \(L_E\). The restriction \(T\ge y\) therefore loses no
+source contribution.
+
+Keep this coprimality condition in the source upper estimate.
+For a fixed carrier,
+\[
+ \sum_{\substack{m\le T\\(m,L_E)=1}}U_{R,>p}(m)
+ \le
+ \theta_ET\sum_{\substack{r\in R\\r>p}}m_r
+ +C_E\bigl(\pi_R(T)-\pi_R(p)\bigr).
+ \tag{6.2}
+\]
+Indeed, expand each profile into nonnegative prime-power increments.
+Only powers at most \(T\) contribute to the error, and the increments
+of each prime sum to at most one.
+
+For the target certificate use
+\[
+ K(b)=\sum_{\substack{d\text{ a carrier}\\d\mid b}} h_d
+ \ind_{\gcd(b/d,L_E)=1}
+ \left(1-\sum_{\substack{r\in R\\r\le p(d)}}\ind_{r\mid b/d}\right).
+ \tag{6.3}
+\]
+Its positive terms are genuine complete prime prefixes; their
+coefficients telescope, so \(K(b)\le\pos{U(b)-1}\).
+The interval contribution for a carrier is at least
+\[
+ h_d\left[
+ \theta_ET\left(1-\sum_{\substack{r\in R\\r\le p}}\frac1r\right)
+ -C_E(\pi_R(p)+1)\right].
+ \tag{6.4}
+\]
+Subtract \(h_d\) times the source upper estimate (6.2). The two error counts
+combine to \(C_E(\pi_R(T)+1)\), while \(m_r\le1/r\).
+The resulting difference is at least
+\[
+ h_d\theta_ET
+ \left[1-\sum_{r\in R}\frac1r
+             -\frac{C_E}{\theta_E}\rho_y(R)\right]\ge0.
+ \]
+Sum over \(d\) and apply (5.13).
+\end{proof}
+
+In particular \(H_2\) holds on \(\{2,3\}\cup R\), uniformly over all
+weights and interval lengths, if \(\sum_{r\in R}1/r\le1-\delta\)
+and \(\min R\) is sufficiently large. The proof does not automatically
+absorb a third smaller prime: an early positive hinge increment
+could leave another such prime outside, invalidating both the
+coprimality condition and the cutoff \(T\ge y\).
+
+\section{Uniform eventual \(H_2\) on a fixed prime support}
+
+\begin{theorem}
+\label{thm:fixed}
+For every fixed finite prime set \(P\), there is \(M_0(P)<\infty\)
+such that \(H_2\) holds for all \(M\ge M_0(P)\), all shifts, and all
+weights \(w_p\in[0,1]\) supported on \(P\).
+\end{theorem}
+\begin{proof}
+The zero-weight case is immediate. Write \(Q=\max P\) and
+\(\rho=\max_{p\in P}w_p/\log p>0\). Let
+\[
+ C_P=\prod_{p\in P}\frac{1-1/p}{1-p^{-1/8}}.
+ \]
+Choose \(\rho_0>0\) so small that
+\[
+ Qe^{-1/(2\rho_0)}\le\tfrac12,\qquad
+ \frac{32QC_P\rho_0}{7e}e^{-1/(4\rho_0)}\le1.
+ \tag{7.1}
+\]
+For \(0<\rho\le\rho_0\), put \(t=7/(8\rho)\). The multiplicative
+function \(e^{tX_w(n)}\) has a nonnegative divisor expansion, since
+its prime-power successive increments are nonnegative. Thus
+\[
+ \sum_{a\le M}e^{tX_w(a)}
+ \le M\prod_{p\in P}\frac{1-1/p}{1-e^{tw_p}/p}
+ \le MC_P.
+ \]
+Since \(\pos{u-2}\le e^{t(u-2)}/(et)\),
+\[
+ L:=\sum_{a\le M}\pos{X_w(a)-2}
+ \le M\frac{8\rho C_P}{7e}e^{-7/(4\rho)}.
+ \tag{7.2}
+\]
+Also \(X_w(a)\le\rho\log a\); hence \(L=0\) if \(M\le e^{2/\rho}\).
+Otherwise choose a prime attaining \(\rho\), and let
+\(j=\lceil3/(2w_p)\rceil\), \(D=p^j\).
+Then \(jw_p-1\ge1/2\) and
+\[
+ D\le Qe^{3/(2\rho)}\le M/2.
+ \]
+The interval contains at least \(M/(2D)\) multiples of \(D\), so
+\[
+ R:=\sum_{b\in I}\pos{X_w(b)-1}
+ \ge\frac{M}{4Q}e^{-3/(2\rho)}.
+ \tag{7.3}
+\]
+By (7.1), (7.2) is at most (7.3).
+
+It remains to treat \(\rho\ge\rho_0\), uniformly in the weights.
+Put \(k=|P|\), \(a_0=\rho_0\log2\),
+\(T_0=\lceil2/a_0\rceil\), and \(\delta_0=Q^{-T_0}\).
+Choose \(T\ge T_0\) such that
+\[
+ \sum_{p\in P}\frac1{p^T(p-1)}\le\delta_0/2,
+ \]
+and put \(Y(a)=\sum_pw_p\min(v_p(a),T)\).
+This function has period \(R_0=\prod_pp^T\) and is bounded by \(kT\).
+Some \(w_p\ge a_0\); on multiples of \(p^{T_0}\), \(Y\ge2\).
+Therefore the period mean of
+\(\pos{Y-1}-\pos{Y-2}\) is at least \(\delta_0\).
+Either periodic hinge differs from its period mean times \(M\) by
+at most \(R_0kT\). The prefix truncation error is at most
+\(M\sum_p[p^T(p-1)]^{-1}\), while truncation only decreases the
+target hinge. Consequently
+\[
+ L-R\le-\delta_0M/2+2R_0kT.
+ \]
+It is nonpositive for \(M\ge4R_0kT/\delta_0\).
+\end{proof}
+
+The constants depend on the actual support, not only its cardinality.
+This theorem excludes amplification by keeping the prime set fixed;
+it does not rule out counterexamples on growing supports.
+
+\begin{corollary}[Integer covers on every fixed prime support]
+\label{cor:fixedinteger}
+Let \(P\) be a fixed nonempty finite prime set, \(k=|P|\). For
+\(M\ge M_0(P)\), every set \(A\subseteq[2,M]\) of \(n\) distinct
+\(P\)-smooth integers has, in every positive interval \(I\) of
+length \(M\), a product cover with
+\[
+ \tau(A,I)\le2n+k-1.
+ \tag{7.4}
+\]
+In particular, the upper bound \((2+o(1))n\) holds on each fixed
+prime support, uniformly in the interval shift.
+\end{corollary}
+\begin{proof}
+Consider the boxed fractional covering program (9.2), with its
+\(k\) valuation constraints restricted to \(P\). Its dual weights
+may be clipped to \([0,1]\), as explained after (9.3). By
+Theorem~\ref{thm:fixed}, every dual objective is at most
+\[
+ \begin{split}
+ \sum_{a\in A}X_w(a)-\sum_{b\in I}\pos{X_w(b)-1}
+ &\le\sum_{a\in A}X_w(a)-\sum_{m\le M}\pos{X_w(m)-2}\\
+ &\le\sum_{a\in A}\min\{X_w(a),2\}\le2n.
+ \end{split}
+\]
+Thus the fractional optimum is at most \(2n\).
+An optimal vertex has at most \(k\) coordinates strictly between
+zero and one: otherwise a nonzero perturbation supported on those
+coordinates could preserve all \(k\) valuation constraints, contrary
+to extremality. Round these coordinates upward. The valuation
+constraints remain satisfied. If there is a fractional coordinate,
+the cost increase is strictly less than \(k\), so the integer cover
+has fewer than \(2n+k\) positions, hence at most \(2n+k-1\).
+If none is fractional, its cost is already at most \(2n\).
+Finally, distinctness implies \(M\ge n+1\), so the threshold
+\(M\ge M_0(P)\) is automatic for all sufficiently large \(n\).
+\end{proof}
+
+\section{A finite, complete CRT search model}
+
+For fixed \(M\) and a prime \(p\le M\), let
+\[
+ E=\lfloor\log_pM\rfloor,\qquad d=p^E,\qquad Q_p=p^{E+1}>M.
+ \]
+For minimizing the target hinge there is no need for valuations above
+\(E+1\): at most one interval position is divisible by \(Q_p\), and
+one further \(p\)-adic digit can make its valuation exactly \(E+1\)
+without changing any other position.
+
+Write \(s=-x\bmod Q_p\). For each fixed \(s\bmod d\), the first \(E\)
+valuation levels are fixed. Each next-digit choice with
+\(s\in\{1,\ldots,M\}\) gives one high position; there are \(M\) such
+choices in total. All empty choices within the same residue modulo
+\(d\) give the same vector, so at most \(d\) additional representatives
+are needed. Hence at most
+\[
+ \min(Q_p,M+d)\le2M
+ \tag{8.1}
+\]
+valuation vectors per prime suffice. These are real interval
+patterns: compatible choices for different primes are simultaneously
+realized by the Chinese remainder theorem, with an extra digit used
+to fix the possible high valuation.
+
+Thus the search over all shifts and continuous weights is exactly a
+finite mixed integer linear optimization problem for fixed \(M,P\).
+The supplied code implements this model, coordinate optimization, and
+rational re-evaluation of candidate witnesses. Floating-point solver
+bounds are not exact proof certificates.
+
+The completed local searches found no violation of \(H_2\).
+They are not exhaustive in \(M\), support, phases, or weights.
+Global mixed integer runs that timed out are expressly not described
+as completed verifications. The more important outputs are the
+proofs in Sections~\ref{sec:exact}--\ref{sec:hinge}.
+
+Two concrete exact checks accompany the theorem:
+\begin{itemize}
+\item All \(1330=\binom{21}{3}\) products of three distinct primes
+from 101 through 199 have \(M=7\,566\,179\). Both finite criteria
+in Section~\ref{sec:exact} pass, and the minimum surplus in (2.11)
+is 158. Hence every interval of this length has a cover using
+at most 2660 positions. No graph with all \(M\) target vertices
+was built for this certificate.
+\item On the support \(\{11,13,17,19,23\}\), take all 35 cubic
+monomials, the five squares, and the five primes. There are 45
+distinct sources, \(M=12167\). In a length-\(M\) interval centered
+at their least common multiple, the algorithm constructs a
+45-position cofactor matching and makes 36 repairs, producing an
+81-position cover within the 90-position bound. The complete
+matching, repair trace, and valuation check are included in JSON.
+\end{itemize}
+The JSON can be re-verified with the Python standard library alone;
+SciPy was used only to find the illustrative matching.
+
+\section{What would finish the unrestricted asymptotic problem}
+\label{sec:remaining}
+
+For \(w_p\in[0,1]\), define
+\[
+ \Delta_c(M,x,w)=
+ \sum_{a=1}^M\pos{X_w(a)-c}
+ -
+ \sum_{b\in I_x}\pos{X_w(b)-1}.
+ \tag{9.1}
+\]
+The boxed fractional covering program is
+\[
+ L(A,I)=\min\left\{\sum_{b\in I}z_b:
+ 0\le z_b\le1,\quad
+ \sum_{b\in I}v_p(b)z_b\ge\sum_{a\in A}v_p(a)\ \forall p\right\}.
+ \tag{9.2}
+\]
+Its dual has the form
+\[
+ L(A,I)=\max_{0\le w_p\le1}
+ \left[\sum_{a\in A}X_w(a)-
+       \sum_{b\in I}\pos{X_w(b)-1}\right].
+ \tag{9.3}
+\]
+The restriction \(w_p\le1\) follows by clipping a larger coordinate:
+the full interval has at least the required total \(p\)-valuation,
+so such clipping cannot decrease the dual objective. The bounds
+\(z_b\le1\) in (9.2) are essential.
+
+\begin{proposition}[Exact asymptotic criterion]
+\label{prop:criterion}
+The unrestricted assertion \(g(n)\le(2+o(1))n\) is equivalent to
+\[
+ \forall\varepsilon>0\ \exists C_\varepsilon<\infty\
+ \forall M,x,w:\quad
+ \Delta_{2+\varepsilon}(M,x,w)\le C_\varepsilon.
+ \tag{9.4}
+\]
+The constant may depend only on \(\varepsilon\).
+\end{proposition}
+\begin{proof}
+If the asymptotic assertion holds, for each \(\varepsilon>0\) all
+cardinalities satisfy
+\(g(n)\le(2+\varepsilon)n+C_\varepsilon\), after absorbing finitely
+many small \(n\). This also bounds every dual objective.
+Maximizing over subsets \(A\subseteq[2,M]\) uses
+\[
+ \max_A\left(\sum_{a\in A}X_w(a)-(2+\varepsilon)|A|\right)
+ =\sum_{a\le M}\pos{X_w(a)-2-\varepsilon}.
+ \]
+If \(\max A<M\), apply the cover bound inside a contained interval of
+length \(\max A\). This proves (9.4).
+
+Conversely, (9.3)--(9.4) give
+\(L(A,I)\le(2+\varepsilon)n+C_\varepsilon\).
+The all-scale raw fractional transfer of \cite{Wang}, reproduced in
+the preceding research note, converts a uniform fractional bound of
+this form to the same leading integer coefficient. Explicitly, set
+\(\ell(0)=0\) and \(\ell(m)=\sup_{|A|=m}L(A,I)\) for \(m\ge1\). Then
+\[
+ K_n=\left\lceil\max_{0\le m\le n}
+              \{\ell(m)+2(n-m)\}\right\rceil,
+ \qquad
+ g(n)\le K_n+\pi(2K_n)-1.
+ \]
+Thus \(g(n)\le(2+\varepsilon)n+C_\varepsilon+o(n)\).
+Let \(\varepsilon\) tend to zero.
+\end{proof}
+
+The results in this note do \emph{not} establish (9.4) uniformly over
+all prime supports. In particular, the following cannot be inferred:
+
+\begin{itemize}
+\item A counterexample has been excluded merely because no numerical
+search found one.
+\item An \(o(M)\) bound for \(\Delta_2\) would suffice. In the difficult
+range \(M\asymp n^2\), an error such as \(\sqrt M\) is of order \(n\).
+\item Adding one arbitrary prime to a support preserving hinge
+dominance permits unlimited iteration. Level dominance is needed
+for the next addition and has not been proved in that enlarged class.
+\item The rough-source exact theorem proves a weighted hinge theorem
+at the same exponent. Weighted sources may contain unweighted
+cofactors, so the source classes differ.
+\end{itemize}
+
+A remaining counterexample to the exact conjecture must evade the
+finite criterion of Section~\ref{sec:exact}. An asymptotic obstruction
+must also evade Theorem~\ref{thm:asymclass}, the fixed-support theorem,
+and the ordered support and anchor conditions.
+These exclusions substantially describe the residual task, but they
+do not quantify a percentage of the original problem that is solved.
+
+The particular largest-prime-quotient matching cannot simply be
+asserted without a hypothesis. For example, let \(M=440\),
+\(I=\{4401,\ldots,4840\}\), and
+\[
+ A=\{2k: k\le220\text{ is composite},\ k\ne169\}.
+ \]
+There are 171 sources, while the union of the neighborhoods for
+\(a/P^+(a)\) consists of only 170 positions: precisely the interval
+multiples of at least one of \(4,6,10,14,22\).
+This is a Hall obstruction to that fixed choice of quotient, not a
+counterexample to the product-cover problem or to \(H_2\).
+An unrestricted proof must accommodate such failures, change the
+quotient choices, or use a different argument.
+
+\section{Verification, provenance, and references}
+\label{sec:refs}
+
+The fixed-point, ordered-prefix, source-counting, and prime-repair
+arguments were independently re-derived within the research session.
+Audits specifically checked repeated prime powers, primes outside a
+weighted support, nonintegral \(M/d\), arbitrarily large shifts,
+empty carrier families, and the requirement that interval positions
+remain distinct. The bundle includes exact rational checks and a
+finite source-certificate checker. Those checks supplement the
+proofs; they do not establish an unrestricted theorem.
+
+The raw LP transfer and the long-interval gate used in Sections
+\ref{sec:asymclass} and \ref{sec:remaining} are external inputs.
+The exact theorem in Section~\ref{sec:exact} does not depend on those
+inputs, on an LP solver, or on the numerical searches.
+The standard prime-counting and Mertens estimates are the only
+analytic inputs to the exponent in Theorem~\ref{thm:rough}.
+
+\begin{thebibliography}{9}
+\bibitem{Problem}
+T.~F.~Bloom, \emph{Erd\H{o}s Problem \#708},
+\url{https://www.erdosproblems.com/708}.
+
+\bibitem{Chen}
+Chen, \emph{Explicit upper bounds for the Erd\H{o}s--Sur\'anyi
+function \(g(n)\)}, public working manuscript and verification
+materials, including the signed atom-hinge method and long-interval
+theorem,
+\url{https://github.com/chy4pro/erdos-708-explicit-upper-bounds}.
+
+\bibitem{Wang}
+Ziming Wang, \emph{Erd\H{o}s 708 interval divisor covers},
+public working manuscript, especially the raw fractional transfer
+and the quadratic coefficient-two gate,
+\url{https://github.com/science-prince/erdos-708-interval-divisor-covers}.
+
+\bibitem{Bergstrom}
+C.~Bergstr\"om, \emph{Scaled-Interval Hinge Telescoping,
+Difference-of-Convex Obstructions, and Smooth Proper-Divisor
+Matching for Erd\H{o}s Problem 708}, 2026,
+\url{https://zenodo.org/records/24366998}.
+
+\bibitem{TaoMertens}
+T.~Tao, \emph{Mertens' theorems}, 11 December 2013, especially
+the logarithmic product formula (3),
+\url{https://terrytao.wordpress.com/2013/12/11/mertens-theorems/}.
+\end{thebibliography}
+\end{document}

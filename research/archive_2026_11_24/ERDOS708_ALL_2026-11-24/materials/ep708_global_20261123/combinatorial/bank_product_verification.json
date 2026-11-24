@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "certificate_sha256": "6da6d75f3f7a2580c0eb0cb6ac1c4d2c17c4358b2f9ac1ae82a66941956ca92b",
+  "base_maximum": 11763,
+  "base_maximum_factorization": [
+    3,
+    3,
+    1307
+  ],
+  "base_prime_count": 1409,
+  "source_count": 10353,
+  "lifting_prime": 11777,
+  "ambient_maximum": 138532851,
+  "crt_conditions_checked": 1410,
+  "rough_offsets_checked": 1411,
+  "rough_residue_avoidance_checks": 1988099,
+  "prime_deletion_quotients_checked": 27390,
+  "center_bit_length": 16699,
+  "period_bit_length": 16704,
+  "source_p_valuation": 10353,
+  "bank_union_p_valuation": 10352,
+  "valuation_deficit": 1,
+  "forced_cofactor_4_bank_size_lower_bound": 34633212,
+  "scope": "Refutes universal bank-product divisibility only; does not satisfy deletion minimality and does not refute the weighted-surplus target or Erdos 708."
+}

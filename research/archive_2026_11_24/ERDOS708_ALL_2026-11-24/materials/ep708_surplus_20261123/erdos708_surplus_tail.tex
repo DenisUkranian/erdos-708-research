@@ -1,0 +1,354 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=27mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,booktabs,xcolor}
+\usepackage{xurl}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,urlcolor=blue!45!black,citecolor=blue!45!black]{hyperref}
+\usepackage{microtype}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\pos}[1]{\left(#1\right)_+}
+\newcommand{\E}{\mathbb E_M}
+\newcommand{\LP}{L_{\rm raw}}
+\title{Erd\H{o}s 708: global surplus and uniform upper-tail bounds}
+\author{Research checkpoint}
+\date{23 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Maximizing surplus over all source cardinalities correctly produces a full
+additive upper tail together with optimal raw dual weights for that same
+tail. We prove a uniform conditional first-moment theorem for every such
+prefix tail, including all prime powers and inactive factors. It gives
+exponential integrability relative to the tail's own cardinality, and a
+source-load truncation and price-band cleanup whose errors do not depend
+on a later significant-weight cutoff. A separate actual CRT reduction
+bounds the linear prefix--interval discrepancy by $O(n/\log n)$ at a
+normalized positive global extremum. \textbf{The required uniform bound
+$J_{2+\delta}\le C_\delta$ is not proved.} No arithmetic counterexample
+to it, or proof of the unrestricted asymptotic coefficient two, is claimed.
+\end{abstract}
+
+\section{The precise objective and the optimization step}
+
+Let $M\ge2$, let $I=\{x+1,\ldots,x+M\}$ with $x\ge0$, and put
+\[
+ X_w(a)=\sum_{p\le M}w_pv_p(a),\qquad 0\le w_p\le1.
+\]
+All valuations are raw. For $c>2$ define
+\[
+ J_c(w)=\sum_{a=2}^M\pos{X_w(a)-c}
+          -\sum_{b\in I}\pos{X_w(b)-1}.
+\]
+For $A\subseteq[2,M]$, the boxed valuation-cover LP is
+\[
+ \LP(A,I)=\min\left\{\sum_{b\in I}z_b:
+ 0\le z_b\le1,\quad
+ \sum_{b\in I}z_bv_p(b)\ge\sum_{a\in A}v_p(a)\right\}.
+\]
+The complete interval is feasible: its count of multiples of $p^j$
+is at least $\lfloor M/p^j\rfloor$ at every level. LP duality and
+the usual clipping of prices above one give
+\begin{equation}
+ \max_w J_c(w)=\max_{A\subseteq[2,M]}
+                 \bigl(\LP(A,I)-c|A|\bigr).             \label{eq:global}
+\end{equation}
+Indeed, for each fixed $w$, maximizing the source surplus over subsets
+selects exactly the strict tail $A_w=\{a:X_w(a)>c\}$. The two maxima
+commute. Consequently, if $w$ maximizes $J_c$, it is a raw dual optimum
+for its own full tail $A=A_w$. Otherwise a better dual for this $A$
+would increase the left side of \eqref{eq:global}.
+Prices on primes dividing no member of this tail may then be set to
+zero: the tail is unchanged, its source loads are unchanged, and the
+target hinge cannot increase. Global maximality preserves the value.
+We make this normalization whenever the active support is used below.
+
+For a paired primal optimum $z$, every positive-price row is tight,
+and every target with $X_w(b)>1$ has $z_b=1$. If $n=|A|$ and
+$F=\LP(A,I)=cn+J_c(w)$, global surplus maximality also gives
+\begin{equation}
+ \LP(A\setminus S,I)\le F-c|S|\qquad(S\subseteq A).     \label{eq:deletion}
+\end{equation}
+These assertions concern the same source set and interval throughout.
+They do not transfer row balances to an unrelated tail.
+
+The target requested in this investigation is a constant $C_\delta$,
+independent of $M,I,w$, with $J_{2+\delta}(w)\le C_\delta$.
+The raw transfer theorem in the manuscript supplied by the user
+\cite{WangTransfer} already handles the fractional-to-integer step;
+that step is not reproved here.
+
+\section{Positive surplus has bounded reciprocal mean}
+
+\begin{lemma}\label{lem:mean}
+For every fixed $c>2$ there is $C(c)<\infty$ such that
+$J_c(w)>0$ implies
+\[
+ \mu:=\sum_{p\le M}\frac{w_p}{p-1}\le C(c).
+\]
+This assertion does not require optimality of $w$.
+\end{lemma}
+\begin{proof}
+Write $\E$ for averaging over $1,\ldots,M$. Prime-power counting gives
+\[
+ \E X=\mu-e_M(w),\qquad 0\le e_M(w)\le e_M=O(1/\log M),
+\]
+uniformly in the weights. To check uniformity, the floor errors cost at
+most $Q(M)/M$, where $Q(M)=\#\{(p,j):p^j\le M\}$.
+The omitted geometric tails cost at most $4/\sqrt M$ by splitting
+at $p=\sqrt M$. Chebyshev's prime-count bound gives
+$Q(M)=O(M/\log M)$.
+
+Nonnegative divisor expansion also gives
+\[
+ \begin{split}
+ \E X^2
+ &\le \sum_p w_p^2\sum_{j\ge1}(2j-1)p^{-j}
+       +2\sum_{p<q}\frac{w_pw_q}{(p-1)(q-1)}\\
+ &=\mu^2+\sum_p w_p^2\frac p{(p-1)^2}
+ \le\mu^2+2\mu.
+ \end{split}
+\]
+Hence $\E(X-\mu)^2\le2\mu(1+e_M)$. Let
+$A=\{a:X(a)>c\}$ and $n=|A|$. Positive surplus implies
+\[
+ cn<\sum_A X-\sum_I\pos{X-1}
+ \le\sum_I\min(X,1)\le M,
+\]
+so $n/M<1/c<1/2$. For all sufficiently large $M$, $e_M\le1$.
+If $\mu\ge\max(2c,33)$, then
+\[
+ \frac{\#\{a\le M:X(a)\le c\}}M
+ \le\frac{4\mu}{(\mu-c)^2}\le\frac{16}{\mu}<\frac12,
+\]
+which contradicts $n/M<1/2$. The finitely many smaller values of $M$
+are absorbed in $C(c)$.
+\end{proof}
+
+\section{A uniform conditional first moment on the full tail}
+
+\begin{theorem}\label{thm:tail}
+There is an absolute constant $K$ such that, for all $M$, all
+$0\le w_p\le1$, and every $t\ge0$,
+\begin{equation}
+ \sum_{\substack{a\le M\\X(a)>t}}X(a)
+ \le\bigl[t+1+K(1+\mu)\bigr]\,
+       \#\{a\le M:X(a)>t\}.                            \label{eq:tailmean}
+\end{equation}
+In particular, no support-size, squarefreeness, prime-gap, or
+source-density assumption is made.
+\end{theorem}
+
+\subsection*{A uniform rough-number mean}
+For a prime $p$, set
+\[
+ R(T,p)=\#\{b\le T:P^-(b)\ge p\},\qquad P^-(1)=\infty.
+\]
+We use absolute constants in the uniform bounds
+\[
+ R(T,p)\gg T/\log p\quad(T\ge p^2),\qquad
+ R(T,p)\ll T/\log p\quad(T\ge p).
+\]
+For example, Fan's uniform upper bound for $\Phi(x,y)$ and
+Theorem 2.3 of \cite{Fan} give these estimates with $y=p-1$;
+the finitely many small primes follow from residue-class counts.
+These are uniform inequalities, not fixed-parameter asymptotics.
+
+We claim that
+\begin{equation}
+ \sum_{\substack{b\le T\\P^-(b)\ge p}}X(b)
+ \le K(1+\mu)R(T,p)                                  \label{eq:roughmean}
+\end{equation}
+with an absolute $K$. If $T<p^2$, each counted integer is one or a
+prime, so its load is at most one. Otherwise expand all valuation levels:
+\[
+ \sum_{\substack{b\le T\\P^-(b)\ge p}}X(b)
+ =\sum_{p\le q\le M}w_q\sum_{\substack{j\ge1\\q^j\le T}}
+                         R(T/q^j,p).
+\]
+The terms with $T/q^j\ge p$ contribute at most
+\[
+ O\!\left(\frac T{\log p}\sum_qw_q\sum_{j\ge1}q^{-j}\right)
+ =O\!\left(\frac{\mu T}{\log p}\right).
+\]
+For the remaining terms, $1\le T/q^j<p$, so the rough count is
+exactly one. Their total is bounded by
+$Q(T)=O(T/\log T)=O(T/\log p)$. Dividing by the lower bound for
+$R(T,p)$ proves \eqref{eq:roughmean}.
+
+\subsection*{Exact disjoint cells}
+For every $a$ with $X(a)>t$, read \emph{all} its prime factors,
+including repetitions and zero-price factors, in nondecreasing order.
+Let $d$ be the first partial product with $X(d)>t$, and put
+$p=P^+(d)$. Then
+\[
+ X(d/p)\le t<X(d)\le t+1.
+\]
+The numbers with this first crossing are exactly
+\begin{equation}
+ \{db\le M:P^-(b)\ge p\}.                             \label{eq:cell}
+\end{equation}
+Indeed, smaller prime factors are already included in $d$; subsequent
+factors cannot change the earlier first crossing. Conversely, every
+number in \eqref{eq:cell} has that crossing at $d$. Thus these cells
+are pairwise disjoint and partition the entire tail.
+
+The mean load in one cell is, by additivity and \eqref{eq:roughmean},
+at most
+\[
+ X(d)+K(1+\mu)\le t+1+K(1+\mu).
+\]
+Summing over the disjoint cells proves \eqref{eq:tailmean}. No error
+depending on the number of cells is incurred. Retaining zero-price
+factors in the first-crossing procedure is essential for obtaining the
+exact full rough-prefix cells.
+
+\section{Exponential tails and a joint cleanup with controlled error}
+
+Assume $\mu\le C$ and put $B=1+K(1+C)$. Define
+\[
+ N(t)=\#\{a\le M:X(a)>t\},\qquad
+ S(t)=\sum_{a\le M}\pos{X(a)-t}.
+\]
+Theorem \ref{thm:tail} gives $S(t)\le BN(t)$ for every $t\ge0$.
+Since $S'(t)=-N(t)$ almost everywhere,
+\begin{equation}
+ S(c+u)\le Bn e^{-u/B},\qquad n=N(c),\quad u\ge0.       \label{eq:exptail}
+\end{equation}
+In particular, for every integer $r\ge1$,
+\[
+ \sum_{a\in A}(X(a)-c)^r\le r!B^rn,
+ \qquad
+ \sum_{a\in A}e^{\lambda(X(a)-c)}\le\frac n{1-\lambda B}
+ \quad(0\le\lambda<1/B).
+\]
+For $r\ge2$, the first estimate follows by integrating
+$r(r-1)u^{r-2}S(c+u)$; the exponential estimate follows by summing
+the nonnegative Taylor series. Also, for $u\ge B$,
+\begin{equation}
+ \sum_{X(a)>c+u}X(a)
+ \le(c+u+B)n e^{1-u/B}.                               \label{eq:weightedtail}
+\end{equation}
+Thus for every $\varepsilon>0$ there is
+$L=L(c,C,\varepsilon)$, independent of $M,n$ and the support, such that
+the original weighted demand of sources with $X(a)>L$ is at most
+$\varepsilon n$. Lemma \ref{lem:mean} makes the assumption
+$\mu\le C(c)$ automatic at positive surplus.
+
+Now let $w,z$ be a genuinely paired optimum for its full tail $A$.
+For a set of price coordinates $E$, write
+\[
+ \Delta_E(a)=\sum_{p\in E}w_pv_p(a),\qquad
+ D_E=\sum_{a\in A}\Delta_E(a).
+\]
+Fix $\gamma>0$. Delete those prices to obtain $w'$, and retain
+\[
+ G=\{a\in A:X_w(a)\le L,\quad X_{w'}(a)>c-\gamma\}.
+\]
+If $D_E\le\varepsilon\gamma n/L$, then
+\begin{equation}
+ \sum_{a\in A\setminus G}X_w(a)\le2\varepsilon n.      \label{eq:cleanup}
+\end{equation}
+The high-load sources cost at most $\varepsilon n$. Every other
+discarded source loses more than $\gamma$ in the deleted band and has
+load at most $L$, so these cost at most $LD_E/\gamma$.
+
+The original paired rows give the exact same-interval identity
+\[
+ \sum_{b\in I}z_b\Delta_E(b)=D_E.
+\]
+Every new hot target remains saturated. For retained positive-price
+rows, their combined oversupply relative to $G$ is
+\begin{equation}
+ \sum_p w'_p\left(\sum_{b\in I}z_bv_p(b)-D_p(G)\right)
+ =\sum_{a\in A\setminus G}X_{w'}(a)\le2\varepsilon n.  \label{eq:rowerror}
+\end{equation}
+Moreover $\Phi_G(w')\ge F-D_E-2\varepsilon n$.
+
+For any partition into $N$ price bands, one band has
+$D_E\le(c+B)n/N$. The order of parameter choices is therefore
+legitimate: first choose $L$ from \eqref{eq:weightedtail}, then choose
+$N\ge(c+B)L/(\varepsilon\gamma)$, and only then choose the bands.
+If every retained substantial price exceeds $b$, each retained source
+has at most $L/b$ such occurrences, but this later bound was not used
+as a multiplier in \eqref{eq:cleanup}--\eqref{eq:rowerror}.
+
+\section{A separate actual-interval reduction of the linear discrepancy}
+
+For completeness, there is also a genuine shift reduction; it must not
+be confused with truncating valuations in the rows of a fixed interval.
+For each $p\le M$ put $e_p=\lfloor\log_p M\rfloor+1$. Given a shift
+$x$, preserve its residue modulo $p^{e_p}$. At most one position
+$x+j$, $1\le j\le M$, is divisible by $p^{e_p}$. If it exists, choose
+a lift modulo $p^{e_p+1}$ excluding the single lift that would add a
+further factor $p$. CRT then gives an actual nonnegative shift $x'$
+with
+\[
+ v_p(x'+j)=\min(v_p(x+j),e_p)\quad(p\le M,\ 1\le j\le M).
+\]
+Every nonnegative price vector has no larger target hinge on this new
+interval. Thus a worst shift may be chosen in this finite residue
+space, and weights and the paired primal may then be optimized again.
+
+Use the established absolute bound $\LP(A,I)\le C_0|A|$ and the
+ambient quadratic gate $M\ge16|A|^2\Rightarrow\LP(A,I)\le2|A|$
+from the supplied manuscript \cite{WangMain}. At a positive global
+surplus extremum, \eqref{eq:deletion} implies that every source prime
+satisfies $p<C_0n$. To verify this, delete a source divisible by $p$.
+Its cofactor bank has at least $p$ positions. If $p\ge F-c+1$, an
+optimal deletion cover leaves at least one unit of residual capacity
+in that bank. Purchasing this unit supplies the whole cofactor; any
+remaining one-unit $p$ deficit can be repaired at cost at most one
+using full-interval supply. The total is at most $F-c+2<F$, impossible.
+
+The gate gives $M<16n^2$. With the actual capped shift and reoptimized
+weights, every prime-power count differs from the prefix count by zero
+or one. Hence
+\begin{equation}
+ \begin{split}
+ 0\le\sum_{b\in I}X_w(b)-\sum_{a\le M}X_w(a)
+ &\le\sum_{p\le C_0n}\bigl(1+\lfloor\log_pM\rfloor\bigr)\\
+ &\le2\pi(C_0n)+\pi(\sqrt M)+O(M^{1/3}\log M)\\
+ &=O(n/\log n).
+ \end{split}                                          \label{eq:linear}
+\end{equation}
+This is a linear-moment bound. It does not compare nonlinear hinges or
+authorize carrying the old paired rows to the new interval.
+
+\section{The exact limitation of this checkpoint}
+
+The new source-tail theorem is unrestricted, and both its first-crossing
+proof and the cleanup estimates have been independently checked within
+this investigation. It gives a source demand budget $O_c(n)$ and
+uniform integrability relative to $n$ in both sparse and dense regimes.
+It does not estimate the target hinge from below by the required source
+surplus. Even together with \eqref{eq:linear}, it yields at best
+$J_c\le Bn$ without an additional joint arithmetic inequality; $B$ is
+fixed and this error is not $o(n)$ or $O_c(1)$.
+
+The retained source-load bound controls the number of substantial
+occurrences in each source. It does not bound the global number of
+different prime patterns or the number of their banks passing through
+one target. The whole-row balances in \eqref{eq:rowerror} control first
+weighted moments; they do not transfer source exponential moments to
+targets or allocate the target hinge separately to each pattern.
+
+Consequently the required common capacity estimate remains open in
+this work. The supplied raw transfer theorem would apply after a
+uniform fractional coefficient-two estimate is proved. There is no
+such conclusion here, and the exact $2n$ assertion is also not claimed.
+
+\begin{thebibliography}{9}
+\bibitem{Fan} Kai Fan, \emph{Numerically explicit estimates for the
+distribution of rough numbers}, Journal of Number Theory 260 (2024),
+120--150. DOI: \href{https://doi.org/10.1016/j.jnt.2024.01.008}{10.1016/j.jnt.2024.01.008}.
+Uniform upper bound in the introduction; uniform lower bound in Theorem 2.3.
+\bibitem{WangTransfer} Wang manuscript supplied in the research request,
+\emph{Raw transfer}, source file:
+\url{https://github.com/science-prince/erdos-708-interval-divisor-covers/blob/main/papers/main-paper/raw-transfer.tex}.
+\bibitem{WangMain} Wang manuscript supplied in the research request,
+main source file:
+\url{https://github.com/science-prince/erdos-708-interval-divisor-covers/blob/main/papers/main-paper/main.tex}.
+\end{thebibliography}
+\end{document}

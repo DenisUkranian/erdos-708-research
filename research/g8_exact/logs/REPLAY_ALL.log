@@ -1,0 +1,8 @@
+PASS 57,487 cumulative-gcd certificates, exact partition of 57,515 demands
+PASS lower construction: 11 required (elementary counting), 11 suffice, exponents= [6, 3, 3, 3, 4]
+PASS exhaustive finite enumeration: 50 maxima <= 252, 1,691,461 source sets, 57,515 demands
+PASS independently regenerated exhaustive slot witnesses and CRT exceptional cases
+PASS exhaustive CRT over 28 residual demands: ALL_PASS rows=28 nodes=2800 exact=92 sec=0.0191732
+PASS independent 0-1 dynamic program for lower witness: optimal=11
+PASS analytic gate: all M >= 11538
+ALL CHECKS PASS: upper g(8)<=11 conditional on g(7)<=9,g(6)<=8,g(5)<=6; lower g(8)>=11 unconditional

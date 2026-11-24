@@ -1,0 +1,2929 @@
+[
+  {
+    "archive_path": "ep708_20261122/erdos708_research_bundle.zip",
+    "archive_size_bytes": 380045,
+    "members": [
+      {
+        "member": "erdos708_research_bundle/README.txt",
+        "size_bytes": 2969,
+        "sha256": "e67b0a293761cb6e3d44578ae2da151aa4fb682828e0998b88b8fd99605945fe",
+        "local_matches": [
+          "ep708_20261122/erdos708_research_bundle/README.txt"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_bundle/SHA256SUMS.json",
+        "size_bytes": 2058,
+        "sha256": "54bb2cbd14a2aa2483e862e903e810f9c46b7f4084480ccab1cd66d77d83c1c9",
+        "local_matches": [
+          "ep708_20261122/erdos708_research_bundle/SHA256SUMS.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_bundle/STATUS.json",
+        "size_bytes": 557,
+        "sha256": "25bc2d15fa2a36f08767927b002dbb50c9c16e1616de39ca9c2c487a468de4fe",
+        "local_matches": [
+          "ep708_20261122/erdos708_research_bundle/STATUS.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_bundle/checks/build_omega2_certificate.py",
+        "size_bytes": 2539,
+        "sha256": "f35aaa9dcaceac52afb34782d1ea373003d2c352029b4442054e313d3212bf17",
+        "local_matches": [
+          "ep708_20261122/combinatorial/build_omega2_certificate.py",
+          "ep708_20261122/erdos708_research_bundle/checks/build_omega2_certificate.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_bundle/checks/exact_auxiliary_certificates.json",
+        "size_bytes": 4614,
+        "sha256": "d0f6ab71e8ef1fb5ee01413e195c01fe0ede30c5248885f2e0a4d9492075b859",
+        "local_matches": [
+          "ep708_20261122/erdos708_research_bundle/checks/exact_auxiliary_certificates.json",
+          "ep708_20261122/root/exact_auxiliary_certificates.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_bundle/checks/hub_family_certificates.json",
+        "size_bytes": 2408,
+        "sha256": "a397fac864c77d0da616091f5fa8d2865a36e77cf95f2c0afb29786ae6b6f0dc",
+        "local_matches": [
+          "ep708_20261122/computation/hub_family_certificates.json",
+          "ep708_20261122/erdos708_research_bundle/checks/hub_family_certificates.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_bundle/checks/hub_obstruction_certificate.json",
+        "size_bytes": 1360,
+        "sha256": "ed12054f6b157730c2dca60a901f05a1303866af1d0fbf7ff50ec37f31092a59",
+        "local_matches": [
+          "ep708_20261122/computation/hub_obstruction_certificate.json",
+          "ep708_20261122/erdos708_research_bundle/checks/hub_obstruction_certificate.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_bundle/checks/omega2_hall_certificate.json",
+        "size_bytes": 101560,
+        "sha256": "45a50e16d40f83fb6605cac3ad8b0c9235ef6b924c800caa9c92c312b369e5a3",
+        "local_matches": [
+          "ep708_20261122/combinatorial/omega2_hall_certificate.json",
+          "ep708_20261122/erdos708_research_bundle/checks/omega2_hall_certificate.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_bundle/checks/omega2_hall_verification.json",
+        "size_bytes": 272,
+        "sha256": "03b61b471e5dcd6c08643eebb4a4e0b85745dd7be291d731bffb87e1984c3b7e",
+        "local_matches": [
+          "ep708_20261122/combinatorial/omega2_hall_verification.json",
+          "ep708_20261122/erdos708_research_bundle/checks/omega2_hall_verification.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_bundle/checks/proper_divisor_matching.py",
+        "size_bytes": 5410,
+        "sha256": "1344dd9192ac2b89086b50e1ed457546c949506989536ace3af58220a060b129",
+        "local_matches": [
+          "ep708_20261122/erdos708_research_bundle/checks/proper_divisor_matching.py",
+          "ep708_20261122/root/proper_divisor_matching.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_bundle/checks/test_peeling.py",
+        "size_bytes": 2441,
+        "sha256": "39a0606e365473cf4efc1e561c8f14fd0b97c36b108b15bda06fa4eaf32959bf",
+        "local_matches": [
+          "ep708_20261122/analytic/test_peeling.py",
+          "ep708_20261122/erdos708_research_bundle/checks/test_peeling.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_bundle/checks/verify_exact_certificates.py",
+        "size_bytes": 2586,
+        "sha256": "f2af4deb4e68f86c1fe2c5e5389aeddadcbf4c933af670a6b14e5cf0729f93bb",
+        "local_matches": [
+          "ep708_20261122/erdos708_research_bundle/checks/verify_exact_certificates.py",
+          "ep708_20261122/root/verify_exact_certificates.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_bundle/checks/verify_hub_family.py",
+        "size_bytes": 2052,
+        "sha256": "816109c4d373f31931e926cf3c04b73155c9503707e40201c1be06c59e2309db",
+        "local_matches": [
+          "ep708_20261122/computation/verify_hub_family.py",
+          "ep708_20261122/erdos708_research_bundle/checks/verify_hub_family.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_bundle/checks/verify_hub_obstruction.py",
+        "size_bytes": 3730,
+        "sha256": "a3d10ee1d783961e54bd8d1c788d97a0c10ad1d833c4319626d47cd68431f569",
+        "local_matches": [
+          "ep708_20261122/computation/verify_hub_obstruction.py",
+          "ep708_20261122/erdos708_research_bundle/checks/verify_hub_obstruction.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_bundle/checks/verify_omega2_certificate.py",
+        "size_bytes": 2210,
+        "sha256": "9f4229a3114e38e83da87afe59ef318d13c45cbf9fae3c9fef5c67bfe70c3e99",
+        "local_matches": [
+          "ep708_20261122/combinatorial/verify_omega2_certificate.py",
+          "ep708_20261122/erdos708_research_bundle/checks/verify_omega2_certificate.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_bundle/erdos708_research_note.pdf",
+        "size_bytes": 342844,
+        "sha256": "912d1e9c63c68c5ae53d43ec012cfed133c55e28bc77a824f1e8a13b8cfc923a",
+        "local_matches": [
+          "ep708_20261122/erdos708_research_bundle/erdos708_research_note.pdf",
+          "ep708_20261122/erdos708_research_note.pdf"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_bundle/erdos708_research_note.tex",
+        "size_bytes": 25884,
+        "sha256": "a4024a4770bfc99f73ec3567979bf45b8574811fdd39790f291e632d79ea81e6",
+        "local_matches": [
+          "ep708_20261122/erdos708_research_bundle/erdos708_research_note.tex",
+          "ep708_20261122/erdos708_research_note.tex"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_bundle/requirements.txt",
+        "size_bytes": 27,
+        "sha256": "1668a3152e33680d94637b13421c15e68bd97cd8701f7f555c691f5bc5c0b9f3",
+        "local_matches": [
+          "ep708_20261122/erdos708_research_bundle/requirements.txt"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_bundle/results/matching_full_k2.json",
+        "size_bytes": 208,
+        "sha256": "328695bcdf972b2551c986ec07de0852d7bb1b7ee43c4ee4926f2fac93911b78",
+        "local_matches": [
+          "ep708_20261122/erdos708_research_bundle/results/matching_full_k2.json",
+          "ep708_20261122/root/matching_full_k2.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_bundle/results/matching_k3.json",
+        "size_bytes": 207,
+        "sha256": "c8042d49ce35173ec9464a1fdbf5add4272ce00989181bb2e680ffad38b99661",
+        "local_matches": [
+          "ep708_20261122/erdos708_research_bundle/results/matching_k3.json",
+          "ep708_20261122/root/matching_k3.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_bundle/results/matching_large_k3.json",
+        "size_bytes": 212,
+        "sha256": "1d1fc05e5374f4b5e66e5f9e0b01afa07e2db4ac858ba9fe053a8d4c0bda1ccc",
+        "local_matches": [
+          "ep708_20261122/erdos708_research_bundle/results/matching_large_k3.json",
+          "ep708_20261122/root/matching_large_k3.json"
+        ],
+        "unique_against_local_tree": false
+      }
+    ],
+    "error": null,
+    "crc_error": null,
+    "archive_sha256": "4c9d4d42f0b02116dba2d955a4c72c3a619c479b3b27c379235008eb4b35e712"
+  },
+  {
+    "archive_path": "ep708_20261123/erdos708_research_bundle.zip",
+    "archive_size_bytes": 496666,
+    "members": [
+      {
+        "member": "erdos708_research_2026-11-23/README.txt",
+        "size_bytes": 7145,
+        "sha256": "5259cbe15dc0949288c8315b70273ff7460f0cb5c1778e5ece6989dee2c9690c",
+        "local_matches": [
+          "ep708_20261123/README.txt",
+          "ep708_synthesis_20261123/prior_results/README.txt"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_2026-11-23/STATUS.json",
+        "size_bytes": 11707,
+        "sha256": "6f6a6cad872059d44f3f31f528bfe53f942d578417b92e0c724fa976121be62f",
+        "local_matches": [
+          "ep708_20261123/STATUS.json",
+          "ep708_synthesis_20261123/prior_results/STATUS.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_2026-11-23/erdos708_partial_results.tex",
+        "size_bytes": 38037,
+        "sha256": "7ee3e5451f3d8735a5e193633195e50f1202bad98f02a1031e71066ae5f6336d",
+        "local_matches": [
+          "ep708_20261123/erdos708_partial_results.tex",
+          "ep708_synthesis_20261123/prior_results/erdos708_partial_results.tex"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_2026-11-23/erdos708_partial_results.pdf",
+        "size_bytes": 369417,
+        "sha256": "94f5fe69ac51627e52b9e5e12630baae29d6288e280e4df9c860b888cdf17c40",
+        "local_matches": [
+          "ep708_20261123/erdos708_partial_results.pdf",
+          "ep708_synthesis_20261123/prior_results/erdos708_partial_results.pdf"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_2026-11-23/analytic/AMPLIFICATION.md",
+        "size_bytes": 8973,
+        "sha256": "720b63eccec01de1dc85722d7e8d00821860bb66cfdd1b6c304bfcbfba777f86",
+        "local_matches": [
+          "ep708_20261123/analytic/AMPLIFICATION.md",
+          "ep708_synthesis_20261123/prior_results/analytic/AMPLIFICATION.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_2026-11-23/analytic/HALF_HARMONIC_H2.md",
+        "size_bytes": 6444,
+        "sha256": "13094f1bed8175a9df5a155f7f24ab2598443808f5201dc00137ba05ea27c5fb",
+        "local_matches": [
+          "ep708_20261123/analytic/HALF_HARMONIC_H2.md",
+          "ep708_synthesis_20261123/prior_results/analytic/HALF_HARMONIC_H2.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_2026-11-23/analytic/LEVEL_AND_ANCHORS.md",
+        "size_bytes": 6737,
+        "sha256": "a5fc2087f4472fd66fa30e142a68166c4406b3fb8aed7dbc0eb8f728f6996c94",
+        "local_matches": [
+          "ep708_20261123/analytic/LEVEL_AND_ANCHORS.md",
+          "ep708_synthesis_20261123/prior_results/analytic/LEVEL_AND_ANCHORS.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_2026-11-23/analytic/SMALL_PRIME_EXCEPTIONS.md",
+        "size_bytes": 5618,
+        "sha256": "40815520312d78ed1b90c5cffb66c14fdabfbb30439659eeb8a7811ca6ee0c7a",
+        "local_matches": [
+          "ep708_20261123/analytic/SMALL_PRIME_EXCEPTIONS.md",
+          "ep708_synthesis_20261123/prior_results/analytic/SMALL_PRIME_EXCEPTIONS.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_2026-11-23/analytic/SPARSE_SUPPORT_H2.md",
+        "size_bytes": 4830,
+        "sha256": "9572a6afd3aff8689a5a164e95062e64c92932a49155d5f28edcb3f0411e9bdc",
+        "local_matches": [
+          "ep708_20261123/analytic/SPARSE_SUPPORT_H2.md",
+          "ep708_synthesis_20261123/prior_results/analytic/SPARSE_SUPPORT_H2.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_2026-11-23/combinatorial/ARBITRARY_ANCHOR_MATCHING.md",
+        "size_bytes": 7485,
+        "sha256": "8782ef9539bbbd086afab7ba325d758d84963bec4c00aef000e86891d2d8e320",
+        "local_matches": [
+          "ep708_20261123/combinatorial/ARBITRARY_ANCHOR_MATCHING.md",
+          "ep708_synthesis_20261123/prior_results/combinatorial/ARBITRARY_ANCHOR_MATCHING.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_2026-11-23/combinatorial/HALF_HARMONIC_AUDIT.md",
+        "size_bytes": 1392,
+        "sha256": "f35eb37750f65ca334aa70d54a9288037e5d28717aaa1ca3a858f491b85e0a68",
+        "local_matches": [
+          "ep708_20261123/combinatorial/HALF_HARMONIC_AUDIT.md",
+          "ep708_synthesis_20261123/prior_results/combinatorial/HALF_HARMONIC_AUDIT.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_2026-11-23/combinatorial/ORDERED_CARRIER_H2.md",
+        "size_bytes": 6184,
+        "sha256": "0e23321b447baf450164a8403d843e7247eacbd1c500e7dc2746b2d8b0d05665",
+        "local_matches": [
+          "ep708_20261123/combinatorial/ORDERED_CARRIER_H2.md",
+          "ep708_synthesis_20261123/prior_results/combinatorial/ORDERED_CARRIER_H2.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_2026-11-23/combinatorial/SPARSE_MATCHING_EXACT2N_AUDIT.md",
+        "size_bytes": 7759,
+        "sha256": "55bb48b261628cb928868e5ff638df73f4616310c197c9ef2c0c84fe7a513522",
+        "local_matches": [
+          "ep708_20261123/combinatorial/SPARSE_MATCHING_EXACT2N_AUDIT.md",
+          "ep708_synthesis_20261123/prior_results/combinatorial/SPARSE_MATCHING_EXACT2N_AUDIT.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_2026-11-23/combinatorial/SPARSE_SUPPORT_AUDIT.md",
+        "size_bytes": 3974,
+        "sha256": "881d1fc2d9169d0422d3adfdfed271f1b4a077606764de017732aec21a211776",
+        "local_matches": [
+          "ep708_20261123/combinatorial/SPARSE_SUPPORT_AUDIT.md",
+          "ep708_synthesis_20261123/prior_results/combinatorial/SPARSE_SUPPORT_AUDIT.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_2026-11-23/combinatorial/TRUNCATED_CARRIER_AUDIT.md",
+        "size_bytes": 5558,
+        "sha256": "a41b4b4801a7408efbd0c2f40e1914ed4a85af098016b45cbf51114e0e7db62b",
+        "local_matches": [
+          "ep708_20261123/combinatorial/TRUNCATED_CARRIER_AUDIT.md",
+          "ep708_synthesis_20261123/prior_results/combinatorial/TRUNCATED_CARRIER_AUDIT.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_2026-11-23/combinatorial/TWO_ANCHOR_H2.md",
+        "size_bytes": 5034,
+        "sha256": "8ff1b5a20190804954c7c592bb1cc847fa4d2706275ed3c463a9c632b8649dd4",
+        "local_matches": [
+          "ep708_20261123/combinatorial/TWO_ANCHOR_H2.md",
+          "ep708_synthesis_20261123/prior_results/combinatorial/TWO_ANCHOR_H2.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_2026-11-23/computation/FINITE_CRT_MODEL.md",
+        "size_bytes": 7082,
+        "sha256": "d256c5b8a6ff6d24d26a600f2ce5be54d69713bf17b2ee0a25364122755f72e4",
+        "local_matches": [
+          "ep708_20261123/computation/FINITE_CRT_MODEL.md",
+          "ep708_synthesis_20261123/prior_results/computation/FINITE_CRT_MODEL.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_2026-11-23/computation/adaptive_certificate_checks.json",
+        "size_bytes": 23255,
+        "sha256": "43ed47b91d88966f3896e70fd0aa6fe696c7209db7815894bef4ff6964cbe436",
+        "local_matches": [
+          "ep708_20261123/computation/adaptive_certificate_checks.json",
+          "ep708_synthesis_20261123/prior_results/computation/adaptive_certificate_checks.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_2026-11-23/computation/exact2n_certificate.py",
+        "size_bytes": 23241,
+        "sha256": "4e3524fa2c480744505e704d613e2a56fbde82cde2299919085d334c5e2e76f0",
+        "local_matches": [
+          "ep708_20261123/computation/exact2n_certificate.py",
+          "ep708_synthesis_20261123/prior_results/computation/exact2n_certificate.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_2026-11-23/computation/exact2n_demo_results.json",
+        "size_bytes": 400401,
+        "sha256": "63b26cdf01b54f7be0d797b913c61f8996f518c7d84633f97ad4238ae0a283b4",
+        "local_matches": [
+          "ep708_20261123/computation/exact2n_demo_results.json",
+          "ep708_synthesis_20261123/prior_results/computation/exact2n_demo_results.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_2026-11-23/computation/h2_crt_search.py",
+        "size_bytes": 8172,
+        "sha256": "51813f64b9b1ca4b8be1e595c1a7daa0f5d3e01ca64768c7f2c3c1765197e31d",
+        "local_matches": [
+          "ep708_20261123/computation/h2_crt_search.py",
+          "ep708_synthesis_20261123/prior_results/computation/h2_crt_search.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_2026-11-23/computation/h2_crt_search_results.json",
+        "size_bytes": 9209,
+        "sha256": "2179051a49b6a88fc80bb754fb45c426d92980a8e56ce47eb74d3d81a673c1e3",
+        "local_matches": [
+          "ep708_20261123/computation/h2_crt_search_results.json",
+          "ep708_synthesis_20261123/prior_results/computation/h2_crt_search_results.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_2026-11-23/computation/h2_global_phase_milp.py",
+        "size_bytes": 3387,
+        "sha256": "2e396f2e3ada7563e96cb825c2ed39ddc85dd56fa1502fccf84f0cd21c9ceb18",
+        "local_matches": [
+          "ep708_20261123/computation/h2_global_phase_milp.py",
+          "ep708_synthesis_20261123/prior_results/computation/h2_global_phase_milp.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_2026-11-23/computation/h2_global_phase_results.json",
+        "size_bytes": 4254,
+        "sha256": "acd6b1151ec1ea81844b53192709fc1c42074b9e0ba15ee8aafd25d169e950ca",
+        "local_matches": [
+          "ep708_20261123/computation/h2_global_phase_results.json",
+          "ep708_synthesis_20261123/prior_results/computation/h2_global_phase_results.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_2026-11-23/computation/h2_hinge_ratio_results.json",
+        "size_bytes": 7746,
+        "sha256": "9e599d5ed8573aab56bddd184f096048d43b2d0561e3cf50628cb57959e9eb6c",
+        "local_matches": [
+          "ep708_20261123/computation/h2_hinge_ratio_results.json",
+          "ep708_synthesis_20261123/prior_results/computation/h2_hinge_ratio_results.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_2026-11-23/computation/h2_hinge_ratio_search.py",
+        "size_bytes": 3921,
+        "sha256": "e016b48e41df2e03250d44fa0a1dc3c3b6cb623e041f26b65a2927ff6a7ff119",
+        "local_matches": [
+          "ep708_20261123/computation/h2_hinge_ratio_search.py",
+          "ep708_synthesis_20261123/prior_results/computation/h2_hinge_ratio_search.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_2026-11-23/computation/h2_joint_milp.py",
+        "size_bytes": 3286,
+        "sha256": "6576d81c08a95cf1b828b7e6037619a4099e5739cef83c82678a03a88fecc88f",
+        "local_matches": [
+          "ep708_20261123/computation/h2_joint_milp.py",
+          "ep708_synthesis_20261123/prior_results/computation/h2_joint_milp.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_2026-11-23/computation/h2_joint_milp_results.json",
+        "size_bytes": 2413,
+        "sha256": "c3a90a737477beb73241d95d23267c769a743d6a824ff1b9d27a8bfdab05bb50",
+        "local_matches": [
+          "ep708_20261123/computation/h2_joint_milp_results.json",
+          "ep708_synthesis_20261123/prior_results/computation/h2_joint_milp_results.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_2026-11-23/computation/h2_ratio_search.py",
+        "size_bytes": 4023,
+        "sha256": "60e16abff64a2c1aa5ef7aeaa8aaf15a787bc0ddb6d71c8f4829171c61563e03",
+        "local_matches": [
+          "ep708_20261123/computation/h2_ratio_search.py",
+          "ep708_synthesis_20261123/prior_results/computation/h2_ratio_search.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_2026-11-23/computation/h2_ratio_search_results.json",
+        "size_bytes": 95546,
+        "sha256": "1354820739baf6c0b127b007ed6cb078724af53f89d3e2b061e343f6f84e9fd0",
+        "local_matches": [
+          "ep708_20261123/computation/h2_ratio_search_results.json",
+          "ep708_synthesis_20261123/prior_results/computation/h2_ratio_search_results.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_2026-11-23/computation/h2_six_prime_results.json",
+        "size_bytes": 11542,
+        "sha256": "b6fa4d3d3016cb894bbf381682bc9e032ab0515a139fa7086d3355daff2a11f5",
+        "local_matches": [
+          "ep708_20261123/computation/h2_six_prime_results.json",
+          "ep708_synthesis_20261123/prior_results/computation/h2_six_prime_results.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_2026-11-23/computation/h2_six_prime_search.py",
+        "size_bytes": 4329,
+        "sha256": "9591ad8e48e0ebce4f96e732fcebec56b02d614a5691848fe736ea23b575e3ec",
+        "local_matches": [
+          "ep708_20261123/computation/h2_six_prime_search.py",
+          "ep708_synthesis_20261123/prior_results/computation/h2_six_prime_search.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_2026-11-23/computation/h2_sparse_region_results.json",
+        "size_bytes": 7217,
+        "sha256": "687bf2618c501857107d0e2267138d5169d6327569798285b6bf10d383855ab5",
+        "local_matches": [
+          "ep708_20261123/computation/h2_sparse_region_results.json",
+          "ep708_synthesis_20261123/prior_results/computation/h2_sparse_region_results.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_2026-11-23/computation/h2_sparse_region_search.py",
+        "size_bytes": 4251,
+        "sha256": "a65bdaaf6968084bf388d7a42bc86e800afee6c7da142a05cbcc3bba2a293405",
+        "local_matches": [
+          "ep708_20261123/computation/h2_sparse_region_search.py",
+          "ep708_synthesis_20261123/prior_results/computation/h2_sparse_region_search.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_2026-11-23/computation/verify_adaptive_certificate.py",
+        "size_bytes": 3456,
+        "sha256": "13387b674202dcad8525a7852523daef1c91e67778267d068551670a2448fe02",
+        "local_matches": [
+          "ep708_20261123/computation/verify_adaptive_certificate.py",
+          "ep708_synthesis_20261123/prior_results/computation/verify_adaptive_certificate.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_research_2026-11-23/MANIFEST.json",
+        "size_bytes": 6252,
+        "sha256": "fcd5f685bd2ef2afbd27b96c1022a031b380e4d1198a3374e2901094ab2be9d7",
+        "local_matches": [
+          "ep708_20261123/MANIFEST.json"
+        ],
+        "unique_against_local_tree": false
+      }
+    ],
+    "error": null,
+    "crc_error": null,
+    "archive_sha256": "abd2afaec90e385043f6877a6c3a1b110d3f0a1d4d162a214be37ecd8e1d52a0"
+  },
+  {
+    "archive_path": "ep708_continuation_20261123/erdos708_continuation_bundle.zip",
+    "archive_size_bytes": 1132359,
+    "members": [
+      {
+        "member": "README.txt",
+        "size_bytes": 5144,
+        "sha256": "af052e8220908cbf3a6113a282938c055bba856145b74563c1a7ae6476906aa1",
+        "local_matches": [
+          "ep708_continuation_20261123/README.txt"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "STATUS.json",
+        "size_bytes": 3094,
+        "sha256": "82bcac9404a9ced55c352ccc68c31492a5260d8a8e62843a243f44d3635d0e62",
+        "local_matches": [
+          "ep708_continuation_20261123/STATUS.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "analytic/CONTROLLED_CORE_SINGLE_REMAINDER.md",
+        "size_bytes": 11504,
+        "sha256": "28cce14b7ad2d66e191e88ed87b37eebeada8079bbb2bd14ca197233f8d045aa",
+        "local_matches": [
+          "ep708_continuation_20261123/analytic/CONTROLLED_CORE_SINGLE_REMAINDER.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "analytic/DIFFUSE_CORE_SINGLE_REMAINDER.md",
+        "size_bytes": 14494,
+        "sha256": "f4223a895bc1186de8bd6fe47fb7b95cecb713a25b7fcdf095f16c9e5403e629",
+        "local_matches": [
+          "ep708_continuation_20261123/analytic/DIFFUSE_CORE_SINGLE_REMAINDER.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "analytic/GLUING_ARBITRARY_PURE_CORE.md",
+        "size_bytes": 18255,
+        "sha256": "c5753100f38a005269269f39d50b7a2f5bfd0a6bc4f3e78cf396f313092f8981",
+        "local_matches": [
+          "ep708_continuation_20261123/analytic/GLUING_ARBITRARY_PURE_CORE.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "analytic/SHARED_CORE_POLYLOGARITHMIC.md",
+        "size_bytes": 16210,
+        "sha256": "b5df2410cc24d88ee75ab39629ecdc69da051fc51b6041ded4c58066eae6b967",
+        "local_matches": [
+          "ep708_continuation_20261123/analytic/SHARED_CORE_POLYLOGARITHMIC.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "combinatorial/DISCOUNTED_ADAPTIVE_CERTIFICATE.md",
+        "size_bytes": 13333,
+        "sha256": "43bdbbdde7085303d95ff3d8b4da95025de5e556e336b5fd7538df914b53f7a4",
+        "local_matches": [
+          "ep708_continuation_20261123/combinatorial/DISCOUNTED_ADAPTIVE_CERTIFICATE.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "combinatorial/MIXED_SEPARATED_SUPPORT_CERTIFICATE_AUDIT.md",
+        "size_bytes": 9883,
+        "sha256": "11a836e0df4e0594edc6468edecc0da933503afbe8ef331e33ce003a26204b93",
+        "local_matches": [
+          "ep708_continuation_20261123/combinatorial/MIXED_SEPARATED_SUPPORT_CERTIFICATE_AUDIT.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "combinatorial/PRIME_BLOCK_GLUE_AND_COMPONENT_COVERS.md",
+        "size_bytes": 15094,
+        "sha256": "48e71bc8e6d44af2267a531fd223d7be52a1b98c6457764f499bc5f128eee0c6",
+        "local_matches": [
+          "ep708_continuation_20261123/combinatorial/PRIME_BLOCK_GLUE_AND_COMPONENT_COVERS.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "combinatorial/UNIFORM_RAW_MOMENTS.md",
+        "size_bytes": 7706,
+        "sha256": "9f74623460bc54ff61fd081598f1671aadc1106dd1eb620187cce1e9b935b00a",
+        "local_matches": [
+          "ep708_continuation_20261123/combinatorial/UNIFORM_RAW_MOMENTS.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "computation/CONTROLLED_CORE_SINGLE_REMAINDER_AUDIT.md",
+        "size_bytes": 13114,
+        "sha256": "4821d445ad4e736d79591039276f880abe85006315435eb107f4a82b03d50563",
+        "local_matches": [
+          "ep708_continuation_20261123/computation/CONTROLLED_CORE_SINGLE_REMAINDER_AUDIT.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "computation/DIFFUSE_CORE_SINGLE_REMAINDER_AUDIT.md",
+        "size_bytes": 11679,
+        "sha256": "2914a3465cc58b25f0316f99353041782001a41902e00f3799e0493d7e288619",
+        "local_matches": [
+          "ep708_continuation_20261123/computation/DIFFUSE_CORE_SINGLE_REMAINDER_AUDIT.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "computation/DISJOINT_PRIME_BLOCKS_SCOPE_AUDIT.md",
+        "size_bytes": 3940,
+        "sha256": "16d8d8551f3ad5a9d6df24c09a755904c93f08e58e0bba6c5f5a418ae28b7d86",
+        "local_matches": [
+          "ep708_continuation_20261123/computation/DISJOINT_PRIME_BLOCKS_SCOPE_AUDIT.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "computation/HEREDITARY_RAW_INTEGER_TRANSFER.md",
+        "size_bytes": 8413,
+        "sha256": "a3b319734030481fa397e07c06c629b8bafc8130f383b5e055216c21ea5d2bc6",
+        "local_matches": [
+          "ep708_continuation_20261123/computation/HEREDITARY_RAW_INTEGER_TRANSFER.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "computation/SHARED_CORE_POLYLOGARITHMIC_AUDIT.md",
+        "size_bytes": 10694,
+        "sha256": "a87168416fb549de045e1fab5c99e890d69fce568c4312af5cb95e1ece9e262c",
+        "local_matches": [
+          "ep708_continuation_20261123/computation/SHARED_CORE_POLYLOGARITHMIC_AUDIT.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "computation/aggregate_tail_count_example.json",
+        "size_bytes": 584,
+        "sha256": "e8b74ec6771128f486dcf20e0e206cf82806a64249bff7be3e7ad980a646eee0",
+        "local_matches": [
+          "ep708_continuation_20261123/computation/aggregate_tail_count_example.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_continuation.pdf",
+        "size_bytes": 524301,
+        "sha256": "d9ec1f3940ea1b529cf7d2b599f007bbee63325799ed00204af0c4c3d25feffb",
+        "local_matches": [
+          "ep708_continuation_20261123/erdos708_continuation.pdf"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_continuation.tex",
+        "size_bytes": 10530,
+        "sha256": "9826a2788802551a2cc2802f40008280f07be528181ce221ee7146e2340f7277",
+        "local_matches": [
+          "ep708_continuation_20261123/erdos708_continuation.tex"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "inherited/analytic/DENSE_GROWING_SUPPORT.md",
+        "size_bytes": 8521,
+        "sha256": "dee8b7f21cb4af40f980a9bb8403cbe89c65555a806810e557541a26a928c37c",
+        "local_matches": [
+          "ep708_continuation_20261123/inherited/analytic/DENSE_GROWING_SUPPORT.md",
+          "ep708_synthesis_20261123/analytic/DENSE_GROWING_SUPPORT.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "inherited/analytic/DIFFUSE_RAW_WEIGHTS.md",
+        "size_bytes": 12866,
+        "sha256": "daf0bc7331a63088dc3b04f6a0abd51c03535b7123aa029667645363edfcbd2a",
+        "local_matches": [
+          "ep708_continuation_20261123/inherited/analytic/DIFFUSE_RAW_WEIGHTS.md",
+          "ep708_ladder_20261123/inherited/DIFFUSE_RAW_WEIGHTS.md",
+          "ep708_synthesis_20261123/analytic/DIFFUSE_RAW_WEIGHTS.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "inherited/analytic/FIXED_HEAVY_CORE.md",
+        "size_bytes": 13099,
+        "sha256": "446b7209bcb4ee8aeb3543f8789d67988057b5f9ac20b17d0081675dc1a839ad",
+        "local_matches": [
+          "ep708_continuation_20261123/inherited/analytic/FIXED_HEAVY_CORE.md",
+          "ep708_synthesis_20261123/analytic/FIXED_HEAVY_CORE.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "inherited/analytic/SEPARATED_PRIME_BANDS.md",
+        "size_bytes": 8692,
+        "sha256": "718443ac96af497d080e67934e891920e1c62886c0cc1441b1d939132701a860",
+        "local_matches": [
+          "ep708_continuation_20261123/inherited/analytic/SEPARATED_PRIME_BANDS.md",
+          "ep708_synthesis_20261123/analytic/SEPARATED_PRIME_BANDS.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "inherited/analytic/SUBEXPONENTIAL_DENSE_SUPPORT.md",
+        "size_bytes": 8291,
+        "sha256": "c7e8f1de4937530af23bb9af3bc92c0489c6657a07f9e9b6fd5a7119e1164127",
+        "local_matches": [
+          "ep708_continuation_20261123/inherited/analytic/SUBEXPONENTIAL_DENSE_SUPPORT.md",
+          "ep708_synthesis_20261123/analytic/SUBEXPONENTIAL_DENSE_SUPPORT.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "inherited/combinatorial/DIFFUSE_RAW_WEIGHTS_AUDIT.md",
+        "size_bytes": 6558,
+        "sha256": "c65990205675377ae3198b93f5ca2c772bf54936c2630aea85afb69aca58a5b7",
+        "local_matches": [
+          "ep708_continuation_20261123/inherited/combinatorial/DIFFUSE_RAW_WEIGHTS_AUDIT.md",
+          "ep708_synthesis_20261123/combinatorial/DIFFUSE_RAW_WEIGHTS_AUDIT.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "inherited/combinatorial/FIXED_HEAVY_CORE_AUDIT.md",
+        "size_bytes": 6747,
+        "sha256": "c416046af72fa5b6103d1ed350dda1eace28046e5c476478bef46be9b9b859de",
+        "local_matches": [
+          "ep708_continuation_20261123/inherited/combinatorial/FIXED_HEAVY_CORE_AUDIT.md",
+          "ep708_synthesis_20261123/combinatorial/FIXED_HEAVY_CORE_AUDIT.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "inherited/combinatorial/PAIR_BANK_AND_CORE_REDUCTION.md",
+        "size_bytes": 11155,
+        "sha256": "3f7148149ce6e8db270b888932ac86f46593994261df94df3077fa62afac5e20",
+        "local_matches": [
+          "ep708_continuation_20261123/inherited/combinatorial/PAIR_BANK_AND_CORE_REDUCTION.md",
+          "ep708_synthesis_20261123/combinatorial/PAIR_BANK_AND_CORE_REDUCTION.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "inherited/combinatorial/SUBEXPONENTIAL_SUPPORT_AUDIT.md",
+        "size_bytes": 5565,
+        "sha256": "3dcdf76da802d58f2de41f874f25bb23dae8a011599af283a1f3d1bf20ec27c3",
+        "local_matches": [
+          "ep708_continuation_20261123/inherited/combinatorial/SUBEXPONENTIAL_SUPPORT_AUDIT.md",
+          "ep708_synthesis_20261123/combinatorial/SUBEXPONENTIAL_SUPPORT_AUDIT.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "inherited/erdos708_synthesis.pdf",
+        "size_bytes": 475232,
+        "sha256": "303f140fb0126e538fc54d6f0b0d30609ed7d8bfb17439c2ec6f91aebd85746d",
+        "local_matches": [
+          "ep708_continuation_20261123/inherited/erdos708_synthesis.pdf",
+          "ep708_synthesis_20261123/erdos708_synthesis.pdf"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "sections/block_support.tex",
+        "size_bytes": 3852,
+        "sha256": "7af532f52708bb8c50ad1f3aebeb7f7db20a110a404a503c54231d63b4c95e2b",
+        "local_matches": [
+          "ep708_continuation_20261123/sections/block_support.tex"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "sections/core_gluing.tex",
+        "size_bytes": 30183,
+        "sha256": "34d7f3fef5bf8fad4ef52f1c34b56fc333646efe2e35120383f37bba31df8204",
+        "local_matches": [
+          "ep708_continuation_20261123/sections/core_gluing.tex"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "sections/moment_bound.tex",
+        "size_bytes": 5531,
+        "sha256": "dbc5d12350eb389e31841336860837550cd1413a2855388c9a9fdedb3b0823d6",
+        "local_matches": [
+          "ep708_continuation_20261123/sections/moment_bound.tex"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "sections/remaining.tex",
+        "size_bytes": 8364,
+        "sha256": "132e0c67db9715f601b0a27006475e21d07842ae6c35b25b2ca40acac5fa0d56",
+        "local_matches": [
+          "ep708_continuation_20261123/sections/remaining.tex"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "sections/separated_support.tex",
+        "size_bytes": 19671,
+        "sha256": "2d9e5bc5f710c4bc80c6e6494de5fc9fc58cb75c0943be0a42cc08aeeebfbc23",
+        "local_matches": [
+          "ep708_continuation_20261123/sections/separated_support.tex"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "sections/shared_core_matching.tex",
+        "size_bytes": 20540,
+        "sha256": "db9acccb94faee541daa531b00a3397128debf8c15cea27e754c3fcbd4191a96",
+        "local_matches": [
+          "ep708_continuation_20261123/sections/shared_core_matching.tex"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "sections/transfer.tex",
+        "size_bytes": 6951,
+        "sha256": "d2046517d1519fe1b5ea75c8b585bdd6145fa5dec6775c6636d081257e4063a0",
+        "local_matches": [
+          "ep708_continuation_20261123/sections/transfer.tex"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "MANIFEST.json",
+        "size_bytes": 6580,
+        "sha256": "ed10f7e399a8e1844b9b24db4d0bdced1b92e2c4698a7db16130ad18834b1299",
+        "local_matches": [
+          "ep708_continuation_20261123/MANIFEST.json"
+        ],
+        "unique_against_local_tree": false
+      }
+    ],
+    "error": null,
+    "crc_error": null,
+    "archive_sha256": "909dcca985ba8b72fbfaef5dab00a7a0c55f86f11c0308dcb7913b9d6c0ffdd9"
+  },
+  {
+    "archive_path": "ep708_dot_20261123/erdos708_dot_audit_bundle.zip",
+    "archive_size_bytes": 416992,
+    "members": [
+      {
+        "member": "erdos708_dot_audit/erdos708_dot_audit.pdf",
+        "size_bytes": 372993,
+        "sha256": "c08fb5590d58fb323b498a5bcd62cc789ebc30dcc23ee36f6cc5c232d2748524",
+        "local_matches": [
+          "ep708_dot_20261123/erdos708_dot_audit.pdf"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_dot_audit/erdos708_dot_audit.tex",
+        "size_bytes": 31299,
+        "sha256": "b6d2d49aad6ea03f1a09701ca8ccdef5604c1e873462d2d476a5e5835c5591b4",
+        "local_matches": [
+          "ep708_dot_20261123/erdos708_dot_audit.tex"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_dot_audit/README.txt",
+        "size_bytes": 2828,
+        "sha256": "80467bb44c49a866dad8b9939aec06b8809b4ceab4186069558c840b0df0ae23",
+        "local_matches": [
+          "ep708_dot_20261123/README.txt"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_dot_audit/STATUS.json",
+        "size_bytes": 1153,
+        "sha256": "68a3cb7bed219702926691d3cc2d8d89948f25a17d9eb13ed9cab18ab0ec2477",
+        "local_matches": [
+          "ep708_dot_20261123/STATUS.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_dot_audit/SOURCE_PROVENANCE.json",
+        "size_bytes": 1958,
+        "sha256": "2f9bcae10e887243fd249273ba1e97389be8d9e7da43250304480fdd54fcc7a7",
+        "local_matches": [
+          "ep708_dot_20261123/SOURCE_PROVENANCE.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_dot_audit/THREE_FOUR_CERTIFICATE_AUDIT.md",
+        "size_bytes": 20259,
+        "sha256": "32e6f59395716522e482a8249674d6b09a4dd52d35be6688b80e87f8e450fff8",
+        "local_matches": [
+          "ep708_dot_20261123/THREE_FOUR_CERTIFICATE_AUDIT.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_dot_audit/audit/DOT_LARGE_PRIME_REDUCTIONS_AUDIT.md",
+        "size_bytes": 12641,
+        "sha256": "098d0fa9b9c02b2e900e5eb5336278ebac1f86e2528dbe2f7a7adfee842545b7",
+        "local_matches": [
+          "ep708_dot_20261123/audit/DOT_LARGE_PRIME_REDUCTIONS_AUDIT.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_dot_audit/notes/ARITHMETIC_UNION_OBSTRUCTION.md",
+        "size_bytes": 6005,
+        "sha256": "2e2c9886ce990f00828e03ef44a3defa833d63de8abbdc083f76e123d815967f",
+        "local_matches": [
+          "ep708_dot_20261123/notes/ARITHMETIC_UNION_OBSTRUCTION.md",
+          "ep708_surplus_20261123/audit/ARITHMETIC_UNION_DISCREPANCY_OBSTRUCTION.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_dot_audit/notes/FULL_TAIL_FIRST_MOMENT_INPUT.md",
+        "size_bytes": 7266,
+        "sha256": "695a1e688a3637b6cd091af21a8619860342606ca15cbe30495a93f4b690a85b",
+        "local_matches": [
+          "ep708_dot_20261123/notes/FULL_TAIL_FIRST_MOMENT_INPUT.md",
+          "ep708_surplus_20261123/audit/FULL_TAIL_CONDITIONAL_FIRST_MOMENT.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_dot_audit/notes/FULL_TAIL_MGF_INPUT.md",
+        "size_bytes": 8478,
+        "sha256": "f629171bf0dd34e9b196fbb2444de9485ce254895c7b0df4055b719e5f630a1c",
+        "local_matches": [
+          "ep708_dot_20261123/notes/FULL_TAIL_MGF_INPUT.md",
+          "ep708_ladder_20261123/inherited/FULL_TAIL_MGF_INPUT.md",
+          "ep708_surplus_20261123/variations/SOURCE_TAIL_AND_DEMAND_BAND_CLEANUP.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_dot_audit/notes/GLOBAL_OPTIMIZER_INPUT.md",
+        "size_bytes": 10725,
+        "sha256": "a2bfdf26d0feb433e50384eef9240c805a43ae6a3ac2b90f38556312deae99c6",
+        "local_matches": [
+          "ep708_dot_20261123/notes/GLOBAL_OPTIMIZER_INPUT.md",
+          "ep708_ladder_20261123/inherited/GLOBAL_OPTIMIZER_INPUT.md",
+          "ep708_surplus_20261123/audit/GLOBAL_MAXIMIZER_AND_SHIFT_REDUCTION.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_dot_audit/notes/NEAR_QUADRATIC_PROOF.md",
+        "size_bytes": 12221,
+        "sha256": "ed6624d3ff4eafb059b0c15f0751200c6b10a7a5f3d5ad5fdc24167224a903d8",
+        "local_matches": [
+          "ep708_dot_20261123/notes/NEAR_QUADRATIC_PROOF.md",
+          "ep708_ladder_20261123/inherited/NEAR_QUADRATIC_PROOF.md",
+          "ep708_surplus_20261123/audit/DOT_NEAR_QUADRATIC_CAPACITY_AUDIT.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_dot_audit/MANIFEST.json",
+        "size_bytes": 2324,
+        "sha256": "ac0553ee0ebfe168c24e7aa186f55cecaa16fd91755bb9f6da833325b616a770",
+        "local_matches": [
+          "ep708_dot_20261123/MANIFEST.json"
+        ],
+        "unique_against_local_tree": false
+      }
+    ],
+    "error": null,
+    "crc_error": null,
+    "archive_sha256": "764b8cccad23c798dff8217290ca6cb2cd9b1fde86e1b532a6c7674c1891e1e5"
+  },
+  {
+    "archive_path": "ep708_flow_20261123/erdos708_joint_estimate_bundle.zip",
+    "archive_size_bytes": 356643,
+    "members": [
+      {
+        "member": "README.md",
+        "size_bytes": 4217,
+        "sha256": "185a1978904e2309c36ef99b3451f1deb5405c6e5c6ad10392e7056cbb273c37",
+        "local_matches": [
+          "ep708_flow_20261123/README.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "STATUS.json",
+        "size_bytes": 1025,
+        "sha256": "6c4646e71e53afc71efdf831eaeb785ca2ebb64f325e0da1c3bfe403a4db6d72",
+        "local_matches": [
+          "ep708_flow_20261123/STATUS.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "analytic/OPTIMAL_COVERAGE_AND_LOG_CAP.md",
+        "size_bytes": 10598,
+        "sha256": "882381262a514b68c99dd00678681dd482e7774436280d62adc7baa2a7af0df6",
+        "local_matches": [
+          "ep708_flow_20261123/analytic/OPTIMAL_COVERAGE_AND_LOG_CAP.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "analytic/TRUNCATED_TAIL_AND_MIXED_WEIGHT_BARRIER.md",
+        "size_bytes": 11272,
+        "sha256": "34c1e876ad35e243001b67819612ed35a529cfbe0355b110e8290951074da50f",
+        "local_matches": [
+          "ep708_flow_20261123/analytic/TRUNCATED_TAIL_AND_MIXED_WEIGHT_BARRIER.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "analytic/WEIGHTED_ROOTED_STAR_CERTIFICATE.md",
+        "size_bytes": 9647,
+        "sha256": "b18b8ff9c9f4b88da7f4d99e3d754f7f05af1ebd2def9e0e3d187b5391feca76",
+        "local_matches": [
+          "ep708_flow_20261123/analytic/WEIGHTED_ROOTED_STAR_CERTIFICATE.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "audit/BONFERRONI_ABSORPTION_AUDIT.md",
+        "size_bytes": 6018,
+        "sha256": "120a0656e649625c4301b0e93279a542fc27382b35401c7eec2198f8b48e29c6",
+        "local_matches": [
+          "ep708_flow_20261123/audit/BONFERRONI_ABSORPTION_AUDIT.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "audit/CONSTANT_WEIGHT_STAR_CALCULATION.md",
+        "size_bytes": 6056,
+        "sha256": "4ee2ae119693d7f174eb764d61b9416a4e6efc671c19a90f66cb18781290cd0d",
+        "local_matches": [
+          "ep708_flow_20261123/audit/CONSTANT_WEIGHT_STAR_CALCULATION.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "audit/LOW_HEAVY_HINGE_COMPARISON.md",
+        "size_bytes": 7213,
+        "sha256": "b10a915168d48c7c679a3e099a53cff888003a9ad0b61f093133fcb1362af5bf",
+        "local_matches": [
+          "ep708_flow_20261123/audit/LOW_HEAVY_HINGE_COMPARISON.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "audit/LOW_HEAVY_STATE_MATCHING.md",
+        "size_bytes": 9887,
+        "sha256": "9894820104a8e37ff49cc6d8621e219b8426b9a2dfa4d4d09d350bfa2481a180",
+        "local_matches": [
+          "ep708_flow_20261123/audit/LOW_HEAVY_STATE_MATCHING.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "audit/PRIME_CONSERVING_EXCESS_FLOW.md",
+        "size_bytes": 8347,
+        "sha256": "324095f7cc03243a64ab2a49e386fd8657fe45f18e06da30f25a6afacf37f060",
+        "local_matches": [
+          "ep708_flow_20261123/audit/PRIME_CONSERVING_EXCESS_FLOW.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "combinatorial/BOOLEAN_TWO_FACTOR_REDUCTION.md",
+        "size_bytes": 6040,
+        "sha256": "e5bd19b0aea49af0ca7c701745ca7a70c74f6f3854e22a4205878b1d813b207c",
+        "local_matches": [
+          "ep708_flow_20261123/combinatorial/BOOLEAN_TWO_FACTOR_REDUCTION.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "combinatorial/GLOBAL_MINIMAL_COMPRESSION.md",
+        "size_bytes": 5785,
+        "sha256": "2f8582e567d4d4f624fa5ca86a7037605fb8a60312d10862e0951691672cac9f",
+        "local_matches": [
+          "ep708_flow_20261123/combinatorial/GLOBAL_MINIMAL_COMPRESSION.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "combinatorial/HOT_DIVISOR_FLOW_CUTS.md",
+        "size_bytes": 9298,
+        "sha256": "baafc64cf660c80dd19521672b271953d3a695967f5a6cb3d5b678307902cc06",
+        "local_matches": [
+          "ep708_flow_20261123/combinatorial/HOT_DIVISOR_FLOW_CUTS.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "combinatorial/hot_divisor_flow.py",
+        "size_bytes": 7379,
+        "sha256": "96737f76811070daa6c1f210a8be09e2cd098a1025379933a485e16bd0780e72",
+        "local_matches": [
+          "ep708_flow_20261123/combinatorial/hot_divisor_flow.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "combinatorial/hot_divisor_flow_probes.json",
+        "size_bytes": 11399,
+        "sha256": "574433524da6ef99b044c1bba35950ebb5be70f70c4fd94124d24e1c6a5db469",
+        "local_matches": [
+          "ep708_flow_20261123/combinatorial/hot_divisor_flow_probes.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_joint_estimate_addendum.pdf",
+        "size_bytes": 304968,
+        "sha256": "e9d68cad261e7ee56c91ebd0e30643a563c08dd51cb9b2751b40275a1347d451",
+        "local_matches": [
+          "ep708_flow_20261123/erdos708_joint_estimate_addendum.pdf"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_joint_estimate_addendum.tex",
+        "size_bytes": 16901,
+        "sha256": "b3d832da1bc421f3a02e2df5456a7bcfe2626462a534a859c2e4925140a1bd9c",
+        "local_matches": [
+          "ep708_flow_20261123/erdos708_joint_estimate_addendum.tex"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "root_counterexample_verified.json",
+        "size_bytes": 528,
+        "sha256": "c4a377fdc1ccc5e1ef06dbfc32e661395f5f4068108370bdbb07b7d3551ecaa8",
+        "local_matches": [
+          "ep708_flow_20261123/root_counterexample_verified.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "verify_root_counterexample.py",
+        "size_bytes": 1872,
+        "sha256": "b7a4322909ac12429d4f0370ab181674bf49f9487ec579c23e5c8b24986a5e0f",
+        "local_matches": [
+          "ep708_flow_20261123/verify_root_counterexample.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "MANIFEST.json",
+        "size_bytes": 3055,
+        "sha256": "57ca64eafb271599742fed6694ec19571f3de54963f47c5d481120071963a2ed",
+        "local_matches": [
+          "ep708_flow_20261123/MANIFEST.json"
+        ],
+        "unique_against_local_tree": false
+      }
+    ],
+    "error": null,
+    "crc_error": null,
+    "archive_sha256": "4551a6f494950e45629c9453b938777b3ac4d3329a39ec14eb744bb3bb40b63c"
+  },
+  {
+    "archive_path": "ep708_global_20261123/erdos708_global_gap_bundle.zip",
+    "archive_size_bytes": 1179920,
+    "members": [
+      {
+        "member": "erdos708_global_gap/README.txt",
+        "size_bytes": 3831,
+        "sha256": "763519365b91012a58ac526864640248aa4f9b0041997cfe8b4fe78d4a693d21",
+        "local_matches": [
+          "ep708_global_20261123/README.txt"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_global_gap/STATUS.json",
+        "size_bytes": 1363,
+        "sha256": "9dd364af0b6f68748ab943729b22073e98ccacc2e0907b6b6048e8b99b961979",
+        "local_matches": [
+          "ep708_global_20261123/STATUS.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_global_gap/analytic/GLOBAL_DUAL_NORMALIZATION.md",
+        "size_bytes": 13932,
+        "sha256": "d765ba892356cec6c5c770cb4a3734118179822232c70a196e531e733e28951a",
+        "local_matches": [
+          "ep708_global_20261123/analytic/GLOBAL_DUAL_NORMALIZATION.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_global_gap/analytic/bank_vector_balance_cases.json",
+        "size_bytes": 1147,
+        "sha256": "3601b9af82f26fc84427fc5593046c5cb4e2fb0c601e089b9eed1d7500242395",
+        "local_matches": [
+          "ep708_global_20261123/analytic/bank_vector_balance_cases.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_global_gap/analytic/test_bank_vector_balance.py",
+        "size_bytes": 4179,
+        "sha256": "24fe428c56a57e1b3c3f722e5d2894e1b3f7fb51d7166720d9e0d50db7ac33a5",
+        "local_matches": [
+          "ep708_global_20261123/analytic/test_bank_vector_balance.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_global_gap/audit/AUDIT_REPORT.md",
+        "size_bytes": 6326,
+        "sha256": "e50e178e4ae6c3b1b588a77ed91bfa62da35f30328b2d2ccc149a067face9f57",
+        "local_matches": [
+          "ep708_global_20261123/audit/AUDIT_REPORT.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_global_gap/audit/DIRECTED_BANK_SEARCH_STATUS.txt",
+        "size_bytes": 3391,
+        "sha256": "eecc209bf0724746c7026ddcbdcaf06b4a2aedfc20620efa94141d98adfad380",
+        "local_matches": [
+          "ep708_global_20261123/audit/DIRECTED_BANK_SEARCH_STATUS.txt"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_global_gap/audit/RAW_MINIMALITY_AND_DELETION_IDENTITIES.md",
+        "size_bytes": 12557,
+        "sha256": "9c1bad3961509ae4dbcc1b5d8f94763dfde5f297525b3fc197c5df07ea0848b4",
+        "local_matches": [
+          "ep708_global_20261123/audit/RAW_MINIMALITY_AND_DELETION_IDENTITIES.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_global_gap/audit/joint_bank_closure.py",
+        "size_bytes": 10823,
+        "sha256": "8c54e771b9005690b83835588bb0471d5e7d771162152ed967ad6673cda5d58e",
+        "local_matches": [
+          "ep708_global_20261123/audit/joint_bank_closure.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_global_gap/audit/probe_M1000_unit.json",
+        "size_bytes": 12078,
+        "sha256": "bd188b4d9ee7599c3b188030705977ff9ebf9855d6633c3d5f80f6c73f3ab660",
+        "local_matches": [
+          "ep708_global_20261123/audit/probe_M1000_unit.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_global_gap/audit/probe_M20000_half.json",
+        "size_bytes": 183161,
+        "sha256": "e4f9df99a72345d28f66ab737b4f257f48feb64c5ede819a743cff6e27800356",
+        "local_matches": [
+          "ep708_global_20261123/audit/probe_M20000_half.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_global_gap/audit/probe_M20000_heavy2_spread.json",
+        "size_bytes": 190810,
+        "sha256": "14bc2f3655ea4ca5b55d3ed8ccf37fdde9d4e59db37608645a36d82727ae57f2",
+        "local_matches": [
+          "ep708_global_20261123/audit/probe_M20000_heavy2_spread.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_global_gap/audit/probe_M20000_large_park.json",
+        "size_bytes": 191442,
+        "sha256": "ad0635f2144dcd0e479d4dc85745ebc84c8800fd77cfc684d947143f7c81ad92",
+        "local_matches": [
+          "ep708_global_20261123/audit/probe_M20000_large_park.json",
+          "ep708_global_20261123/audit/probe_M20000_large_park_maximal.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_global_gap/audit/probe_M20000_large_park_maximal.json",
+        "size_bytes": 191442,
+        "sha256": "ad0635f2144dcd0e479d4dc85745ebc84c8800fd77cfc684d947143f7c81ad92",
+        "local_matches": [
+          "ep708_global_20261123/audit/probe_M20000_large_park.json",
+          "ep708_global_20261123/audit/probe_M20000_large_park_maximal.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_global_gap/audit/probe_M20000_light23.json",
+        "size_bytes": 184646,
+        "sha256": "bec9439e2a7f398881fda26bd3280351e861869103861621f5076ad2e159f9f9",
+        "local_matches": [
+          "ep708_global_20261123/audit/probe_M20000_light23.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_global_gap/audit/probe_M20000_light23_spread.json",
+        "size_bytes": 184646,
+        "sha256": "2192fc3923d1e1016b35f33ce80027e3d2d49aecc13f2d850e4c081de4180af2",
+        "local_matches": [
+          "ep708_global_20261123/audit/probe_M20000_light23_spread.json",
+          "ep708_global_20261123/audit/probe_M20000_light23_spread_maximal.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_global_gap/audit/probe_M20000_light23_spread_maximal.json",
+        "size_bytes": 184646,
+        "sha256": "2192fc3923d1e1016b35f33ce80027e3d2d49aecc13f2d850e4c081de4180af2",
+        "local_matches": [
+          "ep708_global_20261123/audit/probe_M20000_light23_spread.json",
+          "ep708_global_20261123/audit/probe_M20000_light23_spread_maximal.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_global_gap/audit/probe_M20000_rough.json",
+        "size_bytes": 182193,
+        "sha256": "c4fb62a25e5a2d8144f235e1f8c385c079b48799e39b20efcc96e311b0fe623f",
+        "local_matches": [
+          "ep708_global_20261123/audit/probe_M20000_rough.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_global_gap/audit/probe_M20000_rough_park_maximal.json",
+        "size_bytes": 182191,
+        "sha256": "c14bf2db89d38bc1f8569f439cb1674ca05ea120aa9c0759fb1354efbe206663",
+        "local_matches": [
+          "ep708_global_20261123/audit/probe_M20000_rough_park_maximal.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_global_gap/audit/probe_M20000_rough_spread.json",
+        "size_bytes": 182193,
+        "sha256": "bd66fd013fcd15e6cf0e3911537c8318d57827fd4bb3b3e6b2a966a880463fdf",
+        "local_matches": [
+          "ep708_global_20261123/audit/probe_M20000_rough_spread.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_global_gap/audit/probe_M20000_unit.json",
+        "size_bytes": 190138,
+        "sha256": "9471e3d41f5b04a1638e82f5df57a1a5a6732025e9f6bae4529126a5e128b20b",
+        "local_matches": [
+          "ep708_global_20261123/audit/probe_M20000_unit.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_global_gap/audit/probe_M20000_unit_park.json",
+        "size_bytes": 190136,
+        "sha256": "5e6a605d9d3ea777c9767de3d69f472dad0c3553484720499583004ffa3d25e6",
+        "local_matches": [
+          "ep708_global_20261123/audit/probe_M20000_unit_park.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_global_gap/audit/probe_M20000_unit_spread.json",
+        "size_bytes": 190138,
+        "sha256": "435312427ee64b86c642746db611efc58d6f0e6b5a74f4a3c375c830d9f0acde",
+        "local_matches": [
+          "ep708_global_20261123/audit/probe_M20000_unit_spread.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_global_gap/audit/probe_M300_light23.json",
+        "size_bytes": 4290,
+        "sha256": "5e1d466c265c8a4b761d6e8940800a2dacb0930ac77952d4bb597cf59af0479a",
+        "local_matches": [
+          "ep708_global_20261123/audit/probe_M300_light23.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_global_gap/combinatorial/BANK_PRODUCT_COUNTEREXAMPLE.md",
+        "size_bytes": 7416,
+        "sha256": "8da141d90bf9e53bb8bb8260e8b475c2f87177d1b7ad55583ae78b4eef7a39f1",
+        "local_matches": [
+          "ep708_global_20261123/combinatorial/BANK_PRODUCT_COUNTEREXAMPLE.md",
+          "ep708_top_tail_20261123/certificate/BANK_PRODUCT_COUNTEREXAMPLE.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_global_gap/combinatorial/bank_product_certificate.json",
+        "size_bytes": 110478,
+        "sha256": "6da6d75f3f7a2580c0eb0cb6ac1c4d2c17c4358b2f9ac1ae82a66941956ca92b",
+        "local_matches": [
+          "ep708_global_20261123/combinatorial/bank_product_certificate.json",
+          "ep708_top_tail_20261123/certificate/bank_product_certificate.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_global_gap/combinatorial/bank_product_verification.json",
+        "size_bytes": 840,
+        "sha256": "09bef2534b7487960e7ec7f27f20305a63c1beeab6a37b060774c7c5cfb7ed72",
+        "local_matches": [
+          "ep708_global_20261123/combinatorial/bank_product_verification.json",
+          "ep708_top_tail_20261123/certificate/bank_product_verification.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_global_gap/combinatorial/verify_bank_product_counterexample.py",
+        "size_bytes": 5297,
+        "sha256": "52d4577fe36a4992687340b55ec68d33c55dc9ec69f52c3bb2f756010189342c",
+        "local_matches": [
+          "ep708_global_20261123/combinatorial/verify_bank_product_counterexample.py",
+          "ep708_top_tail_20261123/certificate/verify_bank_product_counterexample.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_global_gap/erdos708_global_gap.pdf",
+        "size_bytes": 331299,
+        "sha256": "a3cf77eb70196c1ddf3c998290e5824fa3667ce2e3e269ef2c6efbc2391552a8",
+        "local_matches": [
+          "ep708_global_20261123/erdos708_global_gap.pdf",
+          "ep708_jweak_20261123/prior/erdos708_global_gap.pdf"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_global_gap/erdos708_global_gap.tex",
+        "size_bytes": 29574,
+        "sha256": "92a67a88cfb477407b67306c80115bd0827b3b9cdb29de92a16245baa37441fe",
+        "local_matches": [
+          "ep708_global_20261123/erdos708_global_gap.tex",
+          "ep708_jweak_20261123/prior/erdos708_global_gap.tex"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_global_gap/MANIFEST.json",
+        "size_bytes": 5112,
+        "sha256": "dd38b86980499e8cc58ec61d1244fe5e5e02a0d8cbf99c96bf199c0b33073e75",
+        "local_matches": [
+          "ep708_global_20261123/MANIFEST.json"
+        ],
+        "unique_against_local_tree": false
+      }
+    ],
+    "error": null,
+    "crc_error": null,
+    "archive_sha256": "8dc3217c42fda8268cb0678b3c81fc1997540b330b32e684be91b6ee8f3c1cab"
+  },
+  {
+    "archive_path": "ep708_jweak_20261123/erdos708_jweak_attempt_bundle.zip",
+    "archive_size_bytes": 763662,
+    "members": [
+      {
+        "member": "README.md",
+        "size_bytes": 4018,
+        "sha256": "4e1f0e0c3a37e461b55e0a3654025fd77bc783d42f46ddebf43bd26c5c4f0e03",
+        "local_matches": [
+          "ep708_jweak_20261123/README.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "STATUS.json",
+        "size_bytes": 464,
+        "sha256": "a62ae170eabaf37803512d983a2f13c9711d6b9d001a9f3700c801d8b62f5032",
+        "local_matches": [
+          "ep708_jweak_20261123/STATUS.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "analytic/DENSE_LIGHT_CORE_CONCENTRATION.md",
+        "size_bytes": 8254,
+        "sha256": "183862194806e43917f5c898d9f1c2129c067ad724b503b804b8fc234b07ac23",
+        "local_matches": [
+          "ep708_jweak_20261123/analytic/DENSE_LIGHT_CORE_CONCENTRATION.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "analytic/JOINT_GLUING_DIAGNOSIS.md",
+        "size_bytes": 6422,
+        "sha256": "3ae04d10f2706d050c814cf175e211fba8ecc74710f351f8a4386ca50545dd10",
+        "local_matches": [
+          "ep708_jweak_20261123/analytic/JOINT_GLUING_DIAGNOSIS.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "analytic/SPARSE_BOUNDED_HEAVY_OCCURRENCES.md",
+        "size_bytes": 6406,
+        "sha256": "eaab21f6e7d31cb5ad321d653e928f1ba0501c6d9a8aa0834026a85aa0626d82",
+        "local_matches": [
+          "ep708_jweak_20261123/analytic/SPARSE_BOUNDED_HEAVY_OCCURRENCES.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "analytic/SPARSE_HOT_BONFERRONI.md",
+        "size_bytes": 7683,
+        "sha256": "fb88cbec9e1067917a6efacabcdd9a932257cede10f1168313ef472bb219e459",
+        "local_matches": [
+          "ep708_jweak_20261123/analytic/SPARSE_HOT_BONFERRONI.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "audit/ATOM_LP_MINIMALITY_AND_COMPONENT_BANKS.md",
+        "size_bytes": 11656,
+        "sha256": "d13480fb6b097f7d8c4c802bc14dbd7af1475e08b2e91961043be34bfe68767a",
+        "local_matches": [
+          "ep708_jweak_20261123/audit/ATOM_LP_MINIMALITY_AND_COMPONENT_BANKS.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "audit/FINAL_AUDIT.md",
+        "size_bytes": 1146,
+        "sha256": "bad505675796e6e34c09c20f2b113655ce2911009f1ed3cb3b759f391b555bb8",
+        "local_matches": [
+          "ep708_jweak_20261123/audit/FINAL_AUDIT.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "audit/FOURIER_SAME_THRESHOLD_BARRIER.md",
+        "size_bytes": 5338,
+        "sha256": "9dfa522b52a9c671c545e479c47526eb40525da4056cedcd16e0c3726c05fc1f",
+        "local_matches": [
+          "ep708_jweak_20261123/audit/FOURIER_SAME_THRESHOLD_BARRIER.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "audit/GLOBAL_SPARSE_MEAN_AND_HOTSET.md",
+        "size_bytes": 9883,
+        "sha256": "55c9b07c8307486ab5e8040b79d2ea4fe215c77ff59822d54076fb0671a5f73a",
+        "local_matches": [
+          "ep708_jweak_20261123/audit/GLOBAL_SPARSE_MEAN_AND_HOTSET.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "combinatorial/BOUNDED_OCCURRENCE_H1_BARRIER.md",
+        "size_bytes": 6398,
+        "sha256": "05b9cc788ed3da2094ae45b7f726ee40c1f5195b6deaae4db96dbb36f29c9277",
+        "local_matches": [
+          "ep708_jweak_20261123/combinatorial/BOUNDED_OCCURRENCE_H1_BARRIER.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "combinatorial/HOT_DIVISOR_PARTITIONS.md",
+        "size_bytes": 7370,
+        "sha256": "1a0681298b3e5c92b62fca1d65b1fdb38a58d4534f19ef2f5f3e0abeb53f942a",
+        "local_matches": [
+          "ep708_jweak_20261123/combinatorial/HOT_DIVISOR_PARTITIONS.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "combinatorial/OPTIMAL_BAND_DELETION.md",
+        "size_bytes": 10090,
+        "sha256": "74935645d3b5930f8f2b60d4eeec25990d822b01e9c44e6d011e646466ce01ad",
+        "local_matches": [
+          "ep708_jweak_20261123/combinatorial/OPTIMAL_BAND_DELETION.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "combinatorial/bounded_occurrence_h1_certificate.json",
+        "size_bytes": 3585,
+        "sha256": "8c8aa23af5c74ddb6ba9d6333a16587a31d28ecf042d82b5238acbd9c11107d4",
+        "local_matches": [
+          "ep708_jweak_20261123/combinatorial/bounded_occurrence_h1_certificate.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "combinatorial/bounded_occurrence_h1_verification.json",
+        "size_bytes": 779,
+        "sha256": "ab7567cc2136bd3310d4390a74584ce0d12386582a625cab9ee5b27036a001b5",
+        "local_matches": [
+          "ep708_jweak_20261123/combinatorial/bounded_occurrence_h1_verification.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "combinatorial/verify_bounded_occurrence_h1.py",
+        "size_bytes": 4401,
+        "sha256": "2f5234978ab51d29b02f1526c8d58f33eb822ced4ffaf5358b7901d34ce71636",
+        "local_matches": [
+          "ep708_jweak_20261123/combinatorial/verify_bounded_occurrence_h1.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_jweak_attempt.pdf",
+        "size_bytes": 378021,
+        "sha256": "782c0d7adc146d04366272200db1d0b843972a486edf4db55894b1130eac7e2e",
+        "local_matches": [
+          "ep708_jweak_20261123/erdos708_jweak_attempt.pdf"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_jweak_attempt.tex",
+        "size_bytes": 28356,
+        "sha256": "c36832e783f5e14d4ca8ade5821d0b2b5bbba018cd39f364c1353447e7382cbf",
+        "local_matches": [
+          "ep708_jweak_20261123/erdos708_jweak_attempt.tex"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "prior/erdos708_global_gap.pdf",
+        "size_bytes": 331299,
+        "sha256": "a3cf77eb70196c1ddf3c998290e5824fa3667ce2e3e269ef2c6efbc2391552a8",
+        "local_matches": [
+          "ep708_global_20261123/erdos708_global_gap.pdf",
+          "ep708_jweak_20261123/prior/erdos708_global_gap.pdf"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "prior/erdos708_global_gap.tex",
+        "size_bytes": 29574,
+        "sha256": "92a67a88cfb477407b67306c80115bd0827b3b9cdb29de92a16245baa37441fe",
+        "local_matches": [
+          "ep708_global_20261123/erdos708_global_gap.tex",
+          "ep708_jweak_20261123/prior/erdos708_global_gap.tex"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "MANIFEST.json",
+        "size_bytes": 3459,
+        "sha256": "2715537173c4cbb7b301bbea3d5157d3599d8239546bbe394faea58f54358d80",
+        "local_matches": [
+          "ep708_jweak_20261123/MANIFEST.json"
+        ],
+        "unique_against_local_tree": false
+      }
+    ],
+    "error": null,
+    "crc_error": null,
+    "archive_sha256": "3698c39d6dbe16f04a950fec58184a25ef818ea3df5685bd09fd25248bbb1318"
+  },
+  {
+    "archive_path": "ep708_ladder_20261123/erdos708_proof_ladders_bundle.zip",
+    "archive_size_bytes": 432124,
+    "members": [
+      {
+        "member": "COMMON_COMPLETION_CRITERION.md",
+        "size_bytes": 5311,
+        "sha256": "8de7600eb50fc57696c8851409fdd237e84956799ff59ea58b0527092ca22e42",
+        "local_matches": [
+          "ep708_ladder_20261123/COMMON_COMPLETION_CRITERION.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "PROVENANCE.json",
+        "size_bytes": 953,
+        "sha256": "d55fbe7638ed6cd6098b2bd77c04060ed53ec62a8f355acb52ece8176b9cc096",
+        "local_matches": [
+          "ep708_ladder_20261123/PROVENANCE.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "README.txt",
+        "size_bytes": 3350,
+        "sha256": "c77a404df0666c0fd62baa06b11dfef1e139d9721d9b10fb143270fa1aadbf0f",
+        "local_matches": [
+          "ep708_ladder_20261123/README.txt"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "STATUS.json",
+        "size_bytes": 991,
+        "sha256": "d2ee0cb131642ca773bf886f47fb0c92f467414319dc795584146dd1fa5e80f8",
+        "local_matches": [
+          "ep708_ladder_20261123/STATUS.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_proof_ladders.pdf",
+        "size_bytes": 350369,
+        "sha256": "29baa353c7ec033ed5bbc6a8205fd54c286f7e3623cf00d676ce1a0d72167f55",
+        "local_matches": [
+          "ep708_ladder_20261123/erdos708_proof_ladders.pdf"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_proof_ladders.tex",
+        "size_bytes": 31100,
+        "sha256": "3c9c40d5941ec7b5145370a4f7e2492e463740b2fb624b2a74f76fffca76c9a3",
+        "local_matches": [
+          "ep708_ladder_20261123/erdos708_proof_ladders.tex"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "inherited/DIFFUSE_RAW_WEIGHTS.md",
+        "size_bytes": 12866,
+        "sha256": "daf0bc7331a63088dc3b04f6a0abd51c03535b7123aa029667645363edfcbd2a",
+        "local_matches": [
+          "ep708_continuation_20261123/inherited/analytic/DIFFUSE_RAW_WEIGHTS.md",
+          "ep708_ladder_20261123/inherited/DIFFUSE_RAW_WEIGHTS.md",
+          "ep708_synthesis_20261123/analytic/DIFFUSE_RAW_WEIGHTS.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "inherited/FULL_TAIL_MGF_INPUT.md",
+        "size_bytes": 8478,
+        "sha256": "f629171bf0dd34e9b196fbb2444de9485ce254895c7b0df4055b719e5f630a1c",
+        "local_matches": [
+          "ep708_dot_20261123/notes/FULL_TAIL_MGF_INPUT.md",
+          "ep708_ladder_20261123/inherited/FULL_TAIL_MGF_INPUT.md",
+          "ep708_surplus_20261123/variations/SOURCE_TAIL_AND_DEMAND_BAND_CLEANUP.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "inherited/GLOBAL_OPTIMIZER_INPUT.md",
+        "size_bytes": 10725,
+        "sha256": "a2bfdf26d0feb433e50384eef9240c805a43ae6a3ac2b90f38556312deae99c6",
+        "local_matches": [
+          "ep708_dot_20261123/notes/GLOBAL_OPTIMIZER_INPUT.md",
+          "ep708_ladder_20261123/inherited/GLOBAL_OPTIMIZER_INPUT.md",
+          "ep708_surplus_20261123/audit/GLOBAL_MAXIMIZER_AND_SHIFT_REDUCTION.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "inherited/NEAR_QUADRATIC_PROOF.md",
+        "size_bytes": 12221,
+        "sha256": "ed6624d3ff4eafb059b0c15f0751200c6b10a7a5f3d5ad5fdc24167224a903d8",
+        "local_matches": [
+          "ep708_dot_20261123/notes/NEAR_QUADRATIC_PROOF.md",
+          "ep708_ladder_20261123/inherited/NEAR_QUADRATIC_PROOF.md",
+          "ep708_surplus_20261123/audit/DOT_NEAR_QUADRATIC_CAPACITY_AUDIT.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "route_adaptive/ADAPTIVE_HALL_LADDER.md",
+        "size_bytes": 14201,
+        "sha256": "5dbfc1188862159ee69ab7d47e19027c9d6576128a5f6a7855199ee036e4fd1e",
+        "local_matches": [
+          "ep708_ladder_20261123/route_adaptive/ADAPTIVE_HALL_LADDER.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "route_adaptive/SMALL_ROOT_UNION_COUNTEREXAMPLE.md",
+        "size_bytes": 6665,
+        "sha256": "56e44f51b673f84508b47373dd838509dead3d7df499124ff1bef95dd58571a2",
+        "local_matches": [
+          "ep708_ladder_20261123/route_adaptive/SMALL_ROOT_UNION_COUNTEREXAMPLE.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "route_adaptive/TWO_CARRIER_REDUCTION.md",
+        "size_bytes": 7194,
+        "sha256": "b55553e9b62d6b2c429d4ff82439b0048b63768ba09350a1fcf2e531f96bcafb",
+        "local_matches": [
+          "ep708_ladder_20261123/route_adaptive/TWO_CARRIER_REDUCTION.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "route_adaptive/test_adaptive_hall.py",
+        "size_bytes": 4373,
+        "sha256": "162f8701cacc7483ef8d736abe00ea987f1649d5e06b279d286d0023a96cdc39",
+        "local_matches": [
+          "ep708_ladder_20261123/route_adaptive/test_adaptive_hall.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "route_certificate/CLUSTER_NORMALIZED_CERTIFICATE.md",
+        "size_bytes": 12304,
+        "sha256": "79a0b56b904c1f3f06aa1771d6366611e0873a2cd933e8ee047ae6dd2e7cf58b",
+        "local_matches": [
+          "ep708_ladder_20261123/route_certificate/CLUSTER_NORMALIZED_CERTIFICATE.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "route_certificate/NORMALIZED_COFACTOR_CERTIFICATE.md",
+        "size_bytes": 18985,
+        "sha256": "07a101ce53fb1f6f94ff3b654ce746222498a305127ff252eda3e7d12d862221",
+        "local_matches": [
+          "ep708_ladder_20261123/route_certificate/NORMALIZED_COFACTOR_CERTIFICATE.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "route_certificate/verify_counterexamples.py",
+        "size_bytes": 3322,
+        "sha256": "afc6ac017cf3b8fbaae2bc874d6e246e87b060a5476dce1cc14ff3edfdba6d5f",
+        "local_matches": [
+          "ep708_ladder_20261123/route_certificate/verify_counterexamples.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "route_core/CONDITIONAL_DIFFUSE_CELLS.md",
+        "size_bytes": 6671,
+        "sha256": "d6ed3224c789f546203625f9ebf260b9ec3c10e1289026dd407a1818746ab932",
+        "local_matches": [
+          "ep708_ladder_20261123/route_core/CONDITIONAL_DIFFUSE_CELLS.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "route_core/DIFFUSE_BANK_TRANSFER.md",
+        "size_bytes": 15131,
+        "sha256": "6e7799f0c04289179ce5996eb0305ae742a56c1b2d6ffd935fbfbf6dc9c56965",
+        "local_matches": [
+          "ep708_ladder_20261123/route_core/DIFFUSE_BANK_TRANSFER.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "route_core/JOINT_CLIPPED_DIFFUSE_TRANSFER.md",
+        "size_bytes": 10748,
+        "sha256": "8bc2051911f0fc66d786fc23a36afb96702a35c0addfb9e788c705da9e0b3bce",
+        "local_matches": [
+          "ep708_ladder_20261123/route_core/JOINT_CLIPPED_DIFFUSE_TRANSFER.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "route_core/SMALL_ROOT_DIFFUSE_CORE_DICHOTOMY.md",
+        "size_bytes": 11017,
+        "sha256": "caa3e55f099a5753a4e08df0119a8ccedb7dfc1f17d5f5a11653dc2db0d0437a",
+        "local_matches": [
+          "ep708_ladder_20261123/route_core/SMALL_ROOT_DIFFUSE_CORE_DICHOTOMY.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "MANIFEST.json",
+        "size_bytes": 3674,
+        "sha256": "aea1921c7c4ff01306c0717cc33a5641037986ee4df47665eb6a8d87a696db19",
+        "local_matches": [
+          "ep708_ladder_20261123/MANIFEST.json"
+        ],
+        "unique_against_local_tree": false
+      }
+    ],
+    "error": null,
+    "crc_error": null,
+    "archive_sha256": "72f70b235e4247b7e0b6862428d3e678f2e22a2e9d50e4da026a9c611bb208e1"
+  },
+  {
+    "archive_path": "ep708_surplus_20261123/erdos708_surplus_tail_bundle.zip",
+    "archive_size_bytes": 359444,
+    "members": [
+      {
+        "member": "README.md",
+        "size_bytes": 5095,
+        "sha256": "7d82373a584a5eeb36cde86ee2a14c7cca2df798f05affd6beae17756180fb7f",
+        "local_matches": [
+          "ep708_surplus_20261123/README.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "analytic/GEOMETRIC_GRID_AND_FEW_COFACTORS.md",
+        "size_bytes": 9357,
+        "sha256": "57aef39a02ae38b07d7798f0419af4e38fa0019b7640d7dab0df6c7687704ed1",
+        "local_matches": [
+          "ep708_surplus_20261123/analytic/GEOMETRIC_GRID_AND_FEW_COFACTORS.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "analytic/POSITIVE_KERNEL_THRESHOLD_AND_LOG_CAP.md",
+        "size_bytes": 9158,
+        "sha256": "8abaee29022f15c8e0c2a30fc6814cd1263e403118927208e1995854221446eb",
+        "local_matches": [
+          "ep708_surplus_20261123/analytic/POSITIVE_KERNEL_THRESHOLD_AND_LOG_CAP.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "analytic/ROOTWISE_SIEVE_OBSTRUCTION.md",
+        "size_bytes": 7830,
+        "sha256": "eb862ff4eb02356215a979ded2f05d262d49e1396d103011634a43de913602b8",
+        "local_matches": [
+          "ep708_surplus_20261123/analytic/ROOTWISE_SIEVE_OBSTRUCTION.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "audit/ALL_COFACTOR_HALL_DEFICIENCY.md",
+        "size_bytes": 5620,
+        "sha256": "b899a64bcec780c80703b41823d7aedf14df085fbac74dbf342ebdd1bd039b93",
+        "local_matches": [
+          "ep708_surplus_20261123/audit/ALL_COFACTOR_HALL_DEFICIENCY.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "audit/FULL_TAIL_CONDITIONAL_FIRST_MOMENT.md",
+        "size_bytes": 7266,
+        "sha256": "695a1e688a3637b6cd091af21a8619860342606ca15cbe30495a93f4b690a85b",
+        "local_matches": [
+          "ep708_dot_20261123/notes/FULL_TAIL_FIRST_MOMENT_INPUT.md",
+          "ep708_surplus_20261123/audit/FULL_TAIL_CONDITIONAL_FIRST_MOMENT.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "audit/GLOBAL_MAXIMIZER_AND_SHIFT_REDUCTION.md",
+        "size_bytes": 10725,
+        "sha256": "a2bfdf26d0feb433e50384eef9240c805a43ae6a3ac2b90f38556312deae99c6",
+        "local_matches": [
+          "ep708_dot_20261123/notes/GLOBAL_OPTIMIZER_INPUT.md",
+          "ep708_ladder_20261123/inherited/GLOBAL_OPTIMIZER_INPUT.md",
+          "ep708_surplus_20261123/audit/GLOBAL_MAXIMIZER_AND_SHIFT_REDUCTION.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "audit/WEIGHT_ADAPTED_CUTOFF_TEST.md",
+        "size_bytes": 3738,
+        "sha256": "db7e962a9dba57268826d20b394e7c320e7163026ba8ddd031d45284ecb36033",
+        "local_matches": [
+          "ep708_surplus_20261123/audit/WEIGHT_ADAPTED_CUTOFF_TEST.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_surplus_tail.pdf",
+        "size_bytes": 323456,
+        "sha256": "3be3f2359e4e7adff7edee7afeb087fa1d3056ad94c57f9ac8608abf4abd7581",
+        "local_matches": [
+          "ep708_surplus_20261123/erdos708_surplus_tail.pdf"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_surplus_tail.tex",
+        "size_bytes": 14644,
+        "sha256": "a4507372497e0b76e96d1c2ddaffb16716bcc9f8abe55e8edd88eaa8d6597d11",
+        "local_matches": [
+          "ep708_surplus_20261123/erdos708_surplus_tail.tex"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "variations/GLOBAL_SURPLUS_VARIATIONS.md",
+        "size_bytes": 9535,
+        "sha256": "13e88655ec2660869ad46b46debbd350002c98d80e350f11ef3453fff148cfbe",
+        "local_matches": [
+          "ep708_surplus_20261123/variations/GLOBAL_SURPLUS_VARIATIONS.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "variations/SOURCE_TAIL_AND_DEMAND_BAND_CLEANUP.md",
+        "size_bytes": 8478,
+        "sha256": "f629171bf0dd34e9b196fbb2444de9485ce254895c7b0df4055b719e5f630a1c",
+        "local_matches": [
+          "ep708_dot_20261123/notes/FULL_TAIL_MGF_INPUT.md",
+          "ep708_ladder_20261123/inherited/FULL_TAIL_MGF_INPUT.md",
+          "ep708_surplus_20261123/variations/SOURCE_TAIL_AND_DEMAND_BAND_CLEANUP.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "MANIFEST.json",
+        "size_bytes": 2165,
+        "sha256": "72aa006a188d6b52668f0594a6eb5425813b7bb7d8f71a65768fc823167f01be",
+        "local_matches": [
+          "ep708_surplus_20261123/MANIFEST.json"
+        ],
+        "unique_against_local_tree": false
+      }
+    ],
+    "error": null,
+    "crc_error": null,
+    "archive_sha256": "473113662959b6b4e6b33c5d7c13a6d80810c32230832d0711355c5cb022cec4"
+  },
+  {
+    "archive_path": "ep708_synthesis_20261123/erdos708_synthesis_bundle.zip",
+    "archive_size_bytes": 1384381,
+    "members": [
+      {
+        "member": "erdos708_synthesis/README.txt",
+        "size_bytes": 5946,
+        "sha256": "9a8c2778ddc87aabfd89b2898c82cc0f13270e0c10ffad88e71704e73ddedfbc",
+        "local_matches": [
+          "ep708_synthesis_20261123/README.txt"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/STATUS.json",
+        "size_bytes": 4584,
+        "sha256": "bd1169f8d413b23107fa6ab7ec1e17c3d2351d4c5f0f0f5fcbd34d897fed9533",
+        "local_matches": [
+          "ep708_synthesis_20261123/STATUS.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/analytic/DENSE_GROWING_SUPPORT.md",
+        "size_bytes": 8521,
+        "sha256": "dee8b7f21cb4af40f980a9bb8403cbe89c65555a806810e557541a26a928c37c",
+        "local_matches": [
+          "ep708_continuation_20261123/inherited/analytic/DENSE_GROWING_SUPPORT.md",
+          "ep708_synthesis_20261123/analytic/DENSE_GROWING_SUPPORT.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/analytic/DIFFUSE_RAW_WEIGHTS.md",
+        "size_bytes": 12866,
+        "sha256": "daf0bc7331a63088dc3b04f6a0abd51c03535b7123aa029667645363edfcbd2a",
+        "local_matches": [
+          "ep708_continuation_20261123/inherited/analytic/DIFFUSE_RAW_WEIGHTS.md",
+          "ep708_ladder_20261123/inherited/DIFFUSE_RAW_WEIGHTS.md",
+          "ep708_synthesis_20261123/analytic/DIFFUSE_RAW_WEIGHTS.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/analytic/FIXED_HEAVY_CORE.md",
+        "size_bytes": 13099,
+        "sha256": "446b7209bcb4ee8aeb3543f8789d67988057b5f9ac20b17d0081675dc1a839ad",
+        "local_matches": [
+          "ep708_continuation_20261123/inherited/analytic/FIXED_HEAVY_CORE.md",
+          "ep708_synthesis_20261123/analytic/FIXED_HEAVY_CORE.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/analytic/SEPARATED_PRIME_BANDS.md",
+        "size_bytes": 8692,
+        "sha256": "718443ac96af497d080e67934e891920e1c62886c0cc1441b1d939132701a860",
+        "local_matches": [
+          "ep708_continuation_20261123/inherited/analytic/SEPARATED_PRIME_BANDS.md",
+          "ep708_synthesis_20261123/analytic/SEPARATED_PRIME_BANDS.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/analytic/SUBEXPONENTIAL_DENSE_SUPPORT.md",
+        "size_bytes": 8291,
+        "sha256": "c7e8f1de4937530af23bb9af3bc92c0489c6657a07f9e9b6fd5a7119e1164127",
+        "local_matches": [
+          "ep708_continuation_20261123/inherited/analytic/SUBEXPONENTIAL_DENSE_SUPPORT.md",
+          "ep708_synthesis_20261123/analytic/SUBEXPONENTIAL_DENSE_SUPPORT.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/combinatorial/DIFFUSE_RAW_WEIGHTS_AUDIT.md",
+        "size_bytes": 6558,
+        "sha256": "c65990205675377ae3198b93f5ca2c772bf54936c2630aea85afb69aca58a5b7",
+        "local_matches": [
+          "ep708_continuation_20261123/inherited/combinatorial/DIFFUSE_RAW_WEIGHTS_AUDIT.md",
+          "ep708_synthesis_20261123/combinatorial/DIFFUSE_RAW_WEIGHTS_AUDIT.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/combinatorial/DOT_32N_FIVE_HALVES_AUDIT.md",
+        "size_bytes": 6055,
+        "sha256": "51c06fd5f83a3e35b28248f34f39a7fac5209cf938f769195dc2ed3cdd8384d7",
+        "local_matches": [
+          "ep708_synthesis_20261123/combinatorial/DOT_32N_FIVE_HALVES_AUDIT.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/combinatorial/FIXED_HEAVY_CORE_AUDIT.md",
+        "size_bytes": 6747,
+        "sha256": "c416046af72fa5b6103d1ed350dda1eace28046e5c476478bef46be9b9b859de",
+        "local_matches": [
+          "ep708_continuation_20261123/inherited/combinatorial/FIXED_HEAVY_CORE_AUDIT.md",
+          "ep708_synthesis_20261123/combinatorial/FIXED_HEAVY_CORE_AUDIT.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/combinatorial/PAIR_BANK_AND_CORE_REDUCTION.md",
+        "size_bytes": 11155,
+        "sha256": "3f7148149ce6e8db270b888932ac86f46593994261df94df3077fa62afac5e20",
+        "local_matches": [
+          "ep708_continuation_20261123/inherited/combinatorial/PAIR_BANK_AND_CORE_REDUCTION.md",
+          "ep708_synthesis_20261123/combinatorial/PAIR_BANK_AND_CORE_REDUCTION.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/combinatorial/SUBEXPONENTIAL_SUPPORT_AUDIT.md",
+        "size_bytes": 5565,
+        "sha256": "3dcdf76da802d58f2de41f874f25bb23dae8a011599af283a1f3d1bf20ec27c3",
+        "local_matches": [
+          "ep708_continuation_20261123/inherited/combinatorial/SUBEXPONENTIAL_SUPPORT_AUDIT.md",
+          "ep708_synthesis_20261123/combinatorial/SUBEXPONENTIAL_SUPPORT_AUDIT.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/computation/CORE_LEMMAS_AND_BOTTLENECK.md",
+        "size_bytes": 11871,
+        "sha256": "ce2ee9ad502d50b60356b7f3f13e1d251cad63872a5a59eb57867cb042ecae78",
+        "local_matches": [
+          "ep708_synthesis_20261123/computation/CORE_LEMMAS_AND_BOTTLENECK.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/computation/RECOGNITION_README.md",
+        "size_bytes": 8830,
+        "sha256": "335f6bf29e08cf5be0a9b9d3988fe25c4061e6582a55ce0042c1bc4aae9a1bca",
+        "local_matches": [
+          "ep708_synthesis_20261123/computation/RECOGNITION_README.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/computation/cofactor_matching_obstruction.json",
+        "size_bytes": 3729,
+        "sha256": "52b967e366b940a6ef007b33ea843744071b74109c7e44c799b972769e446782",
+        "local_matches": [
+          "ep708_synthesis_20261123/computation/cofactor_matching_obstruction.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/computation/core_n100_M10000.json",
+        "size_bytes": 346613,
+        "sha256": "ee28522c0ab6dc4727607d9827f7b061fc1f0dcc361a0a333964b906e34cf187",
+        "local_matches": [
+          "ep708_synthesis_20261123/computation/core_n100_M10000.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/computation/core_n100_M146969.json",
+        "size_bytes": 154509,
+        "sha256": "569cef8189616531ad5884e2b78c87f88ee11389bd6c1d5778c9018a9150bfe6",
+        "local_matches": [
+          "ep708_synthesis_20261123/computation/core_n100_M146969.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/computation/core_n100_M20000.json",
+        "size_bytes": 561876,
+        "sha256": "5b409b0c5719b9d3c721c1479d917bc52987d093a506dd526a1dab06bce28226",
+        "local_matches": [
+          "ep708_synthesis_20261123/computation/core_n100_M20000.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/computation/core_n100_M30000.json",
+        "size_bytes": 766265,
+        "sha256": "e069848fd16f48774bd95ed4ba7e9e8e468f2afa307f11e0d8286ba4e1ea8cee",
+        "local_matches": [
+          "ep708_synthesis_20261123/computation/core_n100_M30000.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/computation/core_n100_M40000.json",
+        "size_bytes": 859013,
+        "sha256": "bec439d693aef30cbc0f90e3e9dccaefe19304d3deab03036d7d8152c54fa304",
+        "local_matches": [
+          "ep708_synthesis_20261123/computation/core_n100_M40000.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/computation/dense_core_family.py",
+        "size_bytes": 6050,
+        "sha256": "8b82e56a8237ee093b08ec9d218f01f6192dbf96d99ed5d7028fa6ac6cf3b279",
+        "local_matches": [
+          "ep708_synthesis_20261123/computation/dense_core_family.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/computation/dense_core_family_certificate.json",
+        "size_bytes": 247942,
+        "sha256": "7ee651a579165e6e15b50f2be1a1f7a8801a31b0d059fd2e139de7337eb07d6e",
+        "local_matches": [
+          "ep708_synthesis_20261123/computation/dense_core_family_certificate.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/computation/exact2n_recognition.py",
+        "size_bytes": 23763,
+        "sha256": "4c50f662f61e7615027558752cd31bca4303f6a666b0410eaf8489d447cb7ae7",
+        "local_matches": [
+          "ep708_synthesis_20261123/computation/exact2n_recognition.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/computation/necessary_core.py",
+        "size_bytes": 11950,
+        "sha256": "291afed0e0715ee2e6926ea0ab5399e2d4ea9ff37c3a6a7b8d3f2d32d72e75b7",
+        "local_matches": [
+          "ep708_synthesis_20261123/computation/necessary_core.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/computation/recognition_examples.json",
+        "size_bytes": 84712,
+        "sha256": "893e37c3107726129dfe7b6c3bf5f50dc166545e7e5247f5b989ae1317f37b6d",
+        "local_matches": [
+          "ep708_synthesis_20261123/computation/recognition_examples.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/erdos708_synthesis.pdf",
+        "size_bytes": 475232,
+        "sha256": "303f140fb0126e538fc54d6f0b0d30609ed7d8bfb17439c2ec6f91aebd85746d",
+        "local_matches": [
+          "ep708_continuation_20261123/inherited/erdos708_synthesis.pdf",
+          "ep708_synthesis_20261123/erdos708_synthesis.pdf"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/erdos708_synthesis.tex",
+        "size_bytes": 12597,
+        "sha256": "e567fed44bae1e974dfa291c7470ae6f295ab59090b4612656468a6f9da0469f",
+        "local_matches": [
+          "ep708_synthesis_20261123/erdos708_synthesis.tex"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/prior_results/README.txt",
+        "size_bytes": 7145,
+        "sha256": "5259cbe15dc0949288c8315b70273ff7460f0cb5c1778e5ece6989dee2c9690c",
+        "local_matches": [
+          "ep708_20261123/README.txt",
+          "ep708_synthesis_20261123/prior_results/README.txt"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/prior_results/STATUS.json",
+        "size_bytes": 11707,
+        "sha256": "6f6a6cad872059d44f3f31f528bfe53f942d578417b92e0c724fa976121be62f",
+        "local_matches": [
+          "ep708_20261123/STATUS.json",
+          "ep708_synthesis_20261123/prior_results/STATUS.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/prior_results/analytic/AMPLIFICATION.md",
+        "size_bytes": 8973,
+        "sha256": "720b63eccec01de1dc85722d7e8d00821860bb66cfdd1b6c304bfcbfba777f86",
+        "local_matches": [
+          "ep708_20261123/analytic/AMPLIFICATION.md",
+          "ep708_synthesis_20261123/prior_results/analytic/AMPLIFICATION.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/prior_results/analytic/HALF_HARMONIC_H2.md",
+        "size_bytes": 6444,
+        "sha256": "13094f1bed8175a9df5a155f7f24ab2598443808f5201dc00137ba05ea27c5fb",
+        "local_matches": [
+          "ep708_20261123/analytic/HALF_HARMONIC_H2.md",
+          "ep708_synthesis_20261123/prior_results/analytic/HALF_HARMONIC_H2.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/prior_results/analytic/LEVEL_AND_ANCHORS.md",
+        "size_bytes": 6737,
+        "sha256": "a5fc2087f4472fd66fa30e142a68166c4406b3fb8aed7dbc0eb8f728f6996c94",
+        "local_matches": [
+          "ep708_20261123/analytic/LEVEL_AND_ANCHORS.md",
+          "ep708_synthesis_20261123/prior_results/analytic/LEVEL_AND_ANCHORS.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/prior_results/analytic/SMALL_PRIME_EXCEPTIONS.md",
+        "size_bytes": 5618,
+        "sha256": "40815520312d78ed1b90c5cffb66c14fdabfbb30439659eeb8a7811ca6ee0c7a",
+        "local_matches": [
+          "ep708_20261123/analytic/SMALL_PRIME_EXCEPTIONS.md",
+          "ep708_synthesis_20261123/prior_results/analytic/SMALL_PRIME_EXCEPTIONS.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/prior_results/analytic/SPARSE_SUPPORT_H2.md",
+        "size_bytes": 4830,
+        "sha256": "9572a6afd3aff8689a5a164e95062e64c92932a49155d5f28edcb3f0411e9bdc",
+        "local_matches": [
+          "ep708_20261123/analytic/SPARSE_SUPPORT_H2.md",
+          "ep708_synthesis_20261123/prior_results/analytic/SPARSE_SUPPORT_H2.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/prior_results/combinatorial/ARBITRARY_ANCHOR_MATCHING.md",
+        "size_bytes": 7485,
+        "sha256": "8782ef9539bbbd086afab7ba325d758d84963bec4c00aef000e86891d2d8e320",
+        "local_matches": [
+          "ep708_20261123/combinatorial/ARBITRARY_ANCHOR_MATCHING.md",
+          "ep708_synthesis_20261123/prior_results/combinatorial/ARBITRARY_ANCHOR_MATCHING.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/prior_results/combinatorial/HALF_HARMONIC_AUDIT.md",
+        "size_bytes": 1392,
+        "sha256": "f35eb37750f65ca334aa70d54a9288037e5d28717aaa1ca3a858f491b85e0a68",
+        "local_matches": [
+          "ep708_20261123/combinatorial/HALF_HARMONIC_AUDIT.md",
+          "ep708_synthesis_20261123/prior_results/combinatorial/HALF_HARMONIC_AUDIT.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/prior_results/combinatorial/ORDERED_CARRIER_H2.md",
+        "size_bytes": 6184,
+        "sha256": "0e23321b447baf450164a8403d843e7247eacbd1c500e7dc2746b2d8b0d05665",
+        "local_matches": [
+          "ep708_20261123/combinatorial/ORDERED_CARRIER_H2.md",
+          "ep708_synthesis_20261123/prior_results/combinatorial/ORDERED_CARRIER_H2.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/prior_results/combinatorial/SPARSE_MATCHING_EXACT2N_AUDIT.md",
+        "size_bytes": 7759,
+        "sha256": "55bb48b261628cb928868e5ff638df73f4616310c197c9ef2c0c84fe7a513522",
+        "local_matches": [
+          "ep708_20261123/combinatorial/SPARSE_MATCHING_EXACT2N_AUDIT.md",
+          "ep708_synthesis_20261123/prior_results/combinatorial/SPARSE_MATCHING_EXACT2N_AUDIT.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/prior_results/combinatorial/SPARSE_SUPPORT_AUDIT.md",
+        "size_bytes": 3974,
+        "sha256": "881d1fc2d9169d0422d3adfdfed271f1b4a077606764de017732aec21a211776",
+        "local_matches": [
+          "ep708_20261123/combinatorial/SPARSE_SUPPORT_AUDIT.md",
+          "ep708_synthesis_20261123/prior_results/combinatorial/SPARSE_SUPPORT_AUDIT.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/prior_results/combinatorial/TRUNCATED_CARRIER_AUDIT.md",
+        "size_bytes": 5558,
+        "sha256": "a41b4b4801a7408efbd0c2f40e1914ed4a85af098016b45cbf51114e0e7db62b",
+        "local_matches": [
+          "ep708_20261123/combinatorial/TRUNCATED_CARRIER_AUDIT.md",
+          "ep708_synthesis_20261123/prior_results/combinatorial/TRUNCATED_CARRIER_AUDIT.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/prior_results/combinatorial/TWO_ANCHOR_H2.md",
+        "size_bytes": 5034,
+        "sha256": "8ff1b5a20190804954c7c592bb1cc847fa4d2706275ed3c463a9c632b8649dd4",
+        "local_matches": [
+          "ep708_20261123/combinatorial/TWO_ANCHOR_H2.md",
+          "ep708_synthesis_20261123/prior_results/combinatorial/TWO_ANCHOR_H2.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/prior_results/computation/FINITE_CRT_MODEL.md",
+        "size_bytes": 7082,
+        "sha256": "d256c5b8a6ff6d24d26a600f2ce5be54d69713bf17b2ee0a25364122755f72e4",
+        "local_matches": [
+          "ep708_20261123/computation/FINITE_CRT_MODEL.md",
+          "ep708_synthesis_20261123/prior_results/computation/FINITE_CRT_MODEL.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/prior_results/computation/adaptive_certificate_checks.json",
+        "size_bytes": 23255,
+        "sha256": "43ed47b91d88966f3896e70fd0aa6fe696c7209db7815894bef4ff6964cbe436",
+        "local_matches": [
+          "ep708_20261123/computation/adaptive_certificate_checks.json",
+          "ep708_synthesis_20261123/prior_results/computation/adaptive_certificate_checks.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/prior_results/computation/exact2n_certificate.py",
+        "size_bytes": 23241,
+        "sha256": "4e3524fa2c480744505e704d613e2a56fbde82cde2299919085d334c5e2e76f0",
+        "local_matches": [
+          "ep708_20261123/computation/exact2n_certificate.py",
+          "ep708_synthesis_20261123/prior_results/computation/exact2n_certificate.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/prior_results/computation/exact2n_demo_results.json",
+        "size_bytes": 400401,
+        "sha256": "63b26cdf01b54f7be0d797b913c61f8996f518c7d84633f97ad4238ae0a283b4",
+        "local_matches": [
+          "ep708_20261123/computation/exact2n_demo_results.json",
+          "ep708_synthesis_20261123/prior_results/computation/exact2n_demo_results.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/prior_results/computation/h2_crt_search.py",
+        "size_bytes": 8172,
+        "sha256": "51813f64b9b1ca4b8be1e595c1a7daa0f5d3e01ca64768c7f2c3c1765197e31d",
+        "local_matches": [
+          "ep708_20261123/computation/h2_crt_search.py",
+          "ep708_synthesis_20261123/prior_results/computation/h2_crt_search.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/prior_results/computation/h2_crt_search_results.json",
+        "size_bytes": 9209,
+        "sha256": "2179051a49b6a88fc80bb754fb45c426d92980a8e56ce47eb74d3d81a673c1e3",
+        "local_matches": [
+          "ep708_20261123/computation/h2_crt_search_results.json",
+          "ep708_synthesis_20261123/prior_results/computation/h2_crt_search_results.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/prior_results/computation/h2_global_phase_milp.py",
+        "size_bytes": 3387,
+        "sha256": "2e396f2e3ada7563e96cb825c2ed39ddc85dd56fa1502fccf84f0cd21c9ceb18",
+        "local_matches": [
+          "ep708_20261123/computation/h2_global_phase_milp.py",
+          "ep708_synthesis_20261123/prior_results/computation/h2_global_phase_milp.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/prior_results/computation/h2_global_phase_results.json",
+        "size_bytes": 4254,
+        "sha256": "acd6b1151ec1ea81844b53192709fc1c42074b9e0ba15ee8aafd25d169e950ca",
+        "local_matches": [
+          "ep708_20261123/computation/h2_global_phase_results.json",
+          "ep708_synthesis_20261123/prior_results/computation/h2_global_phase_results.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/prior_results/computation/h2_hinge_ratio_results.json",
+        "size_bytes": 7746,
+        "sha256": "9e599d5ed8573aab56bddd184f096048d43b2d0561e3cf50628cb57959e9eb6c",
+        "local_matches": [
+          "ep708_20261123/computation/h2_hinge_ratio_results.json",
+          "ep708_synthesis_20261123/prior_results/computation/h2_hinge_ratio_results.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/prior_results/computation/h2_hinge_ratio_search.py",
+        "size_bytes": 3921,
+        "sha256": "e016b48e41df2e03250d44fa0a1dc3c3b6cb623e041f26b65a2927ff6a7ff119",
+        "local_matches": [
+          "ep708_20261123/computation/h2_hinge_ratio_search.py",
+          "ep708_synthesis_20261123/prior_results/computation/h2_hinge_ratio_search.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/prior_results/computation/h2_joint_milp.py",
+        "size_bytes": 3286,
+        "sha256": "6576d81c08a95cf1b828b7e6037619a4099e5739cef83c82678a03a88fecc88f",
+        "local_matches": [
+          "ep708_20261123/computation/h2_joint_milp.py",
+          "ep708_synthesis_20261123/prior_results/computation/h2_joint_milp.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/prior_results/computation/h2_joint_milp_results.json",
+        "size_bytes": 2413,
+        "sha256": "c3a90a737477beb73241d95d23267c769a743d6a824ff1b9d27a8bfdab05bb50",
+        "local_matches": [
+          "ep708_20261123/computation/h2_joint_milp_results.json",
+          "ep708_synthesis_20261123/prior_results/computation/h2_joint_milp_results.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/prior_results/computation/h2_ratio_search.py",
+        "size_bytes": 4023,
+        "sha256": "60e16abff64a2c1aa5ef7aeaa8aaf15a787bc0ddb6d71c8f4829171c61563e03",
+        "local_matches": [
+          "ep708_20261123/computation/h2_ratio_search.py",
+          "ep708_synthesis_20261123/prior_results/computation/h2_ratio_search.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/prior_results/computation/h2_ratio_search_results.json",
+        "size_bytes": 95546,
+        "sha256": "1354820739baf6c0b127b007ed6cb078724af53f89d3e2b061e343f6f84e9fd0",
+        "local_matches": [
+          "ep708_20261123/computation/h2_ratio_search_results.json",
+          "ep708_synthesis_20261123/prior_results/computation/h2_ratio_search_results.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/prior_results/computation/h2_six_prime_results.json",
+        "size_bytes": 11542,
+        "sha256": "b6fa4d3d3016cb894bbf381682bc9e032ab0515a139fa7086d3355daff2a11f5",
+        "local_matches": [
+          "ep708_20261123/computation/h2_six_prime_results.json",
+          "ep708_synthesis_20261123/prior_results/computation/h2_six_prime_results.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/prior_results/computation/h2_six_prime_search.py",
+        "size_bytes": 4329,
+        "sha256": "9591ad8e48e0ebce4f96e732fcebec56b02d614a5691848fe736ea23b575e3ec",
+        "local_matches": [
+          "ep708_20261123/computation/h2_six_prime_search.py",
+          "ep708_synthesis_20261123/prior_results/computation/h2_six_prime_search.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/prior_results/computation/h2_sparse_region_results.json",
+        "size_bytes": 7217,
+        "sha256": "687bf2618c501857107d0e2267138d5169d6327569798285b6bf10d383855ab5",
+        "local_matches": [
+          "ep708_20261123/computation/h2_sparse_region_results.json",
+          "ep708_synthesis_20261123/prior_results/computation/h2_sparse_region_results.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/prior_results/computation/h2_sparse_region_search.py",
+        "size_bytes": 4251,
+        "sha256": "a65bdaaf6968084bf388d7a42bc86e800afee6c7da142a05cbcc3bba2a293405",
+        "local_matches": [
+          "ep708_20261123/computation/h2_sparse_region_search.py",
+          "ep708_synthesis_20261123/prior_results/computation/h2_sparse_region_search.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/prior_results/computation/verify_adaptive_certificate.py",
+        "size_bytes": 3456,
+        "sha256": "13387b674202dcad8525a7852523daef1c91e67778267d068551670a2448fe02",
+        "local_matches": [
+          "ep708_20261123/computation/verify_adaptive_certificate.py",
+          "ep708_synthesis_20261123/prior_results/computation/verify_adaptive_certificate.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/prior_results/erdos708_partial_results.pdf",
+        "size_bytes": 369417,
+        "sha256": "94f5fe69ac51627e52b9e5e12630baae29d6288e280e4df9c860b888cdf17c40",
+        "local_matches": [
+          "ep708_20261123/erdos708_partial_results.pdf",
+          "ep708_synthesis_20261123/prior_results/erdos708_partial_results.pdf"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/prior_results/erdos708_partial_results.tex",
+        "size_bytes": 38037,
+        "sha256": "7ee3e5451f3d8735a5e193633195e50f1202bad98f02a1031e71066ae5f6336d",
+        "local_matches": [
+          "ep708_20261123/erdos708_partial_results.tex",
+          "ep708_synthesis_20261123/prior_results/erdos708_partial_results.tex"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/sections/analytic.tex",
+        "size_bytes": 33327,
+        "sha256": "b84a2722f191942e8ca379d6d0394255a46b7825c5d373fc0ab8ef41a64d12cc",
+        "local_matches": [
+          "ep708_synthesis_20261123/sections/analytic.tex"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/sections/combinatorial.tex",
+        "size_bytes": 20671,
+        "sha256": "44916c36c76f05b56bb73aff19ad33b87af69fca17612bf25fb780e2b3872db1",
+        "local_matches": [
+          "ep708_synthesis_20261123/sections/combinatorial.tex"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/sections/computation_and_remaining.tex",
+        "size_bytes": 10623,
+        "sha256": "baf4cb4505f94899d5f0ec8a5ad6a228571dcff68f73f2201e603a5909ed8749",
+        "local_matches": [
+          "ep708_synthesis_20261123/sections/computation_and_remaining.tex"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/sections/separated_bands.tex",
+        "size_bytes": 6859,
+        "sha256": "63462634a930d486bd139f6bfdf7b83a15b0b326a24aeb49dc089f521a5f65a2",
+        "local_matches": [
+          "ep708_synthesis_20261123/sections/separated_bands.tex"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_synthesis/MANIFEST.json",
+        "size_bytes": 11769,
+        "sha256": "3fdba0e340abf1f28c0ce67205d4d1443b376ae95541d0dcf27adfbe2fecdadd",
+        "local_matches": [
+          "ep708_synthesis_20261123/MANIFEST.json"
+        ],
+        "unique_against_local_tree": false
+      }
+    ],
+    "error": null,
+    "crc_error": null,
+    "archive_sha256": "44b8589b8dd9e43271edf613a0d64603bc98eb2dfb566a845e71e57c7c61aebd"
+  },
+  {
+    "archive_path": "ep708_top_tail_20261123/erdos708_top_tail_gap_bundle.zip",
+    "archive_size_bytes": 337747,
+    "members": [
+      {
+        "member": "README.md",
+        "size_bytes": 4592,
+        "sha256": "8f1dbea7c8778900ed2cc1b8d3afd9068584caebb2f0f940a0998fe75b72840c",
+        "local_matches": [
+          "ep708_top_tail_20261123/README.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "analytic/REJECTED_SELBERG_BRIDGE.md",
+        "size_bytes": 6417,
+        "sha256": "21f4bd035799dd67163a02038e66abaad97c1694ef578153ecfbdba86f5c3616",
+        "local_matches": [
+          "ep708_top_tail_20261123/analytic/REJECTED_SELBERG_BRIDGE.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "analytic/TOP_TAIL_BANK_COUNTERLEMMA.md",
+        "size_bytes": 6893,
+        "sha256": "99fa05b217b262ee9d2f87545ed9411fa754775643801a1b6902b3f9ba22dca9",
+        "local_matches": [
+          "ep708_top_tail_20261123/analytic/TOP_TAIL_BANK_COUNTERLEMMA.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "analytic/WANG_PRIMARY_AND_EXACT_TOP_TAIL.md",
+        "size_bytes": 6428,
+        "sha256": "ba81ed35efd4063048157eb7b9178afaeb9b37f1be20d307513aa650919be81d",
+        "local_matches": [
+          "ep708_top_tail_20261123/analytic/WANG_PRIMARY_AND_EXACT_TOP_TAIL.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "audit/OFFSET_TRANSPORT_AUDIT.md",
+        "size_bytes": 6242,
+        "sha256": "58a071093bbe8e6670a67c754954027441d88e495ae43cd528e8ef665f7ef9a2",
+        "local_matches": [
+          "ep708_top_tail_20261123/audit/OFFSET_TRANSPORT_AUDIT.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "audit/STRICT_LEVEL_ROWS_AND_BANK_RESIDUAL.md",
+        "size_bytes": 7983,
+        "sha256": "5fd502413f5bce3fde961fad2cff129c908356ca0d1e46840d3b9519450e3091",
+        "local_matches": [
+          "ep708_top_tail_20261123/audit/STRICT_LEVEL_ROWS_AND_BANK_RESIDUAL.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "audit/count_top_counterexample.json",
+        "size_bytes": 537,
+        "sha256": "a8712d6615036152e9c6b491d13ec8dff16beeebb91c9d3847979773e4b1b8fb",
+        "local_matches": [
+          "ep708_top_tail_20261123/audit/count_top_counterexample.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "audit/count_top_counterexample.py",
+        "size_bytes": 1786,
+        "sha256": "595bc4f56075e16a8f562b62b751652744322c15d789728133e91562199bc7ec",
+        "local_matches": [
+          "ep708_top_tail_20261123/audit/count_top_counterexample.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "certificate/BANK_PRODUCT_COUNTEREXAMPLE.md",
+        "size_bytes": 7416,
+        "sha256": "8da141d90bf9e53bb8bb8260e8b475c2f87177d1b7ad55583ae78b4eef7a39f1",
+        "local_matches": [
+          "ep708_global_20261123/combinatorial/BANK_PRODUCT_COUNTEREXAMPLE.md",
+          "ep708_top_tail_20261123/certificate/BANK_PRODUCT_COUNTEREXAMPLE.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "certificate/bank_product_certificate.json",
+        "size_bytes": 110478,
+        "sha256": "6da6d75f3f7a2580c0eb0cb6ac1c4d2c17c4358b2f9ac1ae82a66941956ca92b",
+        "local_matches": [
+          "ep708_global_20261123/combinatorial/bank_product_certificate.json",
+          "ep708_top_tail_20261123/certificate/bank_product_certificate.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "certificate/bank_product_verification.json",
+        "size_bytes": 840,
+        "sha256": "09bef2534b7487960e7ec7f27f20305a63c1beeab6a37b060774c7c5cfb7ed72",
+        "local_matches": [
+          "ep708_global_20261123/combinatorial/bank_product_verification.json",
+          "ep708_top_tail_20261123/certificate/bank_product_verification.json"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "certificate/verify_bank_product_counterexample.py",
+        "size_bytes": 5297,
+        "sha256": "52d4577fe36a4992687340b55ec68d33c55dc9ec69f52c3bb2f756010189342c",
+        "local_matches": [
+          "ep708_global_20261123/combinatorial/verify_bank_product_counterexample.py",
+          "ep708_top_tail_20261123/certificate/verify_bank_product_counterexample.py"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "combinatorial/DENSE_H1_LINEAR_DISCREPANCY.md",
+        "size_bytes": 6130,
+        "sha256": "9714d4748549068fc75917a782c03b6990e6353b8a843996de9bf24a6f7b037d",
+        "local_matches": [
+          "ep708_top_tail_20261123/combinatorial/DENSE_H1_LINEAR_DISCREPANCY.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "combinatorial/EXACT_TOP_TAIL_AND_JOINT_RESIDUAL.md",
+        "size_bytes": 6795,
+        "sha256": "c039d3e6b541be7f6a65f50e0500b2f5454ea3d7b0b7915c4c6e217586f9ace9",
+        "local_matches": [
+          "ep708_top_tail_20261123/combinatorial/EXACT_TOP_TAIL_AND_JOINT_RESIDUAL.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "combinatorial/MAX_RATIO_THRESHOLD_VARIATIONS.md",
+        "size_bytes": 5560,
+        "sha256": "5e7a184f8ff4ffa6448407a29c27e9b1f79a629bbf86b6887f269de55356f386",
+        "local_matches": [
+          "ep708_top_tail_20261123/combinatorial/MAX_RATIO_THRESHOLD_VARIATIONS.md"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_top_tail_gap.pdf",
+        "size_bytes": 284537,
+        "sha256": "c7840558905452048273051c6132865e1f1f005afb1ca669880cbcd7a0f2cf61",
+        "local_matches": [
+          "ep708_top_tail_20261123/erdos708_top_tail_gap.pdf"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "erdos708_top_tail_gap.tex",
+        "size_bytes": 12175,
+        "sha256": "38a3e9ca0182d7eb3558d8f1ffdcd7274716d45e452a82957243259d8bde41b5",
+        "local_matches": [
+          "ep708_top_tail_20261123/erdos708_top_tail_gap.tex"
+        ],
+        "unique_against_local_tree": false
+      },
+      {
+        "member": "MANIFEST.json",
+        "size_bytes": 3080,
+        "sha256": "b15bfece9d89bacef29de20598d858788f706080aab4177feaaf273c16892528",
+        "local_matches": [
+          "ep708_top_tail_20261123/MANIFEST.json"
+        ],
+        "unique_against_local_tree": false
+      }
+    ],
+    "error": null,
+    "crc_error": null,
+    "archive_sha256": "baa035389c1c66b4af97e660cbd16825d1a705e4a0434319dfbdb967549a87c8"
+  }
+]

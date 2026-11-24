@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "nontrivial_rows": 45335,
+  "actual_sets": 116394,
+  "good_pair_removed": 25782,
+  "full_demands": 33939,
+  "dominating_frontiers": 24511,
+  "slot_certificates": 24511,
+  "seconds": 3.6935362815856934
+}

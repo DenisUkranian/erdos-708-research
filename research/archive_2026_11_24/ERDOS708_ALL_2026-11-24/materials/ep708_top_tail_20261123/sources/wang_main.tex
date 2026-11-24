@@ -1,0 +1,426 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm}
+\usepackage[margin=25mm]{geometry}
+\usepackage{booktabs,longtable,array,tikz}
+\usetikzlibrary{positioning,arrows.meta}
+\usepackage{xurl}
+\usepackage[hidelinks,unicode]{hyperref}
+\hypersetup{pdftitle={Fractional-to-Integer Transference and Five-Prime Bounds for Interval Divisor Covers},pdfauthor={Ziming Wang}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\DeclareMathOperator{\lcm}{lcm}
+\newcommand{\LP}{L_{\rm cap}}
+\newcommand{\pos}[1]{(#1)_+}
+\setlength{\emergencystretch}{2em}
+\begin{document}
+\input{frontmatter.tex}
+\tableofcontents
+\medskip
+\section{Definitions and main transfer}
+For a finite set $S$, put $P(S)=\prod_{s\in S}s$. Let $A$ consist of $n\ge1$
+distinct integers at least two, let $M=\max A$, and let $I$ consist of exactly
+$M$ consecutive integers. Let $\tau(A,I)$ be the least cardinality of a
+set $B\subseteq I$ with $P(A)\mid P(B)$, and let $g(n)$ be the supremum of
+these minima. For positive $I$, put $E_p=\sum_{a\in A}v_p(a)$ and
+$C_p(b)=\min(E_p,v_p(b))$. The demand-capped boxed relaxation is
+\[
+ \LP(A,I)=\min\left\{\sum_{b\in I}x_b:
+ 0\le x_b\le1,\quad \sum_{b\in I}C_p(b)x_b\ge E_p\ \text{for all }p\right\}.
+\]
+Here $\pi(x)$ counts primes at most $x$, and $v_p$ is the usual nonnegative prime valuation. Only positive-demand primes are rows. Since $P(A)\mid M!\mid P(I)$,
+this program is feasible. Capping a nonnegative row at its total demand
+preserves full-column feasibility.
+
+\begin{theorem}\label{thm:constant}
+Suppose $c\ge3$ and $\LP(Q,J)\le c|Q|$ for every original positive-interval
+instance. Then
+\[
+ g(n)\le\lceil cn\rceil+\pi(\lceil cn\rceil)-1.
+\]
+For the independently reviewed public hinge threshold
+$c=56501/6400$, this gives
+\[
+ g(n)\le 8.82828125n+O(n/\log n),\qquad g(n)\le10n\quad(n\ge1).
+\]
+The errors are functions of $n$ alone.
+\end{theorem}
+
+\section{The external hinge input and the capped relaxation}
+The specific external input is Chen's Theorem 18.1 \cite{Chen}. An atom
+system has the form
+\[
+ S(b)=\sum_{p,j}\alpha_{p,j}1_{p^j\mid b},\qquad
+ \alpha_{p,j}\ge0,\quad \sum_j\alpha_{p,j}\le1,
+\]
+with finitely many nonzero terms. For $c=56501/6400$ its theorem states
+\[
+ \sum_{a=1}^H\pos{S(a)-c}\le\sum_{b\in J}\pos{S(b)-1}
+ \tag{$H_c$}
+\]
+for every positive $H$-term interval $J$. The following bridge is included
+so that a raw relaxation is not silently substituted for the capped one.
+Its monotone-profile argument is already present in Chen's public rounding
+notes \cite{ChenNotes}; that existing input is reproduced for completeness.
+
+\begin{lemma}\label{lem:hinge}
+If $(H_c)$ holds, every distinct source set $Q\subseteq[2,H]$ satisfies
+$\LP(Q,J)\le c|Q|$ on every positive $H$-term interval $J$.
+\end{lemma}
+\begin{proof}
+Write $F_p=\sum_{a\in Q}v_p(a)$ and $D_p(b)=\min(F_p,v_p(b))$.
+The finite boxed dual is
+\[
+ \max_{y\ge0}\left\{\sum_pF_py_p-\sum_{b\in J}
+             \pos{\sum_py_pD_p(b)-1}\right\}.
+\]
+Lowering $y_p>1$ to one cannot decrease its objective: every affected
+column has positive integer coefficient and its hinge remains linear
+down to one, giving the change
+$(y_p-1)(\sum_JD_p-F_p)\ge0$.
+Thus a maximum exists in the compact box $0\le y_p\le1$.
+
+Set $u_p=\min(y_pD_p,1)$, $h_p=(y_pD_p-1)_+$, and $U=\sum_pu_p$,
+$h=\sum_ph_p$. Pointwise
+\[
+ \pos{\sum_py_pD_p-1}=h+(U-1)_+.
+\]
+Each $h_p$ has nonnegative prime-power successive increments. Counts
+of multiples in an $H$-term interval are at least $\lfloor H/p^j\rfloor$,
+so $\sum_Jh_p\ge\sum_{a\le H}h_p(a)\ge\sum_Qh_p(a)$.
+The source caps are inactive on $Q$, and $U$ is an atom system.
+Consequently the dual objective is at most
+\[
+ \sum_QU-\sum_J(U-1)_+
+ \le\sum_QU-\sum_{a\le H}(U(a)-c)_+
+ \le\sum_Q\min(U(a),c)\le c|Q|.
+\]
+The empty source set has value zero.
+\end{proof}
+
+\section{Integral high primes and shared fractional capacity}
+\begin{lemma}\label{lem:extension}
+Assume that $I$ is positive. Let $Z\ge2$ be an integer with $Z\ge\sqrt M$. Let $A_0$ consist of the
+$m$ sources having all prime factors at most $Z$, and put $r=n-m$.
+Let $L_0$ be their capped boxed optimum on $I$ (zero if $m=0$).
+If $Z\ge L_0+2r$, then
+\[
+ \tau(A,I)\le\lceil L_0+2r\rceil+\pi(Z)-1.
+\]
+\end{lemma}
+\begin{proof}
+Each of the other sources is uniquely $a_i=p_id_i$ with $p_i>Z$ prime,
+to exponent one, and $d_i<M/Z$. For each $p>Z$, let $r_p$ be its
+source frequency. Distinct sources give $r_p\le\lfloor M/p\rfloor$.
+Choose $r_p$ distinct interval multiples for this prime, and let $K$ be
+their union over primes. Different primes may share positions; their
+assigned coordinates differ. Thus $|K|\le r$, and $K$ supplies all
+high-prime demands integrally.
+
+Start with an optimum smooth-source vector $x^0$. From now on use the
+fixed \emph{full-source} coefficients $C_q(b)=\min(E_q,v_q(b))$,
+which dominate the smooth caps. Raise every $x_b$, $b\in K$, to one,
+at a cost at most $r$. This preserves the smooth demand.
+
+Process the cofactor occurrences in order, including repeated cofactors.
+At step $i$, let $D_q^{i-1}$ be the smooth demand plus the already
+processed cofactor exponents. For nonunit $d_i$, define
+\[
+ R_q=\left(D_q^{i-1}+v_q(d_i)-\sum_IC_q(b)x_b\right)_+,\qquad
+ \eta_i=\max_{q\mid d_i}\frac{R_q}{v_q(d_i)}\in[0,1].
+\]
+For $d_i=1$ use $\eta_i=0$. There are at least
+$\lfloor M/d_i\rfloor\ge p_i>Z$ actual $d_i$-multiples.
+Before this step the total mass is at most
+$L_0+r+i-1\le L_0+2r-1\le Z-1$.
+Their remaining shared box capacity therefore satisfies
+\[
+ \sum_{b:d_i\mid b}(1-x_b)
+ \ge \#\{b:d_i\mid b\}-\sum_Ix_b\ge1.
+\]
+Distribute nonnegative increases of total $\eta_i$ among those boxes.
+At each such position $C_q(b)\ge v_q(d_i)$ for $q\mid d_i$.
+Every new deficit is paid, earlier demands remain paid, and the $K$
+coordinates stay one. The full coefficients have not been replaced
+by smaller residual caps. The final cost is at most $L_0+2r$.
+
+Now minimize on the feasible face $x_K=1$. High-prime rows are redundant
+on this face. At an optimum vertex at most $\pi(Z)$ coordinates are
+strictly fractional: more would give a nonzero column dependence on
+the remaining small-prime rows and a feasible two-sided perturbation.
+Rounding upward costs strictly less than $\pi(Z)$ when needed.
+The integer bound follows by taking the largest allowed integer.
+With no fractional entries it also holds, since $\pi(Z)\ge1$.
+\end{proof}
+
+\section{A quadratic three-source-cost gate}
+\begin{lemma}\label{lem:3n}
+If $M\ge9n^2$, then $\tau(A,I)\le3n$.
+\end{lemma}
+\begin{proof}
+Work with a positive interval and set $X=M/(3n)\ge\sqrt M$.
+A source containing a prime $p>X$ has just one such prime to exponent
+one, with cofactor $d<3n\le X$. Cover these large-prime demands on a
+union of at most $r$ positions, where $r$ is the number of such sources.
+
+For a remaining source all prime atoms are at most $X$. Repeatedly merge
+any two factors with product at most $X$. If four factors remained when
+merging stopped, two disjoint pairs would have product greater than
+$X^2\ge M$, a contradiction. Hence at most three factors remain.
+Together with the $r$ rough cofactors there are at most
+$3(n-r)+r$ small factor requests. Each is at most $X$ and has at least
+$3n$ candidate multiples. Assign fresh positions greedily, avoiding all
+previous choices. Fewer than $3n$ positions are forbidden at each step.
+All repeated prime capacities are supplied on distinct positions within
+this construction, apart from legitimate different-large-prime sharing.
+The total is at most $r+3(n-r)+r\le3n$.
+\end{proof}
+
+\begin{proof}[Proof of the transfer in Theorem~\ref{thm:constant}]
+If $M\ge9n^2$, Lemma~\ref{lem:3n} suffices. Otherwise put
+$Z=\lceil cn\rceil\ge3n>\sqrt M$. For nonempty $A_0$, embed an interval
+of length $\max A_0$ inside $I$, apply the assumed fractional bound
+and extend the vector by zero. Thus $L_0\le cm$ even if $M>\max A_0$.
+Since
+\[
+ L_0+2r\le cm+2r=cn-(c-2)r\le cn\le Z,
+\]
+Lemma~\ref{lem:extension} gives the asserted finite bound.
+The zero case uses $\{0\}$; negative intervals reflect.
+\end{proof}
+
+\section{Uniform errors and the all-\(n\) constant ten}
+For integer $N\ge2$, let $h=\lceil N/2\rceil$ and
+$\theta(x)=\sum_{p\le x}\log p$. Primes $h<p\le N$ divide the central
+binomial coefficient. For odd $N$, the two equal central coefficients
+sum to at most $2^N$; for even $N$ use the usual $2^N$ bound.
+Hence
+\[
+ \theta(N)-\theta(h)\le2(N-h)\log2.
+\]
+Iteration telescopes, proving
+$\theta(x)\le2x\log2<(7/5)x$.
+Partial summation from $\sqrt x$ to $x$ then gives
+\[
+ \pi(x)\le\sqrt x+\frac{7x}{5\log x}
+                    +\frac{28x}{5(\log x)^2}\quad(x>1).
+ \tag{P}
+\]
+This proves the uniform $O(n/\log n)$ error.
+
+To prove ten for every $n$, put $N_0=2^{17}$.
+The outer range $M\ge9n^2$ is already covered by $3n$.
+If $n<N_0$ and $M<9n^2$, then
+\[
+ M<9\cdot2^{34}=154618822656
+  <200560490130=2\cdot3\cdot5\cdot7\cdot11\cdot13\cdot17
+                  \cdot19\cdot23\cdot29\cdot31.
+\]
+Each source therefore has at most ten distinct prime factors.
+For each prime, sort its source exponents decreasingly. At the $j$th
+exponent $e$, there are at least $j$ distinct interval multiples of $p^e$,
+because there were $j$ distinct such source multiples in $[1,M]$.
+Assign a new position for that prime. Union these assignments over primes;
+only disjoint prime coordinates can share a position.
+This yields at most $\sum_{a\in A}\omega(a)\le10n$ positions.
+
+For $n\ge N_0$, set $Z=\lceil cn\rceil$, $c=56501/6400$.
+Then $Z\ge8n\ge2^{20}$, $\sqrt Z\ge1024$, and $\log Z\ge69/5$,
+using
+\[
+ \log2\ge2(1/3+1/81+1/1215)=842/1215>69/100.
+\]
+By (P),
+\[
+ \frac{\pi(Z)}Z\le
+ \beta=\frac1{1024}+\frac7{69}+\frac{140}{4761}
+      =\frac{642713}{4875264}.
+\]
+Also $Z\le(883/100)n$, since $883/100-c=11/6400$.
+Therefore
+\[
+ \frac{\tau(A,I)}n\le c+\frac{883}{100}\beta
+ =\frac{974307151}{97505280}
+ =10-\frac{745649}{97505280}<10.
+\]
+This completes every case of Theorem~\ref{thm:constant}.
+
+
+\input{raw-transfer.tex}
+\input{five-prime.tex}
+\section{Scope, limitations, and further questions}
+The general transfer improves the checked written universal bounds from $11n$ to $10n$ and from the derived coefficient $62901/6400$ to $56501/6400$. The earlier coefficient includes a leading source-row rounding charge: below the public $k=9$ splitting gate there are at most $n+\pi((9n)^{5/8})$ relevant prime rows, so ordinary vertex rounding yields $\lceil cn\rceil+n+\pi((9n)^{5/8})-1$. The new source-subset completion removes this extra leading $n$. This comparison is a deduction from the pinned primary inputs, rather than a new interpretation of a conditional Lean theorem.
+
+The five-prime theorem has a different scope. It handles every nonnegative price and every exponent on any five primes, but does not control systems with arbitrarily many primes. Its integer consequence has an additive $r-1$ error. Neither its positive kernel nor the worst-case coefficient equivalence supplies the missing universal fractional threshold-two estimate. In particular, these results neither prove $g(n)\le2n$ nor exhibit a counterexample to it.
+
+There are two precise remaining problems. One is a uniform asymptotic fractional upper bound with coefficient two; the raw transfer would then settle the asymptotic integer question. The other is an integer construction or a stronger coupled rounding theorem that also removes the finite prime-row error. A per-instance bound $\tau\le L+o(n)$ cannot be assumed, and independent primewise or whole-cofactor matchings need not share the same physical capacities. The companion article records exact exclusions of such stronger auxiliary assertions, including the limits of local saturation, fixed cofactor placement, and one numerical-minimum collision budget \cite{WangCompanion}.
+
+\section*{Data, code, and verification}
+The accompanying artifact contains the full rational coefficient table, a solver-free exhaustive checker, portable release-integrity verification, mathematical source transcriptions, and archived independent audit records \cite{WangArtifact}. The primary manuscript can be compiled with Tectonic or a standard LaTeX installation. The five-prime theorem is computer-assisted only at the explicitly finite lemma; the continuation to all real profiles and arithmetic intervals is proved above. Numerical searches and optimizer statuses do not enter that inference. Historical source hashes and release hashes are both supplied because public provenance strings have been normalized. No new Lean development is claimed.
+
+\section*{Attribution and AI assistance}
+The author is Ziming Wang. Chen's atom-hinge theorem, public demand-truncation bridge, and earlier explicit linear results are cited as external inputs. Earlier local R01 source-subset work is credited in the artifact, and the later completed shared-capacity argument is presented with its dependency chain. Codex and language models assisted exploration, proof drafting, adversarial checking, literature comparison, and preparation of this manuscript. Exact certificates and reproducible checks are supplied to make the mathematical claims independently assessable. AI systems are not listed as authors. No institutional affiliation, funding source, or journal acceptance is asserted.
+
+
+\appendix
+\section{The quadratic coefficient-two gate}\label{app:quadratic}
+We reproduce the elementary argument so that the capped-envelope refinement in Section~\ref{sec:raw}
+does not hide an unproved range assumption.
+
+\begin{lemma}
+Let $X>1$ and let $a\ge1$ be an integer. If all prime factors of $a$ are at most $X$ and $a\le X^{3/2}$,
+then $a=uv$ with $u,v\le X$ (units allowed).
+\end{lemma}
+\begin{proof}
+Merge factors with product at most $X$ until impossible. Three remaining
+factors would have every pair product greater than $X$, hence their
+product greater than $X^{3/2}\ge a$, a contradiction.
+\end{proof}
+
+\begin{theorem}
+For every original instance, $M\ge16n^2$ implies $\tau(A,I)\le2n$.
+\end{theorem}
+\begin{proof}
+The case $n=1$ is immediate; take $n\ge2$, so $M\ge64$.
+Put $Y=M/n$ and $D=M^{2/3}$. A source with a prime $p>Y$ is
+$p c$ with $c<n$; call it rough. A nonrough source with a prime
+$n<p\le Y$ splits into two factors at most $Y$, the smaller at most
+$\sqrt M$; call such a split ordinary.
+
+Otherwise all primes are at most $n$. The preceding lemma gives a
+two-factor split at cap $D$. If both factors are at most $Y$, the split
+is ordinary. Otherwise a divisor exceeding $Y$ exists; let $d$ be the
+numerically least divisor of the \emph{whole source} exceeding $n$.
+Then $d\le D$ and every proper divisor of $d$ is at most $n$.
+Its complement is less than $Y$. If $d\le Y$, use the ordinary split.
+The remaining difficult sources are $dc$ with
+\[
+ Y<d\le D,\qquad c<n,\qquad\text{all primes of }d\le n.
+\]
+
+For a difficult type $d$, let $p_d$ be its smallest prime,
+$u_d=d/p_d$, $k_d=\lfloor n/u_d\rfloor+1$, and
+$q_d=\lfloor M/d\rfloor$. Then
+\[
+ \sqrt d\le u_d\le n,\quad p_d\le M^{1/3},\quad
+ 2\le k_d\le2n/u_d,\quad n<u_dk_d\le2n<d.
+\]
+No assigned cofactor $c$ is divisible by $k_d$, since $u_dk_d$ would
+be a smaller divisor of its source exceeding $n$.
+The $m_d$ distinct assigned sources consequently satisfy
+$m_d\le q_d-\lfloor q_d/k_d\rfloor$.
+Since $d\le D\le M/4$,
+\[
+ \frac{q_d}{k_d}\ge\frac{M}{4np_d}
+ \ge\frac{M^{2/3}}{4n}\ge(4n)^{1/3}\ge2,
+ \qquad \frac{m_d}{q_d}\le1-\frac{u_d}{4n}.
+ \tag{Q1}
+\]
+For different difficult types $d,e$, neither divides the other;
+therefore $\gcd(d,e)\le u_d$. Also $de=u_dp_de\le u_dM$.
+Writing $c_{de}=\lceil M/\lcm(d,e)\rceil$, we get
+\[
+ \frac{c_{de}}{q_dq_e}\le\frac{2Mu_d}{(M-D)^2}.
+\]
+There are at most $n$ difficult occurrences, so
+\[
+ \frac{m_d}{q_d}+\sum_{e\ne d}\frac{m_ec_{de}}{q_dq_e}
+ \le1-\frac{u_d}{4n}+\frac{32u_dn}{9M}
+ \le1-\frac{u_d}{36n}<1. \tag{Q2}
+\]
+
+Here is the complete matching consequence. Let $C_d$ be the interval
+$d$-multiples, $N_d=|C_d|\ge q_d$, and
+$N_{de}=|C_d\cap C_e|\le c_{de}$ for $d\ne e$. Set $N_{dd}=N_d$.
+For a nonempty set $T$ of types put
+$f(b)=\sum_{d\in T}(m_d/N_d)1_{C_d}(b)$ and $m_T=\sum_{d\in T}m_d$.
+Symmetry and (Q2) give
+\[
+ \sum_b f(b)^2
+ =\sum_{d,e\in T}\frac{m_dm_eN_{de}}{N_dN_e}
+ <\sum_{d\in T}m_d=m_T,\qquad \sum_bf(b)=m_T.
+\]
+Thus Cauchy--Schwarz shows $|\bigcup_{d\in T}C_d|\ge m_T$.
+Any subset of occurrence copies has the same neighborhood as its type
+set and at most $m_T$ members. Hall's condition holds for all copies,
+so all difficult factors have distinct interval carriers.
+The usual finite augmenting-path proof of Hall suffices.
+
+Cover rough prime demands on at most one position per rough source;
+different rough primes can share positions. These prime coordinates
+exceed $Y$, whereas difficult factors have primes at most $n$,
+so overlaps with difficult carriers are harmless.
+Assign the upper ordinary factors, all at most $Y$, greedily to fresh
+multiples: each has at least $n$ candidates and fewer than $n$ previously
+used positions. The first stage has at most $n$ positions.
+Every source now has one remaining factor, either less than $n$ or
+at most $\sqrt M$. Each has at least $\lfloor\sqrt M\rfloor\ge4n$
+candidates. Assign the at most $n$ residuals to fresh positions outside
+the first stage. The total is at most $2n$, with full prime-power
+supply and distinctness. Zero and negative intervals reduce as before.
+\end{proof}
+
+
+\section{Complete five-coordinate certificate}\label{app:kernel}
+The denominator is $D=40000000000$. A listed numerator belongs to each distinct labelled product in its orbit. All omitted coefficients are zero. The machine-readable table is \nolinkurl{evidence/research/round06/U11_kernel_certificate.json} in the artifact.
+\begin{longtable}{@{}lr@{}}\toprule Positive levels $\nu$ & Numerator $c_\nu$\\\midrule\endfirsthead
+\toprule Positive levels $\nu$ & Numerator $c_\nu$\\\midrule\endhead
+$(2,40)$ & 250000025\\
+$(3,39)$ & 246988891\\
+$(4,38)$ & 250000026\\
+$(5,37)$ & 227840140\\
+$(6,36)$ & 268180709\\
+$(7,35)$ & 290173708\\
+$(8,34)$ & 333333367\\
+$(9,33)$ & 333333367\\
+$(10,32)$ & 333333367\\
+$(11,31)$ & 313381814\\
+$(12,30)$ & 333333367\\
+$(13,29)$ & 342585934\\
+$(14,28)$ & 280896039\\
+$(15,27)$ & 435410891\\
+$(16,26)$ & 318181851\\
+$(17,25)$ & 318181850\\
+$(18,24)$ & 353494299\\
+$(19,23)$ & 337198550\\
+$(20,22)$ & 300390694\\
+$(21,21)$ & 1000000100\\
+$(1,20,22)$ & 165264252\\
+$(2,2,39)$ & 2007424\\
+$(2,4,37)$ & 12525065\\
+$(3,20,20)$ & 86344477\\
+$(4,19,20)$ & 12383323\\
+$(5,19,19)$ & 53759163\\
+$(7,18,18)$ & 43159660\\
+$(11,16,16)$ & 19951554\\
+$(14,14,15)$ & 95519959\\
+$(1,13,15,15)$ & 2804864\\
+$(2,6,18,18)$ & 10031073\\
+$(2,14,14,14)$ & 9354699\\
+$(4,6,17,17)$ & 4436001\\
+$(5,5,17,17)$ & 51734066\\
+$(6,6,16,16)$ & 40654514\\
+$(2,4,13,13,13)$ & 49666509\\
+$(5,5,11,12,12)$ & 9927161\\
+$(5,10,10,10,10)$ & 132806465\\
+$(6,6,11,11,11)$ & 69588659\\
+$(7,7,7,12,12)$ & 160694729\\
+$(8,8,8,8,13)$ & 221344107\\
+$(8,8,8,10,11)$ & 55994630\\
+$(9,9,9,9,9)$ & 1000000101\\
+\bottomrule\end{longtable}
+\begin{thebibliography}{9}\raggedright
+\bibitem{ES1959} P. Erd\H{o}s and J. Sur\'anyi, \emph{Megjegyz\'esek egy versenyfeladathoz} [Bemerkungen zu einer Aufgabe eines mathematischen Wettbewerbs], Matematikai Lapok \textbf{10} (1959), 39--48. \url{https://www.renyi.hu/~p_erdos/1959-07.pdf}.
+\bibitem{Erdos1992} P. Erd\H{o}s, \emph{Some of my forgotten problems in number theory}, Hardy--Ramanujan Journal \textbf{15} (1992), 34--50. \url{https://hrj.episciences.org/125/pdf}.
+\bibitem{Bloom708} T. F. Bloom (ed.), \emph{Erd\H{o}s Problems, Problem 708}. \url{https://www.erdosproblems.com/708}. Problem formulation and discussion; consulted in preparing the research record, with a bounded public-source refresh on 20 October 2026.
+\bibitem{Chen} H. Chen, \emph{Explicit upper bounds for the Erd\H{o}s--Sur\'anyi function $g(n)$}, version 14, 8 September 2026, especially Theorems 16.1, 17.1, and 18.1. \url{https://doi.org/10.5281/zenodo.22660853}.
+\bibitem{ChenRepo} H. Chen, \emph{erdos-708-explicit-upper-bounds}, primary source repository, fixed commit \texttt{dc150fd723184cc4e6f367aac6e7a8c9c7890f34}. \url{https://github.com/chy4pro/erdos-708-explicit-upper-bounds}. The written H883 input and the separate H97 formal chain have different evidence scopes.
+\bibitem{ChenNotes} H. Chen, \emph{Rounding report}, public research notes, 7 September 2026, Section R3, fixed commit as in \cite{ChenRepo}, \nolinkurl{engine_transcripts/run31_astra_rounding/report.md}, especially the preprocessing and demand-capped profile arguments.
+\bibitem{WangCompanion} Z. Wang, \emph{Erd\H{o}s Problem 708: research checkpoints, auxiliary advances, and excluded approaches} (Chinese, with English abstract), companion manuscript, 20 October 2026. Supplied as \nolinkurl{papers/companion-paper/main.pdf} in the accompanying artifact.
+\bibitem{WangArtifact} Z. Wang, \emph{Reproducibility artifact for interval divisor covers}, release prepared 20 October 2026. Distributed with this manuscript; see \nolinkurl{README.md}, \nolinkurl{verification/SOURCE_MAP.json}, and \nolinkurl{scripts/verify_release.py}. No public repository URL is assigned before publication.
+\end{thebibliography}
+
+\end{document}
+

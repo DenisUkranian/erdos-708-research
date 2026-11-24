@@ -1,0 +1,551 @@
+\section{An integer cover for a shared polylogarithmic core}
+\label{sc:section}
+
+The preceding fractional argument has an integer consequence for cores
+of size \(o(\log\log M)\). A different construction permits a much
+larger common core. It uses the source factorization itself: outside
+prime powers are covered first, regular core parts are assigned to
+disjoint target bins, and the remaining core demands are repaired
+globally. No separation between prime sizes is assumed.
+
+\begin{theorem}[A shared polylogarithmic core]
+\label{thm:sc-polylog}
+Fix \(0<a<2\). For every \(\varepsilon>0\), all sufficiently large
+\(M\) have the following property. Suppose
+\(A\subseteq\{2,\ldots,M\}\) contains \(n\) distinct integers and
+admits a designated prime set \(E\) with
+\[
+ |E|\le(\log M)^a
+\]
+such that each source has at most one distinct prime factor outside
+\(E\). Arbitrary powers of that outside prime are allowed.
+Then, for every positive interval \(I\) of \(M\) consecutive
+integers,
+\begin{equation}
+ \tau(A,I)\le(2+\varepsilon)n.
+ \label{sc:main-bound}
+\end{equation}
+The threshold is uniform in the actual core and outside primes, the
+source set, its cardinality, and the interval shift. In particular,
+\(\tau(A,I)\le(2+o(1))n\) uniformly over this class as \(n\to\infty\).
+\end{theorem}
+
+The core may vary with the instance. It is shared by the entire
+source set: a mixed source has the unique form \(d r^e\), where
+\(d\) is \(E\)-smooth, \(r\notin E\) is prime, and \(e\ge1\).
+The proof below is entirely integral. It uses neither a minimal
+counterexample nor fractional rounding.
+
+\subsection{One target per outside-prime occurrence group}
+
+\begin{lemma}[Nested prime-power matching]
+\label{sc:outside-matching}
+For a distinct source set \(A\subseteq[2,M]\) and a prime \(r\),
+the source exponents \(v_r(a)>0\) can be assigned to distinct
+targets \(b\in I\), each satisfying \(v_r(b)\ge v_r(a)\).
+Consequently, when each source has at most one distinct prime
+outside \(E\), there is a target set \(B_{\rm out}\) of size at
+most \(n_{\rm out}\) covering the full demand of every outside
+prime. Here \(n_{\rm out}\) counts all mixed sources.
+\end{lemma}
+
+\begin{proof}
+For every \(j\ge1\), distinctness gives
+\begin{equation}
+ \#\{a\in A:v_r(a)\ge j\}
+ \le\left\lfloor\frac M{r^j}\right\rfloor
+ \le\#\{b\in I:r^j\mid b\}.
+ \label{sc:nested-hall}
+\end{equation}
+The allowed target sets are nested. Order the source exponents
+decreasingly and assign them in that order. At a current exponent
+\(e\), its allowed target set has at least as many positions as
+there are source exponents at least \(e\). The previous assignments
+have used fewer positions than that number, so an allowed unused
+target exists. This proves the assertion for one prime.
+
+Perform this matching separately for each outside prime \(r\), and
+let \(B_r\) be the selected set. Take
+\[
+ B_{\rm out}=\bigcup_{r\notin E}B_r.
+\]
+For each \(r\), the union retains all of \(B_r\), and therefore
+covers the entire \(r\)-demand. Different groups demand disjoint
+prime coordinates; overlaps between their selected sets cause no
+loss. Since each mixed source belongs to exactly one such group,
+\(|B_{\rm out}|\le\sum_r|B_r|=n_{\rm out}\).
+\end{proof}
+
+\begin{proposition}[A finite certificate valid for every shift]
+\label{sc:finite-certificate}
+Under the one-distinct-outside-prime source condition, let \(d(a)\)
+be the full \(E\)-smooth part of \(a\), and let
+\(m_d=\#\{a\in A:d(a)=d\}\).
+Choose any collection \(\mathcal D\) of occupied core parts \(d>1\).
+Suppose the number of targets with exact core part \(d\) is at least
+\(m_d\), for every shift and every \(d\in\mathcal D\). Then
+\begin{equation}
+ \tau(A,I)\le n_{\rm out}+\sum_{d\in\mathcal D}m_d
+       +\sum_{\substack{a\in A\\d(a)>1,\ d(a)\notin\mathcal D}}
+                    \Omega(d(a))
+ \label{sc:finite-cover}
+\end{equation}
+for every shift. In particular, if the right side is at most \(2n\),
+this certifies the exact \(2n\) bound for the given source set.
+\end{proposition}
+
+\begin{proof}
+Use Lemma~\ref{sc:outside-matching} for all outside demands.
+Choose \(m_d\) distinct targets from each selected exact-core-part
+bin; these bins are disjoint. Their product covers all core demand
+from those fibres. In the union of the two target sets, only the
+remaining core units can be deficient. Repair them one at a time,
+using unused targets guaranteed by full-interval supply. At most
+the last sum in \eqref{sc:finite-cover} additions are needed.
+Core part one requires no carrier.
+\end{proof}
+
+This certificate is finite and explicit. For \(T=M/d\),
+inclusion--exclusion supplies the uniform bin lower bound
+\[
+ L_E(T)=
+ \sum_{\substack{S\subseteq E\\|S|\ {\rm even}}}
+      \left\lfloor\frac T{q_S}\right\rfloor
+ -\sum_{\substack{S\subseteq E\\|S|\ {\rm odd}}}
+      \left\lceil\frac T{q_S}\right\rceil,
+ \qquad q_S=\prod_{p\in S}p,\quad q_\varnothing=1.
+\]
+Thus \(L_E(M/d)\ge m_d\) is sufficient. The simpler lower bound
+\(T\prod_{p\in E}(1-1/p)-2^{|E|}\) is also valid.
+The asymptotic proof below obtains better bin estimates when the
+core grows; neither finite test is asserted to be necessary.
+
+\subsection{Uniform estimates from the core cardinality}
+
+For \(0<\sigma<1\), let
+\[
+ \Psi_E(x)=\#\{d\le x:d\text{ is }E\text{-smooth}\},
+ \qquad
+ {\cal Z}_E(\sigma)=\prod_{p\in E}(1-p^{-\sigma})^{-1}.
+\]
+One is included among the smooth integers. Rankin's elementary
+inequality gives, for every \(x>0\),
+\begin{equation}
+ \Psi_E(x)\le x^\sigma{\cal Z}_E(\sigma).
+ \label{sc:rankin}
+\end{equation}
+For \(x<1\) the left side is zero, so the same bound remains valid.
+
+If \(E=\{p_1<\cdots<p_k\}\), then \(p_i\ge i+1\), and
+\[
+ \begin{split}
+ \log{\cal Z}_E(\sigma)
+ &\le\frac1{1-2^{-\sigma}}\sum_{p\in E}p^{-\sigma}\\
+ &\le C_\sigma k^{1-\sigma}.
+ \end{split}
+\]
+The empty Euler product is one. Fix, from now on,
+\begin{equation}
+ \max\{0,1-1/a\}<\sigma<\frac12.
+ \label{sc:sigma-choice}
+\end{equation}
+Such a choice exists for every fixed \(0<a<2\). It yields
+\begin{equation}
+ {\cal Z}_E(\sigma)
+ \le\exp\!\bigl(C_\sigma(\log M)^{a(1-\sigma)}\bigr)
+ =M^{o(1)}
+ \label{sc:euler-uniform}
+\end{equation}
+uniformly over all core prime values, since \(a(1-\sigma)<1\).
+
+\begin{lemma}[Many targets with an exact core part]
+\label{sc:bins}
+Fix \(a>0\) and \(0<\theta<1\). There is \(c_a>0\) such that,
+for all sufficiently large \(M\), every prime set
+\(|E|\le(\log M)^a\) and every real interval \(J\) of length
+\(M^\theta\le T\le M\) satisfy
+\begin{equation}
+ \#\{t\in J:(t,E^\Pi)=1\}
+ \ge c_a\,\frac T{\log\log M}.
+ \label{sc:bin-density}
+\end{equation}
+The large-\(M\) threshold may depend on \(a,\theta\); the estimate
+is uniform in all prime values and shifts.
+\end{lemma}
+
+\begin{proof}
+We use the inherited uniform interval sieve \cite{Synthesis},
+derived from the fundamental lemma \cite{Lagarias,GranvilleSound}.
+Precisely, if \(Q\) is a subset of primes at most \(Y\) and an
+interval has real length \(T\ge Y^u\), then its count of integers
+coprime to \(Q^\Pi\) differs from
+\(T\prod_{q\in Q}(1-1/q)\) by at most \(e(u)\) times that
+quantity, where \(e(u)\to0\) uniformly in \(Q\) and the shift.
+The explicit error is stated in Proposition~\ref{cg:conditional-input}
+and in the sieve input of the separated-support section.
+We also use
+\(\prod_{p\le Y}(1-1/p)\gg1/\log Y\)
+\cite{GranvilleSound,TaoMertens}.
+
+Set
+\[
+ Y=(\log M)^{2a+3},\qquad
+ E_{\rm small}=E\cap[2,Y],\qquad E_{\rm large}=E\setminus E_{\rm small}.
+\]
+Since \(T\ge M^\theta\), the ratio \(\log T/\log Y\) tends to
+infinity uniformly. For large \(M\), the small-prime sieve therefore
+supplies at least
+\[
+ \frac12 T\prod_{q\in E_{\rm small}}(1-1/q)
+ \gg\frac T{\log Y}
+\]
+integers coprime to \(E_{\rm small}\).
+Requiring coprimality to the remaining core primes discards at most
+\[
+ \sum_{q\in E_{\rm large}}\left(\frac Tq+1\right)
+ \le\frac{T|E|}{Y}+|E|
+ =o(T/\log Y).
+\]
+Indeed
+\[
+ \frac{|E|\log Y}{Y}\to0,\qquad
+ \frac{|E|\log Y}{T}\to0
+\]
+uniformly at the stated range of \(T\). Subtracting this upper
+bound leaves a fixed positive multiple of \(T/\log Y\).
+Finally \(\log Y=(2a+3)\log\log M\), proving the lemma.
+\end{proof}
+
+If \(d\) is \(E\)-smooth, the target positions with full
+\(E\)-smooth part exactly \(d\) are
+\[
+ \{b\in I:d\mid b,\ (b/d,E^\Pi)=1\}.
+\]
+They are counted by applying Lemma~\ref{sc:bins} to the scaled
+real interval \(I/d\), of length \(M/d\). Different \(d\)'s
+give disjoint target bins.
+
+\subsection{The three-stage construction}
+
+\begin{proof}[Proof of Theorem~\ref{thm:sc-polylog}]
+Keep the fixed \(\sigma\) from \eqref{sc:sigma-choice}, and put
+\begin{equation}
+ \theta=\frac{1/2-\sigma}{2(1-\sigma)},\qquad
+ Z=M^\theta,\qquad
+ \beta=\sigma+\theta(1-\sigma)=\frac14+\frac{\sigma}{2}<\frac12.
+ \label{sc:cutoff}
+\end{equation}
+The parameters depend only on \(a\).
+For every mixed source write \(a=d f\), where \(d\) is its full
+\(E\)-smooth part and \(f=r^e\) is its outside prime-power part.
+Call it regular when \(M/d\ge Z\), and bad otherwise.
+All pure \(E\)-smooth sources are also called bad.
+Let \(n_{\rm reg}\) be the number of regular sources, and let
+\(n_{\rm out}\) count all mixed sources, including bad ones.
+
+\emph{The bad sources have negligible total core demand.}
+For a bad mixed source, \(d>M/Z\) and \(df\le M\), so \(f<Z\).
+Enlarge the possible outside prime powers to all integers
+\(2\le f<Z\). Equations \eqref{sc:rankin}--\eqref{sc:euler-uniform}
+give
+\begin{equation}
+ \begin{split}
+ |A_{\rm bad}|
+ &\le\Psi_E(M)+\sum_{2\le f<Z}\Psi_E(M/f)\\
+ &\le{\cal Z}_E(\sigma)M^\sigma
+                    \left(1+\sum_{2\le f<Z}f^{-\sigma}\right)\\
+ &\le C_\sigma{\cal Z}_E(\sigma)M^\sigma Z^{1-\sigma}
+ =M^{\beta+o(1)}.
+ \end{split}
+ \label{sc:bad-count}
+\end{equation}
+Dropping the restriction \(d>M/Z\) only enlarged the count.
+Write \(\Omega_E(a)=\sum_{p\in E}v_p(a)\).
+The total bad core demand is at most
+\begin{equation}
+ \sum_{a\in A_{\rm bad}}\Omega_E(a)
+ \le |A_{\rm bad}|\log_2M
+ =M^{\beta+o(1)}
+ =o(\sqrt M).
+ \label{sc:bad-demand}
+\end{equation}
+All errors are uniform in the admitted source data.
+
+\emph{First select targets for every outside-prime demand.}
+Lemma~\ref{sc:outside-matching} gives a set \(B_{\rm out}\)
+of at most \(n_{\rm out}\) positions. Its product covers the
+entire demand of each prime outside \(E\), including those in
+bad mixed sources.
+
+\emph{Next select simultaneous carriers for the regular core parts.}
+Group regular sources by their exact core part \(d\). Put
+\(T_d=M/d\), and let \(m_d\) be the fibre size.
+Distinct sources in the same fibre have distinct outside prime
+powers \(f\le T_d\). If \({\cal P}(T)\) counts prime powers
+\(p^j\le T\), \(j\ge1\), then
+\[
+ m_d\le{\cal P}(T_d),\qquad
+ {\cal P}(T)\le\pi(T)+
+       \sum_{2\le j\le\log_2T}\pi(T^{1/j})
+ =O(T/\log T).
+\]
+Here Chebyshev bounds the first term; the remaining terms total
+at most \(\sqrt T\log_2T=o(T/\log T)\).
+On every occupied regular fibre \(T_d\ge M^\theta\), so
+Lemma~\ref{sc:bins} gives an exact-core-part bin of size
+\[
+ N_d\ge c_a\,\frac{T_d}{\log\log M}.
+\]
+Consequently
+\[
+ \frac{m_d}{N_d}
+ =O_a\!\left(\frac{\log\log M}{\log T_d}\right)
+ =O_a\!\left(\frac{\log\log M}{\log M}\right)\longrightarrow0.
+\]
+Thus \(N_d\ge m_d\) simultaneously in all fibres for large
+\(M\). Choose \(m_d\) distinct targets from each bin. Since the
+bins are disjoint, this yields a set \(B_{\rm core}\) of exactly
+\(n_{\rm reg}\) positions with
+\begin{equation}
+ \prod_{a\in A_{\rm reg}}d(a)\ \bigm|\ \prod_{b\in B_{\rm core}}b.
+ \label{sc:core-carriers}
+\end{equation}
+This is one joint covering of all regular core multiplicities.
+
+\emph{Finally repair the remaining core units globally.}
+Take \(B_0=B_{\rm out}\cup B_{\rm core}\). Its cardinality is
+at most \(n_{\rm out}+n_{\rm reg}\).
+For every outside prime it retains all of \(B_{\rm out}\);
+for every core prime it retains all of \(B_{\rm core}\).
+Therefore the only possible deficits are core units from the
+bad sources, whose total is bounded in \eqref{sc:bad-demand}.
+If a prime remains deficient, full-interval supply
+\(\prod A\mid M!\mid\prod I\) guarantees an unused target
+divisible by that prime. Add such a target. Each addition reduces
+the total positive deficit by at least one and never increases
+another deficit. Hence
+\begin{equation}
+ \begin{split}
+ \tau(A,I)
+ &\le n_{\rm out}+n_{\rm reg}
+                 +\sum_{a\in A_{\rm bad}}\Omega_E(a)\\
+ &\le2n+M^{\beta+o(1)}.
+ \end{split}
+ \label{sc:constructive-bound}
+\end{equation}
+Overlaps between the first two selected sets are harmless, since
+their demanded prime families are disjoint. The last repair uses
+the accumulated cover, rather than an independent cover of the
+bad sources.
+
+To finish uniformly over all cardinalities, if \(n\le\sqrt M/4\),
+the ambient quadratic theorem \cite[Appendix A]{Wang} gives
+\(\tau(A,I)\le2n\). Otherwise \(n>\sqrt M/4\), and
+\[
+ \frac{M^{\beta+o(1)}}n
+ \le4M^{\beta-1/2+o(1)}\longrightarrow0.
+\]
+This proves \eqref{sc:main-bound} for all sufficiently large
+\(M\), uniformly over the claimed class and shifts.
+Finally \(n\to\infty\) forces \(M\ge n+1\to\infty\),
+giving the stated uniform asymptotic conclusion.
+\end{proof}
+
+\subsection{An explicit core bound approaching the squared logarithm}
+
+\begin{corollary}[A quantified near-square core]
+\label{cor:sc-near-square}
+For all sufficiently large \(M\), suppose
+\begin{equation}
+ |E|\le10^{-6}
+       \left(\frac{\log M}{\log\log M}\right)^2
+ \label{sc:near-square-size}
+\end{equation}
+and each distinct source has at most one distinct prime outside
+\(E\), with arbitrary powers allowed. Then
+\(\tau(A,I)\le(2+o(1))|A|\), uniformly in the source set,
+cardinality, prime values, and shift. More precisely, with
+\(L=\log M\) and \(l=\log L\), the direct construction gives
+\begin{equation}
+ \tau(A,I)\le2|A|+
+ O\!\left(\sqrt M\,L\exp\left(-\frac{2L}{5l}\right)\right).
+ \label{sc:near-square-error}
+\end{equation}
+The absolute numerical constant in \eqref{sc:near-square-size}
+is a sufficient choice and is not asserted to be optimal.
+\end{corollary}
+
+\begin{proof}
+We check the varying parameters in the same construction explicitly,
+rather than substituting them into a theorem for fixed parameters.
+Assume \(l\ge4\), and set
+\[
+ \delta=\frac1l,\qquad
+ \sigma=\frac12-\delta\in[1/4,1/2),\qquad
+ \theta=\frac{\delta}{2(1-\sigma)}=\frac1{l+2},\qquad
+ \beta=\frac12-\frac1{2l}.
+\]
+Let \(k=|E|\). The Euler estimate is uniform in this range of
+\(\sigma\):
+\[
+ \begin{split}
+ \log{\cal Z}_E(\sigma)
+ &\le\frac1{1-2^{-\sigma}}
+                       \sum_{i=1}^k(i+1)^{-\sigma}\\
+ &\le\frac{2}{1-2^{-1/4}}\,k^{1-\sigma}
+ <13k^{1-\sigma}.
+ \end{split}
+\]
+The empty core is immediate. For \(k\ge1\), the bound \(k\le L^2\)
+implies \(k^\delta\le e^2\). Therefore
+\begin{equation}
+ \log{\cal Z}_E(\sigma)
+ <13e^2\sqrt k<100\sqrt k\le\frac{L}{10l}.
+ \label{sc:near-square-euler}
+\end{equation}
+Here \(\sqrt k\le10^{-3}L/l\) follows from
+\eqref{sc:near-square-size}.
+
+Define the regular mixed sources by \(M/d\ge M^\theta\), as
+before. The sum in \eqref{sc:bad-count} is bounded uniformly by
+\(3(M^\theta)^{1-\sigma}\), since \(1/(1-\sigma)\le2\).
+Combining this with \eqref{sc:near-square-euler} gives
+\[
+ |A_{\rm bad}|
+ \le3\sqrt M\exp\left(-\frac{L}{2l}+\frac{L}{10l}\right)
+ =3\sqrt M\exp\left(-\frac{2L}{5l}\right).
+\]
+Consequently the total bad core demand is at most this bound times
+\(\log_2M\), which is \(o(\sqrt M)\).
+
+It remains to check the target bins with the shrinking \(\theta\).
+Take \(Y=L^7\). Every occupied regular fibre has
+\[
+ T\ge M^\theta=\exp\left(\frac L{l+2}\right),\qquad
+ \frac{\log T}{\log Y}\ge\frac{L}{7l(l+2)}\longrightarrow\infty.
+\]
+The uniform small-prime sieve still gives a fixed positive multiple
+of \(T/\log Y\) positions coprime to \(E\cap[2,Y]\).
+Deleting multiples of the remaining core primes costs at most
+\[
+ \frac{Tk}{Y}+k\le\frac T{L^5}+L^2=o(T/\log Y).
+\]
+Thus exact-core-part bins have size \(\gg T/l\).
+The number of possible prime-power remainders remains
+\(O(T/\log T)\), and its ratio to the bin size is
+\[
+ O\left(\frac l{\log T}\right)
+ =O\left(\frac{l(l+2)}L\right)\longrightarrow0.
+\]
+All bins can therefore be assigned as before. The outside-prime
+matching and the final global repair do not depend on
+\(\sigma,\theta\). They yield \eqref{sc:near-square-error}.
+
+If \(|A|\le\sqrt M/4\), use the exact quadratic theorem.
+Otherwise divide the error in \eqref{sc:near-square-error} by
+\(|A|>\sqrt M/4\). The relative error is
+\(O(L\exp(-2L/(5l)))=o(1)\), uniformly, proving the corollary.
+\end{proof}
+
+For every fixed \(a<2\), one has
+\((\log M)^a\le10^{-6}(\log M/\log\log M)^2\) eventually.
+Thus the quantified corollary includes the fixed-exponent theorem,
+while its proof checks the additional uniformity needed when the
+effective exponent approaches two.
+
+\begin{corollary}[A stronger core order from Chebyshev's estimate]
+\label{cor:sc-chebyshev-core}
+There is an absolute constant \(c_0>0\) such that the same uniform
+integer conclusion holds under the source factorization hypothesis
+of Theorem~\ref{thm:sc-polylog}, whenever
+\begin{equation}
+ |E|\le c_0\,\frac{(\log M)^2}{\log\log M}.
+ \label{sc:chebyshev-core-size}
+\end{equation}
+For sufficiently large \(M\), the construction also satisfies the
+error bound \eqref{sc:near-square-error}.
+The existence of a positive absolute \(c_0\) is asserted; no optimal
+constant is claimed.
+\end{corollary}
+
+\begin{proof}
+Chebyshev's estimate implies \(p_i\gg i\log(i+1)\) for the
+\(i\)-th prime \cite{GranvilleSound}. Uniformly for
+\(1/4\le\sigma\le1/2\), this gives
+\begin{equation}
+ \log{\cal Z}_E(\sigma)
+ \le C\,\frac{k^{1-\sigma}}{(\log(k+1))^\sigma},
+ \qquad k=|E|\ge1,
+ \label{sc:chebyshev-euler}
+\end{equation}
+with an absolute \(C\). To check uniformity, split the sum of
+\(p_i^{-\sigma}\) at \(i=\sqrt k\). The first part is
+\(O(k^{(1-\sigma)/2})\). In the second part
+\(\log(i+1)\gg\log(k+1)\), giving
+\(O(k^{1-\sigma}/(\log(k+1))^\sigma)\).
+The first part is absorbed in the second bound uniformly in
+this compact range of \(\sigma\); its relative ratio is at most
+a constant times \(\sqrt{\log(k+1)}/k^{1/4}\).
+The Euler logarithm introduces only the bounded factor
+\((1-2^{-\sigma})^{-1}\). Enlarging \(C\) handles small \(k\).
+
+Use \(L=\log M\), \(l=\log L\), and the same
+\(\sigma=1/2-1/l\) as in Corollary~\ref{cor:sc-near-square}.
+Put \(K=\lfloor c_0L^2/l\rfloor\).
+The function \(k^{1-\sigma}/(\log(k+1))^\sigma\) is increasing:
+its logarithmic derivative multiplied by \(k\) is
+\[
+ (1-\sigma)-
+ \frac{\sigma k}{(k+1)\log(k+1)}
+ \ge1-2\sigma\ge0.
+\]
+For every fixed \(c_0>0\), as \(M\to\infty\),
+\[
+ \begin{split}
+ \frac{K^{1-\sigma}}{(\log(K+1))^\sigma}
+ &=\sqrt{\frac K{\log(K+1)}}\,
+   \exp\left(\frac{\log K+\log\log(K+1)}l\right)\\
+ &=\left(e^2\sqrt{\frac{c_0}{2}}+o(1)\right)\frac L l.
+ \end{split}
+\]
+Choose \(c_0\le1\) so small that
+\(Ce^2\sqrt{c_0/2}<1/20\). Then
+\eqref{sc:chebyshev-euler}, for every \(k\le K\), is at most
+\(L/(10l)\) once \(M\) is large.
+The empty core causes no error.
+
+This is precisely the Euler bound
+\eqref{sc:near-square-euler} needed in the preceding proof.
+Also \(k\le L^2\) for large \(M\), so its \(Y=L^7\)
+sieve calculation, large-prime deletion bound, prime-power fibre
+comparison, and bad-demand estimate remain valid without change.
+The same construction and the quadratic gate finish the proof.
+\end{proof}
+
+\subsection{Scope of the larger shared-core class}
+
+For example, a designated core of size at most \((\log M)^{1.99}\)
+is permitted, with any number of possible outside primes and no
+prime-size gap. The source restriction still concerns the number
+of \emph{distinct} outside primes, so their arbitrary powers remain
+fully included.
+
+The two conditions on the Rankin exponent are
+\[
+ a(1-\sigma)<1,\qquad \sigma<1/2.
+\]
+Their simultaneous use explains the endpoint \(a<2\) in the
+fixed-parameter argument. Corollaries~\ref{cor:sc-near-square}
+and \ref{cor:sc-chebyshev-core} check specified approaches to
+that endpoint. These results do not
+establish a core of size \((\log M)^2\), an arbitrary
+instance-dependent exponent tending to two, or an optimal endpoint.
+
+The unrestricted minimal-obstruction core can still have size
+\(O(\sqrt{n/\log n})\), much larger than a fixed power of
+\(\log M\) in the subquadratic range. Thus
+Theorem~\ref{thm:sc-polylog} enlarges a concrete source class
+without resolving the unrestricted asymptotic or exact conjecture.
+Its integer construction is independent of the controlled-weight
+hinge bound: the latter remains useful for restricting dual vectors
+inside a larger designated core.

@@ -1,0 +1,226 @@
+[
+  {
+    "name": "erdos708_continuation.pdf",
+    "size_bytes": 611277,
+    "sha256": "0aafd16a3e3e7715ea59b6c0baeb60cf4420e486bf22ea0eed37e89059694483",
+    "local_matches": [],
+    "text_equivalent_local": [
+      "ep708_continuation_20261123/erdos708_continuation.pdf"
+    ]
+  },
+  {
+    "name": "erdos708_continuation_bundle.zip",
+    "size_bytes": 1132359,
+    "sha256": "909dcca985ba8b72fbfaef5dab00a7a0c55f86f11c0308dcb7913b9d6c0ffdd9",
+    "local_matches": [
+      "ep708_continuation_20261123/erdos708_continuation_bundle.zip"
+    ],
+    "crc_bad_member": null,
+    "member_count": 36,
+    "unique_members": []
+  },
+  {
+    "name": "erdos708_dot_audit.pdf",
+    "size_bytes": 427258,
+    "sha256": "132a4a7b0d7640e6453926391db3d69d5b0380fbba845f9dbf75cc12b45500ed",
+    "local_matches": [],
+    "text_equivalent_local": [
+      "ep708_dot_20261123/erdos708_dot_audit.pdf"
+    ]
+  },
+  {
+    "name": "erdos708_dot_audit_bundle.zip",
+    "size_bytes": 416992,
+    "sha256": "764b8cccad23c798dff8217290ca6cb2cd9b1fde86e1b532a6c7674c1891e1e5",
+    "local_matches": [
+      "ep708_dot_20261123/erdos708_dot_audit_bundle.zip"
+    ],
+    "crc_bad_member": null,
+    "member_count": 13,
+    "unique_members": []
+  },
+  {
+    "name": "erdos708_global_gap.pdf",
+    "size_bytes": 388524,
+    "sha256": "db3ef94e36adebb74b5882471b9563dc30b4dcdf0627c848e8c5d65e96797bd6",
+    "local_matches": [],
+    "text_equivalent_local": [
+      "ep708_global_20261123/erdos708_global_gap.pdf",
+      "ep708_jweak_20261123/prior/erdos708_global_gap.pdf"
+    ]
+  },
+  {
+    "name": "erdos708_global_gap_bundle.zip",
+    "size_bytes": 1179920,
+    "sha256": "8dc3217c42fda8268cb0678b3c81fc1997540b330b32e684be91b6ee8f3c1cab",
+    "local_matches": [
+      "ep708_global_20261123/erdos708_global_gap_bundle.zip"
+    ],
+    "crc_bad_member": null,
+    "member_count": 31,
+    "unique_members": []
+  },
+  {
+    "name": "erdos708_joint_estimate_addendum.pdf",
+    "size_bytes": 350343,
+    "sha256": "b69275cf5dafa14c31073a855aaa0e2f354798ad7212e0a1dde7de9a5625d147",
+    "local_matches": [],
+    "text_equivalent_local": [
+      "ep708_flow_20261123/erdos708_joint_estimate_addendum.pdf"
+    ]
+  },
+  {
+    "name": "erdos708_joint_estimate_bundle.zip",
+    "size_bytes": 356643,
+    "sha256": "4551a6f494950e45629c9453b938777b3ac4d3329a39ec14eb744bb3bb40b63c",
+    "local_matches": [
+      "ep708_flow_20261123/erdos708_joint_estimate_bundle.zip"
+    ],
+    "crc_bad_member": null,
+    "member_count": 20,
+    "unique_members": []
+  },
+  {
+    "name": "erdos708_jweak_attempt.pdf",
+    "size_bytes": 432569,
+    "sha256": "06d23787c27bba4ae7c64ed12dbfd7457af583d09a14b275d4abf1ca67bd027a",
+    "local_matches": [],
+    "text_equivalent_local": [
+      "ep708_jweak_20261123/erdos708_jweak_attempt.pdf"
+    ]
+  },
+  {
+    "name": "erdos708_jweak_attempt_bundle.zip",
+    "size_bytes": 763662,
+    "sha256": "3698c39d6dbe16f04a950fec58184a25ef818ea3df5685bd09fd25248bbb1318",
+    "local_matches": [
+      "ep708_jweak_20261123/erdos708_jweak_attempt_bundle.zip"
+    ],
+    "crc_bad_member": null,
+    "member_count": 21,
+    "unique_members": []
+  },
+  {
+    "name": "erdos708_partial_results.pdf",
+    "size_bytes": 427167,
+    "sha256": "7111f355f8976579c46149688cb96ec5a58ad46ebe2acba2923c21c74c21b23e",
+    "local_matches": [],
+    "text_equivalent_local": [
+      "ep708_20261123/erdos708_partial_results.pdf",
+      "ep708_synthesis_20261123/prior_results/erdos708_partial_results.pdf"
+    ]
+  },
+  {
+    "name": "erdos708_proof_ladders.pdf",
+    "size_bytes": 406761,
+    "sha256": "64b7af4c4116e103a4761b9476a652ee883ae714feb820aa0db8920580c15716",
+    "local_matches": [],
+    "text_equivalent_local": [
+      "ep708_ladder_20261123/erdos708_proof_ladders.pdf"
+    ]
+  },
+  {
+    "name": "erdos708_proof_ladders_bundle.zip",
+    "size_bytes": 432124,
+    "sha256": "72f70b235e4247b7e0b6862428d3e678f2e22a2e9d50e4da026a9c611bb208e1",
+    "local_matches": [
+      "ep708_ladder_20261123/erdos708_proof_ladders_bundle.zip"
+    ],
+    "crc_bad_member": null,
+    "member_count": 22,
+    "unique_members": []
+  },
+  {
+    "name": "erdos708_research_bundle(1).zip",
+    "size_bytes": 496666,
+    "sha256": "abd2afaec90e385043f6877a6c3a1b110d3f0a1d4d162a214be37ecd8e1d52a0",
+    "local_matches": [
+      "ep708_20261123/erdos708_research_bundle.zip"
+    ],
+    "crc_bad_member": null,
+    "member_count": 36,
+    "unique_members": []
+  },
+  {
+    "name": "erdos708_research_bundle.zip",
+    "size_bytes": 380045,
+    "sha256": "4c9d4d42f0b02116dba2d955a4c72c3a619c479b3b27c379235008eb4b35e712",
+    "local_matches": [
+      "ep708_20261122/erdos708_research_bundle.zip"
+    ],
+    "crc_bad_member": null,
+    "member_count": 21,
+    "unique_members": []
+  },
+  {
+    "name": "erdos708_research_note.pdf",
+    "size_bytes": 394464,
+    "sha256": "162e44cc862f3247b8d7e7dedefa43491803ff68aba63e3b44e18acf54135d89",
+    "local_matches": [],
+    "text_equivalent_local": [
+      "ep708_20261122/erdos708_research_bundle/erdos708_research_note.pdf",
+      "ep708_20261122/erdos708_research_note.pdf"
+    ]
+  },
+  {
+    "name": "erdos708_surplus_tail.pdf",
+    "size_bytes": 369676,
+    "sha256": "a1ddcf9054d58f48b8b5fcdac1567c11f9ef7d8bef66a7c23a7e52bad420b728",
+    "local_matches": [],
+    "text_equivalent_local": [
+      "ep708_surplus_20261123/erdos708_surplus_tail.pdf"
+    ]
+  },
+  {
+    "name": "erdos708_surplus_tail_bundle.zip",
+    "size_bytes": 359444,
+    "sha256": "473113662959b6b4e6b33c5d7c13a6d80810c32230832d0711355c5cb022cec4",
+    "local_matches": [
+      "ep708_surplus_20261123/erdos708_surplus_tail_bundle.zip"
+    ],
+    "crc_bad_member": null,
+    "member_count": 13,
+    "unique_members": []
+  },
+  {
+    "name": "erdos708_synthesis.pdf",
+    "size_bytes": 554831,
+    "sha256": "2bd6e1b3b808d0f1bdafd235cae05f51ca513002440b2a3734fd4edcf775165f",
+    "local_matches": [],
+    "text_equivalent_local": [
+      "ep708_continuation_20261123/inherited/erdos708_synthesis.pdf",
+      "ep708_synthesis_20261123/erdos708_synthesis.pdf"
+    ]
+  },
+  {
+    "name": "erdos708_synthesis_bundle.zip",
+    "size_bytes": 1384381,
+    "sha256": "44b8589b8dd9e43271edf613a0d64603bc98eb2dfb566a845e71e57c7c61aebd",
+    "local_matches": [
+      "ep708_synthesis_20261123/erdos708_synthesis_bundle.zip"
+    ],
+    "crc_bad_member": null,
+    "member_count": 67,
+    "unique_members": []
+  },
+  {
+    "name": "erdos708_top_tail_gap.pdf",
+    "size_bytes": 328863,
+    "sha256": "ba64dc4d5a5fc60750ef67f96c1d3e3fc4e8c9ed1a787069c76b22f91338d6ce",
+    "local_matches": [],
+    "text_equivalent_local": [
+      "ep708_top_tail_20261123/erdos708_top_tail_gap.pdf"
+    ]
+  },
+  {
+    "name": "erdos708_top_tail_gap_bundle.zip",
+    "size_bytes": 337747,
+    "sha256": "baa035389c1c66b4af97e660cbd16825d1a705e4a0434319dfbdb967549a87c8",
+    "local_matches": [
+      "ep708_top_tail_20261123/erdos708_top_tail_gap_bundle.zip"
+    ],
+    "crc_bad_member": null,
+    "member_count": 18,
+    "unique_members": []
+  }
+]

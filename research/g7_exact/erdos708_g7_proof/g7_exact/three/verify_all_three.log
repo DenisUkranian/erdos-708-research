@@ -1,0 +1,7 @@
+PASS low_support3 162 complete source sets and certificates
+PASS high_c2 283 complete source sets and certificates
+PASS complete finite envelope: {'triples': 6294, 'maxima': 656193, 'classes': 850366, 'passed': 850364, 'unresolved': 2, 'seconds': 43.5153}
+SHA256 three_large_envelope.cpp f4491c8eb8455954251c0417f0203dcefc3c6cc74035be6139be3949cb11076f
+PASS: independent enumeration 17640 raw; 1096 complete eligible sets
+PASS: all 1096 nine-slot certificates, arbitrary interval shifts
+PASS: complete three-large-prime verification chain

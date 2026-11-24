@@ -1,0 +1,39 @@
+{
+  "inspected_on": "2026-11-23",
+  "sources": [
+    {
+      "name": "Ziming Wang, raw fractional-to-integer transfer",
+      "url": "https://github.com/science-prince/erdos-708-interval-divisor-covers/blob/main/papers/main-paper/raw-transfer.tex",
+      "github_file_sha": "652a6c28dc52abd22116084746aff569021207a7",
+      "use": "Existing transfer input; not reproved or claimed as new"
+    },
+    {
+      "name": "Ziming Wang, main paper and quadratic gate",
+      "url": "https://github.com/science-prince/erdos-708-interval-divisor-covers/blob/main/papers/main-paper/main.tex",
+      "github_file_sha": "17f471ea0073e00e8b0245505a62529c643cbf60",
+      "use": "Existing M>=16n^2 gate; proof uses a<=M and extends to an ambient M"
+    },
+    {
+      "name": "Ziming Wang repository README",
+      "url": "https://github.com/science-prince/erdos-708-interval-divisor-covers/blob/main/README.md",
+      "github_file_sha": "72706b57384ad2a09870c8d6ac9dbb235c098aab"
+    },
+    {
+      "name": "Haoyu Chen repository README",
+      "url": "https://github.com/chy4pro/erdos-708-explicit-upper-bounds/blob/main/README.md",
+      "github_file_sha": "b750e0b48274d1b9879f1a3a3ea21ccb54ecd8b1"
+    },
+    {
+      "name": "Terence Tao, Mertens' theorems",
+      "url": "https://terrytao.wordpress.com/2013/12/11/mertens-theorems/",
+      "use": "Prime number theorem and Mertens product theorem for the arithmetic union construction"
+    },
+    {
+      "name": "Kai Fan, uniform rough-number estimates",
+      "url": "https://doi.org/10.1016/j.jnt.2024.01.008",
+      "use": "Input to the preceding full-tail first-moment theorem, included in input notes"
+    }
+  ],
+  "dot_provenance": "The new dot sketches were pasted by the user in this conversation; they were not recovered as a separate hidden chat.",
+  "redistribution": "Third-party repository files are not included in the deliverable ZIP. Only citations and inspected source identifiers are supplied."
+}

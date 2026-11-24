@@ -1,0 +1,668 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,booktabs,xcolor}
+\usepackage{xurl,microtype}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\pos}[1]{\left(#1\right)_+}
+\newcommand{\ind}{\mathbf 1}
+\newcommand{\LP}{L_{\mathrm{raw}}}
+\title{Erd\H{o}s 708: proof ladders for the unrestricted asymptotic\\
+\large Executed steps, adaptive carriers, and the remaining arithmetic inequality}
+\author{Research checkpoint}
+\date{23 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We pursue three routes to $g(n)\le(2+o(1))n$: adaptive Hall transport,
+joint diffuse transfer, and a signed or cluster-based carrier certificate.
+New proved steps include uniform one-sided concentration in every arithmetic
+bank, a demand-scale transfer for one jointly clipped target budget, a
+positive-density small-price reduction, and structural reductions of the
+adaptive Hall cuts. Two actual arithmetic examples refute tempting stronger
+intermediate assertions. A relaxation of the allowable complement from load
+$1$ to load $1+\delta/2$ uses the asymptotic slack explicitly.
+\textbf{The unrestricted asymptotic has not been proved.} The exact $2n$
+conjecture is also not claimed. The last missing inequality, its parameter
+order, and the reason each attempted shortcut fails are stated explicitly.
+No new values of $g(n)$ are computed.
+\end{abstract}
+
+\section{Scope, retrieval, and the common endpoint}
+
+The newest accessible dot input was the package quoted in the conversation;
+the additional history and recent-file checks did not expose a newer dot
+proof. This report continues that package and the previous audited checkpoint.
+It does not claim access to a separate live dot session. Complete working
+proofs accompany this report in the three route directories.
+
+Fix an $M$-term positive interval $I$ and $c=2+\delta$, $0<\delta\le1$.
+For $0\le w_p\le1$ put
+\[
+ X(a)=\sum_{p\le M}w_pv_p(a),\quad
+ H_X(b)=\pos{X(b)-1},\quad
+ J_c(w)=\sum_{a\le M}\pos{X(a)-c}-\sum_{b\in I}H_X(b).
+\]
+At a positive global maximum take the entire strict tail
+$A=\{a\le M:X(a)>c\}$, $n=|A|$. The preceding checkpoint establishes
+\begin{align}
+ \max_wJ_c(w)&=\max_{S\subseteq[2,M]}(\LP(S,I)-c|S|),\label{global}\\
+ F=\LP(A,I)&=cn+J_c(w),\quad z_b=1\quad(X(b)>1),\label{paired}\\
+ \sum_{b\in I}z_bv_p(b)&=\sum_{a\in A}v_p(a)\quad(w_p>0),\label{rows}\\
+ \sum_{a\in A}X(a)&\le C_\delta n,\quad
+ \sum_p\frac{w_p}{p-1}\le B_\delta,\label{bounds}\\
+ \sum_{a\in A}\exp\left(\frac{X(a)-c}{2B_\delta}\right)&\le2n.
+ \label{mgf}
+\end{align}
+Increase $B_\delta$ to at least one if necessary. These are inherited inputs;
+their notes are included with the new work. The earlier near-quadratic
+argument excludes unbounded positive maxima with $M\ge\kappa n^2$ for any
+fixed $\kappa>0$. The trivial interval cover and Wang's long-interval gate
+leave $cn<M<16n^2$; the genuine unresolved branch is $M=o(n^2)$.
+Wang's existing fractional-to-integer theorem is used only at the endpoint
+\cite{WangRaw,WangMain}; rounding is not reproved here.
+
+The exact next result need not have zero exceptional sources.
+Let $1\le\tau<c-1$ and $\gamma=c-1-\tau>0$. Suppose a single target budget
+pays fractions $\theta_a\in[0,1]$ of the demands $X(a)-(1+\tau)$, with a total
+extra allowance $E$. Put $t=\sum_A(1-\theta_a)$. Weighted Jensen applied to
+\eqref{mgf} gives
+\begin{equation}
+ \boxed{\quad J_c(w)\le
+ 2B_\delta t\log(2n/t)-\gamma(n-t)+E.\quad}              \label{finish}
+\end{equation}
+Indeed, the unserved excess above $c$ is at most
+$2B_\delta t\log(2n/t)$; every served fraction contributes the gain $\gamma$.
+For example, it suffices to have
+\[
+ \frac tn\le\frac{\gamma}{32B_\delta\log(64B_\delta/\gamma)},
+ \qquad E\le\frac{\gamma n}{4}.
+\]
+The right side of \eqref{finish} is then at most $-3\gamma n/8$.
+Thus a sufficiently small \emph{fixed} loss fraction, chosen after $\delta$,
+is enough. Requiring an $o(n)$ exceptional set at every stage can be avoided.
+
+If a uniform construction excludes all positive maxima with sufficiently
+large $n$, the remaining positive values are bounded by a constant depending
+only on $\delta$, using \eqref{bounds}. Equation \eqref{global} then yields
+$\LP(S,I)\le(2+\delta)|S|+C_\delta'$. Letting $\delta$ tend to zero and applying
+the existing transfer gives the requested asymptotic. This explains exactly
+what each ladder below must finish.
+
+\section{Route A: spend the slack on more admissible carriers}
+
+\subsection{The relaxed graph and its cuts}
+
+Use $\tau=1+\delta/2$, so $\gamma=\delta/2$. Join a source $a$ to a target $b$
+when
+\begin{equation}
+ X\bigl(a/\gcd(a,b)\bigr)\le\tau.                        \label{edge}
+\end{equation}
+An edge supplies
+$H_X(b)\ge X(a)-(1+\tau)$. Therefore a matching with deficiency $t$ satisfies
+\eqref{finish} with $E=0$. The threshold one in the older graph was stronger
+than the asymptotic goal requires.
+
+\begin{lemma}[Upward-closed Hall cuts]
+If $a\mid a'$, then $N(a')\subseteq N(a)$ in \eqref{edge}. A maximum-deficit
+set $S\subseteq A$ is upward closed under divisibility in $[1,M]$.
+Let $C=[1,M]\setminus S$ and $B=I\setminus N(S)$. Then $C$ is a divisor
+down-set and
+\begin{equation}
+ |S|-|N(S)|=|B|-|C|.                                    \label{cut}
+\end{equation}
+For $b\in B$, $d\mid b$, $du\le M$, one has
+\begin{equation}
+ X(u)\le\tau\quad\Longrightarrow\quad du\in C.           \label{closure}
+\end{equation}
+\end{lemma}
+\begin{proof}
+Prime by prime, $a/\gcd(a,b)$ divides $a'/\gcd(a',b)$. This proves the
+neighborhood inclusion. Adding an omitted multiple of an element of $S$
+adds no neighbor and strictly increases the deficit. The full tail itself
+is upward closed. The cardinality identity is immediate since both ambient
+sets have size $M$. If $du\notin C$, then $du\in S$ and the divisor $d$
+would supply an edge to $b$, proving \eqref{closure}.
+\end{proof}
+
+The open arithmetic assertion is now precise: prove
+$|B|\le|C|+\varepsilon_\delta n$ for these cuts, retaining the original exact
+rows \eqref{rows}, where $\varepsilon_\delta$ satisfies \eqref{finish}.
+The stronger estimate $t=O_\delta(r)$, with $r=O_\delta(n/\log n)$ active rows,
+would suffice, but is not necessary and is not proved.
+
+\subsection{A bank can pay a whole cluster}
+
+\begin{lemma}[One-bank margin]
+For any $g$ with $X(g)>1$ and any set $S$ of distinct multiples of $g$ in
+$[1,M]$,
+\begin{equation}
+ \sum_{\substack{b\in I\\g\mid b}}H_X(b)
+ \ge\sum_{a\in S}(X(a)-2)+|S|.                          \label{cluster}
+\end{equation}
+\end{lemma}
+\begin{proof}
+Put $m=\lfloor M/g\rfloor$. The target quotients form an interval of $N\ge m$
+consecutive integers; the source quotients are a distinct subset of $[1,m]$.
+Every prime-power divisibility count on the target is at least the prefix
+count. Hence the sum of the raw quotient loads on the target is at least
+the corresponding source sum. Writing $s=X(g)>1$, the difference between
+the left side and $\sum_S(X(a)-2)$ is at least
+$|S|+(N-|S|)(s-1)\ge|S|$.
+\end{proof}
+
+Repeated cofactors are therefore not intrinsically a loss. The unsolved
+part is allocating overlapping banks of different clusters. Pairwise cold
+intersections are insufficient: with weights $0.4$ on $2,3,5,7$, the roots
+$30,42,70,105$ have excess $0.2$ each, but their common target $210$ has
+hinge only $0.6$. The exact multiway excess over the lcm is
+\[
+ \sum_i(X(d_i)-1)-(X(\operatorname{lcm}_i d_i)-1)
+ =\sum_p w_p\left(\sum_i v_p(d_i)-\max_i v_p(d_i)\right)-(s-1).
+\]
+A proof must control this expression jointly, not merely its pairwise parts.
+
+\subsection{A universal two-carrier reduction}
+
+Let $K=\#\{b\in I:X(b)>1\}$. Every hot integer $u\le M$ satisfies
+$\lfloor M/u\rfloor\le K$, since every target multiple of $u$ is hot.
+Fix $\eta\le\delta/8$ and let $V$ contain all prices at most $\eta$.
+
+For each source, if $V(a)\le1+\delta/4$, remove all its light and inactive
+factors. The remaining carrier contains only prices $>\eta$, and its
+complement has load at most $\tau$. If the complement is one, remove one
+active prime as well; this keeps the carrier proper and admissible.
+After the common load cutoff $X(a)\le L$, this carrier has at most $L/\eta$
+active occurrences.
+
+If $V(a)>1+\delta/4$, order the light occurrences by \emph{decreasing} prime
+size and stop when their load first exceeds $t_0=1+\delta/4$. Their product
+$u$ obeys
+\[
+ t_0<X(u)\le t_0+\eta\le1+3\delta/8<\tau.
+\]
+Remove this block and all inactive factors. The remaining carrier $h$ has
+\begin{equation}
+ h\le a/u\le\lfloor M/u\rfloor\le K,
+ \qquad X(h)>1+5\delta/8.                               \label{dichotomy}
+\end{equation}
+If $p$ is the boundary light prime, the removed block has more than
+$t_0/\eta$ occurrences, all at least $p$. Thus
+\begin{equation}
+ p<M^{\eta/t_0};
+ \quad\text{every light prime left in }h\text{ is at most }p.
+ \label{reverse}
+\end{equation}
+This is an unrestricted carrier reduction: either a pure substantial-price
+carrier, or a numerically small carrier with a controlled residual light
+support. It does not assert that either family already has a matching.
+If $\eta$ is allowed to shrink with $M$, the degree bound $L/\eta$ grows;
+one cannot subsequently invoke a fixed-degree certificate without a new
+uniform estimate.
+
+\subsection{An actual small core and a demand bound, with their limits}
+In the sparse branch let $T=M/(K+1)\to\infty$. For a fixed sieve parameter
+$U\ge8$, choose
+\[
+ \eta\le\min\{\delta/8,\ t_0\log T/(U\log M)\},\qquad z=T^{1/U}.
+\]
+Then every light prime remaining in a small carrier lies below $z$, and its
+bank length is greater than $T=z^U$. This creates the length gap required by
+the conditional sieve. The pure-heavy alternative has no diffuse root mass.
+
+There is also a useful aggregate bound. Every integer at most $T$ is cold,
+so for $p\le z$,
+\[
+ w_p\le\frac1{\lfloor\log T/\log p\rfloor}
+ \le\frac U{U-1}\frac{\log p}{\log T}.
+\]
+Chebyshev's estimate and partial summation consequently give
+\begin{equation}
+ \sum_{p\le z}\frac{w_p}{p-1}\ll\frac1{U-1},\qquad
+ \sum_{h\le K}V_{\le z}(h)\ll\frac K{U-1}.                \label{coremean}
+\end{equation}
+This counts distinct roots once. It is not an estimate for their source
+multiplicities.
+
+For sufficiently small $\eta$, a positive optimum also has
+$\mu_V<1+\delta/8$: otherwise the earlier diffuse high-mean argument already
+implies $J_2(X)\le0$. A high-light source assigned to $h$ has a distinct
+quotient $u=a/h$ with $V(u)>1+\delta/4$. The raw prefix variance therefore
+proves the labelled fibre estimate
+\begin{equation}
+ \frac{m_h^{\rm high}}{\lfloor M/h\rfloor}
+ \le\frac{512\eta(1+\delta/8)}{\delta^2}=:q_\eta,
+ \qquad \beta_h^{\rm high}\le q_\eta(X(h)-1).             \label{dilution}
+\end{equation}
+All inactive factors of $u$ are counted. If a root serves both branches,
+\eqref{dilution} applies only to its high-light contribution. Summing these
+small fractions independently at one target is still unjustified; joint
+overlap is the open step.
+
+\section{Route B: diffuse fluctuations in arbitrary arithmetic banks}
+
+The analytic input is the fundamental lemma of the sieve for arbitrary
+subsets of primes \cite{GS}. In a form used in the preceding checkpoint,
+for primes $P\subseteq[2,z]$ and a real interval $J$ of length $N\ge z^u$,
+\begin{equation}
+ \#\{m\in J:(m,\prod_{p\in P}p)=1\}
+ =(1+O(E(u)))N\prod_{p\in P}(1-1/p),\quad E(u)\to0,
+ \label{sieve}
+\end{equation}
+uniformly in the shift and the subset. The usual additive sieve remainder
+is absorbed into the relative error using $N\ge z^u$.
+
+\begin{theorem}[Uniform one-sided bank concentration]
+Let $V(t)=\sum_p\theta_pv_p(t)$, $0\le\theta_p\le\eta$, with arbitrary finite
+support. Set $\mu_N=\sum_{p\le N}\theta_p/(p-1)\le B$. For every real $N\ge1$
+and every real interval $J$ of length $N$,
+\begin{align}
+ \sum_{a\le N}|V(a)-\mu_N|&\le\sqrt{8\eta B}\,N,\label{sourcecon}\\
+ \sum_{b\in J}(\mu_N-V(b))_+&\le\psi_B(\eta)N,\quad
+ \psi_B(\eta)\longrightarrow0.                          \label{targetcon}
+\end{align}
+For sufficiently small $\eta$ depending only on $B$, one may take
+\begin{equation}
+ \psi_B(\eta)=2\eta^{1/4}
+ +2B\exp\left(-\tfrac12\eta^{-1/4}+\tfrac12B\right).
+ \label{psi}
+\end{equation}
+The support size, its reciprocal mass, the interval shift, and the number
+of banks are unrestricted.
+\end{theorem}
+\begin{proof}
+The raw prime-power moment calculation gives
+$\sum_{a\le N}(V(a)-\mu_N)^2\le8\eta\mu_N\lfloor N\rfloor$; Cauchy--Schwarz
+proves \eqref{sourcecon}. Primes exceeding $N$ vanish on the prefix and can
+only improve the lower-deviation estimate on the target.
+
+For the latter, put $u=\lceil\eta^{-1}\rceil$ and $z=N^{1/u}$. For $z\ge2$,
+independently retain each supported prime $p\le z$ with probability
+$1-e^{-t\theta_p}$. Averaging the upper bound in \eqref{sieve} over these
+random subsets yields
+\[
+ \sum_{m\in J}\exp\left(-t\sum_{p\le z}\theta_p\ind_{p\mid m}\right)
+ \le(1+E(u))N\prod_{p\le z}
+       \left(1-\frac{1-e^{-t\theta_p}}p\right).
+\]
+This error is relative before averaging. Put $\mu_0=\sum_{p\le z}\theta_p/p$.
+Chebyshev's prime bound and partial summation give
+$0\le\mu_N-\mu_0\le d_\eta=O(\eta(1+\log u))$. Since
+$1-e^{-x}\ge x-x^2/2$, the displayed product is at most
+$\exp(-t\mu_0+t^2\eta B/2)$. Therefore
+\[
+ \frac1N\#\{m\in J:V(m)<\mu_N-\varepsilon\}
+ \le(1+E(u))\exp(-t\varepsilon+td_\eta+t^2\eta B/2).
+\]
+Take $t=\eta^{-1/2}$, $\varepsilon=\eta^{1/4}$. For small $\eta$,
+$d_\eta\le\varepsilon/2$ and $E(u)\le1$. The lower deficit is at most
+$\varepsilon$ off this exceptional set and at most $B$ on it. There are
+at most $2N$ integer positions, proving \eqref{psi}. If $z<2$, then
+$\mu_N=O(\eta(1+\log u))$ and the estimate follows directly.
+\end{proof}
+
+No coprimality of a root and its quotient is needed: raw additivity gives
+$V(dt)=V(d)+V(t)$. The correct baseline in the bank of $d$ is consequently
+$V(d)+\mu_{M/d}$, not a common scalar independent of the root.
+
+\subsection{A new unrestricted reduction at positive density}
+
+At the genuine optimum, take any block $V$ of prices at most $\eta$, and
+write $D_V=\sum_A V$, $\rho=n/M$. Exact active rows give
+$D_V=\sum_Iz_bV(b)$. Equations \eqref{sourcecon}--\eqref{targetcon} imply
+\[
+ D_V\le\mu n+\sqrt{8\eta B_\delta nM},\qquad
+ D_V\ge\mu F-\psi_{B_\delta}(\eta)M.
+\]
+Since $F\ge cn$, elimination of $\mu$ gives
+\begin{equation}
+ \boxed{\quad
+ \frac{D_V}{n}\le
+ \frac{c}{c-1}\sqrt{\frac{8\eta B_\delta}{\rho}}
+ +\frac{\psi_{B_\delta}(\eta)}{(c-1)\rho}.
+ \quad}                                                   \label{dense}
+\end{equation}
+Thus the small-price source demand vanishes uniformly as $\eta\to0$ on every
+branch $\rho\ge\rho_0>0$, without a restriction on the prime profile.
+The explicit factors of $\rho^{-1}$ show why this does not solve the sparse
+branch by itself.
+
+\subsection{Conditional cells without a bound on their number}
+
+If the diffuse primes $P$ and excluded heavy primes $Q$ are disjoint subsets
+of $[2,z]$, the same randomization retains the factor
+$\mathfrak v_Q=\prod_{q\in Q}(1-1/q)$. On any quotient interval
+$N\ge z^U$, it gives relative lower-deviation error
+$o_{\eta,U}(N\mathfrak v_Q)$, uniformly in $Q$. The source absolute-error
+estimate has the same scale. To retain every raw prime power, split at
+$p^j=\sqrt N$; the high levels have relative contribution at most
+\[
+ 2\eta z^2/\sqrt N\le2\eta\,2^{2-U/2}.
+\]
+The full proof is in \texttt{route\_core/CONDITIONAL\_DIFFUSE\_CELLS.md}.
+This removes a cardinality restriction on the conditioned core; it requires
+the genuine length gap $N\ge z^U$. It does not authorize conditioning on
+arbitrary short cells.
+
+\section{Joining the routes: one normalized and clipped target budget}
+
+Retain $\tau=1+\delta/2$ and $\gamma=\delta/2$. For each source allow any
+proper divisor $d\mid a$ with $X(a/d)\le\tau$. Choose fractions
+$\theta_{a,d}\ge0$, $\sum_d\theta_{a,d}=1$, and set
+\begin{align*}
+ s_d&=\sum_a\theta_{a,d}\bigl(X(a)-(1+\tau)\bigr),&
+ N_d&=\lfloor M/d\rfloor,&\beta_d&=s_d/N_d,\\
+ S_\tau&=\sum_A(X(a)-(1+\tau)),&
+ G(b)&=\sum_{d\mid b}\beta_d,&
+ \mathcal N&=\sum_d\beta_dM/d.
+\end{align*}
+All actual sources are counted, including different sources with identical
+active parts. Every root has $X(d)>1+\gamma$, and $N_d\ge2$. Hence
+\begin{equation}
+ \sum_I G\ge S_\tau,
+ \qquad \mathcal N\le\tfrac32S_\tau=O_\delta(n).          \label{norm}
+\end{equation}
+The proof is elementary: each source is an actual multiple of its root;
+each interval has at least $N_d$ such multiples; and
+$(M/d)/\lfloor M/d\rfloor\le3/2$ when $N_d\ge2$.
+There is no prime-count estimate for a collapsed fibre and no bound on
+inactive cofactor multiplicity.
+
+Let $V$ be any original price block with prices at most $\eta$, $W=X-V$,
+and define
+\[
+ \nu_d=V(d)+\sum_{\substack{p\le M/d\\p\in\operatorname{supp}V}}
+                  \frac{w_p}{p-1},\qquad
+ \bar\nu(b)=\frac{\sum_{d\mid b}\beta_d\nu_d}{G(b)}\quad(G(b)>0).
+\]
+The model target hinge is $\widetilde H(b)=\pos{W(b)+\bar\nu(b)-1}$.
+This auxiliary load is generally nonadditive. Original row balances and
+optimality are \emph{not} transferred to it.
+
+For a fixed $\Lambda\ge1$, use the accounting functional
+\begin{equation}
+ \mathcal C_\Lambda(H)=
+ \sum_{G(b)>0}\min\{\Lambda G(b),H(b)\}
+ +\sum_{G(b)=0}H_X(b).                                  \label{account}
+\end{equation}
+Increasing $\Lambda$ raises an accounting cap, not the target capacity;
+each target still pays at most its one actual hinge.
+
+\begin{theorem}[Joint demand-scale transfer]
+Uniformly in all fractional choices, weights, shifts, and densities,
+\begin{align}
+ \mathcal C_\Lambda(H_X)&\ge\mathcal C_\Lambda(\widetilde H)
+       -\frac{\Lambda\psi_{B_\delta}(\eta)}\gamma\mathcal N,
+       \label{joint}\\
+ J_c(X)&\le S_\tau-\gamma n
+       -\mathcal C_\Lambda(\widetilde H)
+       +\frac{\Lambda\psi_{B_\delta}(\eta)}\gamma\mathcal N.
+       \label{mainnew}
+\end{align}
+In particular the error is $O_\delta(\Lambda\psi_{B_\delta}(\eta)n)$ even
+when $n/M\to0$.
+\end{theorem}
+\begin{proof}
+On the union of banks, $H_X(b)>\gamma$. A positive increase of the clipped
+model payment can occur only where $\Lambda G>H_X$, hence $G>\gamma/\Lambda$.
+The hinge is 1-Lipschitz and the positive part is convex, so that increase
+is at most
+\[
+ \frac\Lambda\gamma\sum_{d\mid b}\beta_d(\nu_d-V(b))_+.
+\]
+For a multiple $b$ of $d$, raw additivity identifies the last deficit as
+$\pos{\mu_{M/d}-V(b/d)}$. Sum \eqref{targetcon} in each bank, and then use
+\eqref{norm}. This proves \eqref{joint} without separate capacity budgets.
+Finally $J_c=S_\tau-\gamma n-\sum_IH_X$ and
+$\mathcal C_\Lambda(H_X)\le\sum_IH_X$, proving \eqref{mainnew}.
+\end{proof}
+
+\paragraph{The exact unproved endpoint.}
+It would suffice to find, for each $\delta$, a fixed $\Lambda_\delta$ and
+admissible fractional assignments such that, uniformly for all sufficiently
+small $\eta$ on the remaining genuine optimum class,
+\begin{equation}
+ \boxed{\qquad
+ \mathcal C_{\Lambda_\delta}(\widetilde H)
+ \ge S_\tau-\frac{\gamma n}{2}.
+ \qquad}                                                  \label{open}
+\end{equation}
+Choose $\eta$ afterwards so the proved error is at most $\gamma n/4$;
+then \eqref{mainnew} gives $J_c\le-\gamma n/4$.
+An uncontrolled dependence $\Lambda=\Lambda(\eta)$ does not justify this
+order. A quantified alternative would be enough if
+$\Lambda(\eta)\psi_{B_\delta}(\eta)\to0$.
+\textbf{Inequality \eqref{open} is not proved.} In particular, the retained
+root values $V(d)$ cannot be erased or replaced by a common scalar.
+
+\subsection{A stronger normalization that retains the cluster reserve}
+A second construction uses the full credit in \eqref{cluster}. Choose the
+first increasing active prime prefix $g(a)$ whose load exceeds
+$1+\delta/2$. Then
+\[
+ 1+\delta/2<X(g(a))\le2+\delta/2<X(a).
+\]
+An active prime remains after the root. Thus every active prime of $a$ is
+at most its bank length $T_a=M/g(a)$. For a cluster $A_g$, set
+\[
+ m_g=|A_g|,\quad s_g=\sum_{A_g}(X(a)-2),\quad
+ B_g=\sum_{b\in I:g\mid b}H_X(b),\quad\alpha_g=s_g/B_g.
+\]
+By \eqref{cluster}, $B_g\ge s_g+m_g$, so $\alpha_g<1$. With
+$F_0(b)=\sum_{g\mid b}\alpha_g$ and $S_2=\sum_A(X(a)-2)$,
+\begin{equation}
+ \sum_IH_X(b)F_0(b)=S_2,\qquad
+ \sum_g\alpha_gM/g\le\frac3\delta S_2=O_\delta(n).        \label{clusternorm}
+\end{equation}
+The coefficients retain the unit reserve per source. If $X(a)\le L$,
+then $\alpha_g\le(L-2)/(L-1)$.
+
+For a fixed $N_0$, roots with $M/g\le N_0$ are $N_0$-smooth. Their number is
+at most $(1+\log_2M)^{\pi(N_0)}$, each has at most $N_0$ sources, and their
+weighted source cost is
+\[
+ O_{N_0}((\log M)^{\pi(N_0)+1})=o(n),
+\]
+since $M<16n^2$. A diagonal cutoff makes retained bank lengths tend to infinity.
+Hot-gcd mergers only increase lengths; their norm bound persists if the
+new root load stays a fixed amount above one. Source deletions
+must remain explicit in every subsequent balance identity.
+
+Using the $\alpha_g$-weighted version of $\bar\nu$, define a new model hinge
+$H_{\rm mod}$. The functional
+\[
+ \mathcal Q_\Lambda(H)=
+ \sum_{F_0>0}\min\{\Lambda F_0,1\}H
+ +\sum_{F_0=0}H_X
+\]
+again uses one target budget. The pointwise error is bounded by
+$\Lambda\sum_{g\mid b}\alpha_g(\nu_g-V(b))_+$. Therefore
+\begin{equation}
+ J_c(X)\le S_2-\delta n-\mathcal Q_\Lambda(H_{\rm mod})
+       +O_\delta(\Lambda\psi_{B_\delta}(\eta)n).          \label{clustertransfer}
+\end{equation}
+Proving $\mathcal Q_\Lambda(H_{\rm mod})\ge S_2-\delta n/2$ with the same
+uniform parameter order is an alternative sufficient endpoint. It remains
+unproved. This construction already pays a one-prime source family as one
+cluster and avoids the artificial congestion diagnosed below.
+
+There is a concrete all-occurrence subtarget. Put
+$\mathcal V=\sum_IH_XF_0^2$. Since $\min(2t,1)\ge2t-t^2$,
+$\mathcal Q_2(H_X)\ge2S_2-\mathcal V$. Its diagonal satisfies
+\[
+ \sum_g\alpha_g^2B_g
+ \le S_2-\frac{\delta}{1+\delta}n;
+\]
+the off-diagonal is exactly
+$2\sum_{g<h}\alpha_g\alpha_h B_{\operatorname{lcm}(g,h)}$.
+This identifies a joint weighted lcm energy to attack. It is not bounded
+by the diagonal reserve automatically, and an untruncated second moment
+may overcharge rare targets with many incident roots.
+
+For the full source set, the original rows also give the exact scale identity
+\[
+ \sum_{b\in I}z_bX_{>t}(b)
+ =\sum_{a\in A:T_a>t}X_{>t}(a).
+\]
+Here $X_{>t}$ retains prime values $p>t$, including all their powers. If some
+sources have been deleted, their demand is an additional term; it cannot
+be erased from this identity. Controlling repeated use of this supply
+across scales is a remaining stopping-certificate problem.
+
+\section{Two checked arithmetic obstructions and their exact scope}
+
+\subsection{Uniform routing can waste capacity even with one prime}
+
+Take $w_2=1$, all other weights zero, $0<\delta<1$, and $I=[1,M]$.
+The full tail is $A=\{v_2\ge3\}$, $n\sim M/8$. With active-part prime deletion
+and payments $X(a)-2$, the root $2^j$ has limiting coefficient $(j-1)/4$.
+At a target of valuation $t$,
+\[
+ G(b)\longrightarrow t(t-1)/8,\qquad H_X(b)=(t-1)_+.
+\]
+Therefore the unamplified congestion $E_X=\sum_I(G-H_X)_+$ obeys
+\begin{equation}
+ \frac{E_X}{M}\longrightarrow
+ \sum_{t\ge9}\frac{(t-1)(t-8)}{8\,2^{t+1}}=\frac5{1024},
+ \qquad \frac{E_X}{n}\longrightarrow\frac5{128}.           \label{oneprime}
+\end{equation}
+This refutes the blanket claim $E_X\le\delta n$ on arbitrary full tails
+for $\delta<5/128$. It is not a positive optimum:
+$J_c/M\to-1/4-\delta/8$. The unused target capacity matters.
+For this limiting example, $H_X/G=8/t\le4$ wherever $H_X>0$; amplification
+$\Lambda=4$ captures the whole hinge. A common first-crossing cluster also
+pays the sources by \eqref{cluster}. The example diagnoses the routing
+method, not the conjecture.
+
+\subsection{Few bounded-degree hot roots can lose a linear union}
+
+Let $M=2N$, $c=21/10$, $w_2=3/5$, and $w_p=1$ for
+$\sqrt N<p\le N/2$, with all other prices zero. Take the actual full tail.
+It contains all multiples of $16$, so $n\ge M/16-O(1)$, and every external
+prime is used by the source $4p$. The roots $2p$ are minimally hot, have
+load $8/5$ and degree two, and number only $O(N/\log N)=o(n)$.
+
+Their prefix union, after division by two, consists of disjoint prime banks
+on $[1,N]$, and has size $(\log2+o(1))N$. Average the quotient interval
+$[C+1,C+N]$ over $C$ modulo the product of these primes. Its mean union size is
+\[
+ N\left[1-\prod_{\sqrt N<p\le N/2}(1-1/p)\right]
+ =(1/2+o(1))N.
+\]
+Thus an actual shifted interval has union loss at least
+$(\log2-1/2+o(1))N=\Omega(n)$. The usual conditions $K=O(n)$,
+$r=O(n/\log n)$, prime sizes $O(n)$, bounded mean, and source exponential
+tails all hold. They do not justify replacing an exponential union error
+by the number of roots.
+
+The exact active row, however, excludes this example. The source tail
+consists of $v_2\ge4$, together with $v_2=2,3$ and one external occurrence.
+Consequently
+\[
+ D_2(A)=\left(\frac58+\frac78\log2+o(1)\right)N
+ =(1.2315\ldots+o(1))N.
+\]
+Every target multiple of four is hot, forcing 2-row supply at least
+$(3/2+o(1))N$ in every shift. This contradicts \eqref{rows} for the positive
+price $w_2$. The example is therefore a counterexample to the weaker
+union-transfer inference, not to a lemma that truly retains optimality.
+
+\section{The three detailed closing ladders and the order of attack}
+
+\subsection*{A. Adaptive cuts, with cluster merging as the arithmetic tool}
+\begin{enumerate}
+\item Keep the true optimum and full tail. Spend half the fixed slack on
+$\tau=1+\delta/2$, retaining $\gamma=\delta/2$ for the contradiction.
+\item Use all admissible divisors, and reduce a worst Hall cut to the
+upward-closed form \eqref{cut}--\eqref{closure}. The required error is the
+fixed fraction in \eqref{finish}, not exact injectivity.
+\item Use \eqref{cluster} to pay each common-hot-root cluster with its
+unit-per-source margin. If cardinal matching is too restrictive, use
+source demands $X(a)-(1+\tau)$ and actual capacities $H_X(b)$ instead.
+\item Apply the universal carrier dichotomy \eqref{dichotomy}. Its low-light
+branch has pure substantial-price carriers; its other branch has carriers
+at most $K$. Both retain the original source multiplicities.
+\item The genuinely open operation is to combine these banks while
+controlling multiway overlap using \eqref{rows}. The bounded-degree root
+counterexample proves that root count and $K=O(n)$ alone cannot perform it.
+\item As soon as the adaptive deficit is below the fixed tolerance, apply
+\eqref{finish}. There is no further integer-rounding obstacle.
+\end{enumerate}
+
+\subsection*{B. Joint bank transfer, followed by the model capacity inequality}
+\begin{enumerate}
+\item Normalize actual source demands as in \eqref{norm}. This already
+resolves the uncontrolled sum of bank lengths and retains inactive factors.
+\item Use the uniform one-sided lemma inside each bank, then clip only
+after adding all contributions. This proves \eqref{mainnew} at scale $n$,
+including the sparse branch. This step has been carried out.
+\item Keep every root offset $V(d)$ and the unused target capacity in
+\eqref{account}. The one-prime example rules out reverting to a stronger
+unamplified congestion claim without an optimum-specific proof.
+\item Prove \eqref{open} for a fixed amplification or a quantified rate
+with $\Lambda\psi\to0$. The original exact prime rows remain available;
+the auxiliary model has no new row equalities of its own.
+\item Choose the diffuse cutoff only after the capture constants are
+controlled. Then \eqref{mainnew} gives the strict contradiction immediately.
+\end{enumerate}
+
+\subsection*{C. An all-occurrence stopping certificate for the missing overlap}
+\begin{enumerate}
+\item Use the full-tail exponential moment to choose a finite source-load
+cutoff $L$ at a prescribed weighted cost. Choose heavy and light price
+cutoffs with the loss of any intervening band charged explicitly.
+\item Form first-crossing hot clusters or the adaptive normalized banks.
+Preserve their $O_\delta(n)$ weighted norm through every refinement. A
+vanishing local relative error can then be summed at the correct scale.
+\item If using heavy-profile cells, apply the conditional sieve only where
+the actual quotient length is at least the necessary power of the largest
+conditioned prime. Equations \eqref{reverse} can create a residual small
+light core, but a shrinking price cutoff also increases the heavy depth.
+\item Combine different arities within one signed or nonnegative target
+certificate. A correction with a large lcm cannot be discarded just
+because its prefix count is zero: it may occur at an actual target.
+Track the signed norm and all such boundary terms jointly.
+\item The remaining task is an arithmetic estimate for those simultaneous
+corrections or, equivalently for this route, the capture assertion
+\eqref{open}. Neither finite heavy degree nor a gap in active prices
+removes inactive source cofactors. The invalid prime-count fibre argument
+must not be reintroduced.
+\end{enumerate}
+
+The best immediate target is the relaxed adaptive cut or the weaker
+amplified capture inequality, with exact original row balances. Further
+separate three-, four-, or five-prime theorems would not discharge either
+target. The positive-density branch now has the extra reduction
+\eqref{dense}; the sparse branch has the genuinely demand-scale transfer
+\eqref{mainnew}. The open arithmetic overlap estimate is common to both.
+
+\section{Verification and limits of the evidence}
+
+The displayed proofs were checked against raw prime powers, arbitrary shifts,
+real quotient lengths, repeated sources within a carrier fibre, and the
+distinction between actual and auxiliary optimality. The counterexample
+calculations have independent derivations; exact rational checks of finite
+instances are included. Small CRT-realizable searches tested intermediate
+Hall statements and found no deficiency in the tested examples; these are
+falsification probes, not proofs and not computations of new $g(n)$ values.
+
+The report proves the new transfer and structural lemmas. It does not prove
+the terminal Hall bound or \eqref{open}. The exact $2n$ conjecture is kept
+separate: every closing implication here deliberately spends positive
+$\delta$ slack.
+
+\begin{thebibliography}{9}
+\bibitem{WangRaw} W. Wang, raw fractional-to-integer transfer manuscript,
+\url{https://github.com/science-prince/erdos-708-interval-divisor-covers/blob/main/papers/main-paper/raw-transfer.tex}.
+\bibitem{WangMain} W. Wang, main interval-divisor cover manuscript,
+\url{https://github.com/science-prince/erdos-708-interval-divisor-covers/blob/main/papers/main-paper/main.tex}.
+\bibitem{GS} A. Granville and K. Soundararajan,
+\emph{Multiplicative number theory: The pretentious approach},
+Theorem 1.4.2 (fundamental lemma of sieve theory),
+\url{https://dms.umontreal.ca/~andrew/PDF/Book.To1.4.pdf}.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "n": 7,
+  "B": 10,
+  "cutoff_exclusive": 19170,
+  "smooth_maxima": 399,
+  "rough_envelope_maxima": 259,
+  "enumerated_maxima": 140,
+  "actual_subsets": 23743770,
+  "unique_demands": 487367,
+  "prime_union_demands": 473094,
+  "bin_demands": 12976,
+  "certificate_demands": 1297,
+  "prime_union_pruned_branches": 0,
+  "prime_union_pruned_subsets": 0,
+  "seconds": 0.315991
+}

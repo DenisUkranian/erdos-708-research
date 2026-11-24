@@ -1,0 +1,97 @@
+[
+  {
+    "path": "README.md",
+    "bytes": 4217,
+    "sha256": "185a1978904e2309c36ef99b3451f1deb5405c6e5c6ad10392e7056cbb273c37"
+  },
+  {
+    "path": "STATUS.json",
+    "bytes": 1025,
+    "sha256": "6c4646e71e53afc71efdf831eaeb785ca2ebb64f325e0da1c3bfe403a4db6d72"
+  },
+  {
+    "path": "analytic/OPTIMAL_COVERAGE_AND_LOG_CAP.md",
+    "bytes": 10598,
+    "sha256": "882381262a514b68c99dd00678681dd482e7774436280d62adc7baa2a7af0df6"
+  },
+  {
+    "path": "analytic/TRUNCATED_TAIL_AND_MIXED_WEIGHT_BARRIER.md",
+    "bytes": 11272,
+    "sha256": "34c1e876ad35e243001b67819612ed35a529cfbe0355b110e8290951074da50f"
+  },
+  {
+    "path": "analytic/WEIGHTED_ROOTED_STAR_CERTIFICATE.md",
+    "bytes": 9647,
+    "sha256": "b18b8ff9c9f4b88da7f4d99e3d754f7f05af1ebd2def9e0e3d187b5391feca76"
+  },
+  {
+    "path": "audit/BONFERRONI_ABSORPTION_AUDIT.md",
+    "bytes": 6018,
+    "sha256": "120a0656e649625c4301b0e93279a542fc27382b35401c7eec2198f8b48e29c6"
+  },
+  {
+    "path": "audit/CONSTANT_WEIGHT_STAR_CALCULATION.md",
+    "bytes": 6056,
+    "sha256": "4ee2ae119693d7f174eb764d61b9416a4e6efc671c19a90f66cb18781290cd0d"
+  },
+  {
+    "path": "audit/LOW_HEAVY_HINGE_COMPARISON.md",
+    "bytes": 7213,
+    "sha256": "b10a915168d48c7c679a3e099a53cff888003a9ad0b61f093133fcb1362af5bf"
+  },
+  {
+    "path": "audit/LOW_HEAVY_STATE_MATCHING.md",
+    "bytes": 9887,
+    "sha256": "9894820104a8e37ff49cc6d8621e219b8426b9a2dfa4d4d09d350bfa2481a180"
+  },
+  {
+    "path": "audit/PRIME_CONSERVING_EXCESS_FLOW.md",
+    "bytes": 8347,
+    "sha256": "324095f7cc03243a64ab2a49e386fd8657fe45f18e06da30f25a6afacf37f060"
+  },
+  {
+    "path": "combinatorial/BOOLEAN_TWO_FACTOR_REDUCTION.md",
+    "bytes": 6040,
+    "sha256": "e5bd19b0aea49af0ca7c701745ca7a70c74f6f3854e22a4205878b1d813b207c"
+  },
+  {
+    "path": "combinatorial/GLOBAL_MINIMAL_COMPRESSION.md",
+    "bytes": 5785,
+    "sha256": "2f8582e567d4d4f624fa5ca86a7037605fb8a60312d10862e0951691672cac9f"
+  },
+  {
+    "path": "combinatorial/HOT_DIVISOR_FLOW_CUTS.md",
+    "bytes": 9298,
+    "sha256": "baafc64cf660c80dd19521672b271953d3a695967f5a6cb3d5b678307902cc06"
+  },
+  {
+    "path": "combinatorial/hot_divisor_flow.py",
+    "bytes": 7379,
+    "sha256": "96737f76811070daa6c1f210a8be09e2cd098a1025379933a485e16bd0780e72"
+  },
+  {
+    "path": "combinatorial/hot_divisor_flow_probes.json",
+    "bytes": 11399,
+    "sha256": "574433524da6ef99b044c1bba35950ebb5be70f70c4fd94124d24e1c6a5db469"
+  },
+  {
+    "path": "erdos708_joint_estimate_addendum.pdf",
+    "bytes": 304968,
+    "sha256": "e9d68cad261e7ee56c91ebd0e30643a563c08dd51cb9b2751b40275a1347d451"
+  },
+  {
+    "path": "erdos708_joint_estimate_addendum.tex",
+    "bytes": 16901,
+    "sha256": "b3d832da1bc421f3a02e2df5456a7bcfe2626462a534a859c2e4925140a1bd9c"
+  },
+  {
+    "path": "root_counterexample_verified.json",
+    "bytes": 528,
+    "sha256": "c4a377fdc1ccc5e1ef06dbfc32e661395f5f4068108370bdbb07b7d3551ecaa8"
+  },
+  {
+    "path": "verify_root_counterexample.py",
+    "bytes": 1872,
+    "sha256": "b7a4322909ac12429d4f0370ab181674bf49f9487ec579c23e5c8b24986a5e0f"
+  }
+]

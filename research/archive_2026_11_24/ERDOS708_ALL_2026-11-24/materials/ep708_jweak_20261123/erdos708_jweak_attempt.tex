@@ -1,0 +1,703 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm}
+\usepackage[margin=25mm]{geometry}
+\usepackage{booktabs,array,xurl}
+\usepackage[hidelinks,unicode]{hyperref}
+\hypersetup{pdftitle={Erdos 708: An Attempt at the Joint Inequality},pdfauthor={Research working note}}
+\setlength{\emergencystretch}{3em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\pos}[1]{(#1)_+}
+\newcommand{\LP}{L_{\rm raw}}
+\newcommand{\atLP}{L_{\rm at}}
+\newcommand{\one}{\mathbf1}
+\title{Erd\H{o}s 708: An Attempt at the Joint Inequality\\
+\large Exact loss under deletion of weight blocks,\newline sparse-obstruction reductions, and the remaining gap}
+\author{Research working note}
+\date{23 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+The requested inequality \(J_{\rm weak}\), and hence the unrestricted
+asymptotic bound \(g(n)\le(2+o(1))n\), are \textbf{not proved in this note}.
+The main proved result is an exact joint loss inequality for an optimal
+boxed covering dual: for disjoint coordinate blocks, the sum of the
+objective losses caused by deleting each block separately is at most the
+original optimum. It yields a genuine gap between small and substantial
+weights at a controlled objective cost, without assuming such a gap.
+We also prove a sparse-optimal mean bound and a weighted reduction to a
+bounded number of substantial occurrences per retained source. These are
+necessary reductions of a hypothetical general obstruction, rather than
+new source-class covering theorems. A verified arithmetic counterexample
+rules out one same-threshold comparison shortcut; it does not refute
+\(J_{\rm weak}\). We state the precise surviving gluing obligation and
+keep a stronger prime-power-count LP separate from the original problem.
+\end{abstract}
+\tableofcontents
+
+\section{The requested statement and the status of the argument}
+
+Let \(A\subseteq[2,M]\cap\mathbb N\) consist of \(m\) distinct integers,
+and let \(I=\{x+1,\ldots,x+M\}\), \(x\ge0\). Put
+\[
+ D_p(A)=\sum_{a\in A}v_p(a),\qquad
+ X_w(n)=\sum_p w_pv_p(n),\qquad H_I(w)=\sum_{b\in I}\pos{X_w(b)-1}.
+\]
+The source primes form a finite set. The boxed valuation LP is
+\begin{equation}
+ \LP(A,I)=\min\left\{\sum_{b\in I}z_b:
+ 0\le z_b\le1,\quad\sum_bz_bv_p(b)\ge D_p(A)\ \text{for every }p\right\}.
+ \label{eq:primal}
+\end{equation}
+Its dual objective is
+\[
+ \Phi_A(w)=\sum_{a\in A}X_w(a)-H_I(w).
+\]
+An optimum may be chosen with \(0\le w_p\le1\). All valuations here are
+raw; target exponents are not truncated at source exponents or at \(M\).
+
+For the original requested minimal class, fix \(\delta>0\), set
+\(c=2+3\delta\), and take a least-cardinality integer failure at the same
+\(M,I\):
+\[
+ \tau(A,I)>cm,\qquad \tau(S,I)\le c|S|\quad(S\subsetneq A).
+\]
+The preceding report \cite{previous} established the following
+normalization. If \(w\) is optimal, \(r\) is the number of source primes,
+and \(G=\{a:X_w(a)>2+2\delta\}\), then
+\begin{gather}
+ r=o_\delta(m),\quad |A\setminus G|=o_\delta(m),\quad
+ W:=\sum_{a\in A\setminus G}X_w(a)=o_\delta(m),\label{eq:oldnorm}\\
+ \Phi_G(w)>c|G|-r.\label{eq:oldlower}
+\end{gather}
+The union \(U\) of the retained prime-deletion banks is saturated in one
+full optimal primal solution, and
+\[
+ \Xi=\sum_p w_p\pos{V_p(U)-D_p(G)}\le W=o_\delta(m),\qquad
+ V_p(U)=\sum_{b\in U}v_p(b).
+\]
+The exact requested inequality is
+\begin{equation}
+ \boxed{\quad
+ \sum_{a\in G}\bigl(X_w(a)-2-\delta\bigr)
+ \le H_I(w)+C_\delta\Xi+\delta|G|+o_\delta(m).
+ \quad}\tag{$J_{\rm weak}$}\label{eq:jweak}
+\end{equation}
+The error must be uniform in \(M,A,x,w\) on the full stated class.
+
+If \eqref{eq:jweak} held, then
+\(\Phi_G(w)\le(2+2\delta)|G|+o_\delta(m)\), contradicting
+\eqref{eq:oldlower}. Equivalently, restore \(W\) once and round the raw
+LP at an extra cost \(r=o(m)\). This gives
+\(\tau(A,I)\le(2+2\delta)m+o(m)<cm\).
+The known ambient gate \(M\ge16m^2\Rightarrow\tau(A,I)\le2m\)
+ensures that the minimal sizes tend to infinity in any unbounded
+counterexample sequence \cite{wang,previous}. Thus the missing estimate
+would settle the unrestricted asymptotic question. Exact \(2n\) would
+still require a separate argument.
+
+This note does not establish \eqref{eq:jweak}. In particular, none of the
+necessary restrictions proved below may be substituted for its missing
+joint hinge bound.
+
+\section{An exact joint bound for deleting coordinate blocks}
+
+This section applies to \emph{every} optimal boxed valuation LP, without
+a minimality, sparsity, core-size, or prime-gap assumption.
+Choose paired optimal solutions \(z,w\), with \(0\le w_p\le1\), and write
+\[
+ X=X_w,\quad F=\LP(A,I),\quad H=\{b\in I:X(b)>1\},\quad
+ T=\{b\in I:X(b)=1\}.
+\]
+Complementary slackness gives
+\begin{equation}
+ z_b=1\ (b\in H),\qquad z_b=0\ (X(b)<1),\qquad
+ \sum_bz_bv_p(b)=D_p(A)\ (w_p>0).
+ \label{eq:cs}
+\end{equation}
+Consequently
+\begin{equation}
+ F=|H|+\sum_{b\in T}z_b.\label{eq:Fboundary}
+\end{equation}
+The threshold-one contribution is essential and is retained below.
+
+\begin{theorem}[Joint block-deletion loss]
+Let \(B_1,\ldots,B_N\) be pairwise disjoint sets of prime coordinates;
+they need not exhaust the support. Let \(w^{(j)}\) be obtained by setting
+the weights on \(B_j\) to zero. Put
+\[
+ \Delta_j(n)=\sum_{p\in B_j}w_pv_p(n),\qquad
+ \ell_j=F-\Phi_A(w^{(j)}).
+\]
+Then
+\begin{equation}
+ \ell_j=\sum_{b\in H}\pos{\Delta_j(b)-(X(b)-1)}
+       +\sum_{b\in T}z_b\Delta_j(b),\label{eq:blockexact}
+\end{equation}
+and
+\begin{equation}
+ \boxed{\quad 0\le\sum_{j=1}^N\ell_j\le F.\quad}
+ \label{eq:blocksum}
+\end{equation}
+In particular, one block can be deleted at a loss of at most \(F/N\).
+\end{theorem}
+
+\begin{proof}
+Every nonzero contribution to \(\Delta_j\) belongs to an active tight
+row, so
+\[
+ \sum_{a\in A}\Delta_j(a)=\sum_{b\in I}z_b\Delta_j(b).
+\]
+Insert this in the difference of the two dual objectives. At a hot
+target its contribution is
+\[
+ \Delta_j-\bigl[(X-1)-(X-\Delta_j-1)_+\bigr]
+ =\pos{\Delta_j-(X-1)}.
+\]
+At a threshold-one target the contribution is \(z_b\Delta_j(b)\).
+At a cold target both hinges vanish and \(z_b=0\). This proves
+\eqref{eq:blockexact} and the nonnegativity of each loss.
+
+For nonnegative numbers \(y_j\) and \(t\ge0\),
+\(\sum_j(y_j-t)_+\le(\sum_jy_j-t)_+\). At each hot target,
+disjointness gives \(\sum_j\Delta_j(b)\le X(b)\), and hence
+\[
+ \sum_j\pos{\Delta_j(b)-(X(b)-1)}\le1.
+\]
+At a threshold-one target the sum is at most \(z_bX(b)=z_b\).
+Summing and using \eqref{eq:Fboundary} proves \eqref{eq:blocksum}.
+\end{proof}
+
+This proof spends each target's capacity once. Its bound contains no
+factor for the number of source patterns, the number of primes, or
+the total weighted source load. The statement concerns deleting each
+block separately from the same optimum; it does not justify adding
+these loss bounds for the simultaneous deletion of many blocks.
+
+\subsection{A weight gap derived at a controlled cost}
+
+Fix \(R>1\) and an integer \(N\ge1\), and take
+\[
+ B_j=\{p:R^{-j-1}<w_p\le R^{-j}\},\qquad 0\le j<N.
+\]
+For one of these bands, write \(b=R^{-j}\), \(a=b/R\), and let \(w'\)
+be the deleted vector. Then
+\begin{equation}
+ \Phi_A(w')\ge F-F/N,\qquad
+ w'_p\in[0,a]\cup(b,1].\label{eq:weightgap}
+\end{equation}
+This is a gap in the weights, not an assumed gap between prime sizes.
+For fixed \(N,R\), the selected threshold belongs to a finite fixed
+list, so uniform statements valid at each fixed threshold can be
+applied to the selection.
+
+The sparse reduction below gives at most
+\(K(b)\le4(\lfloor1/b\rfloor+1)\) substantial occurrences per retained
+source. Thus
+\begin{equation}
+ a(K(b)+1)\le9/R.\label{eq:gapsmall}
+\end{equation}
+This avoids the invalid parameter choice of taking \(K=O(1/\eta)\)
+and then assuming that \(\eta K\) becomes small as \(\eta\to0\).
+It does not bound the total number of substantial prime coordinates.
+
+More generally the bands may be chosen recursively as
+\((b_{j+1},b_j]\), with \(1=b_0>b_1>\cdots>b_N>0\).
+After \(b_j\) is fixed, \(b_{j+1}\) may be made as small as any
+specified function of \(K(b_j)\). The same loss bound selects one
+of the finitely many bands. This resolves parameter requirements on
+the light weight itself, but does not bound a later multiplier on
+the objective loss \(F/N\).
+
+\section{Minimality and the exact costs of renormalization}
+
+For some arguments it is useful to choose a separate raw-minimal
+failure at fixed \(M,I\), with budget \(c>2\):
+\[
+ F=\LP(A,I)=cm+e>cm,\qquad
+ \LP(S,I)\le c|S|\quad(S\subsetneq A).
+\]
+Such a reduction is justified in the preceding report. It is distinct
+from the original integer-minimal class in Section 1.
+At an optimal dual, weak duality on \(A\setminus\{a\}\) gives
+\[
+ X_w(a)\ge c+e>c,\qquad
+ 0<e\le\log_2M-c,
+\]
+and the quadratic ambient gate gives \(M<16m^2\). In particular
+\(F=cm+o(m)\) and \(|H|=O_c(m)\).
+
+For any nonnegative test vector \(v\), proper-subset minimality gives
+the exact global shortfall bound
+\begin{equation}
+ \sum_{a\in A}\pos{c-X_v(a)}\le\pos{cm-\Phi_A(v)}.
+ \label{eq:shortfall}
+\end{equation}
+Indeed, take \(S=\{a:X_v(a)>c\}\). If \(S=A\) the assertion is
+immediate. Otherwise \(\Phi_S(v)\le c|S|\), with the same full target
+hinge, and subtraction gives \eqref{eq:shortfall}.
+
+Apply this to a band deletion with loss \(\ell\le F/N\). For
+\(0<\gamma<c\), let
+\(B_{\rm low}=\{a:X_{w'}(a)\le c-\gamma\}\). Then
+\begin{equation}
+ |B_{\rm low}|\le\ell/\gamma,\qquad
+ W_{\rm low}:=\sum_{a\in B_{\rm low}}X_{w'}(a)
+ \le(c-\gamma)\ell/\gamma.\label{eq:lowdiscard}
+\end{equation}
+If a further exceptional set has original weighted demand \(o(m)\),
+delete it too and call the remaining set \(G'\), of size \(g'\). Then
+\begin{equation}
+ g'\ge m-F/(N\gamma)-o(m),\qquad
+ \Phi_{G'}(w')\ge cg'-F/N-o(m).\label{eq:aftergap}
+\end{equation}
+The second inequality retains the cardinality credit from deleting
+low-load sources; it is sharper than merely subtracting all their
+weighted demand.
+
+Although \(w'\) need not be optimal, \(H'\subseteq H\), and every
+remaining active row is still exactly tight in the original primal
+solution. Thus, for every \(U'\subseteq H'\),
+\begin{equation}
+ V_p(U')\le D_p(A)\quad(w'_p>0),\qquad
+ \sum_pw'_p\pos{V_p(U')-D_p(G')}
+ \le \frac{(c-\gamma)F}{N\gamma}+o(m).\label{eq:aftergaprow}
+\end{equation}
+This error is generally a small \emph{linear} error, not \(o(m)\) at
+fixed \(N\). If a subsequent estimate multiplies it by a constant
+depending on \(K(b)\), that dependence must be checked: increasing
+\(N\) can also decrease \(b\) and increase \(K(b)\). No such constant
+may be absorbed by an unsupported choice of ``sufficiently large
+\(N\).''
+
+\section{Uniform constraints from a sparse hot set}
+
+Write \(\rho=m/M\) and
+\(\mu=\sum_p w_p/(p-1)\). In this section sparsity means a sequence of
+actual optimal obstructions with \(\rho\to0\); it is not asserted that
+all obstructions have this property.
+
+\subsection{Cold initial segment}
+
+If \(X(d)>1\), every interval multiple of \(d\) lies in \(H\), so
+\[
+ \lfloor M/d\rfloor\le h:=|H|,\qquad d>M/(h+1).
+\]
+Consequently \(X(d)\le1\) for every integer \(d\le M/(h+1)\).
+For fixed \(\eta>0\), set \(s=\lfloor1/\eta\rfloor+1\). If
+\(w_p\ge\eta\), then
+\begin{equation}
+ p^s>M/(h+1).\label{eq:coldprime}
+\end{equation}
+Thus substantial primes tend to infinity in the sparse regime, since
+\(h=O_c(m)\). This conclusion uses raw additivity; it must not be
+transferred to capped per-prime profiles in Section 7.
+
+\subsection{An exponential moment and the weighted mean}
+
+Let \(t=\log(3/2)\). A nonnegative divisor expansion gives
+\begin{equation}
+ \frac1M\sum_{n\le M}e^{tX(n)}
+ \le\prod_p\frac{p-1}{p-e^{tw_p}}\le e^\mu.
+ \label{eq:expmoment}
+\end{equation}
+For completeness, the local divisor coefficients are
+\(g(p^j)=e^{tw_pj}-e^{tw_p(j-1)}\ge0\). Counting multiples bounds the
+mean by \(\sum_dg(d)/d\), the displayed Euler product. Since
+\(e^{tw}-1\le w/2\) and
+\(p-e^{tw}\ge(p-1)/2\), the logarithm of each factor is at most
+\(w/(p-1)\).
+Distinctness and Jensen's inequality now imply
+\begin{equation}
+ \sum_{a\in A}X(a)\le\frac m t\{\log(M/m)+\mu\}.
+ \label{eq:actualjensen}
+\end{equation}
+
+All source primes are at most \(M\). Prime-power multiple counts give
+\begin{equation}
+ 0\le\mu-\frac1M\sum_{n\le M}X(n)\le e_M,
+ \qquad e_M=\frac{3\pi(M)+\sqrt M\log_2M}{M}=O(1/\log M).
+ \label{eq:prefixmean}
+\end{equation}
+For one prime with \(J_p=\lfloor\log_pM\rfloor\), the rounding and
+infinite-tail errors total at most \((J_p+2)/M\). Summing and counting
+the prime powers proves the explicit bound. This argument does not
+truncate any target exponent.
+
+Finally,
+\(H_I(w)\ge\sum_I X-M\ge\sum_{n\le M}X-M\). Combining this with
+\eqref{eq:actualjensen}--\eqref{eq:prefixmean} yields, when \(\rho<t\),
+\begin{equation}
+ (1-\rho/t)\mu\le1-F/M+(\rho/t)\log(1/\rho)+e_M.
+ \label{eq:meanbound}
+\end{equation}
+Hence along every sparse raw-minimal sequence,
+\begin{equation}
+ \boxed{\quad\mu\le1+O(\rho\log(1/\rho))+O(1/\log M)=1+o(1).\quad}
+ \label{eq:sparsemean}
+\end{equation}
+The analogous integer-minimal bound adds only its known rounding
+error divided by \(M\).
+
+\subsection{A joint bound for substantial primes in a lower range}
+
+Fix \(\eta\in(0,1]\), let \(s\eta>1\) with integer \(s\ge2\), and put
+\[
+ P_\eta(z)=\{p\le z:w_p\ge\eta\},\quad k=|P_\eta(z)|,
+ \quad\mu_0=\sum_{p\in P_\eta(z)}1/p,
+\]
+\[
+ E_s(k)=\binom{k}{s}+(s+1)\binom{k}{s+1}.
+\]
+The following finite inequality holds for every shift:
+\begin{equation}
+ \min(\mu_0,1/2)\le
+ s\left(\frac{h+1}{M}\right)^{1/s}
+ +\left(\frac{2s!\{h+E_s(k)\}}M\right)^{1/s}.
+ \label{eq:bonf}
+\end{equation}
+Here is the proof, retaining the arithmetic error. Let
+\(a_0=\max_{p\in P_\eta(z)}1/p<((h+1)/M)^{1/s}\), and choose a
+subset \(Q\) of reciprocal mass \(\mu'\le1/2\) with
+\(\mu'\ge\min(\mu_0,1/2)-a_0\). For every nonnegative integer \(N\),
+\[
+ \one_{N\ge s}\ge\binom Ns-(s+1)\binom N{s+1}.
+\]
+Apply this to the number of distinct \(Q\)-primes dividing a target.
+Using ordinary multiple counts and the elementary symmetric sums
+\(e_j((1/p)_{p\in Q})\) gives
+\[
+ h+E_s(k)\ge M(e_s-(s+1)e_{s+1})\ge\tfrac12Me_s.
+\]
+The second step uses \((s+1)e_{s+1}\le\mu'e_s\). Ordered products give
+\[
+ s!e_s\ge\pos{\mu'-(s-1)a_0}^{s}
+ \ge\pos{\min(\mu_0,1/2)-sa_0}^{s}.
+\]
+Taking roots proves \eqref{eq:bonf}. Empty prime sets are immediate.
+
+At an actual raw-minimal failure choose
+\(s=\lfloor1/\eta\rfloor+1\) and \(z=M^{1/[2(s+1)]}\).
+Chebyshev's estimate and \(M<16m^2\) give
+\[
+ E_s(k)=O_s\!\left(\frac{\sqrt M}{(\log M)^{s+1}}\right)=o_s(m).
+\]
+Therefore, in the sparse regime,
+\begin{equation}
+ \mu_{\rm low}:=\sum_{p\le z,\ w_p\ge\eta}\frac1p
+ =O_{c,\eta}(\rho^{1/s}).\label{eq:lowharmonic}
+\end{equation}
+The rounding term in \eqref{eq:bonf} is essential. The argument does
+not permit replacing \(z\) by the largest source prime and dropping
+that term.
+
+\section{Deleting exceptional sources by their weighted demand}
+
+\begin{lemma}[Weighted monomial bound]
+For a finite prime set \(Q\), let \(\mu_Q=\sum_{p\in Q}1/p\) and
+\(\Omega_Q(n)=\sum_{p\in Q}v_p(n)\). For every integer \(k\ge1\),
+\begin{equation}
+ \sum_{\substack{n\le M\\\Omega_Q(n)\ge k}}X(n)
+ \le M(k+\mu)h_k((1/p)_{p\in Q})
+ \le M(k+\mu)\mu_Q^k.\label{eq:monomial}
+\end{equation}
+Here \(h_k\) is the complete homogeneous symmetric polynomial;
+prime powers are counted with their repetitions.
+\end{lemma}
+\begin{proof}
+Every integer on the left has a \(Q\)-smooth divisor \(d\) of total
+degree \(k\). For each such distinct monomial,
+\[
+ \sum_{r\le M/d}X(dr)
+ =\lfloor M/d\rfloor X(d)+\sum_{r\le M/d}X(r)
+ \le(M/d)(k+\mu).
+\]
+The nonnegative union bound and summation over \(d\) prove the first
+inequality. The expansion of \((\sum_Q1/p)^k\) contains every such
+monomial with a coefficient at least one, proving the second.
+\end{proof}
+
+Apply this to the low substantial primes in \eqref{eq:lowharmonic},
+with \(k=s+1\). Using \eqref{eq:sparsemean}, the weighted demand of all
+sources with at least \(s+1\) such occurrences is
+\[
+ O_{c,\eta}(M\rho^{(s+1)/s})
+ =O_{c,\eta}(m\rho^{1/s})=o(m).
+\]
+Every remaining source has at most \(s\) low substantial occurrences.
+It has at most \(2s+1\) occurrences of primes exceeding
+\(z=M^{1/[2(s+1)]}\), because \(2s+2\) such occurrences would have
+product greater than \(M\). Thus it has at most
+\begin{equation}
+ K(\eta)=3s+1\le4s\label{eq:boundedocc}
+\end{equation}
+substantial occurrences in total. This bounds occurrences per source,
+not the number of prime values in their union.
+
+If the exceptional sources have weighted demand \(W_B=o(m)\), the
+same original dual satisfies \(\Phi_{A\setminus B}=\Phi_A-W_B\).
+For any subset \(U\) of its full hot set, original tight-row balance
+also gives
+\[
+ \sum_pw_p\pos{V_p(U)-D_p(A\setminus B)}\le W_B.
+\]
+Hence both the objective and the positive row-excess normalization
+survive this deletion uniformly. No new minimality or optimality of
+the retained set is asserted.
+
+\section{A local hot-divisor lemma and its exact scope}
+
+Let \(a\) have load \(s_a=X(a)\), let \(u=\max_{q\mid a}w_q\), and
+fix an occurrence of \(p\mid a\) with \(v=w_p>0\).
+For any integer \(k\ge2\), if
+\begin{equation}
+ s_a>k+(k-1)(u-v),\label{eq:partitioncondition}
+\end{equation}
+there is a divisor \(d\mid a\) such that
+\begin{equation}
+ p\mid d,\quad X(d)>1,\quad d\le p^{1-1/k}a^{1/k}.
+ \label{eq:partitiond}
+\end{equation}
+To see this, remove one occurrence of \(p\), and greedily form the
+first \(k-1\) groups of remaining occurrences, stopping each just
+after its weight exceeds \(1-v\). Each group's weight is at most
+\(1-v+u\). Condition \eqref{eq:partitioncondition} ensures that the
+remaining last group also has weight greater than \(1-v\). Assign
+zero-weight occurrences to any group. The product of the \(k\)
+group-products is \(a/p\); one is at most \((a/p)^{1/k}\). Multiply
+that group by \(p\) to obtain \eqref{eq:partitiond}.
+
+At an actual optimum its entire bank is hot, and active-row balance
+therefore gives
+\begin{equation}
+ D_p(A)\ge\left\lfloor(M/p)^{1-1/k}\right\rfloor.
+ \label{eq:partitiondemand}
+\end{equation}
+For a maximum-weight occurrence, \eqref{eq:partitioncondition} only
+requires \(s_a>k\). In particular, every maximum-weight prime in a
+source of load greater than two obeys
+\(D_p(A)\ge\lfloor\sqrt{M/p}\rfloor\).
+
+If \(Q_k\) is a set of qualifying active primes, then
+\[
+ \sum_{p\in Q_k}\frac{\log p}{p^{1-1/k}}
+ \le\frac{2m\log M}{M^{1-1/k}}.
+\]
+This follows by multiplying \eqref{eq:partitiondemand} by \(\log p\),
+using \(\lfloor t\rfloor\ge t/2\) for \(t\ge1\), and summing the
+actual demands. These inequalities need not be small enough to
+contradict the minimal class throughout \(M<16m^2\). They do not
+pay for all core coordinates with one hinge budget.
+
+\section{A stronger LP: whole prime-power components}
+
+This is a separate possible route. Its necessary conditions must not
+be assigned to a raw-minimal instance without a proof of transfer.
+Let
+\(N_A(p^j)=|\{a\in A:p^j\mid a\}|\). Replace the valuation constraints
+in \eqref{eq:primal} by
+\[
+ \sum_{b\in I:p^j\mid b}z_b\ge N_A(p^j)
+ \quad(1\le j\le\max_{a\in A}v_p(a)).
+\]
+The resulting optimum \(\atLP\) is at least \(\LP\). Its dual has
+nonnegative level prices and monotone profiles
+\[
+ U(n)=\sum_p u_p(v_p(n)),\qquad
+ u_p(e)=\sum_{j\le e}\alpha_{p,j}.
+\]
+Every profile may be capped at one without decreasing the objective.
+Indeed, write \(U=U'+T\), with \(u'_p=\min(u_p,1)\). Then
+\((U-1)_+=(U'-1)_++T\), because any positive tail already has a
+capped contribution of one. The nonnegative prime-power increments
+of \(T\) give \(\sum_A T\le\sum_{n\le M}T\le\sum_I T\).
+
+At this LP's own minimal failure of a budget \(c>2\), every source
+has \(U(a)>c\), hence at least three distinct active primes. All
+targets with \(U>1\) are saturated, and each active level row is
+exactly tight. If \(Q_q=q^{v_q(a)}\), the full bank of \(a/Q_q\)
+is hot, since removing a whole prime profile costs at most one.
+For any different active prime \(p\mid a\) and one of its active
+levels \(p^j\mid a\), this gives
+\begin{equation}
+ N_A(p^j)\ge N_I(a/Q_q)\ge Q_q.
+ \label{eq:componentm}
+\end{equation}
+In particular \emph{every} complete prime-power component of every
+source is at most \(m\), including inactive components.
+
+There is a stronger exact union inequality. For fixed \(a,p\), all
+intersections of two distinct banks \(a/Q_q\), \(q\ne p\), are exactly
+the \(a\)-multiples. Put
+\(t_a=\lfloor M/a\rfloor\) and
+\(S_a=\sum_{q\mid a}(Q_q-1)\). In every complete period of length
+\(a\), their union contains exactly
+\(1+S_a-(Q_p-1)\) positions. Thus
+\begin{equation}
+ N_A(p^j)\ge t_a\{1+S_a-(Q_p-1)\}.
+ \label{eq:componentunion}
+\end{equation}
+Sum over one active level for each of the \(r_a\ge3\) active primes
+in \(a\). Each demand is at most \(m\), while
+\(\sum_{p\ {\rm active}}(Q_p-1)\le S_a\). Therefore
+\begin{equation}
+ \boxed{\quad
+ \sum_{q\mid a}(q^{v_q(a)}-1)
+ \le\frac{r_a}{r_a-1}\left(\frac m{\lfloor M/a\rfloor}-1\right)
+ \le\frac32\left(\frac m{\lfloor M/a\rfloor}-1\right).
+ \quad}\label{eq:componentsum}
+\end{equation}
+This is an actual-arithmetic union count, not a sum that repeatedly
+spends the same capacity within a row. It has not been shown to
+contradict all possible minimal instances.
+
+The number of this LP's rows is now at most
+\[
+ \sum_{j\ge1}\pi(m^{1/j})
+ \le\pi(m)+\sqrt m\log_2m=o(m).
+\]
+A cubic ambient gate \(M\ge8m^3\) also holds for the stronger integer
+count-cover problem. Its complete proof, including the assignment
+of whole prime-power components, is in the accompanying atom-LP
+note. The raw quadratic gate cannot simply be imported: splitting
+a prime power across two targets may satisfy valuation demand while
+failing the separate level-count demand. Most importantly, none of
+these stronger-LP reductions proves the required upper bound on its
+optimum, nor a pointwise \(J_{\rm weak}\) for a fixed original raw dual.
+
+\section{A verified failure of a same-threshold shortcut}
+
+Bounded substantial occurrences per source do not imply a uniform
+quadratic-error comparison of the two \emph{threshold-one} hinges.
+The accompanying certificate constructs genuine integer intervals
+with \(k\) unit-weight primes in \([P,1.1P]\), \(M=p_{\max}^4\), and
+\begin{equation}
+ \sum_{a\le M}(X(a)-1)_+-\sum_{b\in I}(X(b)-1)_+
+ \ge\binom{k-1}{4}-\binom k2-3k.
+ \label{eq:barrier}
+\end{equation}
+Each prefix integer has at most four support-prime occurrences,
+including powers. The interval is centered at a CRT solution
+\[
+ C\equiv(p^5-p)/2\pmod{p^5}
+ \quad\text{for every support prime }p.
+\]
+The proof uses exact inclusion-exclusion for the capped support count
+and then restores the raw powers. It is supplied in full with an
+integer-arithmetic verifier, rather than inferred from a numerical
+sampling experiment.
+
+For the explicit set of twenty primes from \(1009\) through \(1123\),
+\(M=1123^4=1590446354641\). The independently checked certificate gives
+\[
+ \text{capped threshold-one deficit}=4360,\qquad
+ \text{raw threshold-one deficit}=4321.
+\]
+In a growing close-prime family the lower bound in \eqref{eq:barrier}
+is \(\Omega(k^4)\). The smallest support prime tends to infinity and
+\(\sum_p1/(p-1)\) can tend to zero. Therefore these extra properties
+do not rescue an \(O(k^2)\) same-threshold error bound.
+
+\textbf{This is not a counterexample to \(J_{\rm weak}\).} The
+requested inequality uses a source threshold above two and a target
+threshold one, together with minimality and active-row balance. The
+certificate does not satisfy that full set of hypotheses. Its role
+is only to exclude a proposed intermediate lemma that would otherwise
+silently replace the required joint argument.
+
+\subsection{Why bounded active occurrences do not control all carriers}
+
+There is an even more elementary obstruction to two tempting carrier
+counts. Fix three active primes \(p_1<p_2<p_3\), all with weight one,
+put \(Q=p_1p_2p_3\), and take
+\[
+ A=\{Qu:1\le u\le L,\ (u,Q)=1\},\qquad M=QL.
+\]
+Every source has exactly three active occurrences. If its inactive
+cofactor is discarded, removing \(p_3\) gives the same active carrier
+\(d=p_1p_2\) for \(\asymp_Q L\) sources. This is not a prime fibre:
+\(\pi(M/d)=\pi(p_3L)=o_Q(L)\).
+
+If instead one keeps the inactive factor, the carriers are
+\(d_u=p_1p_2u\). At the target
+\[
+ b=p_1p_2\mathop{\rm lcm}\{u\le L:(u,Q)=1\},
+\]
+all these carriers divide \(b\). The remaining cofactor \(b/d_u\)
+contains no active prime. A discount that examines only extra active
+primes therefore assigns its full positive value to every carrier,
+although \((X(b)-1)_+=1\). Their positive multiplicity is unbounded.
+
+This example is also \emph{not} an actual optimal obstruction: its
+entire \(p_1p_2\)-bank is hot and supplies at least \(p_3L\) units of
+\(p_1\), exceeding \(D_{p_1}(A)\le L\). It demonstrates exactly why
+bounded active degree alone does not justify either carrier count,
+and why the actual joint demand balances must enter the missing proof.
+
+\section{The precise missing estimate}
+
+For the original normalized data of Section 1 there is an exact
+identity with a single target budget:
+\begin{equation}
+ \Phi_G(w)=|U|+\sum_pw_p\{D_p(G)-V_p(U)\}
+       -\sum_{b\in I\setminus U}\pos{X_w(b)-1}.
+ \label{eq:residual}
+\end{equation}
+Replacing the signed residual demands by their coordinatewise
+positive parts adds exactly \(\Xi=o(m)\). The missing statement is
+an upper bound on \eqref{eq:residual} by
+\((2+2\delta)|G|+o_\delta(m)\). None of the new lemmas bounds the
+remaining \emph{positive} residual demands by that amount.
+
+In the sparse branch, the reductions now provide all of the following
+without assuming a special source class: a weighted mean at most
+\(1+o(1)\); a bounded number of substantial occurrences per retained
+source at each fixed weight threshold; substantial primes tending to
+infinity; a derived weight gap with small objective loss; and the
+original exact active-row balance for the retained hot targets.
+The global number of substantial primes remains unbounded.
+
+The unresolved step is a uniform \emph{joint} comparison for the
+diffuse load and these substantial occurrences. Applying a conditional
+estimate independently to each heavy factor pattern charges the
+same target repeatedly. A theorem for finitely many exceptional
+coordinates globally does not apply to a bound on occurrences in
+each individual source. The band-deletion lemma resolves a numerical
+parameter circularity, but does not resolve this overlap issue.
+Its controlled linear loss also cannot be magnified by unspecified
+pattern-dependent constants.
+
+The branch in which \(m/M\) stays bounded away from zero has not been
+excluded either. A separate companion note records an approximation
+of its small-weight core by a constant using first and second moments;
+it leaves a shifted heavy-profile hinge estimate unproved.
+
+Accordingly, the proved facts in this report are reductions and exact
+auxiliary inequalities. Neither \(J_{\rm weak}\), the stronger formula
+(91) of the earlier report, the unrestricted coefficient-two
+asymptotic, nor the exact \(2n\) bound is claimed. No new finite value
+of \(g(n)\) is computed, and no additional restricted covering class
+is offered as fulfillment of the stated goal.
+
+\begin{thebibliography}{9}
+\bibitem{previous} Research working note, \emph{Erd\H{o}s 708: Global
+Dual Normalization and the Remaining Joint Inequality}, 23 November
+2026. Preceding report and its reproducibility bundle.
+\bibitem{wang} Interval-divisor-cover project, result catalogue and
+retained source proof of the quadratic ambient theorem:
+\url{https://github.com/science-prince/erdos-708-interval-divisor-covers/blob/main/docs/RESULTS.md}.
+The theorem is used here as an inherited, previously audited input.
+\bibitem{chen} H. Chen, \emph{Explicit upper bounds for the
+Erd\H{o}s--Sur\'anyi function \(g(n)\)}, source repository:
+\url{https://github.com/chy4pro/erdos-708-explicit-upper-bounds}.
+The prime-power-count hinge formulation is also discussed in the
+retained manuscript's remaining-problems section.
+\bibitem{bloom} T. F. Bloom, \emph{Erd\H{o}s Problem 708},
+\url{https://www.erdosproblems.com/708}. Problem statement, including
+the separate asymptotic and exact coefficient-two questions.
+\end{thebibliography}
+\end{document}

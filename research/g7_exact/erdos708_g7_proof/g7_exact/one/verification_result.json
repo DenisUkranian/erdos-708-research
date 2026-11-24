@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "theorem": "No least-M, maximal-sum counterexample to g(7)<=9 with exactly one active prime >=11 exists, subject to the stated global reductions.",
+  "prior_bounds": [
+    "g(2)<=2",
+    "g(3)<=4",
+    "g(4)<=5",
+    "g(5)<=6",
+    "g(6)<=8"
+  ],
+  "global_finite_cutoff": 24696,
+  "enumeration": {
+    "configs": 59982,
+    "raw": 24796,
+    "pair": 34408,
+    "closure": 8,
+    "graph": 147,
+    "residual": 623,
+    "leaves": 7006656,
+    "unique": 658925,
+    "core": 170069,
+    "union": 51088,
+    "fullpack": 203,
+    "unknown": 252176
+  },
+  "certificate_files": {
+    "slots9.txt": 252105,
+    "slots9_extra.txt": 70
+  },
+  "slot_certificates_independently_checked": 252175,
+  "passed_maximal_demands_rechecked_in_python": 120285,
+  "hand_proved_exception": {
+    "M": 55,
+    "primes": [
+      2,
+      3,
+      5,
+      11
+    ],
+    "demand": [
+      4,
+      9,
+      2,
+      4
+    ],
+    "reference": "ONE_LARGE_PROOF.md, final hand lemma"
+  },
+  "seconds": 19.757
+}

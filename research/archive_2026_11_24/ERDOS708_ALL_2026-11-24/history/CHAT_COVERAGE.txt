@@ -1,0 +1,23 @@
+ERDOS 708 — CHAT AND DOT PROVENANCE CHECK
+Archive preparation date: 2026-11-24 (Europe/Kyiv client date).
+
+This file is a provenance guide, not a complete chat export. USER_CLAIM_EVOLUTION.csv is an English normalized index of claims and requests visible in the supplied conversation and explicitly cited in the saved research notes. It does not pretend to be verbatim message text. Exact original timestamps are recorded only where exposed by retrieval; otherwise ordering is narrative.
+
+LOCAL PROVENANCE THAT WAS READ
+1. ep708_synthesis_20261123/erdos708_synthesis.tex says the 32 n^(5/2) sketch was reconstructed, whereas the later claimed quadratic threshold lacked a complete supplied proof. It uses the separately checked Wang 16 n^2 theorem.
+2. ep708_synthesis_20261123/combinatorial/DOT_32N_FIVE_HALVES_AUDIT.md spells out c^2 K>=1 and why that classification cannot simply be carried into M=C n^2.
+3. ep708_dot_20261123/SOURCE_PROVENANCE.json states that the new dot sketches were pasted by the user in this conversation, not recovered as a separate hidden chat.
+4. ep708_ladder_20261123/PROVENANCE.json and STATUS.json state that the previous history/recent-file check exposed no newer dot proof; the checkpoint used the accessible user-supplied package and audited notes.
+5. The local dot and ladder TeX manuscripts, the near-quadratic audit, the large-prime reductions audit, and the joint three/four certificate audit were inspected for exact scope and provenance.
+
+WHAT WAS NOT FOUND LOCALLY
+The inspected project has research reports and provenance records, but no separately authenticated full transcript export of a dot-mode conversation. The available dot package is the user's pasted account plus subsequent mathematical audits. No source file here establishes access to a live or hidden dot session.
+
+COVERAGE LIMIT
+The archive may truthfully state that accessible related history and project files were checked. It must not claim that every private chat was exported or exhaustively read. Three root-level history searches completed successfully: broad #708 inventory; the four dot-origin claims; and material earlier or later than the known report series. They returned the known current-thread reports and retrospective summaries, but no separately authenticated dot-origin transcript, additional originating attachment, or newer #708 report. Unrelated and inconsistent retrieval hits were excluded. Separate child-level attempts failed before retrieval and add no negative evidence. Search output is not a complete chat export.
+
+STATUS
+The latest saved STATUS.json explicitly records general_asymptotic_proved=false and exact_2n_proved=false. Historical goal statements, threshold claims, and partial certificates are not an unconditional solution.
+
+LIBRARY CROSS-CHECK
+Title searches and a complete recursive recent-file listing identified 22 #708 items: 11 PDFs and 11 ZIPs. All were materialized successfully. Every ZIP matches an existing local archive byte-for-byte, and all archive members match locally available files. The 11 standalone PDF copies have different binary bytes from the generated originals but identical pdftotext -layout output; both binary forms are preserved. The latest recovered item remains the proof-ladders report. The continuation report contains the referenced Section 8 / formula (91). No new research was performed during this collection task.

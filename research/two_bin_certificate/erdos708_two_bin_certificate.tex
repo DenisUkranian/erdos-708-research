@@ -1,0 +1,362 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=0.85in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{xcolor,hyperref,enumitem}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\pp}[1]{\left(#1\right)_+}
+\newcommand{\K}{\mathcal K}
+\newcommand{\Om}{\Omega}
+\setlength{\emergencystretch}{2em}
+\title{A general two-bin certificate for Erd\H{o}s Problem 708}
+\author{Research note: a proved lemma and the remaining arithmetic gap}
+\date{24 November 2026; revised after the user's counterexample}
+\begin{document}
+\maketitle
+\noindent\textbf{Revised status.} The general pointwise two-bin certificate remains proved. The unrestricted full-prefix transfer proposed in the first version is \textbf{false}: the user's construction, audited in Section~\ref{sec:user-counter}, gives a deficit of order $M^{10/17}$. The corrected own-full-tail estimate remains unproved. Neither $g(n)\le(2+o(1))n$ nor $g(n)\le2n$ is claimed.
+
+\section{Setup and the new proved statement}
+Let $M\ge1$ and let $I$ be any interval of $M$ consecutive positive integers. For finitely supported prices $0\le w_p\le1$, put
+\[
+ X(t)=\sum_p w_pv_p(t),\qquad h(t)=\prod_{w_p>0}p^{v_p(t)}.
+\]
+Thus $h(t)$ is the full active part, with every exponent retained. Primes larger than $M$ can be removed in the raw surplus problem. For $c=2+\delta>2$, write
+\[
+ A=\{a\le M:X(a)>c\},\quad n=|A|,\quad
+ J_c=\sum_{a\le M}\pp{X(a)-c}-\sum_{b\in I}\pp{X(b)-1}.
+\]
+For a nonunit divisor $d$ supported on active primes, define
+\begin{equation}\label{eq:root}
+ r_w(d)=\max\left(0,\min\left\{\min_{p\mid d}w_p,
+                   \frac{X(d)-1}{\Om(d)}\right\}\right),
+ \qquad \Om(d)=\sum_pv_p(d).
+\end{equation}
+Set $r_w(1)=0$. For a scale $L\ge1$, let
+\begin{equation}\label{eq:kernel}
+ m_{p,L}(t)=\max_{\substack{d\mid h(t),\ p\mid d\\d^2\le Lp}}r_w(d),
+ \qquad \K_L(t)=\sum_pv_p(t)m_{p,L}(t),
+\end{equation}
+where an empty maximum is zero.
+
+\begin{theorem}[Uniform pointwise certificate]\label{thm:arith}
+For every weight system as above,
+\begin{align}
+ \K_M(b)&\le\pp{X(b)-1} &&\text{for every positive integer }b,\label{eq:target}\\
+ \pp{X(a)-2}&\le\K_{h(a)}(a)\le\K_a(a)\le\K_M(a)
+                   &&\text{for every }a\le M.\label{eq:source}
+\end{align}
+There is no restriction on the number of active primes, their sizes or spacing, the number of occurrences, or the shift of $I$.
+\end{theorem}
+
+The source uses its \emph{own active size}. Replacing it by the ambient scale $M$ preserves the pointwise lower bound but can discard useful reserve; an exact example appears in Section~\ref{sec:failure}.
+
+\section{Proof by two bins}
+\begin{lemma}\label{lem:bins}
+Let $V$ be a finite set, with weights $u_i\in[0,1]$ and sizes $\ell_i>0$. Put $U=\sum_i u_i$ and $L=\sum_i\ell_i$. For every nonempty $E\subseteq V$ define
+\[
+ r(E)=\max\left(0,\min\left\{\min_{j\in E}u_j,
+                     \frac{\sum_{j\in E}u_j-1}{|E|}\right\}\right).
+\]
+In row $i$, permit all $E\ni i$ satisfying
+\begin{equation}\label{eq:size}
+ 2\sum_{j\in E}\ell_j-\ell_i\le L,
+\end{equation}
+and let $m_i$ be the maximum $r(E)$ over these sets. Then
+\begin{equation}\label{eq:bins}
+ \pp{U-2}\le\sum_i m_i\le\pp{U-1}.
+\end{equation}
+The upper bound remains valid for arbitrary permitted families, chosen independently in the different rows.
+\end{lemma}
+
+\begin{proof}
+Every $m_i$ is nonnegative and at most $u_i$. For the upper bound, there is nothing to prove if all maxima vanish. Otherwise choose a row and a permitted set $E$ attaining the largest row maximum, say $r>0$. For every $j\in E$, $m_j\le r$, regardless of whether $E$ is permitted in row $j$. Consequently
+\[
+ \sum_{j\in E}(u_j-m_j)
+ \ge\sum_{j\in E}u_j-|E|r\ge1.
+\]
+All terms outside $E$ are nonnegative. This proves $U-\sum_i m_i\ge1$, and hence the upper bound using one common budget.
+
+For the lower bound, set $v_i=u_i-m_i\in[0,1]$. Suppose, for a contradiction, that $\sum_i v_i>2$. Process the indices in nonincreasing order of $m_i$, placing items of size $v_i$ into either of two bins of capacity one. Use any rule when both bins can accept an item. At some first item $i$, placement must fail. If the current bin contents are $S$ and $T$, then
+\begin{equation}\label{eq:failed}
+ v_i+\sum_{j\in S}v_j>1,\qquad
+ v_i+\sum_{j\in T}v_j>1.
+\end{equation}
+Also $m_j\ge m_i$ for every previously placed $j$. Let $E=\{i\}\cup S$ and $F=\{i\}\cup T$. These sets intersect only at $i$, and
+\[
+ [2\ell(E)-\ell_i]+[2\ell(F)-\ell_i]
+   =2\bigl(\ell_i+\ell(S)+\ell(T)\bigr)\le2L.
+\]
+At least one of $E,F$, say $E$, satisfies \eqref{eq:size} in row $i$.
+
+Remove from $E$ any $j\ne i$ for which $u_j=m_i$ and $v_j=0$. This preserves eligibility and the strict inequality $\sum_{j\in E}v_j>1$. The failed item has $v_i>0$, so it is not removed. Every remaining $u_j$ is strictly larger than $m_i$: indeed $u_j=v_j+m_j\ge v_j+m_i$, and the only possible equality case was removed. Moreover,
+\[
+ \sum_{j\in E}(u_j-m_i)
+ =\sum_{j\in E}\bigl(v_j+m_j-m_i\bigr)
+ \ge\sum_{j\in E}v_j>1.
+\]
+Both arguments in the minimum defining $r(E)$ are therefore strictly greater than $m_i$. This gives $r(E)>m_i$, a contradiction. Hence $\sum_i v_i\le2$, proving the lower bound.
+\end{proof}
+
+\paragraph{Arithmetic specialization.}
+Represent every occurrence of a prime $p$ as a separate item of weight $w_p$ and size $\log p$. For a source $a$, their total size is $\log h(a)$. A subset representing a divisor $d$ and containing a designated occurrence of $p$ satisfies \eqref{eq:size} exactly when
+\[
+ 2\log d-\log p\le\log h(a),\quad\text{that is, }d^2\le h(a)p.
+\]
+Any occurrence of the same prime can be designated, so its row maximum is exactly \eqref{eq:kernel}. The lower half of Lemma~\ref{lem:bins} gives \eqref{eq:source}. For a target $b$, use the arbitrary-family upper bound with families $d^2\le Mp$. This gives \eqref{eq:target}, even when $h(b)>M$. The case $h(t)=1$ has all quantities zero. This proves Theorem~\ref{thm:arith}.
+
+\paragraph{Sharpness of the pointwise constant.}
+Take $a=p^{2k}$, $k\ge2$, with the only positive price $w_p=1/k+\varepsilon\le1$. At scale $h(a)=a$, eligible powers $d=p^j$ have $2j\le2k+1$, hence $j\le k$. Their maximum price is $\varepsilon$. Thus
+\[
+ \K_{h(a)}(a)=2k\varepsilon=X(a)-2.
+\]
+The source inequality cannot gain a uniform additional positive amount per source solely from this pointwise construction.
+
+\section{Exact common-budget interpretation}
+If all subsets are permitted, the maxima have a simple closed form. For $U>1$, let $\theta\ge0$ be the unique solution of
+\[
+ \sum_i(u_i-\theta)_+=1.
+\]
+Then $m_i=\min(u_i,\theta)$ and $\sum_i m_i=U-1$. To prove this, first note that $r(E)\le\theta$ for every $E$: otherwise $\sum_{i\in E}(u_i-\theta)>1$. For $H=\{i:u_i>\theta\}$, the set $H$ attains $\theta$. If $u_i\le\theta$, adjoining $i$ to $H$ attains $u_i$. For $U\le1$, all root prices vanish.
+
+The size restriction therefore allows a rigorously controlled loss of at most one further unit, from $U-1$ to $U-2$. This proves common target-budget feasibility and source coverage simultaneously. It does not count how often the permitted divisors occur in an interval.
+
+For $c=2+\delta$, define
+\begin{align*}
+ R_A&=\sum_{a\in A}\bigl(\K_{h(a)}(a)-X(a)+2\bigr)\ge0,\\
+ R_I&=\sum_{b\in I}\bigl((X(b)-1)_+-\K_M(b)\bigr)\ge0,\\
+ \Gamma_c&=\sum_{a\in A}\K_{h(a)}(a)-\sum_{b\in I}\K_M(b).
+\end{align*}
+Then the exact identity is
+\begin{equation}\label{eq:identity}
+ \boxed{J_c=\Gamma_c-\delta n-R_A-R_I.}
+\end{equation}
+No prime-row balances have been transferred to a different source set or to a modified optimum.
+
+\paragraph{The unproved step.}
+The sufficient target is $\Gamma_c\le R_A+R_I+o_\delta(n)$ on genuine positive joint optimizers. It would contradict \eqref{eq:identity} for $n\to\infty$. The stronger assertion
+\begin{equation}\label{eq:unproved}
+ \sum_{a\le M}\K_{h(a)}(a)\le\sum_{b\in I}\K_M(b)
+\end{equation}
+was proposed as a stronger sufficient route in the first version. \textbf{It is false}, by Section~\ref{sec:user-counter}, even if an $O(\sqrt M)$ error is allowed. The own-full-tail assertion remains unproved. Equation~\eqref{eq:identity} records reserves; it is not itself an upper bound for $\Gamma_c$.
+
+If \eqref{eq:unproved} held, Theorem~\ref{thm:arith} would give $\sum_{a\le M}(X(a)-2)_+\le\sum_I(X(b)-1)_+$. Boxed raw duality would imply $L_{\rm raw}(A,I)\le2|A|$. The raw finite-envelope theorem in Wang's manuscript would then give
+\[
+ g(n)\le2n+\pi(4n)-1=(2+o(1))n.
+\]
+This explains the motivation for the now-disproved route; it is not a remaining proof strategy. A valid uniform raw estimate can still use the existing transfer theorem without redoing rounding. The exact integer bound $g(n)\le2n$ remains separate.
+
+\section{Two checks that prevent invalid transfer arguments}\label{sec:failure}
+\subsection{Ambient-source transfer is false}
+Take $M=18$, $w_2=w_3=1$, all other prices zero, and $I=\{9,\ldots,26\}$. Exact rational evaluation gives
+\[
+ \sum_{a\le18}\K_{18}(a)=\frac{17}{2}>8
+ =\sum_{b=9}^{26}\K_{18}(b).
+\]
+In contrast,
+\[
+ \sum_{a\le18}\K_a(a)=\sum_{a\le18}\K_{h(a)}(a)=\frac{13}{2}<8.
+\]
+For $c=21/10$, the own full tail is $\{8,12,16,18\}$, with ambient kernel values $3/2,3/2,2,3/2$. Thus this example rejects an ambient-prefix shortcut, not the active-part transfer \eqref{eq:unproved} or its full-tail version.
+
+\subsection{Independent row and price-level transfer is false}
+Take $M=2N$, unit prices on all primes $p\le M$, and $2<c<3$. Then $A=\{a\le M:\Om(a)\ge3\}$. In row $p=2$ at price level $1/2$, every source $a=2x\in A$ has a permitted divisor $d=2q$: for the least prime factor $q$ of composite $x$, $q^2\le x$, so $d^2/2\le a=h(a)$.
+
+The exact source row-level count, including all occurrences of two, is
+\[
+ S=\sum_{\substack{x\le N\\x\text{ composite}}}(1+v_2(x))
+  =2N-s_2(N)-\pi(N)-2.
+\]
+The target event at $b=2x$ is that $x$ has a prime divisor $q\le\sqrt N$. For the fully explicit interval
+\[
+ N=2{,}000{,}000,\qquad
+ I=\{2^{101}+1,\ldots,2^{101}+4{,}000{,}000\},
+\]
+an integer sieve gives
+\[
+ S=3{,}851{,}058,\qquad U=3{,}845{,}378,
+ \qquad S-U=5{,}680>\sqrt M=2{,}000.
+\]
+The full calculation is included in the companion checker. More generally, averaging actual shifts and using the prime number and Mertens product asymptotics gives row deficits of order $N/\log N$, so no fixed square-root error works for independent row-level transfer.
+
+This example is \emph{not} a positive joint optimizer; its tail is very dense. It does not refute \eqref{eq:unproved}. It shows why summing independently asserted row estimates would be invalid, even with the original full tail and the actual source scale.
+
+\paragraph{A favorable arithmetic fact that does survive.}
+For two eligible roots in the same row $p$,
+\[
+ d^2\le Mp,\quad e^2\le Mp
+ \quad\Longrightarrow\quad
+ \operatorname{lcm}(d,e)\le\frac{de}{p}\le M.
+\]
+Thus unweighted pair intersections are short. Higher intersections need not be short, and complete valuation layers involve $\operatorname{lcm}(p^j,d,e)$, which can exceed $M$. The whole-row balance does not authorize deleting those terms.
+
+\section{An additional general restriction on positive surplus}
+Let
+\[
+ \mu=\sum_{p\le M}\frac{w_p}{p-1},\qquad
+ e=\mu-\frac1M\sum_{a\le M}X(a)\ge0.
+\]
+Prime-power counting gives
+\[
+ \mathbb E X^2\le\mu^2+\sum_p w_p^2\frac{p}{(p-1)^2}
+ \le\mu^2+2\mu.
+\]
+Here and below expectation is over $1,\ldots,M$. For $x\ge0$ and $0\le q\le1$,
+\[
+ \min(x,2)\ge qx-\frac{q^2x^2}{8}.
+\]
+For $x\le2$ the right side is at most $qx\le x$; for $x\ge2$ the quadratic never exceeds two. If $\mu\ge2$, choose $q=4/(\mu+2)$. It follows that
+\[
+ \mathbb E\min(X,2)\ge\frac{2\mu-4e}{\mu+2}.
+\]
+Every prime-power has at least as many multiples in $I$ as in the prefix. Therefore, for $c\ge2$,
+\[
+ J_c\le J_2\le M-\sum_{a\le M}\min(X(a),2).
+\]
+We obtain the uniform necessary condition
+\begin{equation}\label{eq:mean}
+ \boxed{J_c>0\quad\Longrightarrow\quad\mu<2+4e
+        =2+O(1/\log M).}
+\end{equation}
+The floor errors in $e$ are at most the number of prime powers up to $M$, divided by $M$; omitted geometric tails contribute $O(M^{-1/2})$. This proves the displayed uniform error. This mean restriction needs no optimality assumption, but does not prove the arithmetic transfer.
+
+\section{Verification and scope}
+The proof of Lemma~\ref{lem:bins}, not the experiments, establishes its uniformity. A companion exact-rational checker additionally verified 4,742 weighted-size configurations, including sharp families with arbitrarily many occurrences, and the $M=18$ arithmetic example. A separate integer checker recomputed the explicit row-level example above.
+
+Exploratory searches in the first version tested both $\K_{h(a)}(a)$ and $\K_a(a)$ against actual CRT phase patterns and found no violation. The user's subsequent construction disproves \eqref{eq:unproved}; those finite searches missed its mechanism. They were not exhaustive global certificates and supplied no proof. They computed no new values of $g(n)$.
+
+\noindent\textbf{What is proved:} the common-budget pointwise certificate, its two-bin proof and sharpness, the exact surplus identity, the stated counterexamples to stronger transfer shortcuts, and \eqref{eq:mean}.
+
+\medskip
+\noindent\textbf{What remains unproved:} the reserve-corrected own-full-tail estimate $\Gamma_c\le R_A+R_I+o_\delta(n)$ on genuine positive optimizers, or another sufficient arithmetic bound. The unrestricted full-prefix route is disproved. Consequently the general asymptotic and the exact $2n$ bound remain unresolved in this note.
+
+\section{The user's counterexample to full-prefix transfer}\label{sec:user-counter}
+\textbf{Attribution.} The construction in this section was supplied by the user. The audit makes the whole-prime multiplicities, CRT averaging, and small positive background prices explicit.
+
+Let $p$ tend to infinity through primes and put
+\[
+ W=\lfloor p^{10/7}\rfloor,\quad M=pW,\quad
+ Q=\{q\text{ prime}:W^{31/100}<q\le W^{8/25}\}.
+\]
+Temporarily use prices $w_p=1$, $w_q=1/100$ for $q\in Q$, and zero elsewhere. Denote the resulting kernel at a \emph{specified} scale $L$ by $\K_L^0$. The source below is $\K_a^0(a)$, not $\K_{h_0(a)}^0(a)$. Positive background prices will subsequently make $h(a)=a$.
+
+\subsection{All nonzero main-price witnesses}
+For large $p$,
+\[
+ p=W^{7/10}(1+o(1)),\quad W<p^2,\quad pq>W,
+ \quad q^2<W,\quad(qr)^2>W\qquad(q,r\in Q).
+\]
+At target scale $M$, the only positive witnesses using main primes are $d=pq$ in row $p$, with price $1/200$. Indeed, a pure $Q$-witness has at most three occurrences: four would give $d^2>W^{2.48}$, whereas $Mq=W^{2.02+o(1)}$. Its load is then below one. The divisor $p^2$ fails because $p^3>M$. A divisor $pq$ fails in row $q$ because $p^2q>M$. Finally, $pqr$ fails in row $p$ because $(qr)^2>W$, including repeated $Q$-primes.
+
+Therefore
+\[
+ \K_M^0(b)=\frac1{200}v_p(b)
+  \mathbf1_{\{p\mid b,\ \exists q\in Q:q\mid b/p\}}.
+\]
+For a source $a=pt$, the witness $pq$ is eligible exactly when $q\mid t$ and $q^2\le t$. Such a source has $v_p(a)=1$, since $p\mid t$ would imply $t\ge pq>W$. Consequently
+\begin{equation}\label{eq:counter-source}
+ S_0:=\sum_{a\le M}\K_a^0(a)
+ =\frac1{200}\#\{t\le W:\exists q\in Q, q\mid t, q^2\le t\}.
+\end{equation}
+
+\subsection{The source and the exact target mean}
+No integer up to $W$ has four distinct $Q$-prime divisors, whereas every triple product is at most $W^{0.96}$. Inclusion-exclusion therefore terminates exactly at degree three. If $e_j$ denotes the elementary symmetric sum of degree $j$ in $\{1/q:q\in Q\}$, the unrestricted union count is
+\[
+ W(e_1-e_2+e_3)+O(|Q|^3).
+\]
+The delay $q^2\le t$ removes at most $\sum_{q\in Q}(q-1)=O(W^{0.64})$ integers. Also $|Q|^3=O(W^{0.96})=o(W)$. Mertens' prime harmonic formula gives
+\[
+ e_1\longrightarrow\mu=\log(32/31),\quad
+ e_2\longrightarrow\mu^2/2,\quad e_3\longrightarrow\mu^3/6,
+\]
+and hence
+\begin{equation}\label{eq:counter-source-asym}
+ S_0=\frac W{200}\left(\mu-\frac{\mu^2}{2}+\frac{\mu^3}{6}+o(1)\right).
+\end{equation}
+
+Choose an actual integer $x\ge0$ with $x\equiv0\pmod{p^2}$ and let
+\[
+ I_x=\{px+1,\ldots,px+M\}.
+\]
+Its $p$-multiples are $p(x+t)$ for $1\le t\le W$. Since $W<p^2$,
+\[
+ v_p\bigl(p(x+t)\bigr)=1+\mathbf1_{p\mid t}
+\]
+exactly. Average over CRT solutions with independent uniform residues $x\bmod q$, $q\in Q$, keeping $x\equiv0\pmod{p^2}$. For every fixed $t$, the union probability is $1-\prod_{q\in Q}(1-1/q)$, so
+\begin{equation}\label{eq:counter-target-exact}
+ \mathbb E_x\sum_{b\in I_x}\K_M^0(b)
+ =\frac1{200}\left(W+\left\lfloor\frac Wp\right\rfloor\right)
+       \left(1-\prod_{q\in Q}(1-1/q)\right).
+\end{equation}
+No independence between different positions $t$ is needed. Some genuine shift has target sum $T_0$ no greater than this mean. Since the product tends to $e^{-\mu}=31/32$,
+\[
+ S_0-T_0\ge(\kappa+o(1))W,
+\quad
+ \kappa=\frac1{200}\left(e^{-\mu}-1+\mu-\frac{\mu^2}{2}+\frac{\mu^3}{6}\right)>0.
+\]
+Taylor's integral remainder gives
+\[
+ \frac{e^{-\mu}\mu^4}{4800}\le\kappa\le\frac{\mu^4}{4800},
+ \qquad \kappa=2.10334555597958\ldots\times10^{-10}.
+\]
+The positive constant is very small; no moderate-size numerical witness is claimed.
+
+\subsection{Positive background prices and the empty full tail}
+Fix the shift above. Give every remaining prime $r\le M$ the same price $\varepsilon>0$. Every newly available witness contains a background prime, so its price is at most $\varepsilon$. At each \emph{fixed} scale $L$,
+\[
+ 0\le\K_L^\varepsilon(t)-\K_L^0(t)
+       \le\varepsilon\Om_{\le M}(t).
+\]
+The total valuation sum over the finite prefix and the now-fixed target interval is finite. Choose $\varepsilon$ so that the perturbation of either kernel sum is at most one and $\varepsilon\log_2M<\delta/2$. Then $h_\varepsilon(a)=a$ for all sources, and
+\[
+ \sum_{a\le M}\K_{h_\varepsilon(a)}^\varepsilon(a)
+ -\sum_{b\in I_x}\K_M^\varepsilon(b)
+ \ge(\kappa+o(1))W-1.
+\]
+The deficit is also $O(W)$, since $S_0\le W/200$ and the target is nonnegative. Thus it is $\Theta(W)=\Theta(M^{10/17})$, exceeding every fixed multiple of $\sqrt M$.
+
+On the source prefix, $X_0(a)\le2$: $p^3>M$; a source with $p^2$ has no $Q$-factor; a source with one $p$ has at most three $Q$-occurrences; a source without $p$ has at most five. The chosen background gives $X_\varepsilon(a)<2+\delta$. Hence the full tail is empty. All positive source payments in this counterexample are outside the actual full tail. It does not contradict the required estimate on genuine positive optimizers.
+
+\paragraph{A discontinuity exposed by the counterexample.}
+The function $w\mapsto\K_{h_w(a)}^w(a)$ is not continuous when a price reaches zero. Infinitesimal positive weights can change $h_w(a)$ and open a main-prime witness of fixed price $1/200$. The fixed-scale estimate above does not justify continuity at the moving active scale. A weighted-demand cleanup must control the raw objective and then rebuild the kernel on the retained support.
+
+\section{A stable corrected quantity at a genuine optimum}\label{sec:pruning}
+For the same own full tail $A$ and $n=|A|$, put
+\[
+ \Phi_A(w)=\sum_{a\in A}X_w(a)-\sum_{b\in I}(X_w(b)-1)_+.
+\]
+The exact reserve correction is
+\[
+ \Gamma_c-R_A-R_I=\Phi_A(w)-2n=J_c(w)+\delta n.
+\]
+Thus the user's sufficient target $\Gamma_c\le R_A+R_I+o_\delta(n)$ is precisely the raw estimate $\Phi_A(w)\le2n+o_\delta(n)$ on this class. Substituting the identity does not prove the estimate. Also this corrected quantity is not $J_2(w)$: the latter includes the additional nonnegative middle-tail sum over $2<X_w(a)\le2+\delta$.
+
+Let $w,z$ be a genuinely paired boxed raw optimum for this fixed $A$, and take any downward change $0\le w'\le w$. Here the boxes belong to the primal variables $z$. The vector $w$ is optimal for the original dual $w\ge0$, with $w\le1$ chosen using the clipping theorem. Thus every positive-price row is tight, including rows with $w_p=1$. Write
+\[
+ \Delta(t)=X_w(t)-X_{w'}(t),\qquad
+ D=\sum_{a\in A}\Delta(a)=\sum_{b\in I}z_b\Delta(b),
+\]
+where the equality uses the exact whole-prime row balances. Complementary slackness gives the following exact identity:
+\begin{equation}\label{eq:pruning}
+ \boxed{\Phi_A(w)-\Phi_A(w')
+ =\sum_{X_w(b)>1}(1-X_{w'}(b))_+
+   +\sum_{X_w(b)=1}z_b\Delta(b).}
+\end{equation}
+Indeed the old hot hinge decreases by $\min(\Delta(b),X_w(b)-1)$, while old cold and boundary hinges do not decrease. Substitute the equality for $D$, using $z_b=1$ on hot targets and $z_b=0$ on cold targets. In particular,
+\[
+ 0\le\Phi_A(w)-\Phi_A(w')\le D.
+\]
+This controls the reserve-corrected objective even if individual kernel terms jump. It does not transfer old balances to a new tail or a new optimum. Small individual prices alone do not imply $D=o(n)$.
+
+No arithmetic choice of a downward variation was found that supplies the required uniform full-tail estimate. The correction removes the false unrestricted transfer route; it does not close Erd\H{o}s 708.
+
+\section*{Reference for the existing raw-to-integer transfer}
+Ziming Wang, \emph{Raw fractional covers and worst-case leading coefficients}, section of the Erd\H{o}s 708 interval divisor-covers manuscript. Source checked on 24 November 2026:\\
+\href{https://github.com/science-prince/erdos-708-interval-divisor-covers/blob/main/papers/main-paper/raw-transfer.tex}{\texttt{raw-transfer.tex} in \texttt{science-prince/erdos-708-interval-divisor-covers}}.
+\par\medskip
+The prime harmonic asymptotic used in Section~\ref{sec:user-counter} is recorded as formula 27.11.8 in the NIST Digital Library of Mathematical Functions: \url{https://dlmf.nist.gov/27.11.E8}.
+\end{document}

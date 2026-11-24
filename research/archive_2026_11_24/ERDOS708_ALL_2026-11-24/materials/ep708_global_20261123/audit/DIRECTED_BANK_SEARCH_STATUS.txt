@@ -1,0 +1,66 @@
+DIRECTED GLOBAL BANK-UNION AUDIT
+
+Purpose
+-------
+Test an intermediate global lemma, not the original covering minimum g(n):
+for clipped rational weights with X(a)>2, must the total weighted valuation
+on the FULL prime-deletion bank union exceed the source weighted valuation?
+
+Method
+------
+For a fixed actual interval represented by compatible prime-power CRT
+phases, one integral maximum-closure computation optimizes over every
+subset of the strictly-hot source candidates. It is not a sample of source
+sets. Source -> cofactor -> target arcs enforce the actual union of all
+a/q-multiples for every distinct q dividing every selected source.
+
+The final implementation takes the maximal source side of an optimal cut
+(the complement of vertices reaching the sink in the residual graph).
+This also detects nonempty equality witnesses. Returning only the minimal
+source side could conceal a nonempty zero-profit optimum.
+
+All target valuations are exact, not truncated. For each source prime the
+specified CRT modulus is a sufficiently large power that no target offset
+is zero modulo that power. The independent witness checker uses Python's
+standard library only. Search requires NumPy and SciPy. The script checks
+the signed-32-bit capacity limits of SciPy's maximum-flow implementation.
+
+Final directed cases
+--------------------
+All have interval length M=20000. Small prime residues are aligned at a
+center. In "spread" mode large-prime residue classes favor newly uncovered
+positions. In "park" mode they favor positions free of the small primes
+and may reuse those positions across different large primes.
+
+1. Weights 1/4 on 2 and 3, weight 1 on other active source primes;
+   spread phases; 9650 strictly-hot source candidates.
+2. Weights 51/100 on primes <=sqrt(M), weight 1 above sqrt(M);
+   park phases; 10895 strictly-hot source candidates.
+3. Weight 1 on active source primes >=5, zero on 2 and 3;
+   park phases; 3244 strictly-hot source candidates.
+
+In all three final computations, the maximal optimal source selection was
+empty and its profit was zero. The earlier *_maximal.json suffix identifies
+these final records. No counterexample to the weighted bank-union claim was
+found. These computations do NOT establish the universal intermediate
+lemma, the asymptotic conjecture, or the existence of a minimal obstruction.
+The preceding developmental probes are retained as intermediate output and
+are not presented as independent mathematical results.
+
+Reproduction (from this directory)
+----------------------------------
+python joint_bank_closure.py --M 20000 --profile light23 --mode spread
+python joint_bank_closure.py --M 20000 --profile large --mode park
+python joint_bank_closure.py --M 20000 --profile rough --mode park
+
+Standard-library-only validation of a saved witness description:
+python -I joint_bank_closure.py --verify probe_M20000_large_park_maximal.json
+
+The verifier checks the arithmetic witness and actual CRT interval. An
+empty witness is merely consistent data; its validation alone is not a
+standalone certificate of maximum-flow optimality. The negative search
+result is reported as a computation, not as a formally checked theorem.
+
+The coordinatewise bank-product statement is separately disproved by the
+exact lifted Hall certificate in ../combinatorial. That counterexample
+does not violate the high-source-load weighted statement tested here.

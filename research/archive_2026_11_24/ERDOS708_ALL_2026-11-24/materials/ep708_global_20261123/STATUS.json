@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-23",
+  "goal": "Unrestricted asymptotic Erdos 708: g(n) <= (2+o(1))n",
+  "goal_status": "NOT PROVED",
+  "exact_2n_status": "No new unrestricted exact 2n theorem",
+  "formula_91_status": "Neither proved nor refuted",
+  "proved_general_results": [
+    "Total optimal source shortfall < |P|",
+    "Removal of o(m) sources with o(m) weighted demand",
+    "Saturation of one global retained bank union",
+    "Positive weighted row excess <= discarded weighted demand",
+    "Factorial refinement of active bank supply",
+    "Actual source core level count J_E=O_delta(sqrt(m/log m))",
+    "Same-ambient integer-to-raw minimality reduction"
+  ],
+  "remaining_gap": "Equation (23), or its explicitly stated linear-slack variant; equivalently the joint residual functional bound in equation (24)",
+  "counterexample_scope": "Universal coordinatewise bank-product domination only; not the minimal class, the weighted joint target, or Erdos 708",
+  "counterexample_certificate_sha256": "6da6d75f3f7a2580c0eb0cb6ac1c4d2c17c4358b2f9ac1ae82a66941956ca92b",
+  "mathematical_audits": "Independent audits passed; corrected boundary-example prime count and explicit prime-only bank indices",
+  "pdf_pages": 10,
+  "pdf_build_warnings": [],
+  "verification": "Standalone exact CRT and valuation checker PASS; finite negative probes are not universal evidence"
+}

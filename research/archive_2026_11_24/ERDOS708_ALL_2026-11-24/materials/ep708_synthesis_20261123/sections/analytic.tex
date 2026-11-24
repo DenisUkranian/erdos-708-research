@@ -1,0 +1,898 @@
+\section{Diffuse weights and dense prime supports}
+\label{an:section}
+
+This section proves three uniform estimates for the raw hinge formulation of
+the interval divisor-cover problem. The first allows an arbitrary prime
+support when all weights are sufficiently small, together with an extension
+allowing one arbitrary exceptional prime weight. The second allows a
+controlled number of exceptional weights, at the cost of an explicit
+additive defect. The third treats every weight vector on primes below
+\(\exp(o(\sqrt{\log M}))\), and gives an asymptotic coefficient-two
+integer cover for source sets supported on those primes. These results do
+not establish the unrestricted conjecture.
+
+All logarithms are natural unless a base is indicated, and
+\((t)_+=\max(t,0)\). Prime sets in this section are finite. For nonnegative
+weights \(w=(w_p)_{p\in P}\), write
+\[
+ X_w(m)=\sum_{p\in P}w_pv_p(m).
+\]
+If \(I\) consists of \(M\) consecutive positive integers, define
+\[
+ \Delta_c(M,I,w)
+ =\sum_{a=1}^{M}(X_w(a)-c)_+
+   -\sum_{b\in I}(X_w(b)-1)_+.
+\]
+The assertion \(H_c\) is \(\Delta_c(M,I,w)\le0\). Whenever coprimality
+counts at real lengths are used, an interval of length \(T\) means a
+half-open interval \((x,x+T]\), with its integer points understood and
+\(x\ge0\). For a finite prime set \(Q\), put
+\[
+ Q^{\Pi}=\prod_{q\in Q}q,
+ \qquad \vartheta(Q)=\prod_{q\in Q}(1-1/q).
+\]
+Both empty products equal one. An integer is \(Q\)-smooth if every prime
+divisor belongs to \(Q\); the integer one is included.
+
+\subsection{A uniform consequence of the fundamental lemma}
+
+\begin{lemma}[Uniform sifting at a large parameter]
+\label{an:sieve}
+There is an absolute constant \(C>0\) such that the decreasing function
+\begin{equation}
+ e(t)=C\bigl((t/2)^{-t/4}+2^{1-t/2}\bigr),\qquad t\ge4,
+ \label{an:base-error}
+\end{equation}
+has the following property. If \(z\ge2\), \(Q\) is any subset of the
+primes at most \(z\), and \(J\) is an interval of real length
+\(T\ge z^t\), then
+\[
+ (1-e(t))T\vartheta(Q)
+ \le \#\{m\in J:(m,Q^{\Pi})=1\}
+ \le (1+e(t))T\vartheta(Q).
+\]
+In particular, the estimate is uniform in the interval shift and in the
+choice of the subset \(Q\), and \(e(t)\to0\) as \(t\to\infty\).
+\end{lemma}
+
+\begin{proof}
+The fundamental lemma of the combinatorial sieve, in dimension one, gives
+\[
+ \#\{m\in J:(m,Q^{\Pi})=1\}
+ =T\vartheta(Q)\{1+O(u^{-u/2})\}+O(z^u),\qquad u\ge1.
+\]
+The constants are absolute here. Indeed, the remainder in each
+divisibility count is at most one, while the dimension-one product
+condition holds with common constants for every subset of the primes.
+This is the fundamental-lemma statement and interval application in
+\cite{Lagarias}; see also the interval version for subsets of the small
+primes in \cite[Theorem~1.4.2]{GranvilleSound}.
+
+Take \(u=t/2\). The elementary product estimate
+\[
+ \vartheta(Q)
+ \ge \prod_{m=2}^{\lfloor z\rfloor}(1-1/m)
+ =\frac{1}{\lfloor z\rfloor}\ge\frac1z
+\]
+shows that the relative contribution of the additive error is at most
+\[
+ O\!\left(\frac{z^{t/2}}{T\vartheta(Q)}\right)
+ =O(z^{1-t/2})=O(2^{1-t/2}).
+\]
+Increasing a single absolute constant gives the stated function. Both
+terms in that function decrease for \(t\ge4\).
+\end{proof}
+
+\subsection{A level comparison for diffuse raw weights}
+
+The next proposition works directly with the unbounded valuations
+\(v_p\). The final prime-power block of a carrier is allowed to be
+partial; this will be essential for controlling large exponents.
+
+\begin{proposition}[Diffuse level comparison]
+\label{an:diffuse-level}
+Let \(\ell>\eta>0\), let \(0\le w_p\le\eta\), and put
+\[
+ \mu=\sum_{p\in P}\frac{w_p}{p-1},\qquad
+ r=\lfloor\ell/\eta\rfloor\ge8,\qquad
+ j_0=\lfloor r/2\rfloor,\qquad \kappa=r-j_0.
+\]
+Suppose
+\begin{equation}
+ (1+e(\kappa))\mu+\eta2^{1-j_0}
+ \le(\ell-\eta)(1-e(r)).
+ \label{an:diffuse-condition}
+\end{equation}
+Then, for every real \(T>0\), every interval \(J\) of length \(T\), and
+every \(s\ge0\),
+\begin{equation}
+ \#\{a\le T:X_w(a)>s+\ell\}
+ \le \#\{b\in J:X_w(b)>s\}.
+ \label{an:diffuse-level-ineq}
+\end{equation}
+Consequently \(H_{1+\ell}\) holds at every integer length and shift.
+\end{proposition}
+
+\begin{proof}
+Order the prime occurrences from \(P\) in a source integer \(a\) by
+increasing prime, retaining multiplicity and omitting primes outside
+\(P\). If \(X_w(a)>s+\ell\), let \(d\) be the product of the first
+occurrences up to the first crossing of \(s\), and let \(p\) be its
+largest prime divisor. Then \(d>1\) and
+\begin{equation}
+ X_w(d/p)\le s<X_w(d)\le s+\eta.
+ \label{an:partial-crossing}
+\end{equation}
+All \(P\)-primes below \(p\) occur in \(d\) to their full exponents
+in \(a\). Further copies of \(p\) may remain in \(a/d\). In particular,
+\[
+ X_w(a/d)>\ell-\eta.
+\]
+Every prime occurrence contributes at most \(\eta\), so \(a/d\) has at
+least \(r\) occurrences from \(P\), counting multiplicity. All of them
+are at least \(p\). Thus \(a/d\ge p^r\), and \(T/d\ge p^r\).
+
+Let \(\mathcal F_s\) consist of all \(P\)-smooth \(d>1\) satisfying
+\eqref{an:partial-crossing} and \(dp^r\le T\), where \(p\) is the
+largest prime divisor of \(d\). For such a carrier, put
+\[
+ Q_p=\{q\in P:q<p\},\qquad V_p=\vartheta(Q_p).
+\]
+Define \(K_d(b)=0\) when \(d\nmid b\), and otherwise put
+\[
+ K_d(b)=\mathbf1_{(b/d,Q_p^{\Pi})=1}.
+\]
+For each positive integer \(b\),
+\begin{equation}
+ \sum_{d\in\mathcal F_s}K_d(b)
+ \le \mathbf1_{X_w(b)>s}.
+ \label{an:partial-certificate}
+\end{equation}
+Indeed, positivity forces the factors of \(b\) at all \(P\)-primes
+below \(p\) to be exactly those in \(d\). At \(p\), condition
+\eqref{an:partial-crossing} specifies the unique first occurrence
+crossing \(s\). Hence at most one term is positive, and it forces
+\(X_w(b)>s\).
+
+Write \(U=T/d\). The multiples of \(d\) in \(J\), divided by \(d\),
+form the integer points of an interval of length \(U\ge p^r\).
+Lemma~\ref{an:sieve} and \eqref{an:partial-certificate} imply
+\begin{equation}
+ \#\{b\in J:X_w(b)>s\}
+ \ge \sum_{d\in\mathcal F_s}(1-e(r))UV_p.
+ \label{an:diffuse-target}
+\end{equation}
+
+For a fixed carrier, enlarge its possible source cofactors to
+\[
+ \mathcal A_d=\{t\le U:(t,Q_p^{\Pi})=1, X_w(t)>\ell-\eta\}.
+\]
+Every member still has at least \(r\) occurrences from \(P\), all at
+least \(p\). Therefore
+\begin{equation}
+ |\mathcal A_d|
+ \le\frac1{\ell-\eta}\sum_{t\in\mathcal A_d}X_w(t).
+ \label{an:cofactor-markov}
+\end{equation}
+Expand the sum into prime-power divisibility indicators. If \(q\ge p\),
+\(j\le j_0\), and some \(t\in\mathcal A_d\) is divisible by \(q^j\),
+then \(t/q^j\) has at least \(r-j\) such occurrences. It follows that
+\[
+ U/q^j\ge p^{r-j}\ge p^{\kappa}.
+\]
+Terms for which this length inequality fails are zero before enlarging
+the cofactor set. For every other term, dividing by \(q^j\) preserves
+coprimality to \(Q_p\). Lemma~\ref{an:sieve} therefore bounds the
+contribution of all \(j\le j_0\) by
+\begin{equation}
+ (1+e(\kappa))UV_p
+   \sum_{q\in P,\ q\ge p}w_q\sum_{j\ge1}q^{-j}
+ \le(1+e(\kappa))UV_p\mu.
+ \label{an:low-powers}
+\end{equation}
+
+For \(j>j_0\), discard coprimality and the heavy-cofactor restriction.
+Their contribution is at most
+\[
+ U\sum_{q\in P,\ q\ge p}\frac{w_q}{q^{j_0}(q-1)}
+ \le U\eta\sum_{m=p}^{\infty}\frac1{m^{j_0}(m-1)}
+ \le\frac{U\eta p^{1-j_0}}{p-1}.
+\]
+The last estimate uses
+\(\sum_{m=p}^{\infty}1/[m(m-1)]=1/(p-1)\). Also
+\[
+ V_p\ge\prod_{m=2}^{p-1}(1-1/m)=\frac1{p-1},
+\]
+including \(p=2\). Thus the high-power contribution is at most
+\begin{equation}
+ UV_p\eta2^{1-j_0}.
+ \label{an:high-powers}
+\end{equation}
+Each heavy source is assigned to one carrier, so its total count is at
+most \(\sum_d|\mathcal A_d|\). Equations~\eqref{an:cofactor-markov}--\eqref{an:high-powers}, followed
+by \eqref{an:diffuse-condition}, show that
+\(|\mathcal A_d|\le(1-e(r))UV_p\). Summing over carriers and using
+\eqref{an:diffuse-target} proves \eqref{an:diffuse-level-ineq}.
+All counts used real interval lengths, so no extra rounding assumption
+is needed. Finally, integrating \eqref{an:diffuse-level-ineq} over
+\(s\ge1\) proves \(H_{1+\ell}\).
+\end{proof}
+
+\subsection{Large weighted means and the diffuse theorem}
+
+\begin{lemma}[Elementary prefix moments]
+\label{an:moments}
+Suppose \(M\ge2\), \(P\subseteq[2,M]\), and \(0\le w_p\le\eta\).
+Let \(\mathbb E_0\) denote averaging over \(1,\ldots,M\), and put
+\(\mu=\sum_{p\in P}w_p/(p-1)\). Then
+\begin{equation}
+ \mu-3\eta\le\mathbb E_0X_w\le\mu,
+ \qquad
+ \mathbb E_0(X_w-\mu)^2\le8\eta\mu.
+ \label{an:moment-bounds}
+\end{equation}
+If \(0<\delta\le1\), \(\eta\le\delta^2/32\), and
+\(\mu\ge1+\delta\), then
+\begin{equation}
+ \sum_{a=1}^{M}\min(X_w(a),2)\ge M.
+ \label{an:capped-mass}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+For \(e_p=\lfloor\log M/\log p\rfloor\), the rounding loss from
+prime powers \(p^j\le M\) is at most \(\eta\): distinct prime powers
+are distinct integers, and there are at most \(M-1\) of them. The
+omitted tail for each \(p\) is
+\[
+ \frac{w_p}{p^{e_p}(p-1)}\le\frac{2\eta}{M},
+\]
+because \(p^{e_p+1}>M\). There are at most \(M\) supporting primes,
+so the total tail is at most \(2\eta\). This proves the mean estimate.
+
+Counting multiples gives, for distinct primes \(p,q\),
+\[
+ \mathbb E_0[v_pv_q]\le\frac1{(p-1)(q-1)},
+ \qquad
+ \mathbb E_0[v_p^2]\le\sum_{j\ge1}(2j-1)p^{-j}
+ =\frac{p+1}{(p-1)^2}.
+\]
+Consequently
+\[
+ \mathbb E_0X_w^2
+ \le\mu^2+\sum_p\frac{w_p^2p}{(p-1)^2}
+ \le\mu^2+2\eta\mu.
+\]
+Combining this with the lower mean estimate proves the second assertion
+in \eqref{an:moment-bounds}.
+
+If \(1+\delta\le\mu\le4\), the map \(x\mapsto\min(x,2)\) is
+one-Lipschitz, whence
+\[
+ \mathbb E_0\min(X_w,2)
+ \ge\min(\mu,2)-\sqrt{8\eta\mu}
+ \ge1+\delta-\sqrt{32\eta}\ge1.
+\]
+If \(\mu\ge4\), Chebyshev's inequality gives
+\[
+ \Pr_0(X_w<2)\le\frac{8\eta\mu}{(\mu-2)^2}\le8\eta,
+\]
+and therefore
+\(\mathbb E_0\min(X_w,2)\ge2(1-8\eta)\ge1\).
+This proves \eqref{an:capped-mass}.
+\end{proof}
+
+For any nonnegative raw weights, prime-power divisibility counts imply
+\(\sum_{b\in I}X_w(b)\ge\sum_{a\le M}X_w(a)\). Thus the elementary
+identity \((x-c)_+=x-\min(x,c)\) gives
+\begin{equation}
+ \Delta_2(M,I,w)
+ \le M-\sum_{a=1}^{M}\min(X_w(a),2).
+ \label{an:automatic-hinge}
+\end{equation}
+In particular, \eqref{an:capped-mass} implies \(H_2\). Adding further
+nonnegative prime coordinates preserves this sufficient condition.
+
+\begin{theorem}[Uniform diffuse-weight hinge inequality]
+\label{an:diffuse-theorem}
+For every \(\varepsilon>0\) there exists \(\eta_\varepsilon>0\) such
+that \(H_{2+\varepsilon}\) holds at every positive integer length and
+every shift for every finite prime support with
+\(0\le w_p\le\eta_\varepsilon\).
+\end{theorem}
+
+\begin{proof}
+It suffices to treat \(0<\varepsilon\le1\), since increasing the prefix
+threshold decreases its hinge. Put \(\ell=1+\varepsilon\) and
+\(\delta=\varepsilon/2\). Choose \(\eta>0\) sufficiently small that
+\(\eta\le\varepsilon^2/128\), \(r=\lfloor\ell/\eta\rfloor\ge8\),
+and \eqref{an:diffuse-condition} holds with \(\mu\) replaced by
+\(1+\varepsilon/2\). Such a choice exists: as \(\eta\downarrow0\),
+the two sides tend respectively to \(1+\varepsilon/2\) and
+\(1+\varepsilon\).
+
+The case \(M=1\) is immediate. For \(M\ge2\), remove primes greater
+than \(M\) before computing \(\mu\). They contribute nothing to the
+prefix, and restoring them only increases the interval hinge. If
+\(\mu\le1+\varepsilon/2\), Proposition~\ref{an:diffuse-level} applies.
+If \(\mu\ge1+\varepsilon/2\), Lemma~\ref{an:moments} and
+\eqref{an:automatic-hinge} give the stronger assertion \(H_2\).
+\end{proof}
+
+\begin{corollary}[One arbitrary exceptional prime]
+\label{an:one-heavy}
+The conclusion of Theorem~\ref{an:diffuse-theorem} remains valid if one
+prime \(q\) has an arbitrary nonnegative weight, while every other
+weight is at most \(\eta_\varepsilon\). The exceptional weight need
+not be at most one in this auxiliary assertion.
+\end{corollary}
+
+\begin{proof}
+Write \(V\) for the raw load from primes other than \(q\), and first
+discard primes greater than \(M\) as above. Let \(\mu_L\) be the mean
+parameter of these light primes. If \(\mu_L\ge1+\varepsilon/2\),
+Lemma~\ref{an:moments} gives
+\(\sum_{a\le M}\min(V(a),2)\ge M\). Adding the \(q\)-coordinate
+preserves this inequality, so \eqref{an:automatic-hinge} proves \(H_2\).
+
+Suppose \(\mu_L\le1+\varepsilon/2\), and put
+\(\ell=1+\varepsilon\), \(c=1+\ell\). The proof of
+Theorem~\ref{an:diffuse-theorem} supplies the level comparison
+\eqref{an:diffuse-level-ineq} for \(V\), at every length and shift and
+every nonnegative level. It remains available after restricting to any
+smaller length; primes above that length may again be removed and then
+restored. Also \(V(q^jt)=V(t)\).
+
+First adjoin a nondecreasing profile \(u(j)\in[0,1]\), with \(u(0)=0\).
+For \(h=c\) or \(h=1\), the telescoping hinge identity is
+\begin{align}
+ (V(n)+u(v_q(n))-h)_+
+ &= (V(n)-h)_+ \notag\\
+ &\quad+\sum_{j\ge1}\mathbf1_{q^j\mid n}
+   \int_{u(j-1)}^{u(j)}\mathbf1_{V(n)>h-v}\,dv.
+ \label{an:one-heavy-increments}
+\end{align}
+The base hinges satisfy \(H_c\). In each increment, the target threshold
+is \(s=1-v\ge0\) and the source threshold is \(c-v=s+\ell\).
+Multiples of \(q^j\) in the prefix rescale to
+\(1,\ldots,\lfloor M/q^j\rfloor\); those in \(I\) rescale to a
+consecutive interval containing at least that many integers. Apply the
+level comparison on a subinterval of this length. If the length is zero,
+the prefix term vanishes. Extra target positions are nonnegative.
+Thus each prefix increment is bounded by its target increment, proving
+\(H_c\) for \(V+u(v_q)\).
+
+For the raw exceptional weight, take
+\[
+ u(j)=\min(w_qj,1),\qquad R(j)=(w_qj-1)_+.
+\]
+Pointwise,
+\[
+ (V+u+R-c)_+\le R+(V+u-c)_+,
+ \qquad
+ (V+u+R-1)_+=R+(V+u-1)_+.
+\]
+The identity holds because \(R>0\) forces \(u=1\). The nondecreasing
+\(q\)-adic function \(R\) has prefix sum at most its sum over \(I\),
+by expanding its nonnegative successive increments and counting
+multiples of \(q^j\). This proves the raw assertion.
+\end{proof}
+
+\subsection{A controlled number of exceptional weights}
+
+\begin{lemma}[Sifting with arbitrary exceptional primes]
+\label{an:exceptional-sieve}
+Let \(E\) contain at most \(k\) primes, and let \(Q\) be a set of
+primes at most \(z\ge2\), disjoint from \(E\). Put
+\begin{equation}
+ e_k(t)=3^ke(t/2)+3\cdot4^k2^{1-t/2},\qquad t\ge8.
+ \label{an:exceptional-error}
+\end{equation}
+If an interval \(J\) has real length \(T\ge z^t\), then
+\[
+ \left|\#\{m\in J:(m,Q^{\Pi}E^{\Pi})=1\}
+       -T\vartheta(Q)\vartheta(E)\right|
+ \le e_k(t)T\vartheta(Q)\vartheta(E).
+\]
+The estimate is uniform in the exceptional primes, including primes
+larger than \(T\). For each fixed \(k\), \(e_k(t)\) decreases to zero.
+\end{lemma}
+
+\begin{proof}
+Split \(E=E_{\le z}\cup E_{>z}\), put
+\(Q_0=Q\cup E_{\le z}\), \(V_0=\vartheta(Q_0)\), and
+\(F=\prod_{p\in E_{>z}}p\). Inclusion--exclusion, with \(\mu(f)\)
+denoting the M\"obius function, gives
+\[
+ \#\{m\in J:(m,Q^{\Pi}E^{\Pi})=1\}
+ =\sum_{f\mid F}\mu(f)\#\{m\in J/f:(m,Q_0^{\Pi})=1\}.
+\]
+For \(f\le T/z^{t/2}\), Lemma~\ref{an:sieve} applies at length
+\(T/f\), with relative error \(e(t/2)\). The sum of these errors is
+at most \(e(t/2)TV_0\sum_{f\mid F}1/f\). Relative to
+\(TV_0\vartheta(E_{>z})\), it is bounded by
+\[
+ e(t/2)\prod_{p\in E_{>z}}\frac{1+1/p}{1-1/p}
+ \le3^ke(t/2).
+\]
+For each remaining \(f\), its exact count is at most
+\(T/f+1\le z^{t/2}+1\), while the magnitude of its main term is at
+most \(z^{t/2}\). There are at most \(2^k\) such divisors, so their
+combined error is at most \(3\cdot2^kz^{t/2}\). Since
+\(V_0\ge1/z\) and \(\vartheta(E_{>z})\ge2^{-k}\), the relative
+error is at most
+\[
+ 3\cdot4^kz^{1-t/2}\le3\cdot4^k2^{1-t/2}.
+\]
+Combining the two bounds proves the lemma.
+\end{proof}
+
+\begin{proposition}[Conditional diffuse level comparison]
+\label{an:conditional-level}
+Let \(E\) contain at most \(k\) primes, and let
+\(V(m)=\sum_{p\in L}w_pv_p(m)\), where \(L\cap E=\varnothing\) and
+\(0\le w_p\le\eta\). Put
+\[
+ \mu_L=\sum_{p\in L}\frac{w_p}{p-1},\quad
+ r=\lfloor\ell/\eta\rfloor\ge16,\quad
+ j_0=\lfloor r/2\rfloor,\quad \kappa=r-j_0,
+\]
+where \(\ell>\eta\). If
+\begin{equation}
+ (1+e_k(\kappa))\mu_L+\eta2^{k+1-j_0}
+ \le(\ell-\eta)(1-e_k(r)),
+ \label{an:conditional-condition}
+\end{equation}
+then for every real \(T>0\), interval \(J\) of length \(T\), and
+\(s\ge0\),
+\begin{equation}
+ \#\{a\le T:(a,E^{\Pi})=1, V(a)>s+\ell\}
+ \le\#\{b\in J:(b,E^{\Pi})=1, V(b)>s\}.
+ \label{an:conditional-level-ineq}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Use the first crossing in the ordered light-prime occurrences, allowing
+a partial last block, as in Proposition~\ref{an:diffuse-level}. Each
+carrier \(d>1\), with largest prime \(p\), satisfies
+\[
+ V(d/p)\le s<V(d)\le s+\eta,\qquad T/d\ge p^r.
+\]
+Let \(Q_p=\{q\in L:q<p\}\) and \(V_p=\vartheta(Q_p)\). For
+\(d\mid b\), use the certificate
+\[
+ K_d(b)=\mathbf1_{(b/d,E^{\Pi}Q_p^{\Pi})=1},
+\]
+and put \(K_d(b)=0\) otherwise. A positive term is the unique first
+crossing of \(s\) among the light-prime occurrences of \(b\). Since
+\(d\) is coprime to \(E^{\Pi}\), positivity also forces
+\((b,E^{\Pi})=1\). Thus the sum of the certificates is bounded by the
+target indicator in \eqref{an:conditional-level-ineq}.
+
+Write \(U=T/d\). Lemma~\ref{an:exceptional-sieve} gives a target
+contribution at least
+\((1-e_k(r))UV_p\vartheta(E)\) for each carrier. Enlarge its source
+cofactors to those \(t\le U\) coprime to \(E^{\Pi}Q_p^{\Pi}\)
+with \(V(t)>\ell-\eta\), and apply the Markov bound
+\eqref{an:cofactor-markov}. Such cofactors have at least \(r\) light
+prime occurrences, all at least \(p\).
+
+For \(j\le j_0\), a nonzero term divisible by \(q^j\) forces
+\(U/q^j\ge p^{r-j}\ge p^{\kappa}\). Division by \(q^j\) preserves
+all the relevant coprimality conditions, because \(q\in L\),
+\(q\ge p\), and \(L\cap E=\varnothing\). The upper estimate in
+Lemma~\ref{an:exceptional-sieve} therefore bounds the total low-power
+contribution by
+\[
+ (1+e_k(\kappa))UV_p\vartheta(E)\mu_L.
+\]
+The high-power estimate before inserting the density is unchanged:
+it is at most \(U\eta p^{1-j_0}/(p-1)\). Now
+\(V_p\ge1/(p-1)\) and \(\vartheta(E)\ge2^{-k}\), so this is at most
+\[
+ UV_p\vartheta(E)\eta2^{k+1-j_0}.
+\]
+Divide the sum of these bounds by \(\ell-\eta\), use
+\eqref{an:conditional-condition}, and sum over carriers. This proves
+the proposition, including its real-length formulation.
+\end{proof}
+
+\begin{theorem}[Exceptional coordinates with an explicit defect]
+\label{an:fixed-core}
+For every \(\varepsilon>0\) there is \(c_\varepsilon>0\) such that
+the following holds for every integer \(k\ge0\). Suppose
+\(0\le w_p\le1\) and there is a subset \(E\subseteq P\) of size at most \(k\)
+such that
+\[
+ w_p\le\frac{c_\varepsilon}{k+1}\qquad(p\notin E).
+\]
+Then, uniformly in \(M\), \(I\), and the actual exceptional primes,
+\begin{align}
+ \Delta_{2+\varepsilon}(M,I,w)
+ &\le 2^{|E|+1}
+   \sum_{\substack{h\le M\\h\ E\text{-smooth}}}(Z(h)-1)_+
+   \label{an:exact-core-defect}\\
+ &\le2^{k+1}(1+\log_2M)^{k+1},
+ \label{an:core-defect}
+\end{align}
+where \(Z(h)=\sum_{p\in E}w_pv_p(h)\).
+\end{theorem}
+
+\begin{proof}
+Again it suffices to consider \(0<\varepsilon\le1\). We first make
+the small-weight threshold quantitative. For \(u\ge16\),
+\[
+ e(u/2)\le3C2^{-u/4},
+\]
+because \(u/4\ge4\) implies
+\((u/4)^{-u/8}\le2^{-u/4}\). Hence
+\begin{equation}
+ e_k(u)\le3C3^k2^{-u/4}+6\cdot4^k2^{-u/2}.
+ \label{an:quant-sieve}
+\end{equation}
+Choose an integer \(R_\varepsilon\ge16\) so large that
+\[
+ 3C2^{-R_\varepsilon/4}+6\cdot2^{-R_\varepsilon/2}
+ \le\varepsilon/16.
+\]
+For \(u\ge16k+R_\varepsilon\), \eqref{an:quant-sieve} then gives
+\(e_k(u)\le\varepsilon/16\). Choose \(c_\varepsilon>0\) satisfying
+\[
+ c_\varepsilon\le\varepsilon^2/128,
+ \qquad
+ \frac{1+\varepsilon}{c_\varepsilon}
+ \ge\max(32,2R_\varepsilon+2).
+\]
+Set \(\eta=c_\varepsilon/(k+1)\), \(\ell=1+\varepsilon\), and
+define \(r,j_0,\kappa\) as in Proposition~\ref{an:conditional-level}.
+Then
+\[
+ r\ge32k+2R_\varepsilon,\qquad
+ \kappa\ge16k+R_\varepsilon,\qquad j_0\ge k+1.
+\]
+In particular \(e_k(r),e_k(\kappa)\le\varepsilon/16\), and the
+tail term \(\eta2^{k+1-j_0}\) is at most \(\eta\). If
+\(\mu_L\le1+\varepsilon/2\), these estimates verify
+\eqref{an:conditional-condition}. Explicitly, using
+\(\eta\le\varepsilon/128\), the difference between its resulting
+right-hand lower bound and left-hand upper bound is at least
+\[
+ \frac{46}{128}\varepsilon-\frac{191}{2048}\varepsilon^2>0.
+\]
+
+The case \(M=1\) is immediate. Otherwise discard all primes greater
+than \(M\) before computing \(\mu_L\) or splitting into cases.
+Restoring them only increases the target hinge. Removed exceptional
+primes cannot occur in any \(E\)-smooth \(h\le M\), so this leaves
+the smooth-part sum unchanged and can only decrease the bound in
+\eqref{an:exact-core-defect}. Write
+\(X_w=V+Z\), where \(V\) uses the primes outside \(E\).
+If \(\mu_L\ge1+\varepsilon/2\), Lemma~\ref{an:moments} and
+\eqref{an:automatic-hinge} give \(H_2\) for the full load, which is
+stronger than both asserted bounds.
+
+It remains to consider \(\mu_L\le1+\varepsilon/2\). Each positive
+integer has a unique decomposition
+\[
+ a=ht,\qquad h\ E\text{-smooth},\qquad(t,E^{\Pi})=1.
+\]
+Here \(h\) is its \emph{exact} exceptional-prime part, and
+\(X_w(a)=Z(h)+V(t)\). Fix \(s\ge0\). At a fixed \(h\le M\),
+the prefix and target counts are over intervals of the same real length
+\(M/h\). If \(s-Z(h)\ge0\), apply
+Proposition~\ref{an:conditional-level} at that level; this part has
+nonpositive level-count defect.
+
+If \(s-Z(h)<0\), every target cofactor coprime to \(E^{\Pi}\) meets
+the target threshold. The source count is at most the unrestricted
+prefix coprimality count. Finite inclusion--exclusion shows that each
+of these unrestricted counts differs from
+\((M/h)\vartheta(E)\) by at most \(2^{|E|}\). Their difference is
+therefore at most \(2^{|E|+1}\). Target integers with exact
+exceptional part \(h>M\) are nonnegative contributions and may be
+discarded. Summing gives
+\begin{align}
+ &\#\{a\le M:X_w(a)>s+\ell\}
+   -\#\{b\in I:X_w(b)>s\} \notag\\
+ &\hspace{15mm}\le
+ 2^{|E|+1}\#\{h\le M:h\ E\text{-smooth},\ Z(h)>s\}.
+ \label{an:core-level-defect}
+\end{align}
+Integrating over \(s\ge1\) proves \eqref{an:exact-core-defect}.
+Finally, \(Z(h)\le\Omega(h)\le\log_2M\), and there are at most
+\((1+\log_2M)^{|E|}\) exceptional smooth parts \(h\le M\), by
+bounding each exponent separately. This proves \eqref{an:core-defect}.
+\end{proof}
+
+\begin{corollary}[A growing-core exclusion for raw dual witnesses]
+\label{an:growing-core}
+Fix \(\varepsilon>0\), and consider weights in \([0,1]\). If
+\(k=o(\log M/\log\log M)\) and all but
+at most \(k\) weights are at most \(c_\varepsilon/(k+1)\), then
+\[
+ \Delta_{2+\varepsilon}(M,I,w)\le M^{o(1)}=o(\sqrt M).
+\]
+More specifically, fix \(\delta\in(0,1)\), let \(A\subseteq[2,M]\)
+have \(n\) distinct elements, and suppose
+\[
+ M\le16n^2,
+ \qquad k\le(1-\delta)\frac{\log n}{\log\log n}.
+\]
+For such weight vectors, as \(n\to\infty\),
+\begin{equation}
+ \sum_{a\in A}X_w(a)-\sum_{b\in I}(X_w(b)-1)_+
+ \le(2+\varepsilon)n+n^{1-\delta+o(1)}.
+ \label{an:dual-exclusion}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+The logarithm of the right side of \eqref{an:core-defect} is
+\((k+1)\{\log2+\log(1+\log_2M)\}\). This is \(o(\log M)\) in
+the first range. In the second range it is at most
+\((1-\delta+o(1))\log n\). Finally,
+\[
+ \sum_{a\in A}X_w(a)
+ \le(2+\varepsilon)n+
+      \sum_{a=1}^{M}(X_w(a)-2-\varepsilon)_+,
+\]
+where distinctness is used to pass from \(A\) to the full prefix.
+Combine this with Theorem~\ref{an:fixed-core}.
+\end{proof}
+
+Corollary~\ref{an:growing-core} excludes a class of raw dual vectors.
+It does not assert a per-instance integer-cover bound equal to the raw
+LP value plus \(o(n)\). In particular, a core of size comparable to
+a positive power of \(n\) is outside its effective range.
+
+\subsection{Dense support up to a subexponential cutoff}
+
+\begin{theorem}[Uniform dense-support hinge inequality]
+\label{an:subexp-hinge}
+For every \(\varepsilon>0\) there are
+\(\gamma_\varepsilon>0\) and \(M_\varepsilon\) such that
+\(H_{2+\varepsilon}\) holds for all \(M\ge M_\varepsilon\), all
+shifts, and all weights \(0\le w_p\le1\) supported on primes
+\[
+ p\le Y\le\exp(\gamma_\varepsilon\sqrt{\log M}),\qquad Y\ge2.
+\]
+One admissible choice is
+\begin{equation}
+ J_\varepsilon=\left\lceil\frac2{\eta_\varepsilon}\right\rceil,
+ \qquad
+ \gamma_\varepsilon=\frac1{\sqrt{16(J_\varepsilon+5)}},
+ \label{an:gamma}
+\end{equation}
+where \(\eta_\varepsilon\) is any threshold from
+Theorem~\ref{an:diffuse-theorem}. The constant
+\(M_\varepsilon\) is then sufficiently large.
+\end{theorem}
+
+\begin{proof}
+The empty support is trivial. Give each \(P\)-smooth positive integer
+\(h\) probability \(\vartheta(P)/h\). These probabilities sum to one
+by the convergent finite Euler product. Under this geometric reference
+distribution,
+\begin{equation}
+ \mathbb E X_w=\sum_{p\in P}\frac{w_p}{p-1}\le1+\log Y.
+ \label{an:model-mean}
+\end{equation}
+If some \(w_p\ge\eta_\varepsilon\), put \(j=\lceil2/w_p\rceil\).
+Then \(j\le J_\varepsilon\), and \(X_w(h)\ge2\) whenever
+\(p^j\mid h\). The difference
+\((X_w-1)_+-(X_w-2)_+\) is nonnegative and equals one on this event.
+Its reference mean therefore satisfies
+\begin{equation}
+ G:=\mathbb E\{(X_w-1)_+-(X_w-2)_+\}
+ \ge p^{-j}\ge Y^{-J_\varepsilon}.
+ \label{an:model-gap}
+\end{equation}
+
+We first bound the contribution of large smooth parts. Set
+\[
+ u=\frac{\log M}{\log Y},\qquad H=\sqrt M,\qquad
+ \sigma=\frac1{4\log Y},\qquad
+ R=\sum_{\substack{h>H\\h\ P\text{-smooth}}}\frac{X_w(h)}h.
+\]
+Since \(X_w(h)\le\log h/\log2\), Rankin's inequality gives
+\begin{equation}
+ R\le\frac{H^{-\sigma}}{\log2}
+ \sum_{h\ P\text{-smooth}}\frac{\log h}{h^{1-\sigma}}.
+ \label{an:rankin-start}
+\end{equation}
+For \(p\le Y\), put \(z_p=p^{-1+\sigma}\). Then
+\[
+ z_p\le e^{1/4}/p,
+ \qquad \frac{z_p}{1-z_p}\le\frac4p,
+\]
+using \(e^{1/4}<4/3\). Thus
+\[
+ F:=\prod_{p\in P}(1-p^{-1+\sigma})^{-1}\le Y^4,
+\]
+because \(\log F\le4\sum_{p\le Y}1/p\le4\log Y\).
+Differentiation of this finite Euler product yields
+\[
+ \sum_{h\ P\text{-smooth}}\frac{\log h}{h^{1-\sigma}}
+ =F\sum_{p\in P}\frac{(\log p)z_p}{1-z_p}
+ \le4Y^4(\log Y)^2.
+\]
+Here \(\sum_{p\le Y}(\log p)/p\le(\log Y)^2\), by comparison with
+all integers. Since \(H^{-\sigma}=e^{-u/8}\),
+\begin{equation}
+ R\le\frac4{\log2}Y^4(\log Y)^2e^{-u/8}.
+ \label{an:rankin-tail}
+\end{equation}
+
+Decompose each positive integer uniquely as \(ht\), where \(h\) is
+its exact \(P\)-smooth part and \((t,P^{\Pi})=1\). For \(h\le H\),
+both prefix and target counts at that smooth part are coprimality
+counts in intervals of real length \(M/h\ge\sqrt M=Y^{u/2}\).
+By Lemma~\ref{an:sieve}, their relative errors from
+\((M/h)\vartheta(P)\) are at most \(e(u/2)\), provided \(u\ge8\).
+The prefix contribution from \(h>H\) is at most \(MR\), since there
+are at most \(M/h\) prefix multiples of \(h\). Discard the
+nonnegative target contribution from these large parts.
+
+The truncated reference gap loses at most \(R\): indeed
+\(0\le(X_w-1)_+-(X_w-2)_+\le X_w\) and
+\(\vartheta(P)\le1\). The sum of the two reference hinge means is
+at most \(2\mathbb E X_w\). Therefore
+\begin{equation}
+ \frac{\Delta_2(M,I,w)}M
+ \le-Y^{-J_\varepsilon}+2R+2e(u/2)(1+\log Y).
+ \label{an:subexp-master}
+\end{equation}
+
+We check this comparison uniformly over the entire asserted range of
+\(Y\). Write \(L=\log M\), \(y=\log Y\), and use the value
+\(\gamma=\gamma_\varepsilon\) in \eqref{an:gamma}. Then
+\(\log2\le y\le\gamma\sqrt L\), and the ratio of the bound in
+\eqref{an:rankin-tail} to \(Y^{-J_\varepsilon}\) is
+\[
+ \frac4{\log2}y^2
+ \exp\left((J_\varepsilon+4)y-\frac{L}{8y}\right).
+\]
+Both its polynomial factor and its exponent increase with \(y\).
+At the upper endpoint the exponent is
+\[
+ \left((J_\varepsilon+4)\gamma-\frac1{8\gamma}\right)\sqrt L
+ =-\gamma(J_\varepsilon+6)\sqrt L.
+\]
+The ratio consequently tends to zero uniformly.
+
+For \(u\ge16\), the error function satisfies
+\(e(u/2)\le3C2^{-u/4}\). The ratio of the last error in
+\eqref{an:subexp-master} to \(Y^{-J_\varepsilon}\) is at most
+\[
+ 6C(1+y)\exp\left(J_\varepsilon y-
+                        \frac{(\log2)L}{4y}\right).
+\]
+Its exponent also increases with \(y\), and is a negative constant
+times \(\sqrt L\) at the upper endpoint, since
+\[
+ J_\varepsilon\gamma^2<\frac1{16}<\frac{\log2}{4}.
+\]
+It too tends to zero uniformly. Thus, for sufficiently large \(M\),
+the errors in \eqref{an:subexp-master} are dominated by the gap,
+proving \(H_2\) whenever some weight is at least
+\(\eta_\varepsilon\). If every weight is at most this threshold,
+Theorem~\ref{an:diffuse-theorem} gives \(H_{2+\varepsilon}\) at every
+length without a support restriction. The two cases prove the theorem.
+\end{proof}
+
+\subsection{The raw boxed dual and an integer-cover consequence}
+
+We include the LP bridge and the required rounding argument to distinguish
+the ensuing integer conclusion from the dual-vector exclusions above.
+Let \(A\subseteq[2,M]\) be a set of \(n\) distinct sources. Write
+\(\tau(A,I)\) for the least size of a subset \(B\subseteq I\) such
+that \(\prod_{a\in A}a\) divides \(\prod_{b\in B}b\). Let
+\(P_A\) be the set of primes occurring in \(A\). Put
+\(D_p=\sum_{a\in A}v_p(a)\). The raw boxed relaxation is
+\begin{equation}
+ L(A,I)=\min\left\{\sum_{b\in I}x_b:
+ 0\le x_b\le1,\quad
+ \sum_{b\in I}v_p(b)x_b\ge D_p\quad(p\in P_A)\right\}.
+ \label{an:raw-lp}
+\end{equation}
+
+\begin{lemma}[Raw dual clipping and row-count rounding]
+\label{an:lp-bridge}
+The program \eqref{an:raw-lp} is feasible, and its value equals
+\begin{equation}
+ \max_{0\le w_p\le1}
+ \left\{\sum_{a\in A}X_w(a)
+          -\sum_{b\in I}(X_w(b)-1)_+\right\},
+ \label{an:raw-dual}
+\end{equation}
+where the weights are on \(P_A\). If \(H_c\) holds for all these
+weight vectors, then \(L(A,I)\le cn\). Furthermore,
+\begin{equation}
+ \tau(A,I)\le L(A,I)+|P_A|.
+ \label{an:row-rounding}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Distinctness gives \(\prod_{a\in A}a\mid M!\), while
+\(M!\mid\prod_{b\in I}b\). Thus selecting every interval position is
+feasible. Equivalently, \(\sum_{b\in I}v_p(b)\ge D_p\) for every
+source prime. Finite LP duality gives the maximum in
+\eqref{an:raw-dual} initially over all \(w_p\ge0\).
+
+If some \(w_p>1\), lower it to one while keeping the other weights
+fixed. For every column with \(v_p(b)>0\), its hinge is linear
+throughout this change, because the final load is still at least one.
+The change in the dual objective is
+\[
+ (w_p-1)\left(\sum_{b\in I}v_p(b)-D_p\right)\ge0.
+\]
+Columns with \(v_p(b)=0\) are unchanged. Clipping coordinates in turn
+therefore proves \eqref{an:raw-dual}.
+
+If \(H_c\) holds, then every vector in \eqref{an:raw-dual} has
+objective at most \(cn\), since
+\[
+ \sum_{a\in A}X_w(a)
+ \le cn+\sum_{a\in A}(X_w(a)-c)_+
+ \le cn+\sum_{a=1}^{M}(X_w(a)-c)_+.
+\]
+For rounding, choose an optimal vertex of the feasible boxed polytope.
+It has at most \(|P_A|\) coordinates strictly between zero and one.
+Otherwise a nonzero perturbation supported on the fractional
+coordinates could annihilate all prime rows, and sufficiently small
+perturbations in both signs would preserve feasibility and the box,
+contradicting extremality. Round each fractional coordinate upward to
+one. The nonnegative valuation rows remain satisfied, and the cost
+increases by at most \(|P_A|\), proving \eqref{an:row-rounding}.
+\end{proof}
+
+\begin{corollary}[A coefficient-two cover for subexponentially smooth sources]
+\label{an:smooth-cover}
+Let \(Y(M)\ge2\) be a fixed function satisfying
+\[
+ \log Y(M)=o(\sqrt{\log M}).
+\]
+Let \(A\) range over sets of \(n\) distinct integers at least two,
+with \(M=\max A\), such that every source prime is at most \(Y(M)\).
+Then, as \(n\to\infty\), every positive \(M\)-term interval admits
+a product cover with
+\[
+ \tau(A,I)\le(2+o(1))n,
+\]
+uniformly in the source set subject to this condition and in the interval
+shift. In particular this applies to
+\(Y(M)=\exp((\log M)^a)\) for every fixed \(0<a<1/2\).
+\end{corollary}
+
+\begin{proof}
+Fix \(\varepsilon>0\). For all sufficiently large \(M\), the cutoff
+is below \(\exp(\gamma_\varepsilon\sqrt{\log M})\).
+Theorem~\ref{an:subexp-hinge} and Lemma~\ref{an:lp-bridge} give
+\[
+ \tau(A,I)\le(2+\varepsilon)n+\pi(Y(M)).
+\]
+If \(M<16n^2\), then \(n>\sqrt M/4\), whereas
+\(\pi(Y(M))\le Y(M)=M^{o(1)}=o(\sqrt M)\). The rounding term is
+therefore \(o(n)\) in this range.
+
+If \(M\ge16n^2\), the quadratic coefficient-two theorem of
+Wang~\cite{Wang} gives the stronger exact estimate
+\(\tau(A,I)\le2n\). Its hypotheses are precisely a set of \(n\)
+distinct positive sources at least two, ambient length \(M=\max A\),
+and an arbitrary positive interval of that length. Finally,
+\(M\ge n+1\) ensures \(M\to\infty\) whenever \(n\to\infty\).
+Since \(\varepsilon\) was arbitrary, the two ranges prove the
+corollary.
+\end{proof}
+
+The cutoff constant \(\gamma_\varepsilon\) depends on
+\(\varepsilon\). The preceding corollary therefore uses
+\(\log Y=o(\sqrt{\log M})\); it does not assert coefficient two for
+one fixed positive multiple of \(\sqrt{\log M}\) in the exponent at
+all accuracies. The conclusion also relies on the explicit small
+prime-row count in \eqref{an:row-rounding}, rather than a general
+fractional-to-integer error assumption. Polynomial prime scales
+\(M^\alpha\), and their interactions with a dense small-prime part,
+remain outside the support theorem proved here.

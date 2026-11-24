@@ -1,0 +1,111 @@
+{
+  "date": "2026-11-23",
+  "status": "General asymptotic and exact2n remain unproved",
+  "files": [
+    {
+      "path": "COMMON_COMPLETION_CRITERION.md",
+      "bytes": 5311,
+      "sha256": "8de7600eb50fc57696c8851409fdd237e84956799ff59ea58b0527092ca22e42"
+    },
+    {
+      "path": "PROVENANCE.json",
+      "bytes": 953,
+      "sha256": "d55fbe7638ed6cd6098b2bd77c04060ed53ec62a8f355acb52ece8176b9cc096"
+    },
+    {
+      "path": "README.txt",
+      "bytes": 3350,
+      "sha256": "c77a404df0666c0fd62baa06b11dfef1e139d9721d9b10fb143270fa1aadbf0f"
+    },
+    {
+      "path": "STATUS.json",
+      "bytes": 991,
+      "sha256": "d2ee0cb131642ca773bf886f47fb0c92f467414319dc795584146dd1fa5e80f8"
+    },
+    {
+      "path": "erdos708_proof_ladders.pdf",
+      "bytes": 350369,
+      "sha256": "29baa353c7ec033ed5bbc6a8205fd54c286f7e3623cf00d676ce1a0d72167f55"
+    },
+    {
+      "path": "erdos708_proof_ladders.tex",
+      "bytes": 31100,
+      "sha256": "3c9c40d5941ec7b5145370a4f7e2492e463740b2fb624b2a74f76fffca76c9a3"
+    },
+    {
+      "path": "inherited/DIFFUSE_RAW_WEIGHTS.md",
+      "bytes": 12866,
+      "sha256": "daf0bc7331a63088dc3b04f6a0abd51c03535b7123aa029667645363edfcbd2a"
+    },
+    {
+      "path": "inherited/FULL_TAIL_MGF_INPUT.md",
+      "bytes": 8478,
+      "sha256": "f629171bf0dd34e9b196fbb2444de9485ce254895c7b0df4055b719e5f630a1c"
+    },
+    {
+      "path": "inherited/GLOBAL_OPTIMIZER_INPUT.md",
+      "bytes": 10725,
+      "sha256": "a2bfdf26d0feb433e50384eef9240c805a43ae6a3ac2b90f38556312deae99c6"
+    },
+    {
+      "path": "inherited/NEAR_QUADRATIC_PROOF.md",
+      "bytes": 12221,
+      "sha256": "ed6624d3ff4eafb059b0c15f0751200c6b10a7a5f3d5ad5fdc24167224a903d8"
+    },
+    {
+      "path": "route_adaptive/ADAPTIVE_HALL_LADDER.md",
+      "bytes": 14201,
+      "sha256": "5dbfc1188862159ee69ab7d47e19027c9d6576128a5f6a7855199ee036e4fd1e"
+    },
+    {
+      "path": "route_adaptive/SMALL_ROOT_UNION_COUNTEREXAMPLE.md",
+      "bytes": 6665,
+      "sha256": "56e44f51b673f84508b47373dd838509dead3d7df499124ff1bef95dd58571a2"
+    },
+    {
+      "path": "route_adaptive/TWO_CARRIER_REDUCTION.md",
+      "bytes": 7194,
+      "sha256": "b55553e9b62d6b2c429d4ff82439b0048b63768ba09350a1fcf2e531f96bcafb"
+    },
+    {
+      "path": "route_adaptive/test_adaptive_hall.py",
+      "bytes": 4373,
+      "sha256": "162f8701cacc7483ef8d736abe00ea987f1649d5e06b279d286d0023a96cdc39"
+    },
+    {
+      "path": "route_certificate/CLUSTER_NORMALIZED_CERTIFICATE.md",
+      "bytes": 12304,
+      "sha256": "79a0b56b904c1f3f06aa1771d6366611e0873a2cd933e8ee047ae6dd2e7cf58b"
+    },
+    {
+      "path": "route_certificate/NORMALIZED_COFACTOR_CERTIFICATE.md",
+      "bytes": 18985,
+      "sha256": "07a101ce53fb1f6f94ff3b654ce746222498a305127ff252eda3e7d12d862221"
+    },
+    {
+      "path": "route_certificate/verify_counterexamples.py",
+      "bytes": 3322,
+      "sha256": "afc6ac017cf3b8fbaae2bc874d6e246e87b060a5476dce1cc14ff3edfdba6d5f"
+    },
+    {
+      "path": "route_core/CONDITIONAL_DIFFUSE_CELLS.md",
+      "bytes": 6671,
+      "sha256": "d6ed3224c789f546203625f9ebf260b9ec3c10e1289026dd407a1818746ab932"
+    },
+    {
+      "path": "route_core/DIFFUSE_BANK_TRANSFER.md",
+      "bytes": 15131,
+      "sha256": "6e7799f0c04289179ce5996eb0305ae742a56c1b2d6ffd935fbfbf6dc9c56965"
+    },
+    {
+      "path": "route_core/JOINT_CLIPPED_DIFFUSE_TRANSFER.md",
+      "bytes": 10748,
+      "sha256": "8bc2051911f0fc66d786fc23a36afb96702a35c0addfb9e788c705da9e0b3bce"
+    },
+    {
+      "path": "route_core/SMALL_ROOT_DIFFUSE_CORE_DICHOTOMY.md",
+      "bytes": 11017,
+      "sha256": "caa3e55f099a5753a4e08df0119a8ccedb7dfc1f17d5f5a11653dc2db0d0437a"
+    }
+  ]
+}

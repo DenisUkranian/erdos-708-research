@@ -1,0 +1,19 @@
+PASS complete two-prime envelope: {'pairs': 1123, 'configs': 128915, 'eligible': 2980414, 'closed': 2784139, 'residual': 196275, 'maxM': 24696, 'z': [162482, 33781, 0, 12]}
+PASS complete colored-clique replay: configs=50660 cliques=112998 closed=67663 unresolved=45335
+PASS full-source expansion: 116394 sets, 33939 demands
+PASS all 24511 nine-slot certificates by exact gcd and divisibility
+PASS independent certificate domination of all 33939 demands
+{
+  "status": "PASS",
+  "seconds": 13.333,
+  "finite_maximum": 24696,
+  "residual_actual_maximum": 665,
+  "full_source_sets": 116394,
+  "demands": 33939,
+  "certificates": 24511,
+  "source_sha256": {
+    "envelope.cpp": "a12d9a4312871a8afaf7ed9af4c8bca179403d30f4bd60963911f2f448fe5cc6",
+    "enumerate_nontrivial.cpp": "a3e946007e475550b384cc63221f63745ee38920f313b25f191a6ff24a5b3c50",
+    "full_demands.py": "f670ba47ed075c8923d55caba314ca210c52378f7af12a8993077ed0d4e67785"
+  }
+}

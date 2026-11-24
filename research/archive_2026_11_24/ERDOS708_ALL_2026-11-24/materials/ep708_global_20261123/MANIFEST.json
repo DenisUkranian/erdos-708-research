@@ -1,0 +1,154 @@
+{
+  "files": [
+    {
+      "path": "README.txt",
+      "bytes": 3831,
+      "sha256": "763519365b91012a58ac526864640248aa4f9b0041997cfe8b4fe78d4a693d21"
+    },
+    {
+      "path": "STATUS.json",
+      "bytes": 1363,
+      "sha256": "9dd364af0b6f68748ab943729b22073e98ccacc2e0907b6b6048e8b99b961979"
+    },
+    {
+      "path": "analytic/GLOBAL_DUAL_NORMALIZATION.md",
+      "bytes": 13932,
+      "sha256": "d765ba892356cec6c5c770cb4a3734118179822232c70a196e531e733e28951a"
+    },
+    {
+      "path": "analytic/bank_vector_balance_cases.json",
+      "bytes": 1147,
+      "sha256": "3601b9af82f26fc84427fc5593046c5cb4e2fb0c601e089b9eed1d7500242395"
+    },
+    {
+      "path": "analytic/test_bank_vector_balance.py",
+      "bytes": 4179,
+      "sha256": "24fe428c56a57e1b3c3f722e5d2894e1b3f7fb51d7166720d9e0d50db7ac33a5"
+    },
+    {
+      "path": "audit/AUDIT_REPORT.md",
+      "bytes": 6326,
+      "sha256": "e50e178e4ae6c3b1b588a77ed91bfa62da35f30328b2d2ccc149a067face9f57"
+    },
+    {
+      "path": "audit/DIRECTED_BANK_SEARCH_STATUS.txt",
+      "bytes": 3391,
+      "sha256": "eecc209bf0724746c7026ddcbdcaf06b4a2aedfc20620efa94141d98adfad380"
+    },
+    {
+      "path": "audit/RAW_MINIMALITY_AND_DELETION_IDENTITIES.md",
+      "bytes": 12557,
+      "sha256": "9c1bad3961509ae4dbcc1b5d8f94763dfde5f297525b3fc197c5df07ea0848b4"
+    },
+    {
+      "path": "audit/joint_bank_closure.py",
+      "bytes": 10823,
+      "sha256": "8c54e771b9005690b83835588bb0471d5e7d771162152ed967ad6673cda5d58e"
+    },
+    {
+      "path": "audit/probe_M1000_unit.json",
+      "bytes": 12078,
+      "sha256": "bd188b4d9ee7599c3b188030705977ff9ebf9855d6633c3d5f80f6c73f3ab660"
+    },
+    {
+      "path": "audit/probe_M20000_half.json",
+      "bytes": 183161,
+      "sha256": "e4f9df99a72345d28f66ab737b4f257f48feb64c5ede819a743cff6e27800356"
+    },
+    {
+      "path": "audit/probe_M20000_heavy2_spread.json",
+      "bytes": 190810,
+      "sha256": "14bc2f3655ea4ca5b55d3ed8ccf37fdde9d4e59db37608645a36d82727ae57f2"
+    },
+    {
+      "path": "audit/probe_M20000_large_park.json",
+      "bytes": 191442,
+      "sha256": "ad0635f2144dcd0e479d4dc85745ebc84c8800fd77cfc684d947143f7c81ad92"
+    },
+    {
+      "path": "audit/probe_M20000_large_park_maximal.json",
+      "bytes": 191442,
+      "sha256": "ad0635f2144dcd0e479d4dc85745ebc84c8800fd77cfc684d947143f7c81ad92"
+    },
+    {
+      "path": "audit/probe_M20000_light23.json",
+      "bytes": 184646,
+      "sha256": "bec9439e2a7f398881fda26bd3280351e861869103861621f5076ad2e159f9f9"
+    },
+    {
+      "path": "audit/probe_M20000_light23_spread.json",
+      "bytes": 184646,
+      "sha256": "2192fc3923d1e1016b35f33ce80027e3d2d49aecc13f2d850e4c081de4180af2"
+    },
+    {
+      "path": "audit/probe_M20000_light23_spread_maximal.json",
+      "bytes": 184646,
+      "sha256": "2192fc3923d1e1016b35f33ce80027e3d2d49aecc13f2d850e4c081de4180af2"
+    },
+    {
+      "path": "audit/probe_M20000_rough.json",
+      "bytes": 182193,
+      "sha256": "c4fb62a25e5a2d8144f235e1f8c385c079b48799e39b20efcc96e311b0fe623f"
+    },
+    {
+      "path": "audit/probe_M20000_rough_park_maximal.json",
+      "bytes": 182191,
+      "sha256": "c14bf2db89d38bc1f8569f439cb1674ca05ea120aa9c0759fb1354efbe206663"
+    },
+    {
+      "path": "audit/probe_M20000_rough_spread.json",
+      "bytes": 182193,
+      "sha256": "bd66fd013fcd15e6cf0e3911537c8318d57827fd4bb3b3e6b2a966a880463fdf"
+    },
+    {
+      "path": "audit/probe_M20000_unit.json",
+      "bytes": 190138,
+      "sha256": "9471e3d41f5b04a1638e82f5df57a1a5a6732025e9f6bae4529126a5e128b20b"
+    },
+    {
+      "path": "audit/probe_M20000_unit_park.json",
+      "bytes": 190136,
+      "sha256": "5e6a605d9d3ea777c9767de3d69f472dad0c3553484720499583004ffa3d25e6"
+    },
+    {
+      "path": "audit/probe_M20000_unit_spread.json",
+      "bytes": 190138,
+      "sha256": "435312427ee64b86c642746db611efc58d6f0e6b5a74f4a3c375c830d9f0acde"
+    },
+    {
+      "path": "audit/probe_M300_light23.json",
+      "bytes": 4290,
+      "sha256": "5e1d466c265c8a4b761d6e8940800a2dacb0930ac77952d4bb597cf59af0479a"
+    },
+    {
+      "path": "combinatorial/BANK_PRODUCT_COUNTEREXAMPLE.md",
+      "bytes": 7416,
+      "sha256": "8da141d90bf9e53bb8bb8260e8b475c2f87177d1b7ad55583ae78b4eef7a39f1"
+    },
+    {
+      "path": "combinatorial/bank_product_certificate.json",
+      "bytes": 110478,
+      "sha256": "6da6d75f3f7a2580c0eb0cb6ac1c4d2c17c4358b2f9ac1ae82a66941956ca92b"
+    },
+    {
+      "path": "combinatorial/bank_product_verification.json",
+      "bytes": 840,
+      "sha256": "09bef2534b7487960e7ec7f27f20305a63c1beeab6a37b060774c7c5cfb7ed72"
+    },
+    {
+      "path": "combinatorial/verify_bank_product_counterexample.py",
+      "bytes": 5297,
+      "sha256": "52d4577fe36a4992687340b55ec68d33c55dc9ec69f52c3bb2f756010189342c"
+    },
+    {
+      "path": "erdos708_global_gap.pdf",
+      "bytes": 331299,
+      "sha256": "a3cf77eb70196c1ddf3c998290e5824fa3667ce2e3e269ef2c6efbc2391552a8"
+    },
+    {
+      "path": "erdos708_global_gap.tex",
+      "bytes": 29574,
+      "sha256": "92a67a88cfb477407b67306c80115bd0827b3b9cdb29de92a16245baa37441fe"
+    }
+  ]
+}

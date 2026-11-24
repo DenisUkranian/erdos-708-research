@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "required_fallback_demands": 74,
+  "certificates_verified": 74,
+  "max_certificate_M": 240,
+  "slots_budget": 14,
+  "analytic_tail_from": 24285
+}

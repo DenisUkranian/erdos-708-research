@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Working research note prepared for Denis Paliy" />
+  <meta name="dcterms.date" content="2026-11-22" />
+  <title>Erdős Problem 708: Verified Partial Arguments and the Remaining Gap</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    div.abstract {
+      margin: 2em 2em 2em 2em;
+      text-align: left;
+      font-size: 85%;
+    }
+    div.abstract-title {
+      font-weight: bold;
+      text-align: center;
+      padding: 0;
+      margin-bottom: 0.5em;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Erdős Problem 708:<br />
+Verified Partial Arguments and the Remaining Gap</h1>
+<p class="author">Working research note prepared for Denis Paliy</p>
+<p class="date">22 November 2026</p>
+<div class="abstract">
+<div class="abstract-title">Abstract</div>
+<p>We give a self-contained whole-cofactor extension argument valid at
+every interval length, including a saving for each distinct largest
+prime among the nonsmooth sources. Combined with a boxed linear
+relaxation, it gives a conditional bound
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≤</mo><mn>2</mn><mi>n</mi><mo>+</mo><mi>π</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>q</mi><mi>n</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">g(n)\le 2n+\pi(q_n)-1</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>q</mi><mi>n</mi></msub><mo>=</mo><mo>min</mo><mo stretchy="false" form="prefix">{</mo><mi>Z</mi><mo>≥</mo><mn>2</mn><mo>:</mo><mi>Z</mi><mo>≥</mo><mn>2</mn><mi>n</mi><mo>+</mo><mi>π</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>Z</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">q_n=\min\{Z\ge2:Z\ge2n+\pi(Z)-1\}</annotation></semantics></math>,
+from the global hinge inequality
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>H</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(H_2)</annotation></semantics></math>.
+Thus this conditional route has no remaining interval-size gap. An
+unconditional consequence covers sets whose every member has a prime
+factor greater than
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2n-1</annotation></semantics></math>.
+We also give exact obstructions to two overly strong proof strategies,
+including a family on which a particular independent-prime charging
+bound has unbounded relative error while a valid cover uses
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>n</mi><mo>−</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2n-2</annotation></semantics></math>
+positions. Proofs, computations, assumptions, and attribution are
+separated throughout.</p>
+</div>
+</header>
+<div class="center">
+
+</div>
+<h1 id="the-intended-problem-and-the-proof-boundary">The intended
+problem and the proof boundary</h1>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>⊂</mo><msub><mi>ℤ</mi><mrow><mo>≥</mo><mn>2</mn></mrow></msub></mrow><annotation encoding="application/x-tex">A\subset\mathbb Z_{\ge2}</annotation></semantics></math>
+have
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+distinct elements. Put
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mo>max</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">M=\max A</annotation></semantics></math>
+and
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mrow><mi>x</mi><mo>,</mo><mi>M</mi></mrow></msub><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo>,</mo><mi>…</mi><mo>,</mo><mi>x</mi><mo>+</mo><mi>M</mi><mo stretchy="false" form="postfix">}</mo><mo>,</mo><mspace width="2.0em"></mspace><mi>x</mi><mo>∈</mo><msub><mi>ℤ</mi><mrow><mo>≥</mo><mn>0</mn></mrow></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">I_{x,M}=\{x+1,\ldots,x+M\},\qquad x\in\mathbb Z_{\ge0}.</annotation></semantics></math>
+Define
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo>,</mo><msub><mi>I</mi><mrow><mi>x</mi><mo>,</mo><mi>M</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mo>min</mo><mrow><mo stretchy="true" form="prefix">{</mo><mrow><mo stretchy="true" form="prefix">|</mo><mi>B</mi><mo stretchy="true" form="postfix">|</mo></mrow><mo>:</mo><mi>B</mi><mo>⊆</mo><msub><mi>I</mi><mrow><mi>x</mi><mo>,</mo><mi>M</mi></mrow></msub><mo>,</mo><mspace width="1.0em"></mspace><munder><mo>∏</mo><mrow><mi>a</mi><mo>∈</mo><mi>A</mi></mrow></munder><mi>a</mi><mo>∣</mo><munder><mo>∏</mo><mrow><mi>b</mi><mo>∈</mo><mi>B</mi></mrow></munder><mi>b</mi><mo stretchy="true" form="postfix">}</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><munder><mo>sup</mo><mrow><mi>A</mi><mo>,</mo><mi>x</mi></mrow></munder><mi>τ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo>,</mo><msub><mi>I</mi><mrow><mi>x</mi><mo>,</mo><mi>M</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">\tau(A,I_{x,M})=\min\left\{|B|:B\subseteq I_{x,M},\quad
+              \prod_{a\in A}a\mid\prod_{b\in B}b\right\},
+ \qquad g(n)=\sup_{A,x}\tau(A,I_{x,M}).</annotation></semantics></math>
+Every chosen interval position is used at most once. We use the intended
+“at most” convention, not a literal exact-cardinality wording that can
+fail merely because an interval is too short. The questions are
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow><mover><mo>≤</mo><mo accent="false">?</mo></mover><mn>2</mn><mi>n</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow><mover><mo>≤</mo><mo accent="false">?</mo></mover><mrow><mo stretchy="true" form="prefix">(</mo><mn>2</mn><mo>+</mo><mi>o</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mi>n</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">g(n)\stackrel{?}{\le}2n,\qquad
+ g(n)\stackrel{?}{\le}(2+o(1))n.</annotation></semantics></math> The
+recent finite-case paper of Tripodo explicitly leaves the general
+question open <span class="citation" data-cites="tripodo"></span>. This
+note addresses that general question, without presenting small cases or
+a conditional reduction as its solution.</p>
+<p>Several arguments below work more generally with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>≥</mo><mo>max</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">M\ge\max A</annotation></semantics></math>.
+The whole interval is always a cover, because
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mo>∏</mo><mrow><mi>a</mi><mo>∈</mo><mi>A</mi></mrow></munder><mi>a</mi><mo>∣</mo><mi>M</mi><mi>!</mi><mo>,</mo><mspace width="2.0em"></mspace><munder><mo>∏</mo><mrow><mi>b</mi><mo>∈</mo><msub><mi>I</mi><mrow><mi>x</mi><mo>,</mo><mi>M</mi></mrow></msub></mrow></munder><mi>b</mi><mo>=</mo><mi>M</mi><mi>!</mi><mrow><mo stretchy="true" form="prefix">(</mo><mfrac linethickness="0"><mrow><mi>x</mi><mo>+</mo><mi>M</mi></mrow><mi>M</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">\prod_{a\in A}a\mid M!,\qquad
+ \prod_{b\in I_{x,M}}b=M!\binom{x+M}{M}.</annotation></semantics></math>
+Consequently
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>≤</mo><mn>2</mn><mi>n</mi></mrow><annotation encoding="application/x-tex">M\le2n</annotation></semantics></math>
+is immediate. Intervals containing zero are trivial; all-negative
+intervals reduce to positive intervals by reflection.</p>
+<h4 id="attribution.">Attribution.</h4>
+<p>The linear-programming formulation and the global raw-relaxation
+transfer are developed in Wang’s source <span class="citation"
+data-cites="wang"></span>. The cumulative-gcd extension and
+proper-divisor matching approach occur in Bergström’s manuscripts <span
+class="citation" data-cites="berg-asym berg-hinge"></span>. The
+collision charging argument is already in Chen and is restated in
+Preil’s notes <span class="citation" data-cites="chen preil"></span>. We
+rederive the parts used below and extend the whole-cofactor statement to
+all scales. No assertion of novelty or priority is made for these
+reformulations.</p>
+<h1
+id="whole-cofactor-extension-without-a-scale-restriction">Whole-cofactor
+extension without a scale restriction</h1>
+<p>The next elementary lemma will keep repeated prime powers properly
+paid.</p>
+<div id="lem:extension" class="lemma">
+<p><strong>Lemma 1</strong> (One-step extension). <em>Suppose
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>∣</mo><msub><mo>∏</mo><mrow><mi>b</mi><mo>∈</mo><mi>B</mi></mrow></msub><mi>b</mi></mrow><annotation encoding="application/x-tex">H\mid\prod_{b\in B}b</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>⊆</mo><msub><mi>I</mi><mrow><mi>x</mi><mo>,</mo><mi>M</mi></mrow></msub></mrow><annotation encoding="application/x-tex">B\subseteq I_{x,M}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>≤</mo><mi>h</mi><mo>≤</mo><mi>M</mi></mrow><annotation encoding="application/x-tex">1\le h\le M</annotation></semantics></math>,
+and
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>gcd</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>H</mi><mo>,</mo><mi>h</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≤</mo><mrow><mo stretchy="true" form="prefix">⌊</mo><mfrac><mi>M</mi><mrow><mrow><mo stretchy="true" form="prefix">|</mo><mi>B</mi><mo stretchy="true" form="postfix">|</mo></mrow><mo>+</mo><mn>1</mn></mrow></mfrac><mo stretchy="true" form="postfix">⌋</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">\gcd(H,h)\le\left\lfloor\frac{M}{|B|+1}\right\rfloor.</annotation></semantics></math>
+Then one unused position can be added so that the enlarged product is
+divisible by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mi>h</mi></mrow><annotation encoding="application/x-tex">Hh</annotation></semantics></math>.
+A unit request
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">h=1</annotation></semantics></math>
+can instead be skipped.</em></p>
+</div>
+<div class="proof">
+<p><em>Proof.</em> If an unused multiple of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math>
+exists, select it. Otherwise at least one multiple of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math>
+lies in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>,
+so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>H</mi><annotation encoding="application/x-tex">H</annotation></semantics></math>
+both divide the current product. Therefore
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>lcm</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>H</mi><mo>,</mo><mi>h</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\mathop{\mathrm{lcm}}(H,h)</annotation></semantics></math>
+divides that product. Write
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mo>gcd</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>H</mi><mo>,</mo><mi>h</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">d=\gcd(H,h)</annotation></semantics></math>.
+The interval has at least
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">⌊</mo><mi>M</mi><mi>/</mi><mi>d</mi><mo stretchy="false" form="postfix">⌋</mo><mo>≥</mo><mrow><mo stretchy="true" form="prefix">|</mo><mi>B</mi><mo stretchy="true" form="postfix">|</mo></mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\lfloor M/d\rfloor\ge |B|+1</annotation></semantics></math>
+multiples of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math>;
+one is unused. Multiplying by it supplies the missing factor in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mi>h</mi><mo>=</mo><mi>d</mi><mo>lcm</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>H</mi><mo>,</mo><mi>h</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">Hh=d\mathop{\mathrm{lcm}}(H,h)</annotation></semantics></math>. ◻</p>
+</div>
+<p>Fix an integer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mo>≥</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">Z\ge2</annotation></semantics></math>.
+Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>A</mi><mn>0</mn></msub><annotation encoding="application/x-tex">A_0</annotation></semantics></math>
+be the sources with largest prime factor at most
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Z</mi><annotation encoding="application/x-tex">Z</annotation></semantics></math>.
+Write
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">|</mo><mi>A</mi><mo>\</mo><msub><mi>A</mi><mn>0</mn></msub><mo stretchy="true" form="postfix">|</mo></mrow></mrow><annotation encoding="application/x-tex">r=|A\setminus A_0|</annotation></semantics></math>
+and let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+be the number of distinct largest prime factors of sources in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>\</mo><msub><mi>A</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">A\setminus A_0</annotation></semantics></math>.</p>
+<div id="thm:peeling" class="theorem">
+<p><strong>Theorem 2</strong> (All-scale whole-cofactor extension).
+<em>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>B</mi><mn>0</mn></msub><mo>⊆</mo><msub><mi>I</mi><mrow><mi>x</mi><mo>,</mo><mi>M</mi></mrow></msub></mrow><annotation encoding="application/x-tex">B_0\subseteq I_{x,M}</annotation></semantics></math>
+cover
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>A</mi><mn>0</mn></msub><annotation encoding="application/x-tex">A_0</annotation></semantics></math>,
+and suppose
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">r&gt;0</annotation></semantics></math>.
+Set
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">|</mo><msub><mi>B</mi><mn>0</mn></msub><mo stretchy="true" form="postfix">|</mo></mrow><mo>+</mo><mn>2</mn><mi>r</mi><mo>−</mo><mi>t</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">K=|B_0|+2r-t.</annotation></semantics></math>
+If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mo>≥</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">Z\ge K</annotation></semantics></math>,
+then
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>B</mi><mn>0</mn></msub><annotation encoding="application/x-tex">B_0</annotation></semantics></math>
+extends to a cover of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+of size at most
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>.
+There is no assumption
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>Z</mi><mn>2</mn></msup><mo>&gt;</mo><mi>M</mi></mrow><annotation encoding="application/x-tex">Z^2&gt;M</annotation></semantics></math>.</em></p>
+</div>
+<div class="proof">
+<p><em>Proof.</em> Group the remaining sources by their largest prime
+factor
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>&gt;</mo><mi>Z</mi></mrow><annotation encoding="application/x-tex">p&gt;Z</annotation></semantics></math>:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>a</mi><mrow><mi>p</mi><mo>,</mo><mn>1</mn></mrow></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>a</mi><mrow><mi>p</mi><mo>,</mo><msub><mi>m</mi><mi>p</mi></msub></mrow></msub></mrow><annotation encoding="application/x-tex">a_{p,1},\ldots,a_{p,m_p}</annotation></semantics></math>.
+We maintain a target integer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>H</mi><annotation encoding="application/x-tex">H</annotation></semantics></math>
+known to divide the product of the selected positions. Extra prime
+factors in those positions do not change the definition of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>H</mi><annotation encoding="application/x-tex">H</annotation></semantics></math>.</p>
+<p><em>Stage 1: one complete source per group.</em> Process the groups
+in increasing
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>.
+Before a group is processed,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>H</mi><annotation encoding="application/x-tex">H</annotation></semantics></math>
+is the product of the smooth sources and one source from each earlier
+group. Thus
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>∤</mo><mi>H</mi></mrow><annotation encoding="application/x-tex">p\nmid H</annotation></semantics></math>,
+and
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>gcd</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>H</mi><mo>,</mo><msub><mi>a</mi><mrow><mi>p</mi><mo>,</mo><mn>1</mn></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>≤</mo><msub><mi>a</mi><mrow><mi>p</mi><mo>,</mo><mn>1</mn></mrow></msub><mi>/</mi><mi>p</mi><mo>≤</mo><mi>M</mi><mi>/</mi><mi>p</mi><mo>&lt;</mo><mi>M</mi><mi>/</mi><mi>Z</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">\gcd(H,a_{p,1})\le a_{p,1}/p\le M/p&lt;M/Z.</annotation></semantics></math>
+Before every addition
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">|</mo><mi>B</mi><mo stretchy="true" form="postfix">|</mo></mrow><mo>+</mo><mn>1</mn><mo>≤</mo><mrow><mo stretchy="true" form="prefix">|</mo><msub><mi>B</mi><mn>0</mn></msub><mo stretchy="true" form="postfix">|</mo></mrow><mo>+</mo><mi>t</mi><mo>≤</mo><mi>K</mi><mo>≤</mo><mi>Z</mi></mrow><annotation encoding="application/x-tex">|B|+1\le |B_0|+t\le K\le Z</annotation></semantics></math>.
+The integer gcd therefore satisfies Lemma <a href="#lem:extension"
+data-reference-type="ref" data-reference="lem:extension">1</a>. This
+stage uses at most
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+additional positions and multiplies
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>H</mi><annotation encoding="application/x-tex">H</annotation></semantics></math>
+by each
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>a</mi><mrow><mi>p</mi><mo>,</mo><mn>1</mn></mrow></msub><annotation encoding="application/x-tex">a_{p,1}</annotation></semantics></math>.</p>
+<p><em>Stage 2: the chosen prime of each remaining source.</em> For each
+group we must multiply the target by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>p</mi><mrow><msub><mi>m</mi><mi>p</mi></msub><mo>−</mo><mn>1</mn></mrow></msup><annotation encoding="application/x-tex">p^{m_p-1}</annotation></semantics></math>.
+If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>p</mi><mn>2</mn></msup><mo>≤</mo><mi>M</mi></mrow><annotation encoding="application/x-tex">p^2\le M</annotation></semantics></math>,
+the interval contains at least
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">⌊</mo><mi>M</mi><mi>/</mi><mi>p</mi><mo stretchy="false" form="postfix">⌋</mo><mo>≥</mo><mi>p</mi><mo>&gt;</mo><mi>Z</mi><mo>≥</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">\lfloor M/p\rfloor\ge p&gt;Z\ge K</annotation></semantics></math>
+multiples of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>.
+A fresh multiple exists before every requested addition. Adding one per
+copy is valid even if other parts of the target also contain
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>.</p>
+<p>If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>p</mi><mn>2</mn></msup><mo>&gt;</mo><mi>M</mi></mrow><annotation encoding="application/x-tex">p^2&gt;M</annotation></semantics></math>,
+every source contains
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>
+to exponent at most one. Moreover no source in a different group
+contains
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>:
+a larger largest prime
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>q</mi><annotation encoding="application/x-tex">q</annotation></semantics></math>
+would give
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mi>q</mi><mo>&gt;</mo><mi>M</mi></mrow><annotation encoding="application/x-tex">pq&gt;M</annotation></semantics></math>,
+and a smaller largest prime cannot occur together with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>.
+Thus the target before processing this group contains exactly one copy
+of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>.
+The actual current product may contain more; write its
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>-valuation
+as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo>≥</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">u\ge1</annotation></semantics></math>.
+If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo>≥</mo><msub><mi>m</mi><mi>p</mi></msub></mrow><annotation encoding="application/x-tex">u\ge m_p</annotation></semantics></math>,
+nothing is needed. Otherwise there are at least
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">⌊</mo><mi>M</mi><mi>/</mi><mi>p</mi><mo stretchy="false" form="postfix">⌋</mo><mo>≥</mo><msub><mi>m</mi><mi>p</mi></msub></mrow><annotation encoding="application/x-tex">\lfloor M/p\rfloor\ge m_p</annotation></semantics></math>
+interval multiples of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>,
+because the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>m</mi><mi>p</mi></msub><annotation encoding="application/x-tex">m_p</annotation></semantics></math>
+sources are distinct multiples of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>
+at most
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>.
+At most
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>u</mi><annotation encoding="application/x-tex">u</annotation></semantics></math>
+selected positions are divisible by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>.
+Hence at least
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>m</mi><mi>p</mi></msub><mo>−</mo><mi>u</mi></mrow><annotation encoding="application/x-tex">m_p-u</annotation></semantics></math>
+are unused; selecting these suffices. This adds at most
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>m</mi><mi>p</mi></msub><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">m_p-1</annotation></semantics></math>
+positions and preserves every other required valuation. Summed over
+groups, Stage 2 uses at most
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>−</mo><mi>t</mi></mrow><annotation encoding="application/x-tex">r-t</annotation></semantics></math>
+new positions.</p>
+<p><em>Stage 3: whole remaining cofactors.</em> For each
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi><mo>≥</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">j\ge2</annotation></semantics></math>
+put
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><msub><mi>a</mi><mrow><mi>p</mi><mo>,</mo><mi>j</mi></mrow></msub><mi>/</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">d=a_{p,j}/p</annotation></semantics></math>.
+If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>&gt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">d&gt;1</annotation></semantics></math>,
+then
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">|</mo><msub><mi>I</mi><mrow><mi>x</mi><mo>,</mo><mi>M</mi></mrow></msub><mo>∩</mo><mi>d</mi><mi>ℤ</mi><mo stretchy="true" form="postfix">|</mo></mrow><mo>≥</mo><mo stretchy="false" form="prefix">⌊</mo><mi>M</mi><mi>/</mi><mi>d</mi><mo stretchy="false" form="postfix">⌋</mo><mo>≥</mo><mi>p</mi><mo>&gt;</mo><mi>Z</mi><mo>≥</mo><mi>K</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">|I_{x,M}\cap d\mathbb Z|\ge\lfloor M/d\rfloor\ge p&gt;Z\ge K.</annotation></semantics></math>
+Select a fresh multiple of each such
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math>,
+disjoint from all earlier positions. The cofactor may contain more
+copies of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>
+or other primes larger than
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Z</mi><annotation encoding="application/x-tex">Z</annotation></semantics></math>;
+all of it is paid on this fresh position. At most
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>−</mo><mi>t</mi></mrow><annotation encoding="application/x-tex">r-t</annotation></semantics></math>
+positions are added. Finally,
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">|</mo><mi>B</mi><mo stretchy="true" form="postfix">|</mo></mrow><mo>≤</mo><mrow><mo stretchy="true" form="prefix">|</mo><msub><mi>B</mi><mn>0</mn></msub><mo stretchy="true" form="postfix">|</mo></mrow><mo>+</mo><mi>t</mi><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>r</mi><mo>−</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>r</mi><mo>−</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>K</mi><mo>,</mo></mrow><annotation encoding="application/x-tex">|B|\le |B_0|+t+(r-t)+(r-t)=K,</annotation></semantics></math>
+and the factorization of the sources proves the required
+divisibility. ◻</p>
+</div>
+<div id="cor:rough" class="corollary">
+<p><strong>Corollary 3</strong> (An unconditional class). <em>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≥</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">n\ge2</annotation></semantics></math>,
+suppose each
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>∈</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">a\in A</annotation></semantics></math>
+has a prime divisor greater than
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2n-1</annotation></semantics></math>.
+If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+is the number of distinct largest prime factors in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>,
+then
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo>,</mo><msub><mi>I</mi><mrow><mi>x</mi><mo>,</mo><mi>M</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>≤</mo><mn>2</mn><mi>n</mi><mo>−</mo><mi>t</mi><mo>≤</mo><mn>2</mn><mi>n</mi><mo>−</mo><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">\tau(A,I_{x,M})\le2n-t\le2n-1.</annotation></semantics></math></em></p>
+</div>
+<div class="proof">
+<p><em>Proof.</em> Set
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mo>=</mo><mn>2</mn><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">Z=2n-1</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mn>0</mn></msub><mo>=</mo><mi>⌀</mi></mrow><annotation encoding="application/x-tex">A_0=\varnothing</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>B</mi><mn>0</mn></msub><mo>=</mo><mi>⌀</mi></mrow><annotation encoding="application/x-tex">B_0=\varnothing</annotation></semantics></math>,
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>=</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">r=n</annotation></semantics></math>.
+Since
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>≥</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">t\ge1</annotation></semantics></math>,
+the budget
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mn>2</mn><mi>n</mi><mo>−</mo><mi>t</mi></mrow><annotation encoding="application/x-tex">K=2n-t</annotation></semantics></math>
+is at most
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Z</mi><annotation encoding="application/x-tex">Z</annotation></semantics></math>.
+Apply Theorem <a href="#thm:peeling" data-reference-type="ref"
+data-reference="thm:peeling">2</a>. ◻</p>
+</div>
+<div class="remark">
+<p><em>Scope 1</em>. This corollary is a restricted theorem, not an
+assumption that can be made for an arbitrary input. Integers composed of
+primes at most
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2n-1</annotation></semantics></math>
+remain a genuine obstruction to applying it to all of Problem 708.</p>
+</div>
+<h1 id="the-exact-missing-inequality-and-a-conditional-consequence">The
+exact missing inequality and a conditional consequence</h1>
+<p>For weights
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mi>p</mi></msub><mo>∈</mo><mrow><mo stretchy="true" form="prefix">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">w_p\in[0,1]</annotation></semantics></math>
+on primes
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>≤</mo><mi>M</mi></mrow><annotation encoding="application/x-tex">p\le M</annotation></semantics></math>,
+set
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mi>w</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>k</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><munder><mo>∑</mo><mrow><mi>p</mi><mo>≤</mo><mi>M</mi></mrow></munder><msub><mi>w</mi><mi>p</mi></msub><msub><mi>v</mi><mi>p</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>k</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>u</mi><mo>+</mo></msub><mo>=</mo><mo>max</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo>,</mo><mn>0</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">X_w(k)=\sum_{p\le M}w_pv_p(k),\qquad u_+=\max(u,0).</annotation></semantics></math>
+The unproved global inequality in this route is
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munderover><mo>∑</mo><mrow><mi>a</mi><mo>=</mo><mn>1</mn></mrow><mi>M</mi></munderover><msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>X</mi><mi>w</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo></msub><mo>≤</mo><munder><mo>∑</mo><mrow><mi>b</mi><mo>∈</mo><msub><mi>I</mi><mrow><mi>x</mi><mo>,</mo><mi>M</mi></mrow></msub></mrow></munder><msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>X</mi><mi>w</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo></msub><mspace width="1.0em"></mspace><mrow><mtext mathvariant="normal">for every </mtext><mspace width="0.333em"></mspace></mrow><mi>M</mi><mo>,</mo><mi>x</mi><mo>,</mo><mi>w</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">\tag{$H_2$}\label{eq:h2}
+ \sum_{a=1}^{M}\left(X_w(a)-2\right)_+
+ \le \sum_{b\in I_{x,M}}\left(X_w(b)-1\right)_+
+ \quad\text{for every }M,x,w.</annotation></semantics></math> We do not
+prove <a href="#eq:h2" data-reference-type="eqref"
+data-reference="eq:h2">[eq:h2]</a> here. The following consequences keep
+it as an explicit hypothesis.</p>
+<h2 id="boxed-relaxation-and-dual-clipping">Boxed relaxation and dual
+clipping</h2>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>p</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mo>∑</mo><mrow><mi>a</mi><mo>∈</mo><mi>A</mi></mrow></msub><msub><mi>v</mi><mi>p</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">D_p(A)=\sum_{a\in A}v_p(a)</annotation></semantics></math>,
+define
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo>,</mo><mi>I</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mo>min</mo><mrow><mo stretchy="true" form="prefix">{</mo><munder><mo>∑</mo><mrow><mi>b</mi><mo>∈</mo><mi>I</mi></mrow></munder><msub><mi>z</mi><mi>b</mi></msub><mo>:</mo><mn>0</mn><mo>≤</mo><msub><mi>z</mi><mi>b</mi></msub><mo>≤</mo><mn>1</mn><mo>,</mo><mspace width="1.0em"></mspace><munder><mo>∑</mo><mrow><mi>b</mi><mo>∈</mo><mi>I</mi></mrow></munder><msub><mi>v</mi><mi>p</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow><msub><mi>z</mi><mi>b</mi></msub><mo>≥</mo><msub><mi>D</mi><mi>p</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> for all demanded </mtext><mspace width="0.333em"></mspace></mrow><mi>p</mi><mo stretchy="true" form="postfix">}</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">L(A,I)=\min\left\{\sum_{b\in I}z_b:
+ 0\le z_b\le1,\quad\sum_{b\in I}v_p(b)z_b\ge D_p(A)
+ \text{ for all demanded }p\right\}.</annotation></semantics></math> The
+upper boxes
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>z</mi><mi>b</mi></msub><mo>≤</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">z_b\le1</annotation></semantics></math>
+are essential: an interval position cannot be used repeatedly. The term
+“raw” in the cited source refers to the coefficients
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>v</mi><mi>p</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">v_p(b)</annotation></semantics></math>,
+not to removal of those boxes. The feasible set is nonempty by the
+whole-interval observation. Finite linear-programming duality gives
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo>,</mo><mi>I</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><munder><mo>max</mo><mrow><msub><mi>w</mi><mi>p</mi></msub><mo>≥</mo><mn>0</mn></mrow></munder><mrow><mo stretchy="true" form="prefix">[</mo><munder><mo>∑</mo><mrow><mi>a</mi><mo>∈</mo><mi>A</mi></mrow></munder><msub><mi>X</mi><mi>w</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><munder><mo>∑</mo><mrow><mi>b</mi><mo>∈</mo><mi>I</mi></mrow></munder><msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>X</mi><mi>w</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo></msub><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">\label{eq:dual}
+ L(A,I)=\max_{w_p\ge0}\left[
+  \sum_{a\in A}X_w(a)-\sum_{b\in I}\left(X_w(b)-1\right)_+\right].</annotation></semantics></math>
+If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mi>p</mi></msub><mo>=</mo><mn>1</mn><mo>+</mo><mi>δ</mi><mo>&gt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">w_p=1+\delta&gt;1</annotation></semantics></math>,
+lower it to one. For every multiple of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>
+the right hinge remains in its linear region. Its total decrease is
+exactly
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>δ</mi><msub><mo>∑</mo><mrow><mi>b</mi><mo>∈</mo><mi>I</mi></mrow></msub><msub><mi>v</mi><mi>p</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\delta\sum_{b\in I}v_p(b)</annotation></semantics></math>,
+whereas the source term decreases by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>δ</mi><msub><mi>D</mi><mi>p</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\delta D_p(A)</annotation></semantics></math>.
+The former is at least the latter, because
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mo>∑</mo><mrow><mi>b</mi><mo>∈</mo><mi>I</mi></mrow></munder><msub><mi>v</mi><mi>p</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≥</mo><munder><mo>∑</mo><mrow><mi>e</mi><mo>≥</mo><mn>1</mn></mrow></munder><mo stretchy="false" form="prefix">⌊</mo><mi>M</mi><mi>/</mi><msup><mi>p</mi><mi>e</mi></msup><mo stretchy="false" form="postfix">⌋</mo><mo>≥</mo><msub><mi>D</mi><mi>p</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">\sum_{b\in I}v_p(b)
+ \ge\sum_{e\ge1}\lfloor M/p^e\rfloor
+ \ge D_p(A).</annotation></semantics></math> Thus clipping cannot reduce
+the dual objective, and weights in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="true" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[0,1]</annotation></semantics></math>
+suffice. If <a href="#eq:h2" data-reference-type="eqref"
+data-reference="eq:h2">[eq:h2]</a> holds, then
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munder><mo>∑</mo><mrow><mi>a</mi><mo>∈</mo><mi>A</mi></mrow></munder><msub><mi>X</mi><mi>w</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≤</mo><mn>2</mn><mrow><mo stretchy="true" form="prefix">|</mo><mi>A</mi><mo stretchy="true" form="postfix">|</mo></mrow><mo>+</mo><munderover><mo>∑</mo><mrow><mi>a</mi><mo>=</mo><mn>1</mn></mrow><mi>M</mi></munderover><msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>X</mi><mi>w</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo></msub><mo>≤</mo><mn>2</mn><mrow><mo stretchy="true" form="prefix">|</mo><mi>A</mi><mo stretchy="true" form="postfix">|</mo></mrow><mo>+</mo><munder><mo>∑</mo><mrow><mi>b</mi><mo>∈</mo><mi>I</mi></mrow></munder><msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>X</mi><mi>w</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">\sum_{a\in A}X_w(a)
+ \le 2|A|+\sum_{a=1}^M\left(X_w(a)-2\right)_+
+ \le 2|A|+\sum_{b\in I}\left(X_w(b)-1\right)_+.</annotation></semantics></math>
+Therefore
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo>,</mo><mi>I</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≤</mo><mn>2</mn><mrow><mo stretchy="true" form="prefix">|</mo><mi>A</mi><mo stretchy="true" form="postfix">|</mo></mrow></mrow><annotation encoding="application/x-tex">L(A,I)\le2|A|</annotation></semantics></math>.</p>
+<p>Conversely, if
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo>,</mo><mi>I</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≤</mo><mn>2</mn><mrow><mo stretchy="true" form="prefix">|</mo><mi>A</mi><mo stretchy="true" form="postfix">|</mo></mrow></mrow><annotation encoding="application/x-tex">L(A,I)\le2|A|</annotation></semantics></math>
+holds for all source subsets of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mo>,</mo><mi>…</mi><mo>,</mo><mi>M</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{1,\ldots,M\}</annotation></semantics></math>,
+apply <a href="#eq:dual" data-reference-type="eqref"
+data-reference="eq:dual">[eq:dual]</a> to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>a</mi><mo>≤</mo><mi>M</mi><mo>:</mo><msub><mi>X</mi><mi>w</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>&gt;</mo><mn>2</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">A=\{a\le M:X_w(a)&gt;2\}</annotation></semantics></math>
+to recover <a href="#eq:h2" data-reference-type="eqref"
+data-reference="eq:h2">[eq:h2]</a>. The hinge formulation is therefore a
+substantive covering statement, not an innocuous estimate that can be
+omitted from the proof.</p>
+<h2 id="rounding-and-all-interval-lengths">Rounding and all interval
+lengths</h2>
+<div id="thm:conditional" class="theorem">
+<p><strong>Theorem 4</strong> (Conditional; assumes global
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>H</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(H_2)</annotation></semantics></math>).
+<em>Let
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>q</mi><mi>n</mi></msub><mo>=</mo><mo>min</mo><mo stretchy="false" form="prefix">{</mo><mi>Z</mi><mo>∈</mo><mi>ℤ</mi><mo>:</mo><mi>Z</mi><mo>≥</mo><mn>2</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>Z</mi><mo>≥</mo><mn>2</mn><mi>n</mi><mo>+</mo><mi>π</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>Z</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mn>1</mn><mo stretchy="false" form="postfix">}</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">q_n=\min\{Z\in\mathbb Z:Z\ge2,\quad Z\ge2n+\pi(Z)-1\}.</annotation></semantics></math>
+If the global inequality <a href="#eq:h2" data-reference-type="eqref"
+data-reference="eq:h2">[eq:h2]</a> holds, then
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≤</mo><mn>2</mn><mi>n</mi><mo>+</mo><mi>π</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>q</mi><mi>n</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mn>1</mn><mo>=</mo><mn>2</mn><mi>n</mi><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>2</mn><mo>+</mo><mi>o</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mfrac><mi>n</mi><mrow><mo>log</mo><mi>n</mi></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">g(n)\le 2n+\pi(q_n)-1
+       =2n+(2+o(1))\frac{n}{\log n}.</annotation></semantics></math> In
+particular the asymptotic question would be answered for every interval
+length. This does not prove the exact inequality
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≤</mo><mn>2</mn><mi>n</mi></mrow><annotation encoding="application/x-tex">g(n)\le2n</annotation></semantics></math>.</em></p>
+</div>
+<div class="proof">
+<p><em>Proof.</em> The minimum exists:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mo>=</mo><mn>4</mn><mi>n</mi></mrow><annotation encoding="application/x-tex">Z=4n</annotation></semantics></math>
+works since
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>π</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>4</mn><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≤</mo><mn>2</mn><mi>n</mi></mrow><annotation encoding="application/x-tex">\pi(4n)\le2n</annotation></semantics></math>.
+Split the sources at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mo>=</mo><msub><mi>q</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">Z=q_n</annotation></semantics></math>,
+and let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">m</annotation></semantics></math>
+be the number of smooth sources. If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">m&gt;0</annotation></semantics></math>,
+solve their boxed relaxation. An optimal vertex has at most
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>π</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>Z</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\pi(Z)</annotation></semantics></math>
+fractional coordinates: otherwise its fractional columns are dependent
+on the tight demand rows, permitting a nonzero two-sided feasible
+perturbation. Rounding all fractional coordinates up preserves
+feasibility. If some coordinate is fractional, the increase is strictly
+less than their number; if none is fractional, the solution is already
+integral. Since
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo>≤</mo><mn>2</mn><mi>m</mi></mrow><annotation encoding="application/x-tex">L\le2m</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>π</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>Z</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≥</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\pi(Z)\ge1</annotation></semantics></math>,
+both cases give
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">|</mo><msub><mi>B</mi><mn>0</mn></msub><mo stretchy="true" form="postfix">|</mo></mrow><mo>≤</mo><mn>2</mn><mi>m</mi><mo>+</mo><mi>π</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>Z</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">|B_0|\le2m+\pi(Z)-1.</annotation></semantics></math>
+If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">m=0</annotation></semantics></math>,
+take
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>B</mi><mn>0</mn></msub><mo>=</mo><mi>⌀</mi></mrow><annotation encoding="application/x-tex">B_0=\varnothing</annotation></semantics></math>
+instead. If there are no rough sources, we are done by the same rounding
+bound. Otherwise the budget in Theorem <a href="#thm:peeling"
+data-reference-type="ref" data-reference="thm:peeling">2</a> satisfies
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">|</mo><msub><mi>B</mi><mn>0</mn></msub><mo stretchy="true" form="postfix">|</mo></mrow><mo>+</mo><mn>2</mn><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo>−</mo><mi>m</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mi>t</mi><mo>≤</mo><mn>2</mn><mi>n</mi><mo>+</mo><mi>π</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>Z</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mn>1</mn><mo>≤</mo><mi>Z</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">|B_0|+2(n-m)-t\le2n+\pi(Z)-1\le Z.</annotation></semantics></math>
+For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">m=0</annotation></semantics></math>
+it is even at most
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2n-1</annotation></semantics></math>.
+The extension theorem applies at every
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>
+and gives the finite bound. Finally
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>n</mi><mo>−</mo><mn>1</mn><mo>≤</mo><msub><mi>q</mi><mi>n</mi></msub><mo>≤</mo><mn>4</mn><mi>n</mi></mrow><annotation encoding="application/x-tex">2n-1\le q_n\le4n</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>π</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>O</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mi>/</mi><mo>log</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\pi(x)=O(x/\log x)</annotation></semantics></math>
+imply
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>q</mi><mi>n</mi></msub><mo>=</mo><mn>2</mn><mi>n</mi><mo>+</mo><mi>O</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mi>/</mi><mo>log</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">q_n=2n+O(n/\log n)</annotation></semantics></math>;
+the prime number theorem yields
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>π</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>q</mi><mi>n</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>2</mn><mo>+</mo><mi>o</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mi>n</mi><mi>/</mi><mo>log</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">\pi(q_n)=(2+o(1))n/\log n</annotation></semantics></math>. ◻</p>
+</div>
+<p>Wang’s existing raw transfer already implies the sufficient
+conditional bound
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≤</mo><mn>2</mn><mi>n</mi><mo>+</mo><mi>π</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>4</mn><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">g(n)\le2n+\pi(4n)-1</annotation></semantics></math>
+from
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>H</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(H_2)</annotation></semantics></math>
+for all
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>
+<span class="citation" data-cites="wang"></span>. The threshold
+refinement above does not supply the missing hypothesis.</p>
+<h1 id="a-collision-charging-bound-cannot-close-the-problem-by-itself">A
+collision charging bound cannot close the problem by itself</h1>
+<p>Choose, for each
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>∈</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">a\in A</annotation></semantics></math>,
+an interval multiple
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>b</mi><mi>a</mi></msub><annotation encoding="application/x-tex">b_a</annotation></semantics></math>.
+Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+be the number of distinct chosen multiples and let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mi>b</mi></msub><annotation encoding="application/x-tex">S_b</annotation></semantics></math>
+be the union of the prime supports of sources assigned to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>b</mi><annotation encoding="application/x-tex">b</annotation></semantics></math>.
+The known collision bound is
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo>,</mo><mi>I</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≤</mo><mi>U</mi><mo>:=</mo><mi>t</mi><mo>+</mo><munder><mo>∑</mo><mrow><mi>a</mi><mo>∈</mo><mi>A</mi></mrow></munder><mi>ω</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><munder><mo>∑</mo><mi>b</mi></munder><mrow><mo stretchy="true" form="prefix">|</mo><msub><mi>S</mi><mi>b</mi></msub><mo stretchy="true" form="postfix">|</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">\label{eq:hub}
+ \tau(A,I)\le U:=t+\sum_{a\in A}\omega(a)-\sum_b|S_b|,</annotation></semantics></math>
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ω</mi><annotation encoding="application/x-tex">\omega</annotation></semantics></math>
+counts distinct prime factors <span class="citation"
+data-cites="chen preil"></span>. For completeness, for each prime
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>
+the source-to-target graph matching
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
+to multiples of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>p</mi><mrow><msub><mi>v</mi><mi>p</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><annotation encoding="application/x-tex">p^{v_p(a)}</annotation></semantics></math>
+satisfies Hall by nested neighborhoods:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>#</mi><mo stretchy="false" form="prefix">{</mo><mi>a</mi><mo>:</mo><msup><mi>p</mi><mi>e</mi></msup><mo>∣</mo><mi>a</mi><mo stretchy="false" form="postfix">}</mo><mo>≤</mo><mo stretchy="false" form="prefix">⌊</mo><mi>M</mi><mi>/</mi><msup><mi>p</mi><mi>e</mi></msup><mo stretchy="false" form="postfix">⌋</mo><mo>≤</mo><mi>#</mi><mo stretchy="false" form="prefix">{</mo><mi>b</mi><mo>∈</mo><mi>I</mi><mo>:</mo><msup><mi>p</mi><mi>e</mi></msup><mo>∣</mo><mi>b</mi><mo stretchy="false" form="postfix">}</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">\#\{a:p^e\mid a\}\le\lfloor M/p^e\rfloor
+ \le\#\{b\in I:p^e\mid b\}.</annotation></semantics></math> Start a
+partial matching by assigning the largest
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>-valuation
+source in each relevant collision group to its chosen multiple.
+Augmenting paths extend it to a full matching while preserving the set
+of matched right vertices, although individual assignments can change.
+If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>k</mi><mi>p</mi></msub><annotation encoding="application/x-tex">k_p</annotation></semantics></math>
+sources contain
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>c</mi><mi>p</mi></msub><annotation encoding="application/x-tex">c_p</annotation></semantics></math>
+such groups exist, this adds
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>k</mi><mi>p</mi></msub><mo>−</mo><msub><mi>c</mi><mi>p</mi></msub></mrow><annotation encoding="application/x-tex">k_p-c_p</annotation></semantics></math>
+new right vertices. Taking their union over
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>
+proves <a href="#eq:hub" data-reference-type="eqref"
+data-reference="eq:hub">[eq:hub]</a>.</p>
+<h2 id="a-small-exact-obstruction">A small exact obstruction</h2>
+<p>Take
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mn>60</mn><mo>,</mo><mn>66</mn><mo>,</mo><mn>70</mn><mo>,</mo><mn>78</mn><mo>,</mo><mn>84</mn><mo>,</mo><mn>90</mn><mo stretchy="false" form="postfix">}</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>M</mi><mo>=</mo><mn>90</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>L</mi><mo>=</mo><mo>lcm</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>180180</mn><mo>,</mo></mrow><annotation encoding="application/x-tex">A=\{60,66,70,78,84,90\},\quad M=90,\quad L=\mathop{\mathrm{lcm}}(A)=180180,</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>L</mi><mo>−</mo><mn>44</mn><mo>,</mo><mi>…</mi><mo>,</mo><mi>L</mi><mo>+</mo><mn>45</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">I=\{L-44,\ldots,L+45\}</annotation></semantics></math>.
+Each source exceeds
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>45</mn><annotation encoding="application/x-tex">45</annotation></semantics></math>
+and divides
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>L</mi><annotation encoding="application/x-tex">L</annotation></semantics></math>,
+so its unique interval multiple is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>L</mi><annotation encoding="application/x-tex">L</annotation></semantics></math>.
+Every source has three distinct prime factors, whose union is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>5</mn><mo>,</mo><mn>7</mn><mo>,</mo><mn>11</mn><mo>,</mo><mn>13</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{2,3,5,7,11,13\}</annotation></semantics></math>.
+Therefore every choice forces
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mo>=</mo><mn>1</mn><mo>+</mo><mn>18</mn><mo>−</mo><mn>6</mn><mo>=</mo><mn>13</mn><mo>&gt;</mo><mn>12</mn><mo>=</mo><mn>2</mn><mi>n</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">U=1+18-6=13&gt;12=2n.</annotation></semantics></math>
+The actual product-cover optimum is only four, as established by exact
+0/1 dynamic programming in the accompanying code. A cover is
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mn>180140</mn><mo>,</mo><mn>180144</mn><mo>,</mo><mn>180145</mn><mo>,</mo><mn>180180</mn><mo stretchy="false" form="postfix">}</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">B=\{180140,180144,180145,180180\}.</annotation></semantics></math>
+Its valuations at the demanded primes are
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="center" style="text-align: center"></mtd><mtd columnalign="right" style="text-align: right"><mn>2</mn></mtd><mtd columnalign="right" style="text-align: right"><mn>3</mn></mtd><mtd columnalign="right" style="text-align: right"><mn>5</mn></mtd><mtd columnalign="right" style="text-align: right"><mn>7</mn></mtd><mtd columnalign="right" style="text-align: right"><mn>11</mn></mtd><mtd columnalign="right" style="text-align: right"><mn>13</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mo>∏</mo><mi>A</mi></mtd><mtd columnalign="right" style="text-align: right"><mn>8</mn></mtd><mtd columnalign="right" style="text-align: right"><mn>6</mn></mtd><mtd columnalign="right" style="text-align: right"><mn>3</mn></mtd><mtd columnalign="right" style="text-align: right"><mn>2</mn></mtd><mtd columnalign="right" style="text-align: right"><mn>1</mn></mtd><mtd columnalign="right" style="text-align: right"><mn>1</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mo>∏</mo><mi>B</mi></mtd><mtd columnalign="right" style="text-align: right"><mn>8</mn></mtd><mtd columnalign="right" style="text-align: right"><mn>6</mn></mtd><mtd columnalign="right" style="text-align: right"><mn>3</mn></mtd><mtd columnalign="right" style="text-align: right"><mn>2</mn></mtd><mtd columnalign="right" style="text-align: right"><mn>1</mn></mtd><mtd columnalign="right" style="text-align: right"><mn>1</mn></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{array}{c|rrrrrr}
+ &amp;2&amp;3&amp;5&amp;7&amp;11&amp;13\\\hline
+ \prod A&amp;8&amp;6&amp;3&amp;2&amp;1&amp;1\\
+ \prod B&amp;8&amp;6&amp;3&amp;2&amp;1&amp;1
+\end{array}</annotation></semantics></math> The displayed cover alone
+suffices to show that this obstruction is to the charging bound, not to
+Problem 708. The minimality claim is separately certified by exhaustive
+dynamic programming, not by a solver tolerance.</p>
+<h2 id="unbounded-overestimate-on-a-whole-family">Unbounded overestimate
+on a whole family</h2>
+<div id="prop:family" class="proposition">
+<p><strong>Proposition 5</strong>. <em>For any fixed integer
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>≥</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">s\ge3</annotation></semantics></math>,
+there is a family of genuine instances with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>gcd</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\gcd(A)=1</annotation></semantics></math>,
+connected prime support, and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>n</mi><mo>&lt;</mo><mi>M</mi><mo>&lt;</mo><mn>16</mn><msup><mi>n</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">2n&lt;M&lt;16n^2</annotation></semantics></math>,
+on which the forced expression
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>U</mi><annotation encoding="application/x-tex">U</annotation></semantics></math>
+in <a href="#eq:hub" data-reference-type="eqref"
+data-reference="eq:hub">[eq:hub]</a> is at least
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>s</mi><mo>−</mo><mi>o</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">(s-o(1))n</annotation></semantics></math>.
+For the same intervals there is an explicit cover with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>n</mi><mo>−</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2n-2</annotation></semantics></math>
+positions.</em></p>
+</div>
+<div class="proof">
+<p><em>Proof.</em> Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>D</mi><annotation encoding="application/x-tex">D</annotation></semantics></math>
+be the product of the first
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>s</mi><annotation encoding="application/x-tex">s</annotation></semantics></math>
+primes. Let odd
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>→</mo><mi>∞</mi></mrow><annotation encoding="application/x-tex">K\to\infty</annotation></semantics></math>
+satisfy
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>gcd</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>K</mi><mo>,</mo><mi>D</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\gcd(K,D)=1</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>≥</mo><mn>2</mn><mi>D</mi></mrow><annotation encoding="application/x-tex">K\ge2D</annotation></semantics></math>.
+Set
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mi>K</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>D</mi><mi>k</mi><mo>:</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>K</mi><mo>+</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mn>2</mn><mo>≤</mo><mi>k</mi><mo>≤</mo><mi>K</mi><mo stretchy="false" form="postfix">}</mo><mo>∪</mo><mo stretchy="false" form="prefix">{</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>D</mi><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>K</mi><mo stretchy="false" form="postfix">}</mo><mo>,</mo><mspace width="1.0em"></mspace><mi>n</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>K</mi><mo>+</mo><mn>3</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mn>2</mn><mo>,</mo><mspace width="1.0em"></mspace><mi>M</mi><mo>=</mo><mi>D</mi><mi>K</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">A_K=\{Dk:(K+1)/2\le k\le K\}\cup\{(D-1)K\},
+ \quad n=(K+3)/2,\quad M=DK.</annotation></semantics></math> The extra
+source is not divisible by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>D</mi><annotation encoding="application/x-tex">D</annotation></semantics></math>
+and is distinct from the others. The consecutive indices in the first
+group have gcd one, so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>gcd</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>A</mi><mi>K</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mo>gcd</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>D</mi><mo>,</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>D</mi><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>K</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\gcd(A_K)=\gcd(D,(D-1)K)=1</annotation></semantics></math>.
+The first group shares the prime support of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>D</mi><annotation encoding="application/x-tex">D</annotation></semantics></math>,
+and the extra source shares the prime factors of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mi>K</mi></mrow><annotation encoding="application/x-tex">DK</annotation></semantics></math>;
+hence the support is connected. All sources exceed
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">M/2</annotation></semantics></math>.</p>
+<p>Put
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo>=</mo><mo>lcm</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>A</mi><mi>K</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">L=\mathop{\mathrm{lcm}}(A_K)</annotation></semantics></math>
+and take
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mi>K</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>L</mi><mo>−</mo><mi>M</mi><mi>/</mi><mn>2</mn><mo>+</mo><mn>1</mn><mo>,</mo><mi>…</mi><mo>,</mo><mi>L</mi><mo>+</mo><mi>M</mi><mi>/</mi><mn>2</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">I_K=\{L-M/2+1,\ldots,L+M/2\}</annotation></semantics></math>.
+Every source has the unique multiple
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>L</mi><annotation encoding="application/x-tex">L</annotation></semantics></math>.
+All active primes are at most
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>,
+and each source in the first group has at least
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>s</mi><annotation encoding="application/x-tex">s</annotation></semantics></math>
+distinct prime factors. Thus
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mo>=</mo><mn>1</mn><mo>+</mo><munder><mo>∑</mo><mrow><mi>a</mi><mo>∈</mo><msub><mi>A</mi><mi>K</mi></msub></mrow></munder><mi>ω</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mrow><mo stretchy="true" form="prefix">|</mo><mi>𝒫</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>A</mi><mi>K</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">|</mo></mrow><mo>≥</mo><mn>1</mn><mo>+</mo><mi>s</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mi>π</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>K</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>s</mi><mo>−</mo><mi>o</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mi>n</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">U=1+\sum_{a\in A_K}\omega(a)-|\mathcal P(A_K)|
+ \ge1+s(n-1)-\pi(K)=(s-o(1))n.</annotation></semantics></math> The size
+conditions on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>
+hold for all sufficiently large
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>.</p>
+<p>To construct a small actual cover, select all
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>
+multiples of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>D</mi><annotation encoding="application/x-tex">D</annotation></semantics></math>
+in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>I</mi><mi>K</mi></msub><annotation encoding="application/x-tex">I_K</annotation></semantics></math>.
+After division by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>D</mi><annotation encoding="application/x-tex">D</annotation></semantics></math>,
+they are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>
+consecutive integers, so their product is divisible by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>D</mi><mi>K</mi></msup><mi>K</mi><mi>!</mi></mrow><annotation encoding="application/x-tex">D^K K!</annotation></semantics></math>.
+Writing
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>K</mi><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">h=(K-1)/2</annotation></semantics></math>,
+their product divided by the first group’s source product is a multiple
+of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>D</mi><mi>h</mi></msup><mi>h</mi><mi>!</mi></mrow><annotation encoding="application/x-tex">D^h h!</annotation></semantics></math>.
+As
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>≥</mo><mi>D</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">h\ge D-1</annotation></semantics></math>,
+this supplies
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">D-1</annotation></semantics></math>.
+There are exactly
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>D</mi><annotation encoding="application/x-tex">D</annotation></semantics></math>
+multiples of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>
+in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>I</mi><mi>K</mi></msub><annotation encoding="application/x-tex">I_K</annotation></semantics></math>,
+and exactly one is also a multiple of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>D</mi><annotation encoding="application/x-tex">D</annotation></semantics></math>
+because
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>gcd</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>K</mi><mo>,</mo><mi>D</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\gcd(K,D)=1</annotation></semantics></math>.
+Add one of the others; it supplies the remaining factor
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>
+without reusing a position. The cover size is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>+</mo><mn>1</mn><mo>=</mo><mn>2</mn><mi>n</mi><mo>−</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">K+1=2n-2</annotation></semantics></math>. ◻</p>
+</div>
+<p>This family rules out the proposed universal numerical bound
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mo>≤</mo><mn>2</mn><mi>n</mi></mrow><annotation encoding="application/x-tex">U\le2n</annotation></semantics></math>
+even after simple gcd and connectedness reductions. It does not rule out
+using the same initial multiples with a more effective joint repair.</p>
+<h1
+id="proper-divisor-matching-a-sufficient-hypothesis-not-a-proof">Proper-divisor
+matching: a sufficient hypothesis, not a proof</h1>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Ω</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>m</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mo>∑</mo><mi>p</mi></msub><msub><mi>v</mi><mi>p</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>m</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\Omega(m)=\sum_p v_p(m)</annotation></semantics></math>
+count prime factors with multiplicity, and let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝒮</mi><mi>M</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>m</mi><mo>≤</mo><mi>M</mi><mo>:</mo><mi>Ω</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>m</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≥</mo><mn>3</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\mathcal S_M=\{m\le M:\Omega(m)\ge3\}</annotation></semantics></math>.
+The following sufficient condition appears in Bergström’s work <span
+class="citation" data-cites="berg-asym berg-hinge"></span>:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mtext mathvariant="normal">There is an injection </mtext><mspace width="0.333em"></mspace></mrow><mi>f</mi><mo>:</mo><msub><mi>𝒮</mi><mi>M</mi></msub><mo>↪</mo><msub><mi>I</mi><mrow><mi>x</mi><mo>,</mo><mi>M</mi></mrow></msub><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> with </mtext><mspace width="0.333em"></mspace></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>m</mi><mi>/</mi><mi>p</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>∣</mo><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>m</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> for some prime </mtext><mspace width="0.333em"></mspace></mrow><mi>p</mi><mo>∣</mo><mi>m</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">\label{eq:matching}
+ \text{There is an injection }f:\mathcal S_M\hookrightarrow I_{x,M}
+ \text{ with }(m/p)\mid f(m)\text{ for some prime }p\mid m.</annotation></semantics></math>
+If it holds, then
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mi>w</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>m</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>≥</mo><msub><mi>X</mi><mi>w</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>m</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">X_w(f(m))\ge X_w(m)-1</annotation></semantics></math>.
+Since
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mi>w</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>m</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>&gt;</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">X_w(m)&gt;2</annotation></semantics></math>
+requires
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Ω</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>m</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≥</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">\Omega(m)\ge3</annotation></semantics></math>,
+summing
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>X</mi><mi>w</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>m</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo></msub><mo>≥</mo><msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>X</mi><mi>w</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>m</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo></msub></mrow><annotation encoding="application/x-tex">\left(X_w(f(m))-1\right)_+\ge\left(X_w(m)-2\right)_+</annotation></semantics></math>
+proves
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>H</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(H_2)</annotation></semantics></math>.
+No universal proof of <a href="#eq:matching" data-reference-type="eqref"
+data-reference="eq:matching">[eq:matching]</a> was obtained in this
+work.</p>
+<h2 id="removing-only-the-largest-prime-is-false">Removing only the
+largest prime is false</h2>
+<p>Here is an exact small obstruction to that restricted rule. Set
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mn>440</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>x</mi><mo>=</mo><mn>4400</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>I</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mn>4401</mn><mo>,</mo><mi>…</mi><mo>,</mo><mn>4840</mn><mo stretchy="false" form="postfix">}</mo><mo>,</mo></mrow><annotation encoding="application/x-tex">M=440,\qquad x=4400,\qquad I=\{4401,\ldots,4840\},</annotation></semantics></math>
+and let
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mn>2</mn><mi>k</mi><mo>:</mo><mn>4</mn><mo>≤</mo><mi>k</mi><mo>≤</mo><mn>220</mn><mo>,</mo><mspace width="0.222em"></mspace><mi>k</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> composite</mtext></mrow><mo>,</mo><mspace width="0.222em"></mspace><mi>k</mi><mo>≠</mo><mn>169</mn><mo stretchy="false" form="postfix">}</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">S=\{2k:4\le k\le220,\ k\text{ composite},\ k\ne169\}.</annotation></semantics></math>
+There are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>220</mn><mo>−</mo><mn>1</mn><mo>−</mo><mi>π</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>220</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mn>1</mn><mo>=</mo><mn>171</mn></mrow><annotation encoding="application/x-tex">220-1-\pi(220)-1=171</annotation></semantics></math>
+sources in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>S</mi><annotation encoding="application/x-tex">S</annotation></semantics></math>,
+all with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Ω</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>m</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≥</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">\Omega(m)\ge3</annotation></semantics></math>.
+The neighbor set for the rule
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>m</mi><mi>/</mi><msup><mi>P</mi><mo>+</mo></msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>m</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>∣</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">(m/P^+(m))\mid b</annotation></semantics></math>
+is exactly the set of interval multiples of
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>6</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>10</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>14</mn><mo>,</mo><mspace width="0.222em"></mspace><mn>22</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">4,\ 6,\ 10,\ 14,\ 22.</annotation></semantics></math>
+Indeed every composite
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>≤</mo><mn>220</mn></mrow><annotation encoding="application/x-tex">k\le220</annotation></semantics></math>
+other than
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>13</mn><mn>2</mn></msup><annotation encoding="application/x-tex">13^2</annotation></semantics></math>
+has a prime factor at most
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>11</mn><annotation encoding="application/x-tex">11</annotation></semantics></math>
+remaining after its largest prime is removed. Conversely the sources
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><msup><mi>p</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">2p^2</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>5</mn><mo>,</mo><mn>7</mn><mo>,</mo><mn>11</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">p\in\{2,3,5,7,11\}</annotation></semantics></math>,
+generate all five displayed divisibility classes.</p>
+<p>To count the neighbors, write even positions as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4620</mn><mo>+</mo><mn>2</mn><mi>j</mi></mrow><annotation encoding="application/x-tex">4620+2j</annotation></semantics></math>
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>109</mn><mo>≤</mo><mi>j</mi><mo>≤</mo><mn>110</mn></mrow><annotation encoding="application/x-tex">-109\le j\le110</annotation></semantics></math>.
+Because
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2310</mn><mo>=</mo><mn>2</mn><mo>⋅</mo><mn>3</mn><mo>⋅</mo><mn>5</mn><mo>⋅</mo><mn>7</mn><mo>⋅</mo><mn>11</mn></mrow><annotation encoding="application/x-tex">2310=2\cdot3\cdot5\cdot7\cdot11</annotation></semantics></math>,
+a position is a neighbor exactly when
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>j</mi><annotation encoding="application/x-tex">j</annotation></semantics></math>
+is divisible by one of these five primes. There are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>85</mn><annotation encoding="application/x-tex">85</annotation></semantics></math>
+such positive
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi><mo>≤</mo><mn>110</mn></mrow><annotation encoding="application/x-tex">j\le110</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>84</mn><annotation encoding="application/x-tex">84</annotation></semantics></math>
+negative ones, and zero, for a total of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>170</mn><annotation encoding="application/x-tex">170</annotation></semantics></math>.
+The positive excluded integers are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math>
+and the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>24</mn><annotation encoding="application/x-tex">24</annotation></semantics></math>
+primes from
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>13</mn><annotation encoding="application/x-tex">13</annotation></semantics></math>
+to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>109</mn><annotation encoding="application/x-tex">109</annotation></semantics></math>.
+Thus Hall fails:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>171</mn><mo>&gt;</mo><mn>170</mn></mrow><annotation encoding="application/x-tex">171&gt;170</annotation></semantics></math>.
+Allowing removal of any prime, as in <a href="#eq:matching"
+data-reference-type="eqref"
+data-reference="eq:matching">[eq:matching]</a>, is a different assertion
+and is not refuted.</p>
+<h2 id="finite-experiments-and-their-limits">Finite experiments and
+their limits</h2>
+<p>The matching code independently checks every returned assignment by
+integer divisibility. A failed matching exports a Hall-deficient set and
+recomputes its complete neighborhood exactly. The unrestricted rule was
+tested in the following two batches:</p>
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Lengths
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math></th>
+<th style="text-align: left;">Shifts per length</th>
+<th style="text-align: left;">Executed checks</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Every
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8</mn><mo>≤</mo><mi>M</mi><mo>≤</mo><mn>250</mn></mrow><annotation encoding="application/x-tex">8\le M\le250</annotation></semantics></math></td>
+<td style="text-align: left;">100</td>
+<td style="text-align: left;">24,300</td>
+</tr>
+<tr class="even">
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mn>10</mn><mo>,</mo><mn>20</mn><mo>,</mo><mi>…</mi><mo>,</mo><mn>2000</mn></mrow><annotation encoding="application/x-tex">M=10,20,\ldots,2000</annotation></semantics></math></td>
+<td style="text-align: left;">100</td>
+<td style="text-align: left;">20,000</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>No failure was found. These are sampled shifts, not exhaustive
+residue classes; some checks overlap between batches. Shifts include
+small integers,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>M</mi><mn>2</mn></msup><annotation encoding="application/x-tex">M^2</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mi>!</mi><mo>−</mo><mo stretchy="false" form="prefix">⌊</mo><mi>M</mi><mi>/</mi><mn>2</mn><mo stretchy="false" form="postfix">⌋</mo></mrow><annotation encoding="application/x-tex">M!-\lfloor M/2\rfloor</annotation></semantics></math>,
+and seeded random large integers. The results do not prove <a
+href="#eq:matching" data-reference-type="eqref"
+data-reference="eq:matching">[eq:matching]</a>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>H</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(H_2)</annotation></semantics></math>,
+or either version of the original conjecture.</p>
+<h1 id="two-analytical-shortcuts-that-do-not-discharge-h_2">Two
+analytical shortcuts that do not discharge
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>H</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(H_2)</annotation></semantics></math></h1>
+<h2 id="a-false-sparse-numerical-comparison-and-a-valid-replacement">A
+false sparse numerical comparison and a valid replacement</h2>
+<p>The sparse binary argument in <span class="citation"
+data-cites="berg-hinge"></span> uses the comparison
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mi>μ</mi><mrow><mn>1</mn><mo>+</mo><mi>μ</mi></mrow></mfrac><mo>&gt;</mo><mfrac><mrow><msup><mi>μ</mi><mn>2</mn></msup><mo>+</mo><msub><mi>σ</mi><mn>2</mn></msub></mrow><mn>2</mn></mfrac><mo>,</mo><mspace width="2.0em"></mspace><mi>μ</mi><mo>=</mo><munder><mo>∑</mo><mrow><mi>p</mi><mo>∈</mo><mi>S</mi></mrow></munder><mfrac><mn>1</mn><mi>p</mi></mfrac><mo>&lt;</mo><mn>1</mn><mo>,</mo><mspace width="1.0em"></mspace><msub><mi>σ</mi><mn>2</mn></msub><mo>=</mo><munder><mo>∑</mo><mrow><mi>p</mi><mo>∈</mo><mi>S</mi></mrow></munder><mfrac><mn>1</mn><msup><mi>p</mi><mn>2</mn></msup></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">\frac{\mu}{1+\mu}&gt;\frac{\mu^2+\sigma_2}{2},
+ \qquad \mu=\sum_{p\in S}\frac1p&lt;1,
+ \quad \sigma_2=\sum_{p\in S}\frac1{p^2}.</annotation></semantics></math>
+It is false for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>7</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">S=\{2,3,7\}</annotation></semantics></math>:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mfrac><mn>41</mn><mn>42</mn></mfrac><mo>,</mo><mspace width="1.0em"></mspace><msub><mi>σ</mi><mn>2</mn></msub><mo>=</mo><mfrac><mn>673</mn><mn>1764</mn></mfrac><mo>,</mo><mspace width="2.0em"></mspace><mfrac><mn>41</mn><mn>83</mn></mfrac><mo>&lt;</mo><mfrac><mn>1177</mn><mn>1764</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">\mu=\frac{41}{42},\quad \sigma_2=\frac{673}{1764},\qquad
+ \frac{41}{83}&lt;\frac{1177}{1764}.</annotation></semantics></math>
+This refutes that numerical step, not
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>H</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(H_2)</annotation></semantics></math>.</p>
+<p>A correct elementary substitute is available with an explicit
+condition. For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">|</mo><mi>S</mi><mo stretchy="true" form="postfix">|</mo></mrow></mrow><annotation encoding="application/x-tex">k=|S|</annotation></semantics></math>
+and any interval
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>J</mi><annotation encoding="application/x-tex">J</annotation></semantics></math>
+of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>L</mi><annotation encoding="application/x-tex">L</annotation></semantics></math>
+positive integers, two-term Bonferroni gives
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>#</mi><mo stretchy="false" form="prefix">{</mo><mi>b</mi><mo>∈</mo><mi>J</mi><mo>:</mo><mo>∃</mo><mi>p</mi><mo>∈</mo><mi>S</mi><mo>,</mo><mspace width="0.222em"></mspace><mi>p</mi><mo>∣</mo><mi>b</mi><mo stretchy="false" form="postfix">}</mo><mo>≥</mo><mi>L</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>μ</mi><mo>−</mo><mfrac><mrow><msup><mi>μ</mi><mn>2</mn></msup><mo>−</mo><msub><mi>σ</mi><mn>2</mn></msub></mrow><mn>2</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mfrac><mrow><mi>k</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mn>2</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">\#\{b\in J:\exists p\in S,\ p\mid b\}
+ \ge L\left(\mu-\frac{\mu^2-\sigma_2}{2}\right)
+      -\frac{k(k+1)}2.</annotation></semantics></math> Meanwhile a union
+bound over prime squares and distinct prime pairs gives
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>#</mi><mo stretchy="false" form="prefix">{</mo><mi>a</mi><mo>≤</mo><mi>L</mi><mo>:</mo><msub><mi>Ω</mi><mi>S</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≥</mo><mn>2</mn><mo stretchy="false" form="postfix">}</mo><mo>≤</mo><mfrac><mi>L</mi><mn>2</mn></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>μ</mi><mn>2</mn></msup><mo>+</mo><msub><mi>σ</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">\#\{a\le L:\Omega_S(a)\ge2\}
+ \le\frac L2(\mu^2+\sigma_2).</annotation></semantics></math> Thus the
+first count dominates the second whenever
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mi>μ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>μ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≥</mo><mi>k</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">L\mu(1-\mu)\ge k(k+1)/2</annotation></semantics></math>.
+This is only a level-count comparison under an additional hypothesis; it
+is not the full fractional-weight theorem.</p>
+<h2 id="averaging-binary-weights-loses-a-linear-term">Averaging binary
+weights loses a linear term</h2>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>∈</mo><mrow><mo stretchy="true" form="prefix">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">t\in[0,1]</annotation></semantics></math>,
+let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mi>t</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>p</mi><mo>:</mo><msub><mi>w</mi><mi>p</mi></msub><mo>≥</mo><mi>t</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">S_t=\{p:w_p\ge t\}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Ω</mi><mi>t</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mo>∑</mo><mrow><mi>p</mi><mo>∈</mo><msub><mi>S</mi><mi>t</mi></msub></mrow></msub><msub><mi>v</mi><mi>p</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\Omega_t(b)=\sum_{p\in S_t}v_p(b)</annotation></semantics></math>.
+Then
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mi>w</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><msub><mi>Ω</mi><mi>t</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="0.167em"></mspace><mi>d</mi><mi>t</mi><mo>,</mo><mspace width="2.0em"></mspace><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>Ω</mi><mi>t</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo></msub><mspace width="0.167em"></mspace><mi>d</mi><mi>t</mi><mo>=</mo><msub><mi>X</mi><mi>w</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><munder><mo>max</mo><mrow><mi>p</mi><mo>∣</mo><mi>b</mi></mrow></munder><msub><mi>w</mi><mi>p</mi></msub><mo>,</mo></mrow><annotation encoding="application/x-tex">X_w(b)=\int_0^1\Omega_t(b)\,dt,\qquad
+ \int_0^1\left(\Omega_t(b)-1\right)_+\,dt
+ =X_w(b)-\max_{p\mid b}w_p,</annotation></semantics></math> where the
+maximum is zero when the weighted support is empty. The difference
+between this integral and the needed hinge is
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>min</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>X</mi><mi>w</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><munder><mo>max</mo><mrow><mi>p</mi><mo>∣</mo><mi>b</mi></mrow></munder><msub><mi>w</mi><mi>p</mi></msub><mo>≥</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">\min(X_w(b),1)-\max_{p\mid b}w_p\ge0.</annotation></semantics></math>
+It need not be a negligible error: when
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mn>2</mn></msub><mo>=</mo><mn>1</mn><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">w_2=1/2</annotation></semantics></math>
+and all other weights vanish, it is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">1/2</annotation></semantics></math>
+at every multiple of four, totaling about
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mi>/</mi><mn>8</mn></mrow><annotation encoding="application/x-tex">M/8</annotation></semantics></math>.
+Even a binary proof would therefore require additional control of these
+gaps to extend by this averaging argument to arbitrary real weights.</p>
+<h1 id="reproduction-and-final-status">Reproduction and final
+status</h1>
+<p>The accompanying archive contains this LaTeX source, its PDF, Python
+verification scripts, and machine-readable output. No third-party paper
+sources are bundled. The standard-library checks can be run with</p>
+<pre><code>python checks/verify_exact_certificates.py
+python checks/verify_hub_obstruction.py
+python checks/verify_hub_family.py</code></pre>
+<p>The matching search additionally uses NumPy and SciPy. The
+construction stress check is separate from the theorem’s proof. The
+product-cover dynamic program processes each interval position exactly
+once and stores the least cardinality for each capped valuation state;
+its optima are therefore exact, without floating-point optimization.</p>
+<p>The all-scale extension and conditional transfer were independently
+rederived by a separate reasoning pass, including the distinction
+between the target product and incidental prime factors of selected
+positions. This is a mathematical audit, not a Lean proof or human peer
+review.</p>
+<h4 id="what-remains-unresolved.">What remains unresolved.</h4>
+<p>The missing step is a proof of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>H</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(H_2)</annotation></semantics></math>,
+a sufficiently uniform weakened version implying a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>+</mo><mi>o</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">2+o(1)</annotation></semantics></math>
+fractional coefficient, or a different direct covering argument. Even
+proving
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>H</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(H_2)</annotation></semantics></math>
+and applying the rounding above would leave the stronger exact
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>n</mi></mrow><annotation encoding="application/x-tex">2n</annotation></semantics></math>
+bound to be settled. The computations, special classes, and
+counterexamples to auxiliary rules in this note do not fill those
+gaps.</p>
+<div class="thebibliography">
+<p><span>9</span> T. F. Bloom (editor), Erdős Problem 708. <a
+href="https://www.erdosproblems.com/708"
+class="uri">https://www.erdosproblems.com/708</a>. Ziming Wang,
+<em>Erdős 708 interval divisor covers</em>, repository and source
+<code>papers/main-paper/raw-transfer.tex</code>. <a
+href="https://github.com/science-prince/erdos-708-interval-divisor-covers"
+class="uri">https://github.com/science-prince/erdos-708-interval-divisor-covers</a>.
+C. Bergström, <em>Erdős 708 asymptotic</em>, whole-cofactor peeling and
+hinge reductions. <a
+href="https://github.com/pathscale/erdos-708-asymptotic"
+class="uri">https://github.com/pathscale/erdos-708-asymptotic</a>; <a
+href="https://doi.org/10.5281/zenodo.24342718"
+class="uri">https://doi.org/10.5281/zenodo.24342718</a>. C. Bergström,
+<em>Scaled-Interval Hinge Telescoping, Difference-of-Convex
+Obstructions, and Smooth Proper-Divisor Matching for Erdős Problem
+708</em>, 19 November 2026. <a
+href="https://doi.org/10.5281/zenodo.24366998"
+class="uri">https://doi.org/10.5281/zenodo.24366998</a>. Haoyu Chen,
+<em>Explicit upper bounds for the Erdős–Surányi function
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">g(n)</annotation></semantics></math></em>,
+version 14, source repository. <a
+href="https://github.com/chy4pro/erdos-708-explicit-upper-bounds"
+class="uri">https://github.com/chy4pro/erdos-708-explicit-upper-bounds</a>.
+D. Preil, <em>Erdős 708 notes</em>, Theorem B. <a
+href="https://github.com/dpreil-ydlp/open-problems/blob/master/math/erdos708/NOTES.md"
+class="uri">https://github.com/dpreil-ydlp/open-problems/blob/master/math/erdos708/NOTES.md</a>.
+John Tripodo, <em>Sharp finite cases of the Erdős–Surányi
+interval-product problem:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>4</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">g(4)=5</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>5</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">g(5)=6</annotation></semantics></math></em>,
+manuscript dated 19 November 2026, Hexagon version 1. <a
+href="https://hexagonmath.org/2611.00694v1"
+class="uri">https://hexagonmath.org/2611.00694v1</a>.</p>
+</div>
+</body>
+</html>

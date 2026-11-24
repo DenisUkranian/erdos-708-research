@@ -1,0 +1,558 @@
+\section{Separated prime supports and discounted certificates}
+\label{ss:section}
+
+This section proves a uniform coefficient-two asymptotic bound for sources
+whose prime factors lie in two separated ranges. The large-prime range may
+start at $M^\alpha$ for any fixed $\alpha>0$. A quantitative extension also
+allows a specified exponent tending to zero. The intermediate prime range
+remains excluded.
+
+All logarithms are natural unless indicated otherwise. For a prime set $Q$,
+write $Q^\Pi=\prod_{q\in Q}q$ and
+$\vartheta(Q)=\prod_{q\in Q}(1-1/q)$, with empty products equal to one.
+An integer is $Q$-smooth when all its prime factors belong to $Q$;
+one is included. Intervals at real lengths are half-open intervals
+$(x,x+T]$ with $x\ge0$, with their integer points understood.
+The ambient integer $M$ is retained when sources are deleted.
+
+\subsection{Precise analytic inputs}
+
+We recall the following previously proved statements, including the
+coefficient in the diffuse comparison. Their proofs, with partial
+prime-power carriers and uniform interval errors, are in \cite{Synthesis}.
+The new arguments below use the coefficients as stated.
+
+\begin{lemma}[Uniform sieve and diffuse comparison inputs]
+\label{ss:inputs}
+There is an absolute $C>0$ such that
+\[
+ e(u)=C\bigl((u/2)^{-u/4}+2^{1-u/2}\bigr),\qquad u\ge4,
+\]
+is decreasing to zero and has the following property. If $Q$ is any
+subset of the primes at most $z\ge2$ and an interval $J$ has real length
+$T\ge z^u$, then
+\[
+ \left|\#\{m\in J:(m,Q^\Pi)=1\}-T\vartheta(Q)\right|
+ \le e(u)T\vartheta(Q).
+ \tag{S}
+\]
+For weights $0\le w_p\le\eta$, put
+$V(m)=\sum_pw_pv_p(m)$ and $\mu=\sum_pw_p/(p-1)$.
+Let $\ell>\eta$, $r=\lfloor\ell/\eta\rfloor\ge8$,
+$j=\lfloor r/2\rfloor$, and $\kappa=r-j$.
+Whenever $e(r)<1$, every level $s\ge0$ and every pair of a prefix and
+an interval of the same real length $T$ satisfy
+\begin{equation}
+ \#\{a\le T:V(a)>s+\ell\}
+ \le
+ \frac{(1+e(\kappa))\mu+\eta2^{1-j}}
+      {(\ell-\eta)(1-e(r))}
+ \#\{b\in J:V(b)>s\}.
+ \label{ss:diffuse-ratio}
+\end{equation}
+Finally, if the support is contained in $p\le M$, then
+\begin{equation}
+ \sum_{a=1}^M V(a)\ge M(\mu-3\eta).
+ \label{ss:small-mean-error}
+\end{equation}
+\end{lemma}
+
+For clarity, the carrier proof of \eqref{ss:diffuse-ratio} bounds the
+source count by a common carrier sum times
+$((1+e(\kappa))\mu+\eta2^{1-j})/(\ell-\eta)$, and bounds the target
+count below by that sum times $1-e(r)$. Thus retaining their quotient
+gives exactly the displayed statement.
+We also use the classical uniform bounds
+\begin{equation}
+ \pi(T)\le C_0T/\log T,\qquad
+ \vartheta(Q)\ge c_0/\log Y
+ \quad(Q\subseteq\{p:p\le Y\},\ Y\ge2),
+ \label{ss:prime-inputs}
+\end{equation}
+with absolute positive constants. These follow from Chebyshev and
+Mertens estimates \cite{GranvilleSound,TaoMertens}.
+
+\subsection{A strict budget for arbitrary pure-core sources}
+
+\begin{proposition}[Uniform pure-core contraction]
+\label{ss:pure-core}
+Let $Y=Y(M)\ge2$ be prescribed with $\log Y=o(\sqrt{\log M})$.
+For every $\varepsilon>0$ there is $\rho_\varepsilon<1$ such that,
+for all sufficiently large $M$, the following holds uniformly in
+$Q\subseteq\{p:p\le Y\}$, weights $0\le w_q\le1$, distinct
+$Q$-smooth sources $A_Q\subseteq[2,M]$, and positive $M$-term intervals:
+\begin{equation}
+ \sum_{a\in A_Q}(V(a)-2-\varepsilon)_+
+ \le \rho_\varepsilon
+       \sum_{b\in I}(V(b)-1)_+,
+ \qquad V(m)=\sum_{q\in Q}w_qv_q(m).
+ \label{ss:pure-contraction}
+\end{equation}
+No bound on the number of prime factors of a pure-core source is assumed.
+\end{proposition}
+
+\begin{proof}
+It suffices to treat $0<\varepsilon\le1$.
+Set $\ell=1+\varepsilon$ and
+\[
+ \rho_\varepsilon=\frac{1+\varepsilon/2}{1+\varepsilon}<1.
+\]
+Choose $\eta>0$ so small that $\eta\le\varepsilon/24$, $r\ge8$,
+$e(r)<1$, and
+\begin{equation}
+ \frac{(1+e(\kappa))(1+\varepsilon/4)+\eta2^{1-j}}
+      {(\ell-\eta)(1-e(r))}
+ \le\rho_\varepsilon,
+ \label{ss:strict-choice}
+\end{equation}
+where $r,j,\kappa$ are as in Lemma~\ref{ss:inputs}.
+Such a choice exists: as $\eta\downarrow0$, the left side tends to
+$(1+\varepsilon/4)/(1+\varepsilon)$, strictly below $\rho_\varepsilon$.
+All these parameters depend only on $\varepsilon$.
+
+We first record a uniform smooth-number bound. Let $\Psi(M,Y)$ count
+positive integers at most $M$ all of whose prime factors are at most $Y$.
+Write $N=\log M$, $y=\log Y$, and $\sigma=1/(4y)$.
+For $p\le Y$, put $z_p=p^{-1+\sigma}$. Then
+$z_p\le e^{1/4}/p$ and $z_p/(1-z_p)\le4/p$. Consequently
+\[
+ \prod_{p\le Y}(1-p^{-1+\sigma})^{-1}
+ \le\exp\left(4\sum_{p\le Y}\frac1p\right)\le Y^4.
+\]
+Rankin's inequality therefore gives
+\begin{equation}
+ \Psi(M,Y)\le
+ M\exp\left(-\frac{N}{4y}+4y\right).
+ \label{ss:smooth-count}
+\end{equation}
+For every fixed $B\ge0$, it follows that
+\begin{equation}
+ \frac{\Psi(M,Y)\log_2M}{M/Y^B}
+ \le(\log_2M)
+       \exp\left(-\frac N{4y}+(B+4)y\right)\longrightarrow0.
+ \label{ss:smooth-small}
+\end{equation}
+Indeed $y=o(\sqrt N)$ makes $N/y$ dominate both $y$ and $\log N$.
+The bounds are independent of the prime subset and the weights.
+
+Put $\mu=\sum_{q\in Q}w_q/(q-1)$ and
+$H(V)=\sum_{b\in I}(V(b)-1)_+$.
+There are three cases.
+
+\emph{All weights are at most $\eta$, and $\mu\le1+\varepsilon/4$.}
+Equations \eqref{ss:diffuse-ratio} and \eqref{ss:strict-choice} give
+a level-count ratio at most $\rho_\varepsilon$.
+Integrating over $s\ge1$ yields
+\[
+ \sum_{a\le M}(V(a)-2-\varepsilon)_+
+ \le\rho_\varepsilon H(V).
+\]
+Distinctness permits restriction to $A_Q$.
+This case includes the empty support and zero weights.
+
+\emph{All weights are at most $\eta$, and $\mu\ge1+\varepsilon/4$.}
+For large $M$, all $q\le Y$ are below $M$.
+Every interval prime-power count is at least its prefix count, so
+\[
+ \begin{split}
+ H(V)&\ge\sum_{b\in I}V(b)-M
+ \ge M(\mu-3\eta-1)
+ \ge\varepsilon M/8.
+ \end{split}
+\]
+For $a\le M$, the source load satisfies
+$V(a)\le\Omega(a)\le\log_2M$. The source hinge is at most
+$\Psi(M,Y)\log_2M=o(M)$ by
+\eqref{ss:smooth-small} with $B=0$. Its ratio to $H(V)$ is eventually
+at most $\rho_\varepsilon$.
+
+\emph{Some weight $w_q$ is at least $\eta$.}
+Put $j_q=\lceil2/w_q\rceil$ and $B=\lceil2/\eta\rceil$.
+Every multiple of $q^{j_q}$ has $V\ge2$, while
+$q^{j_q}\le Y^B$ and $M/Y^B\to\infty$. Hence
+\[
+ H(V)\ge\left\lfloor\frac M{q^{j_q}}\right\rfloor
+ \ge\frac M{2Y^B}
+\]
+for large $M$. The source hinge is again at most
+$\Psi(M,Y)\log_2M$, which is $o(M/Y^B)$ by
+\eqref{ss:smooth-small}. Its ratio to $H(V)$ is eventually at most
+$\rho_\varepsilon$.
+The thresholds in all three cases are uniform, proving
+\eqref{ss:pure-contraction}.
+\end{proof}
+
+\subsection{A pointwise certificate with controlled multiplicity}
+
+Let $Q,R_0$ be disjoint finite prime sets, and let $\mathcal D$ be a finite
+set of integers $d\le M$ with the following properties:
+\[
+ d\text{ is }(Q\cup R_0)\text{-smooth},\qquad
+ \Omega_{R_0}(d)\le t,\qquad
+ r\mid d,\ r\in R_0\ \Longrightarrow\ r\le T_d:=M/d.
+ \tag{D}
+\]
+Here $t\ge0$ is an integer, and $\Omega_{R_0}$ counts occurrences with
+multiplicity. The number of $Q$-prime occurrences is unrestricted.
+For an integer $L\ge1$, set $K_d(b)=0$ when $d\nmid b$, and otherwise set
+\begin{equation}
+ K_d(b)=\mathbf1_{(b/d,Q^\Pi)=1}
+       \left(1-\frac1L
+          \sum_{\substack{r\in R_0\\r\le T_d}}\mathbf1_{r\mid b/d}\right).
+ \label{ss:discounted}
+\end{equation}
+Define
+\begin{align}
+ C_1(t,L)&=\binom{2t+L-1}{t},\notag\\
+ C_2(t,L)&=(t+L)\sum_{j=0}^{L-1}
+                  \binom{t+L-1}{j}(t+1)^j,\notag\\
+ C_*(t,L)&=\min\{C_1(t,L),C_2(t,L)\}.
+ \label{ss:multiplicity}
+\end{align}
+
+\begin{lemma}[Discounted pointwise capacity]
+\label{ss:capacity}
+Let $X(m)=\sum_pw_pv_p(m)$ have nonnegative weights on any finite prime
+support containing $Q\cup R_0$, and put $h_d=(X(d)-1)_+$.
+Then, for every positive integer $b$,
+\begin{equation}
+ \sum_{d\in\mathcal D}h_dK_d(b)
+ \le C_*(t,L)(X(b)-1)_+.
+ \label{ss:pointwise}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Suppose a positive $K_d(b)$ exists, and choose the numerically least
+positive carrier $d_0$. Then $T_0=M/d_0$ is the largest threshold
+among positive carriers. Put
+\[
+ S=\{r\in R_0:r\le T_0,\ r\mid b\},\qquad k=|S|.
+\]
+Every member of $S$ divides $d_0$ or $b/d_0$.
+The first class has at most $t$ distinct members.
+The second has at most $L-1$ members, since positivity in
+\eqref{ss:discounted} means that its integer sum is less than $L$.
+Consequently $k\le t+L-1$.
+
+Every positive carrier has the same $Q$-part, namely the full $Q$-smooth
+part of $b$. By (D), its $R_0$-part is a monomial on $S$ of total
+degree at most $t$. There are $\binom{k+t}{t}\le C_1(t,L)$ possible
+monomials, including the constant monomial. For $k=0$ this count is one.
+The common $Q$-part and the monomial determine the carrier.
+
+For the sharper count, order $S$ increasingly.
+For a positive carrier $d$, the primes in $S$ at most $T_d$ form a
+prefix, with at most $k+1$ choices. Outside that prefix, their exponents
+in $d$ are zero by (D). Inside it, all but at most $L-1$ primes must
+occur to their full exponent $v_r(b)$: every deficiency is counted
+by $r\mid b/d$ in \eqref{ss:discounted}.
+Choose the exceptional primes and their exponents, each in
+$\{0,\ldots,t\}$. All other exponents are fixed by $b$. Thus the number
+of positive carriers is at most
+\[
+ (k+1)\sum_{j=0}^{L-1}\binom{k}{j}(t+1)^j\le C_2(t,L).
+ \]
+Choices violating another restriction only enlarge this upper bound.
+
+For each positive term, $K_d(b)\le1$ and $d\mid b$ implies
+$h_d\le(X(b)-1)_+$. All other weighted terms are nonpositive.
+Either multiplicity bound therefore proves \eqref{ss:pointwise};
+if no term is positive the inequality is immediate.
+\end{proof}
+
+\subsection{Uniform interval averages of the certificate}
+
+\begin{lemma}[A positive average despite a large reciprocal sum]
+\label{ss:average}
+Suppose $Q\subseteq\{p:p\le Y\}$, all occupied carriers have $T_d\ge Z$,
+and $Z\to\infty$. Allow $t,L,Y,Z$ to depend on $M$.
+Assume uniformly over the admitted data that
+\begin{equation}
+ \frac{\mu_0}{L}\le\frac14,\qquad
+ \mu_0=\sum_{r\in R_0}\frac1r,\qquad
+ \log Y=o(\log Z),\qquad
+ \frac{(\log Y)^2}{L\log Z}\longrightarrow0.
+ \label{ss:average-conditions}
+\end{equation}
+Then, for all sufficiently large $M$, uniformly in the interval shift
+and $d\in\mathcal D$,
+\begin{equation}
+ G_d:=\sum_{b\in I}K_d(b)
+ \ge\frac12\vartheta(Q)T_d.
+ \label{ss:positive-average}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Let $C_Q(J)$ count integers in a real interval $J$ coprime to $Q^\Pi$.
+For $T=M/d$ and $J=(x/d,(x+M)/d]$, exact division gives
+\begin{equation}
+ G_d=C_Q(J)-\frac1L
+      \sum_{\substack{r\in R_0\\r\le T}}C_Q(J/r).
+ \label{ss:average-identity}
+\end{equation}
+Division by $r\in R_0$ preserves the $Q$-coprimality condition.
+
+Fix an absolute $\kappa\ge4$ with $e(\kappa)\le1/16$ and put
+$U=T/Y^\kappa$. By \eqref{ss:average-conditions}, for large $M$,
+$T\ge Y^\kappa$ and $U\ge\sqrt T$, uniformly for $T\ge Z$.
+Apply (S) to the base count and every subtracted term with $r\le U$.
+Their combined contribution is at least
+\[
+ \begin{split}
+ \vartheta(Q)T\left[
+  1-\frac{\mu_0}{L}
+       -e(\kappa)\left(1+\frac{\mu_0}{L}\right)\right]
+ \ge\frac{43}{64}\vartheta(Q)T.
+ \end{split}
+\]
+For the remaining terms, discard coprimality and use
+$C_Q(J/r)\le T/r+1$. Chebyshev's bound and partial summation give
+\[
+ \begin{split}
+ \sum_{U<r\le T}\frac1r
+ &\le\frac C{\log T}
+       +C\int_U^T\frac{du}{u\log u}\\
+ &\le C'\frac{1+\kappa\log Y}{\log T},
+ \end{split}
+\]
+where the sums are enlarged to all primes. In the last inequality,
+$U\ge\sqrt T$ and $\log(T/U)=\kappa\log Y$ were used.
+Thus the remaining negative contribution in
+\eqref{ss:average-identity} is
+\[
+ O\left(\frac{T(1+\kappa\log Y)}{L\log T}\right).
+ \]
+After division by $\vartheta(Q)T$, equation
+\eqref{ss:prime-inputs} bounds this by
+\[
+ O_\kappa\left(\frac{(\log Y)^2}{L\log Z}\right)=o(1).
+ \]
+Here $\log Y\ge\log2$ absorbs the constant term in the numerator.
+Subtracting this error from $43/64$ leaves at least $1/2$ for large
+$M$, proving the lemma.
+\end{proof}
+
+\subsection{The general separated-support theorem}
+
+\begin{theorem}[A uniform shared-hinge bound]
+\label{ss:general}
+Let $Y(M)\ge2$, $Z(M)\to\infty$, and integer functions $t(M)\ge0$,
+$L(M)\ge1$ be prescribed. Assume
+\begin{equation}
+ \log Y=o(\sqrt{\log M}),\qquad
+ \log Y=o(\log Z),\qquad
+ \frac{(\log Y)^2}{L\log Z}\to0,\qquad
+ C_*(t,L)\frac{\log Y}{\log Z}\to0.
+ \label{ss:general-conditions}
+\end{equation}
+Let $Q\subseteq\{p:p\le Y\}$ and $R\subseteq\{p:p\ge Z\}$ be finite
+prime sets. Let $A\subseteq[2,M]$ be distinct sources supported on
+$Q\cup R$. For each source containing an $R$-prime, put
+\[
+ p(a)=P^+(a),\qquad d(a)=a/p(a).
+\]
+Let $\mathcal D$ be the distinct quotients and $R_0$ the union of their
+$R$-prime supports. Suppose
+\[
+ \Omega_R(d)\le t\quad(d\in\mathcal D),
+ \qquad \sum_{r\in R_0}\frac1r\le L/4.
+\]
+For every $\varepsilon>0$, all sufficiently large $M$ then satisfy,
+uniformly over these data, all shifts, and all weights in $[0,1]$,
+with $X(m)=\sum_{p\in Q\cup R}w_pv_p(m)$,
+\begin{equation}
+ \sum_{a\in A}(X(a)-2-\varepsilon)_+
+ \le \sum_{b\in I}(X(b)-1)_+.
+ \label{ss:shared-hinge}
+\end{equation}
+Consequently $\mathcal L_{\rm raw}(A,I)\le(2+\varepsilon)|A|$.
+\end{theorem}
+
+\begin{proof}
+For large $M$, $Y<Z$, so $Q$ and $R$ are disjoint and the largest prime
+of a mixed source belongs to $R$. Write $A_Q$ for the pure $Q$-sources
+and $A_R=A\setminus A_Q$. If $A_R$ is empty, use
+Proposition~\ref{ss:pure-core}.
+
+Otherwise every $d=d(a)$ has $T_d\ge p(a)\ge Z$.
+Every $R$-prime dividing $d$ is at most $p(a)\le T_d$, so (D) holds.
+Let $m_d$ be the number of source preimages of $d$. Distinct preimages
+have the form $dp(a)$ for distinct primes $p(a)\le T_d$, hence
+$m_d\le\pi(T_d)$. Lemma~\ref{ss:average} and
+\eqref{ss:prime-inputs} give
+\begin{equation}
+ \frac{m_d}{G_d}
+ \le C_3\frac{\log Y}{\log Z},
+ \label{ss:fibre-ratio}
+\end{equation}
+with an absolute constant, uniformly over all occupied fibres.
+
+Since $w_{p(a)}\le1$,
+$(X(a)-2-\varepsilon)_+\le(X(d)-1)_+=h_d$.
+Using positivity of $G_d$, then Lemma~\ref{ss:capacity}, gives
+\[
+ \begin{split}
+ \sum_{a\in A_R}(X(a)-2-\varepsilon)_+
+ &\le\sum_d m_dh_d\\
+ &\le C_3\frac{\log Y}{\log Z}\sum_dG_dh_d\\
+ &\le C_3C_*(t,L)\frac{\log Y}{\log Z}
+                  \sum_{b\in I}(X(b)-1)_+.
+ \end{split}
+\]
+The last coefficient tends to zero.
+For $V$ consisting only of the $Q$ weights,
+Proposition~\ref{ss:pure-core} gives a uniform $\rho_\varepsilon<1$ with
+\[
+ \sum_{a\in A_Q}(X(a)-2-\varepsilon)_+
+ \le\rho_\varepsilon H(V)\le\rho_\varepsilon H(X).
+ \]
+Increase the common threshold until the mixed coefficient is at most
+$1-\rho_\varepsilon$, and add. This proves \eqref{ss:shared-hinge}.
+Both source classes have used the same target hinge, rather than
+independent primal covers.
+
+Finally, the clipped raw boxed dual identity \cite{Synthesis} is
+\[
+ \mathcal L_{\rm raw}(A,I)=
+ \max_{0\le w_p\le1}
+ \left(\sum_{a\in A}X(a)-\sum_{b\in I}(X(b)-1)_+\right).
+ \]
+The weights are on the source primes. Using
+$X(a)\le2+\varepsilon+(X(a)-2-\varepsilon)_+$ in this identity
+proves the stated fractional bound.
+\end{proof}
+
+\subsection{Every fixed positive power cutoff}
+
+\begin{corollary}
+\label{ss:fixed-alpha}
+Fix $\alpha>0$ and $Y(M)\ge2$ with $\log Y=o(\sqrt{\log M})$.
+For distinct sources $A\subseteq[2,M]$ whose prime factors all satisfy
+\[
+ p\le Y(M)\quad\hbox{or}\quad p\ge M^\alpha,
+\]
+one has, uniformly over the source set and interval shift,
+\[
+ \mathcal L_{\rm raw}(A,I)\le(2+\varepsilon)|A|
+ \quad\hbox{for all sufficiently large }M,
+ \qquad
+ \tau(A,I)\le(2+o(1))|A|\quad(|A|\to\infty).
+\]
+There is no separate bound on either the number of small-prime
+occurrences or the number of large-prime occurrences in a source.
+\end{corollary}
+
+\begin{proof}
+If $\alpha>1$, no source contains a large prime, and the pure-core
+result suffices. Otherwise take $Z=M^\alpha$ and
+$t=\lfloor1/\alpha\rfloor$. The size bound on each source ensures
+$\Omega_R(d)\le t$.
+If $r\in R_0$ occurs in $d(a)$, then $r\le p(a)$ and
+$rp(a)\le a\le M$, so
+$R_0\subseteq[M^\alpha,\sqrt M]$. Repeated prime occurrences are included
+in this argument. For $0<\alpha<1/2$, Mertens' reciprocal estimate yields
+\[
+ \sum_{r\in R_0}\frac1r
+ \le\log\frac1{2\alpha}+o(1).
+ \]
+For $\alpha>1/2$ the set is empty; at $\alpha=1/2$ at most the endpoint
+prime occurs and its contribution is $o(1)$.
+Choose a fixed integer $L$ with
+\[
+ L>4\left(1+\max\{0,\log(1/(2\alpha))\}\right).
+ \]
+The reciprocal condition then holds for large $M$.
+All of \eqref{ss:general-conditions} follow from the assumed cutoff
+on $Y$, since $t,L,C_*(t,L)$ are fixed. Theorem~\ref{ss:general}
+proves the uniform raw bound.
+
+The class is hereditary at the fixed ambient $M$: deleting sources
+preserves their prime ranges. Lemma~\ref{lem:tr-hereditary}
+therefore supplies the integer conclusion.
+Its uniform large-$M$ threshold applies as $|A|\to\infty$, since
+distinctness gives $M\ge|A|+1$.
+\end{proof}
+
+\subsection{A quantified cutoff below every fixed positive power}
+
+The multiplicity estimate also allows $t$ to grow.
+For a support restriction $p\ge Z$, take
+$t=\lfloor\log M/\log Z\rfloor$ in the nonempty case $Z\le M$.
+As before $R_0\subseteq[Z,\sqrt M]$.
+When $Z\to\infty$, Mertens' reciprocal estimate gives
+\[
+ \sum_{r\in R_0}\frac1r\le\log t+o(1).
+ \]
+Indeed, if $Z\le\sqrt M$, the main term is
+$\log((\log M)/(2\log Z))\le\log t$; otherwise $R_0$ is empty.
+Thus the choice
+\begin{equation}
+ L=\lceil4\log(2t)+4\rceil
+ \label{ss:growing-discount}
+\end{equation}
+satisfies the reciprocal condition for large $M$.
+
+For $t\to\infty$, put $k=t+L-1$. Bounding the sum defining $C_2$ by
+$L[k(t+1)]^{L-1}$ gives
+\[
+ \begin{split}
+ \log C_*(t,L)
+ &\le\log(t+L)+\log L
+       +(L-1)\{\log(t+L-1)+\log(t+1)\}\\
+ &\le8(\log t)^2+O(\log t).
+ \end{split}
+\]
+The constant $8$ uses $L=4\log t+O(1)$ from
+\eqref{ss:growing-discount}. The exponents of nonexceptional primes
+are fixed by the target integer; assigning additional exponent choices
+to them would lose this sharper estimate.
+
+\begin{corollary}[An explicit growing-multiplicity class]
+\label{ss:subpolynomial}
+Fix $0<a<1/2$ and $c>0$ with $8c^2<1-a$. Put
+\[
+ Y(M)=\exp((\log M)^a),\qquad
+ Z(M)=\exp\left(\frac{\log M}
+                        {\exp(c\sqrt{\log\log M})}\right).
+ \]
+If every prime factor of every distinct source in $A\subseteq[2,M]$
+is at most $Y(M)$ or at least $Z(M)$, then the uniform raw and
+integer conclusions of Corollary~\ref{ss:fixed-alpha} hold.
+\end{corollary}
+
+\begin{proof}
+Take $t=\lfloor\log M/\log Z\rfloor$ and $L$ from
+\eqref{ss:growing-discount}. Then
+$\log t=c\sqrt{\log\log M}+o(1)$, and the preceding bound gives
+\[
+ C_*(t,L)\le(\log M)^{8c^2+o(1)}.
+ \]
+Furthermore,
+\[
+ \frac{\log Y}{\log Z}=(\log M)^{a-1+o(1)},\qquad
+ \frac{(\log Y)^2}{L\log Z}
+       =(\log M)^{2a-1+o(1)}\longrightarrow0.
+ \]
+All conditions in \eqref{ss:general-conditions} hold, with
+$C_*(t,L)\log Y/\log Z\to0$ following from $8c^2+a-1<0$.
+Theorem~\ref{ss:general} proves the raw conclusion.
+The support class is hereditary at fixed $M$, so
+Lemma~\ref{lem:tr-hereditary} gives the integer conclusion.
+\end{proof}
+
+For the concrete choice $a=1/3$ and $c=1/4$,
+\[
+ C_*(t,L)\frac{\log Y}{\log Z}
+ \le(\log M)^{-1/6+o(1)}\to0,\qquad
+ \frac{(\log Y)^2}{L\log Z}
+       =(\log M)^{-1/3+o(1)}\to0.
+ \]
+Here
+$Z=M^{\exp(-\frac14\sqrt{\log\log M})}=M^{o(1)}$.
+The theorem therefore does not require a fixed positive exponent
+for the large-prime cutoff. It still imposes a substantial gap
+between $Y$ and $Z$. The fixed-$\alpha$ theorem cannot be applied
+with an arbitrary data-dependent $\alpha$ tending to zero; such
+a choice requires the separate quantitative conditions above.

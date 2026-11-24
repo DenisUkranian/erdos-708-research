@@ -1,0 +1,177 @@
+\section{Integer transfer at a fixed ambient length}
+\label{sec:tr-transfer}
+
+The source-specific hinge estimates above concern fractional covers. This
+section gives the integer step with the ambient length retained under
+deletion. No generic assertion that fractional covers have negligible
+rounding cost is needed: that cost is bounded at a hypothetical minimal
+failing subset by forcing its source primes to be small.
+
+For $A\subseteq\{2,\ldots,M\}$ and
+$I=\{x+1,\ldots,x+M\}$, $x\in\mathbb Z_{\ge0}$, write
+\[
+ D_p(A)=\sum_{a\in A}v_p(a).
+\]
+The raw fractional cost is
+\[
+ \mathcal L_{\rm raw}(A,I)=
+ \min\left\{\sum_{b\in I}y_b:
+ 0\le y_b\le1,\quad
+ \sum_{b\in I}v_p(b)y_b\ge D_p(A)\ (p\in P)
+ \right\}.
+\]
+Here $P$ is the source prime support. The LP is feasible because
+$\prod A\mid M!\mid\prod I$. We use the
+external quadratic theorem of \cite{Wang} in its ambient form:
+\begin{equation}
+ M\ge16|A|^2\quad\Longrightarrow\quad\tau(A,I)\le2|A|.
+ \label{eq:tr-quadratic}
+\end{equation}
+The written proof uses only $a\le M$, so equality $M=\max A$ is not
+required. If an optimal basic feasible boxed solution has $r$ covering
+rows, at most $r$ coordinates are fractional. Rounding them up preserves
+feasibility and increases the objective by at most $r$.
+
+\begin{lemma}[Hereditary fractional-to-integer transfer]
+\label{lem:tr-hereditary}
+For each $M$, let $\mathcal C(M)$ be a family of subsets of
+$\{2,\ldots,M\}$, closed under taking subsets while retaining $M$.
+Fix $\delta>0$. Suppose that, for every sufficiently large ambient $M$,
+uniformly over $A\in\mathcal C(M)$ and every shift,
+\[
+ \mathcal L_{\rm raw}(A,I)\le(2+\delta)|A|.
+\]
+Then, for every sufficiently large ambient $M$, uniformly over the same
+class and shifts,
+\[
+ \tau(A,I)\le(2+2\delta)|A|.
+\]
+If the fractional hypothesis holds for every $\delta>0$, the integer
+conclusion is $\tau(A,I)\le(2+o(1))|A|$ as $|A|\to\infty$.
+\end{lemma}
+
+\begin{proof}
+Put $c=2+2\delta$. Suppose a source set fails the bound $c|A|$, and
+choose a failing subset $B$ of least positive cardinality $m$, in the
+same interval. Each deletion has a cover of size at most
+\[
+ \lfloor c(m-1)\rfloor=K-1.
+\]
+If a source $a\in B$ has a prime divisor $p\ge K$, its $a/p$ bank
+contains at least $\lfloor M/(a/p)\rfloor\ge p\ge K$ positions.
+One is unused by the deletion cover. Add it and, if needed, one further
+unused position supplying the missing $p$-unit. Such a repair exists by
+full-interval supply. The result has at most
+\[
+ \lfloor c(m-1)\rfloor+2\le\lfloor cm\rfloor
+\]
+positions, a contradiction. Hence all active source primes are below
+$K\le cm$, and there are at most $\pi(cm)$ rows in the raw LP.
+
+Heredity permits the fractional hypothesis to be applied to $B$ at the
+original $M$. Basic-solution rounding gives
+\begin{equation}
+ \tau(B,I)\le(2+\delta)m+\pi(cm).
+ \label{eq:tr-basic-round}
+\end{equation}
+Choose $m_0$ such that $\pi(cm)\le\delta m$ for every $m\ge m_0$;
+Chebyshev's estimate suffices. A failing subset cannot satisfy
+$M\ge16m^2$, by \eqref{eq:tr-quadratic}. Therefore
+\begin{equation}
+ m>\sqrt M/4.
+ \label{eq:tr-minimal-large}
+\end{equation}
+Once $M$ exceeds both the fractional threshold and $16m_0^2$,
+\eqref{eq:tr-basic-round} contradicts failure. This proves the lemma.
+Finally, $|A|\to\infty$ implies $M\ge|A|+1\to\infty$, giving the
+stated uniform asymptotic conclusion.
+\end{proof}
+
+No additive offset is used in minimality. An all-cardinality bound
+$(2+\varepsilon)|A|+C_\varepsilon$ may be obtained afterward: below the
+large-$M$ threshold, the whole interval is a cover of size at most $M$.
+This order avoids any circular dependence of that threshold on an offset.
+
+\subsection{An arbitrary small core with one outside prime per source}
+
+The additive error in Theorem~\ref{thm:cg-controlled} can also be handled
+directly inside the same minimality argument. For fixed $\delta>0$, denote
+its sharp constant by $B_{\delta,k}$, with
+\begin{equation}
+ B_{\delta,k}\le D_\delta^k,
+ \label{eq:tr-error-growth}
+\end{equation}
+and $B_{\delta,0}=0$. The hinge defect is at most
+$B_{\delta,k}(1+|R|)$; the first term accounts for the aggregate core tail.
+
+\begin{corollary}[A core of size $o(\log\log M)$]
+\label{cor:tr-small-core}
+Let $k(M)$ be a nonnegative integer-valued function with
+$k(M)=o(\log\log M)$ as $M\to\infty$. Suppose that a distinct source
+set $A\subseteq\{2,\ldots,M\}$ admits a set $E$ of at most $k(M)$
+primes such that each source is divisible by at most one distinct prime
+outside $E$. Arbitrary powers of that outside prime are allowed.
+Then, uniformly over all such sets, actual prime values, ambient lengths,
+and shifts,
+\[
+ \tau(A,I)\le(2+o(1))|A|\qquad(|A|\to\infty).
+\]
+No separation between core and outside prime sizes is required.
+\end{corollary}
+
+\begin{proof}
+Fix $\delta>0$ and put $c=2+2\delta$. Suppose that $A$ fails the bound
+$c|A|$. Choose a failing subset $B$ of least cardinality $m$, retaining
+the original $M$ and the same core $E$. The one-distinct-outside-prime
+property is hereditary with these parameters fixed. The preceding prime
+forcing argument shows that every active source prime is below $cm$.
+Let $R_B$ consist only of the outside primes actually occurring in $B$.
+Then
+\begin{equation}
+ |R_B|\le\pi(cm),
+ \qquad\text{number of raw covering rows}\le\pi(cm).
+ \label{eq:tr-active-counts}
+\end{equation}
+
+For any nonnegative raw dual vector, all but at most $k(M)$ core weights
+are at most $\eta=c_\delta/(k(M)+1)$, simply because the entire core has
+at most $k(M)$ primes. Theorem~\ref{thm:cg-controlled} applies with
+$k=k(M)$ and $R=R_B$. If $X$ is its raw load, the dual objective is
+\[
+ \sum_{a\in B}X(a)-\sum_{b\in I}(X(b)-1)_+.
+\]
+Subtracting the source hinge at threshold $2+\delta$ bounds this by
+\[
+ (2+\delta)m+B_{\delta,k(M)}(1+|R_B|).
+\]
+The bound is uniform over all dual vectors; strong LP duality and rounding
+therefore give
+\begin{equation}
+ \tau(B,I)\le(2+\delta)m+B_{\delta,k(M)}
+       +(B_{\delta,k(M)}+1)\pi(cm).
+ \label{eq:tr-defect-round}
+\end{equation}
+There is no combination of independent covers in this step.
+
+A failing subset again satisfies \eqref{eq:tr-minimal-large}; also
+$m\le M-1$. Thus $\log m$ and $\log M$ are comparable for large $M$.
+From \eqref{eq:tr-error-growth} and $k(M)=o(\log\log M)$,
+\[
+ B_{\delta,k(M)}\le(\log M)^{o(1)}=o(m).
+\]
+Chebyshev's bound now implies
+\[
+ (B_{\delta,k(M)}+1)\pi(cm)
+   =O\!\left(\frac{(\log M)^{o(1)}}{\log m}\,m\right)
+   =o(m).
+\]
+For all sufficiently large $M$, the errors in
+\eqref{eq:tr-defect-round} sum to at most $\delta m$, contradicting the
+choice of $B$. Since $\delta$ was arbitrary and $M\ge|A|+1$, the
+uniform asymptotic conclusion follows.
+\end{proof}
+
+The corollary is an upper-bound theorem and does not assert a matching
+lower coefficient. Its core-size restriction is much stronger than the
+$O(\sqrt{n/\log n})$ core still permitted by the general necessary
+structure. It therefore does not settle unrestricted Erd\H{o}s~708.

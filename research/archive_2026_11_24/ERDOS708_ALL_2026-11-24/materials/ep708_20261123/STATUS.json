@@ -1,0 +1,276 @@
+{
+  "schema_version": 1,
+  "research_date": "2026-11-23",
+  "title": "Partial Results on Erdos Problem 708",
+  "authoritative_scope_document": "erdos708_partial_results.tex",
+  "readable_document": "erdos708_partial_results.pdf",
+  "problem_status": {
+    "unrestricted_exact_g_n_le_2n": "open",
+    "unrestricted_asymptotic_g_n_le_2_plus_o1_n": "open",
+    "general_H2": "not proved",
+    "unrestricted_solution_claimed": false,
+    "unrestricted_counterexample_claimed": false
+  },
+  "proof_provenance": {
+    "ai_assisted": true,
+    "independent_internal_audits_within_session": true,
+    "formal_verification": false,
+    "external_referee_approval": false,
+    "novelty_or_priority_claim": false,
+    "scope_note": "Internally audited working proofs for explicitly restricted classes; not external human peer review."
+  },
+  "main_results": [
+    {
+      "id": "finite_exact_2n",
+      "section": "2",
+      "status": "proved within stated sufficient hypotheses in the working note",
+      "scope": "Source-specific integer floor/ceiling criterion or rational cofactor-support criterion implies an exact cover of at most 2n distinct positions for every shift x>=0.",
+      "sufficient_not_necessary": true,
+      "depends_on_numerical_search": false
+    },
+    {
+      "id": "rough_source_exact_2n",
+      "section": "3",
+      "status": "proved restricted asymptotic-in-M theorem in the working note",
+      "scope": "For each fixed alpha>1/(2e), exact 2n holds for sufficiently large M if every source prime factor is at least M^alpha.",
+      "explicit_numeric_M_threshold_provided": false
+    },
+    {
+      "id": "cofactor_mass_asymptotic_class",
+      "section": "4",
+      "status": "proved restricted class using a cited long-interval input",
+      "scope": "For fixed delta>0 and cofactor support Q with sum(1/q)<=1-delta, tau<=2n+o_delta(n) uniformly in this class.",
+      "fixed_margin_required": true
+    },
+    {
+      "id": "fixed_small_source_anchors",
+      "section": "4",
+      "status": "proved restricted source classes in the working note",
+      "scope": "An arbitrary fixed finite small-prime set E can be absorbed under the exact condition (4.7) when every source also has a prime factor in R; allowing E-only sources yields the stated restricted asymptotic conclusion.",
+      "anchor_set_may_silently_grow": false
+    },
+    {
+      "id": "ordered_hinge_and_levels",
+      "section": "5",
+      "status": "proved under ordered support conditions in the working note",
+      "scope": "Bounded-profile level comparison and raw H2 under sum_{p in P}1/p+rho_y(P)<=1; the note also states the profile-dependent ordered criterion.",
+      "weighted_support_equals_full_source_support": false
+    },
+    {
+      "id": "small_weighted_anchors",
+      "section": "6",
+      "status": "proved under the explicit conditions in the working note",
+      "scope": "One arbitrary added prime after level dominance; separately, at most two smaller anchors with H_R+(2^|E|/theta_E)rho_y(R)<=1.",
+      "unlimited_iteration_claimed": false
+    },
+    {
+      "id": "fixed_support_eventual_H2",
+      "section": "7",
+      "status": "proved fixed-support theorem in the working note",
+      "scope": "For each fixed finite P, H2 eventually holds uniformly in shifts and weights in [0,1]. The threshold depends on P, not merely its cardinality."
+    },
+    {
+      "id": "fixed_support_integer_cover",
+      "section": "7, Corollary 7.2, equation (7.4)",
+      "status": "proved fixed-support corollary in the working note; independently internally audited",
+      "scope": "For each fixed nonempty finite prime set P, with k=|P|, M>=M0(P), and n distinct P-smooth sources in [2,M], every shift x>=0 admits an integer product cover of at most 2n+k-1 distinct positions.",
+      "fixed_support_asymptotic_upper_bound": "(2+o(1))n, uniformly in every shift x>=0 for each fixed P",
+      "reciprocal_prime_mass_restriction_required": false,
+      "uniform_over_unrestricted_growing_supports": false
+    },
+    {
+      "id": "finite_CRT_model",
+      "section": "8",
+      "status": "proved finite reduction, not an unrestricted verification",
+      "scope": "For fixed M and finite P, at most 2M relevant valuation patterns per prime suffice for the target-hinge minimization; CRT realizes their joint choices on actual consecutive intervals."
+    },
+    {
+      "id": "asymptotic_defect_characterization",
+      "section": "9",
+      "status": "equivalence recorded using the cited raw fractional transfer; missing uniform bound not established",
+      "scope": "For every epsilon>0, a bound Delta_{2+epsilon}<=C_epsilon uniform in M,x,w would settle the unrestricted asymptotic problem.",
+      "uniform_bound_proved": false
+    }
+  ],
+  "exact_finite_artifacts": {
+    "script": "computation/exact2n_certificate.py",
+    "saved_result": "computation/exact2n_demo_results.json",
+    "verification_command": "python3 -S computation/exact2n_certificate.py --verify computation/exact2n_demo_results.json",
+    "verification_uses_standard_library_only": true,
+    "verification_arithmetic": [
+      "integers",
+      "fractions.Fraction"
+    ],
+    "verification_checks": [
+      "all sufficient source inequalities",
+      "matching divisibility",
+      "distinct and in-range interval positions",
+      "every recorded repair step",
+      "full product divisibility by prime valuations",
+      "cover size <=2n"
+    ],
+    "standard_library_reverification_completed": true,
+    "large_family": {
+      "description": "All products of three distinct primes from 101 through 199",
+      "n": 1330,
+      "M": 7566179,
+      "both_finite_criteria_pass": true,
+      "minimum_integer_surplus": 158,
+      "all_shift_cover_bound": 2660,
+      "artifact_type": "finite source certificate",
+      "full_interval_matching_built": false
+    },
+    "small_family": {
+      "description": "All 35 cubic monomials on {11,13,17,19,23}, plus five squares and five primes",
+      "n": 45,
+      "M": 12167,
+      "interval": "Centered at the least common multiple of the source integers",
+      "artifact_type": "explicit cover and complete repair trace",
+      "initial_matching_size": 45,
+      "repair_count": 36,
+      "explicit_cover_size": 81,
+      "budget_2n": 90,
+      "exact_valuation_check_passes": true
+    },
+    "additional_validation": [
+      "Empty cofactor support with prime-only sources",
+      "An input failing the sufficient criterion, without any nonexistence claim"
+    ],
+    "constructive_command": "python3 computation/exact2n_certificate.py --demo --output exact2n_regenerated.json"
+  },
+  "search_status": {
+    "status": "exploratory finite optimization only",
+    "positive_H2_counterexample_found": false,
+    "exhaustive_over_all_lengths_supports_weights_and_phases": false,
+    "global_MILP_timeouts_present": true,
+    "floating_point_solver_bounds_are_exact_proof_certificates": false,
+    "general_upper_bound_inferred_from_searches": false,
+    "details": "computation/FINITE_CRT_MODEL.md"
+  },
+  "runtime": {
+    "recommended_python": "3.10 or newer",
+    "recorded_python": "3.12.14",
+    "recorded_numpy": "2.3.5",
+    "recorded_scipy": "1.17.0",
+    "saved_certificate_verification_third_party_dependencies": [],
+    "matching_construction_and_search_dependencies": [
+      "numpy",
+      "scipy"
+    ],
+    "pdf_rebuild": "LaTeX with packages declared in erdos708_partial_results.tex; compile twice"
+  },
+  "external_inputs": [
+    {
+      "input": "Raw fractional transfer",
+      "used_for": "Asymptotic characterization in Section 9",
+      "source": "Wang, cited in the main note"
+    },
+    {
+      "input": "Long-interval exact coefficient-two theorem",
+      "used_for": "Conversion from polylogarithmic-in-M errors to o(n) in the restricted asymptotic source class",
+      "source": "Wang; the older Chen cubic gate also suffices as explained in the main note"
+    },
+    {
+      "input": "Prime-counting and prime reciprocal asymptotics",
+      "used_for": "Rough-source exponent and sparse-support asymptotic consequences",
+      "source": "Standard estimates; bibliography in the main note"
+    }
+  ],
+  "recommended_supporting_notes": [
+    {
+      "path": "combinatorial/SPARSE_MATCHING_EXACT2N_AUDIT.md",
+      "role": "Exact cofactor matching and Hall audit"
+    },
+    {
+      "path": "analytic/SMALL_PRIME_EXCEPTIONS.md",
+      "role": "Uniform asymptotic source class with bounded cofactor reciprocal mass"
+    },
+    {
+      "path": "combinatorial/ARBITRARY_ANCHOR_MATCHING.md",
+      "role": "Exact matching with a fixed set of small-prime source anchors"
+    },
+    {
+      "path": "combinatorial/ORDERED_CARRIER_H2.md",
+      "role": "Ordered prime-prefix hinge arguments"
+    },
+    {
+      "path": "combinatorial/TWO_ANCHOR_H2.md",
+      "role": "Two smaller prime anchors for weighted H2"
+    },
+    {
+      "path": "analytic/AMPLIFICATION.md",
+      "role": "Fixed-support uniformity; consult the main note for adopted claims"
+    },
+    {
+      "path": "computation/FINITE_CRT_MODEL.md",
+      "role": "Complete finite phase reduction and limitations of numerical search"
+    }
+  ],
+  "superseded_intermediate_notes": [
+    {
+      "path": "analytic/SPARSE_SUPPORT_H2.md",
+      "status": "superseded as the strongest statement, retained as research history",
+      "superseded_by": [
+        "erdos708_partial_results.tex",
+        "combinatorial/ORDERED_CARRIER_H2.md",
+        "combinatorial/TWO_ANCHOR_H2.md"
+      ],
+      "superseded_does_not_mean_disproved": true
+    },
+    {
+      "path": "analytic/HALF_HARMONIC_H2.md",
+      "status": "superseded as the strongest statement, retained as research history",
+      "superseded_by": [
+        "erdos708_partial_results.tex",
+        "combinatorial/ORDERED_CARRIER_H2.md",
+        "combinatorial/TWO_ANCHOR_H2.md"
+      ],
+      "superseded_does_not_mean_disproved": true
+    },
+    {
+      "path": "analytic/LEVEL_AND_ANCHORS.md",
+      "status": "superseded as the strongest statement, retained as research history",
+      "superseded_by": [
+        "erdos708_partial_results.tex",
+        "combinatorial/ORDERED_CARRIER_H2.md",
+        "combinatorial/TWO_ANCHOR_H2.md"
+      ],
+      "superseded_does_not_mean_disproved": true
+    },
+    {
+      "path": "combinatorial/SPARSE_SUPPORT_AUDIT.md",
+      "status": "superseded as the strongest statement, retained as research history",
+      "superseded_by": [
+        "erdos708_partial_results.tex",
+        "combinatorial/ORDERED_CARRIER_H2.md",
+        "combinatorial/TWO_ANCHOR_H2.md"
+      ],
+      "superseded_does_not_mean_disproved": true
+    },
+    {
+      "path": "combinatorial/TRUNCATED_CARRIER_AUDIT.md",
+      "status": "superseded as the strongest statement, retained as research history",
+      "superseded_by": [
+        "erdos708_partial_results.tex",
+        "combinatorial/ORDERED_CARRIER_H2.md",
+        "combinatorial/TWO_ANCHOR_H2.md"
+      ],
+      "superseded_does_not_mean_disproved": true
+    },
+    {
+      "path": "combinatorial/HALF_HARMONIC_AUDIT.md",
+      "status": "superseded as the strongest statement, retained as research history",
+      "superseded_by": [
+        "erdos708_partial_results.tex",
+        "combinatorial/ORDERED_CARRIER_H2.md",
+        "combinatorial/TWO_ANCHOR_H2.md"
+      ],
+      "superseded_does_not_mean_disproved": true
+    }
+  ],
+  "intermediate_check_artifacts": [
+    "computation/verify_adaptive_certificate.py",
+    "computation/adaptive_certificate_checks.json"
+  ],
+  "remaining_obstruction": "No argument establishes the required bounds uniformly over unrestricted growing prime supports; fixed-support, sparse-support and anchor theorems do not remove this gap."
+}

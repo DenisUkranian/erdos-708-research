@@ -1,0 +1,550 @@
+\section{Deletion banks and necessary counterexample structure}
+\label{sec:comb-banks}
+
+Throughout this section, let $A\subseteq\{2,\ldots,M\}$ be a set of
+$n$ distinct integers and let
+\[
+ I=\{x+1,\ldots,x+M\},\qquad x\in\mathbb Z_{\ge0}.
+\]
+The ambient length $M$ is retained when sources are deleted; it need
+not equal the maximum of a smaller source set. Write
+\[
+ D_p(A)=\sum_{a\in A}v_p(a),\qquad
+ N_I(d)=\#\{b\in I:d\mid b\},
+\]
+and let $\tau(A,I)$ be the minimum cardinality of a subset whose
+product is divisible by $\prod_{a\in A}a$. We use $P^+(a)$ for the
+largest prime factor, $\omega(a)$ for the number of distinct prime
+factors, and $\Omega(a)$ for their number with multiplicity.
+
+The following two facts will be used repeatedly:
+\begin{equation}
+ \left\lfloor\frac Md\right\rfloor\le N_I(d)
+ \le\left\lceil\frac Md\right\rceil,
+ \qquad
+ \prod_{a\in A}a\mid M!\mid\prod_{b\in I}b.
+ \label{eq:comb-supply}
+\end{equation}
+The divisibility $\prod A\mid M!$ uses distinctness of the sources;
+$M!\mid\prod I$ follows from $\prod I=M!\binom{x+M}{M}$.
+In particular, if a chosen subset has deficient $p$-valuation, some
+unused interval position contains $p$. Adding that position reduces
+the sum of the positive valuation deficits by at least one. We call
+this a \emph{prime-unit repair}; different repairs always use
+different positions.
+
+\subsection{The local deletion hypothesis}
+
+Let $K$ be a positive integer. For the necessary conditions below,
+assume
+\begin{equation}
+ \tau(A,I)>K+1,
+ \qquad
+ \text{each }A\setminus\{a\}\text{ has a cover }B_a\subseteq I
+ \text{ with }|B_a|\le K-1.
+ \label{eq:comb-local}
+\end{equation}
+All conclusions apply to \emph{every} such cover $B_a$. For a
+least-cardinality counterexample to the exact $2n$ bound, one takes
+$K=2n-1$. A different choice needed for the asymptotic problem is
+justified separately below.
+
+\begin{lemma}[Forced deletion banks and a divisor gap]
+\label{lem:comb-forcing}
+Under \eqref{eq:comb-local}, for every $a\in A$ and every prime $q\mid a$,
+\[
+ C_q(a):=\{b\in I:a/q\mid b\}\subseteq B_a.
+\]
+Consequently every source prime is strictly smaller than $K$,
+every source has $\Omega(a)\ge3$, and
+\begin{equation}
+ a>\frac MK,
+ \qquad \frac aq>\frac MK\quad(q\mid a\text{ prime}).
+ \label{eq:comb-quotient-size}
+\end{equation}
+No source has a divisor $d$ with
+\begin{equation}
+ K<d\le\frac MK.
+ \label{eq:comb-divisor-gap}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+If $C_q(a)$ contained an unused position, add it to $B_a$. All
+demands except possibly one $q$-unit are then supplied. One repair
+finishes the cover in at most $K+1$ positions, a contradiction.
+Since
+$|C_q(a)|\ge\lfloor M/(a/q)\rfloor\ge q$, this inclusion gives
+$q\le K-1$. It also gives $a/q>M/K$: otherwise the bank would have
+at least $K$ members. An unused multiple of the whole source $a$
+would finish the cover in one step, proving the analogous bound for
+$a$. If $\Omega(a)\le2$, at most two prime-unit repairs would suffice,
+which proves the remaining assertion about $\Omega$.
+
+Finally, suppose $a=dv$ with $K<d\le M/K$. There are at least $K$
+multiples of $d$, so one lies outside $B_a$. After choosing it, at
+most $K$ positions are used. The number of multiples of $v$ is at
+least $\lfloor M/v\rfloor\ge d\ge K+1$, so a second fresh position
+supplies $v$. Their product supplies $a$, even if $d$ and $v$ are
+not coprime, again contradicting \eqref{eq:comb-local}.
+\end{proof}
+
+The left endpoint in \eqref{eq:comb-divisor-gap} is strict. In
+particular, this gap is empty when $M\le K^2$; it must not be used
+as a nontrivial restriction in that range.
+
+\subsection{Two-prime removal and a sufficient source class}
+
+\begin{lemma}[A two-prime demand constraint]
+\label{lem:comb-pair}
+Assume \eqref{eq:comb-local}. Let $p,q$ be two prime occurrences in
+$a\in A$, allowing $p=q$ only when $p^2\mid a$. If $pq\ge K$, then
+\begin{equation}
+ \begin{split}
+ D_p(A)&>v_p\!\left(\prod_{b\in B_a}b\right)
+ \ge v_p\!\left(\prod_{b\in C_q(a)}b\right)\\
+ &\ge v_p(a/q)\left\lfloor\frac{Mq}{a}\right\rfloor
+ \ge q\,v_p(a/q).
+ \end{split}
+ \label{eq:comb-pair-demand}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Suppose instead that $B_a$ already supplies the full $p$-demand of
+$A$. There are at least $pq\ge K$ multiples of $a/(pq)$ in $I$,
+whereas $|B_a|\le K-1$. Choose one fresh multiple. If $p\ne q$,
+every demand is now supplied except possibly one $q$-unit: the
+$p$-demand was already complete, and the new position supplies the
+other factors of $a$. One repair completes a cover in at most
+$K+1$ positions. If $p=q$, the full $p$-demand was already complete
+and even the last repair is unnecessary. This contradiction proves
+the strict inequality. The others follow from the forced-bank
+inclusion and \eqref{eq:comb-supply}.
+\end{proof}
+
+Bank inclusion alone does not imply a lower bound on the full
+$p$-demand: selected positions could oversupply $p$ while serving
+other primes. The fresh multiple of $a/(pq)$ is the additional
+argument that makes \eqref{eq:comb-pair-demand} valid.
+
+\begin{theorem}[A sufficient class at every interval scale]
+\label{thm:comb-recognition}
+Suppose that each $a\in A$ either has $\Omega(a)\le2$, or contains
+two prime occurrences $p,q$ for which
+\begin{equation}
+ pq\ge2n-1,
+ \qquad D_p(A)\le q\,v_p(a/q).
+ \label{eq:comb-recognition}
+\end{equation}
+Then $\tau(A,I)\le2n$ for every positive interval of length
+$M\ge\max A$. No bound on $\Omega(a)$ is required in the second case.
+\end{theorem}
+
+\begin{proof}
+Induct on $n$, keeping the ambient length fixed. The case $n=1$
+follows by choosing a multiple of its source. The hypothesis is
+hereditary: deleting sources decreases both the demands and the
+threshold $2n-1$. Obtain a cover $B$ of $A\setminus\{a\}$ using
+at most $2n-2$ positions. If $\Omega(a)\le2$, use prime-unit repairs.
+
+Otherwise choose witnesses $p,q$ in \eqref{eq:comb-recognition}.
+If $C_q(a)$ has an unused position, add it and repair at most one
+$q$-unit. If $C_q(a)\subseteq B$, then
+$v_p(\prod B)\ge qv_p(a/q)\ge D_p(A)$. A fresh multiple of
+$a/(pq)$ exists, and the construction in Lemma~\ref{lem:comb-pair}
+again finishes in at most two additions.
+\end{proof}
+
+\subsection{All forced banks must fit simultaneously}
+
+\begin{proposition}[Forced unions and their valuations]
+\label{prop:comb-union}
+Under \eqref{eq:comb-local}, put
+\[
+ U_a=\bigcup_{\substack{q\mid a\\q\ \mathrm{prime}}}C_q(a),
+ \quad c(a)=1+\sum_{\substack{q\mid a\\q\ \mathrm{prime}}}(q-1),
+ \quad t=\left\lfloor\frac Ma\right\rfloor.
+\]
+Then
+\begin{equation}
+ |U_a|=\sum_{\substack{q\mid a\\q\ \mathrm{prime}}}N_I(a/q)
+       -(\omega(a)-1)N_I(a)\le K-1,
+ \qquad t\,c(a)\le K-1.
+ \label{eq:comb-union-size}
+\end{equation}
+For $p\mid a$, write $e_p=v_p(a)$ and define
+\begin{equation}
+ F_p(a)=t\bigl(e_pc(a)-(p-1)\bigr).
+ \label{eq:comb-bank-valuation}
+\end{equation}
+Then $v_p(\prod U_a)\ge F_p(a)$, and necessarily
+\begin{equation}
+ \sum_{\substack{p\mid a\\p\ \mathrm{prime}}}
+       \min\{e_p,(D_p(A)-F_p(a))_+\}\ge3.
+ \label{eq:comb-residual-units}
+\end{equation}
+If $\Omega(a)=3$, the stronger equalities and inequalities
+\begin{equation}
+ v_p\!\left(\prod B_a\right)=D_p(A)-e_p,
+ \qquad D_p(A)\ge F_p(a)+e_p\quad(p\mid a)
+ \label{eq:comb-three-units}
+\end{equation}
+hold for every deletion cover $B_a$.
+\end{proposition}
+
+\begin{proof}
+For distinct primes $p,q\mid a$, one has
+$\operatorname{lcm}(a/p,a/q)=a$. Thus two different banks intersect
+exactly in the multiples of $a$. A multiple of $a$ is counted
+$\omega(a)$ times in the sum, and every other union member only
+once. This proves the identity in \eqref{eq:comb-union-size}.
+
+In a complete period of length $a$, there is the common residue
+$0$, and for each prime $q\mid a$ there are $q-1$ additional
+residues $ja/q$, $1\le j<q$. They are disjoint across the primes.
+The period therefore contains $c(a)$ union members. Partitioning
+the interval into $t$ complete periods and a remainder proves the
+uniform cardinality bound.
+
+For a fixed $p\mid a$, the $p-1$ nonzero residues from its own bank
+have valuation exactly $e_p-1$. Every other union residue has
+valuation at least $e_p$. This proves
+\eqref{eq:comb-bank-valuation} on each complete period, and hence
+the asserted lower bound on the whole interval.
+
+The deletion cover supplies at least $D_p(A)-e_p$ units at every
+prime of $a$, and it contains $U_a$. Its remaining $p$-deficit is
+therefore at most $\min\{e_p,(D_p(A)-F_p(a))_+\}$. A sum at most
+two would permit two repairs, proving \eqref{eq:comb-residual-units}.
+When $\Omega(a)=3$, any surplus over $D_p(A)-e_p$ at even one prime
+of $a$ would leave at most two units. Thus all those surpluses are
+zero, which gives \eqref{eq:comb-three-units}.
+\end{proof}
+
+For example, for a squarefree triple $a=pqr$ the last bound gives
+$D_p(A)\ge\lfloor M/a\rfloor(q+r-1)+1$, and its cyclic analogues.
+These are necessary conditions, not a proof that such a deletion
+cover exists.
+
+\subsection{Saturation by a prime-power bank}
+
+\begin{lemma}[Prime-power saturation]
+\label{lem:comb-power-saturation}
+Let $A$ consist of $n$ distinct sources in $[2,M]$. If $B\subseteq I$
+contains every multiple of $p^e$, where $e\ge1$, and
+$\lfloor M/p^e\rfloor\ge n$, then $v_p(\prod B)\ge D_p(A)$.
+\end{lemma}
+
+\begin{proof}
+Counting source valuation levels gives
+\[
+ D_p(A)\le\sum_{j\ge1}\min\left\{n,
+                         \left\lfloor\frac M{p^j}\right\rfloor\right\}.
+\]
+Every multiple of $p^e$ contributes its first $e$ units, and all
+interval multiples of higher powers belong to the same bank. Hence
+\[
+ \begin{split}
+ v_p\!\left(\prod B\right)
+ &\ge eN_I(p^e)+\sum_{j>e}N_I(p^j)\\
+ &\ge en+\sum_{j>e}\left\lfloor\frac M{p^j}\right\rfloor
+ \ge D_p(A).
+ \end{split}
+\]
+\end{proof}
+
+\begin{corollary}
+\label{cor:comb-power-exclusion}
+Under \eqref{eq:comb-local}, no source has the form
+$a=p^e q$, with $p,q$ prime, $e\ge1$, and $p^e\le M/n$.
+The primes $p,q$ may coincide. In particular, such a source is
+excluded whenever $q\ge n$.
+\end{corollary}
+
+\begin{proof}
+Deleting the $q$ occurrence forces all multiples of $p^e$ into
+$B_a$. Lemma~\ref{lem:comb-power-saturation} supplies the full
+$p$-demand. Only one $q$-unit can remain; if $q=p$, nothing remains.
+This contradicts \eqref{eq:comb-local}. Finally,
+$q\ge n$ implies $p^e=a/q\le M/n$.
+\end{proof}
+
+The prime-power form is essential to this proof. It does not replace
+the threshold $M/K$ by $M/n$ for an arbitrary composite cofactor.
+
+\subsection{A small core and one remaining prime per source}
+
+\begin{theorem}[Structure of a deletion obstruction]
+\label{thm:comb-core}
+Assume \eqref{eq:comb-local}. Among the source primes, define
+\[
+ E=\{p:p\le\sqrt K\}\ \cup\ \{p:D_p(A)>p\},
+ \qquad R=\{\text{source primes}\}\setminus E.
+\]
+Every $r\in R$ is the unique largest prime of any source containing
+it, and occurs there to exponent one. Thus such a source is $a=rd$,
+where $d$ is $E$-smooth and $P^+(d)<r$, with $P^+(1)=1$.
+Moreover
+\begin{equation}
+ |E|\le\lfloor\sqrt K\rfloor+\sqrt{2n\log_2M},
+ \qquad R\subset(\sqrt K,K).
+ \label{eq:comb-core-elementary}
+\end{equation}
+If $n\le K\le C_0n$ and $M<16n^2$, with fixed $C_0$, then as
+$n\to\infty$,
+\begin{equation}
+ |E|=O_{C_0}\!\left(\sqrt{\frac n{\log n}}\right),\qquad
+ \sum_{r\in R}\frac1r\le\log2+o(1),\qquad
+ \sum_{\substack{p\in E\\p>\sqrt K}}\frac1p=o(1).
+ \label{eq:comb-core-sharp}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+If a source containing $r\in R$ had another prime occurrence
+$q\ge r$, then $rq>K$ and
+$D_r(A)\le r\le qv_r(a/q)$, contradicting
+Lemma~\ref{lem:comb-pair}. This proves both the unique-largest-prime
+assertion and the fact that the remaining cofactor is $E$-smooth.
+Lemma~\ref{lem:comb-forcing} gives the upper endpoint $r<K$.
+
+Let $H=\{p:D_p(A)>p\}$ and $h=|H|$. Distinctness of its primes gives
+\[
+ \frac{h(h+1)}2\le\sum_{p\in H}p
+ <\sum_pD_p(A)=\sum_{a\in A}\Omega(a)\le n\log_2M,
+\]
+which proves the elementary bound. For the sharper estimate use
+the logarithmic budget
+\begin{equation}
+ \sum_{p\in H}p\log p
+ <\sum_pD_p(A)\log p
+ =\sum_{a\in A}\log a\le n\log M.
+ \label{eq:comb-log-budget}
+\end{equation}
+Chebyshev's bound $\pi(t)\ll t/\log t$ implies that the $j$th prime
+is at least a constant times $j\log(j+1)$. For completeness, the
+usual bound follows by applying
+$\prod_{m<p\le2m}p\mid\binom{2m}{m}<4^m$, summing over dyadic
+intervals to bound $\sum_{p\le t}\log p$, and separating primes
+below and above $\sqrt t$. It follows that the sum of $p\log p$
+over any $h$ primes is at least
+$c_1h^2\log^2(h+1)$ for an absolute $c_1>0$.
+Together with \eqref{eq:comb-log-budget} and $\log M=O(\log n)$,
+this gives $h=O(\sqrt{n/\log n})$: if $h<n^{1/4}$ it is immediate,
+and otherwise $\log(h+1)\ge\frac14\log n$.
+The remaining part of $E$ has at most
+$\pi(\sqrt K)=O_{C_0}(\sqrt n/\log n)$ primes.
+
+The prime reciprocal asymptotic
+$\sum_{p\le t}1/p=\log\log t+B+o(1)$, for example from
+Mertens' estimates \cite{TaoMertens}, gives
+\[
+ \sum_{\sqrt K<p<K}\frac1p=\log2+o(1).
+\]
+To control the large-prime part of $E$, put $T=\sqrt K\log n$.
+The sum over all primes in $(\sqrt K,T]$ tends to zero because
+$\log T/\log\sqrt K\to1$. For the rest, use
+\eqref{eq:comb-log-budget}:
+\[
+ \sum_{\substack{p\in H\\p>T}}\frac1p
+ \le\frac{n\log M}{T^2\log T}=O_{C_0}(\log^{-2}n).
+\]
+This proves all of \eqref{eq:comb-core-sharp}.
+\end{proof}
+
+The set $E$ is defined by source demands, not by the magnitudes of
+dual weights. Its sublinear size does not by itself supply a
+fractional cover or a rounding argument for its interaction with $R$.
+
+\subsection{Why the reduction also applies to an asymptotic obstruction}
+
+Let $g(n)$ denote the supremum of $\tau(A,I)$ over $n$ distinct
+sources, with interval length $M=\max A$. A smallest exact-$2n$
+counterexample does not automatically describe failure of the
+asymptotic conjecture. The following argument provides the required
+quantifiers.
+
+\begin{proposition}[Linear budgets with an additive constant]
+\label{prop:comb-asym-minimality}
+Fix $2<c<10$. Suppose that for every $C\ge0$ there is an instance
+with $\tau(A,I)>cn+C$. For each $C$, choose the smallest failing
+cardinality $n_C$ and one such instance. As $C\to\infty$, these
+instances satisfy the conclusions of Theorem~\ref{thm:comb-core}
+with
+\[
+ K=\lfloor c(n_C-1)+C\rfloor+1,
+ \qquad 2n_C-1\le K<10n_C,
+ \qquad M<16n_C^2,
+\]
+and $n_C\to\infty$.
+\end{proposition}
+
+\begin{proof}
+Minimality supplies a cover of every deletion with at most
+$\lfloor c(n_C-1)+C\rfloor=K-1$ positions. If the deletion has
+smaller maximum, apply its bound inside a contained interval of
+that smaller length. Since $c\ge2$,
+\[
+ K+1\le\lfloor cn_C+C\rfloor<\tau(A,I).
+\]
+Thus \eqref{eq:comb-local} holds.
+
+The known uniform bound $g(n)\le10n$ \cite{Wang} implies
+$C<(10-c)n_C$, hence $n_C\to\infty$ and $K<10n_C$; the lower
+bound on $K$ follows from $c\ge2$ and $C\ge0$.
+The known long-interval theorem
+$M\ge16n_C^2\Rightarrow\tau(A,I)\le2n_C$ \cite{Wang}
+forces $M<16n_C^2$. Theorem~\ref{thm:comb-core} now applies.
+\end{proof}
+
+If the unrestricted asymptotic coefficient-two assertion fails,
+one can choose a fixed $c>2$ below the offending limiting upper
+ratio, and then no finite additive constant $C$ works. Thus the
+proposition is a genuine necessary reduction for a possible
+asymptotic obstruction family. It does not prove that the growing
+core can be absorbed, nor identify it with the exceptional support
+of an optimal dual vector.
+
+\section{A complete reconstruction of the \texorpdfstring{$32n^{5/2}$}{32 n to the five-halves} argument}
+\label{sec:comb-dot}
+
+This section reconstructs the supplied argument in full, including
+the demand step and the parameter restriction on which its
+three-occurrence structure depends. Its range is already contained
+in the stronger quadratic result of Wang \cite{Wang}; it is not
+presented as a new best long-interval bound.
+
+\begin{theorem}
+\label{thm:comb-dot}
+For every set $A$ of $n$ distinct integers in $[2,M]$ and every
+positive interval $I$ of length $M$,
+\[
+ M\ge32n^{5/2}\quad\Longrightarrow\quad\tau(A,I)\le2n.
+\]
+\end{theorem}
+
+\begin{proof}
+Induct on $n$ at fixed ambient length $M$. The case $n=1$ is
+immediate. The induction hypothesis is available for a deletion
+because $M\ge32n^{5/2}\ge32(n-1)^{5/2}$. Suppose a counterexample
+exists with $n\ge2$, and set
+\[
+ K=2n-1,\qquad c=\frac M{K^3},\qquad L=\frac MK=cK^2.
+\]
+The local deletion hypothesis holds. In particular, every source
+prime is below $K$, every prime-deletion quotient exceeds $L$,
+and no source divisor lies in $(K,L]$.
+
+\paragraph{The parameter range.}
+If $c\ge1$, every source exceeds $L\ge K^2$. Its least divisor
+$d>K$ has all proper divisors at most $K$. Removing any prime
+factor $p<K$ gives $d/p\le K$, so $d<K^2\le L$, a contradiction.
+We may therefore assume $0<c<1$. The numerical hypothesis gives
+\begin{equation}
+ c\ge\frac{32n^{5/2}}{(2n-1)^3}>\frac4{\sqrt n},
+ \qquad c^2K\ge1.
+ \label{eq:comb-dot-range}
+\end{equation}
+All structural steps that follow use the explicit restrictions
+$0<c<1$ and $c^2K\ge1$. They imply
+$cK>1$ and $c^{3/2}K>1$.
+
+\paragraph{Finding a large prime occurrence.}
+Choose the least divisor $d>K$ of a source. If $\Omega(d)\ge3$,
+its smallest prime factor is at most $d^{1/3}$; removing it leaves
+a proper divisor at least $d^{2/3}$. Thus
+\[
+ d\le K^{3/2}\le cK^2=L,
+\]
+contradicting the divisor gap. The divisor is not prime because
+all source primes are below $K$. Hence $d$ is a product of two
+prime occurrences, and its larger prime $q$ satisfies
+\begin{equation}
+ q>\sqrt c\,K.
+ \label{eq:comb-dot-large-prime}
+\end{equation}
+
+\paragraph{The small part.}
+Put $U=1/\sqrt c$. There is no source divisor $t$ with
+$U<t\le cK$. Indeed, the prime in
+\eqref{eq:comb-dot-large-prime} is larger than $t$, since
+$\sqrt cK>cK$. Therefore $qt$ divides the source and
+\[
+ K<qt<cK^2=L,
+\]
+again impossible. Every source prime is consequently either at
+most $U$ or larger than $cK$.
+
+Let $u$ be the full part of a source supported on primes at most
+$U$. Then $u\le U$. Otherwise its least divisor $t>U$ is at most
+$U^2=1/c$: remove a prime factor at most $U$ and use minimality.
+But $1/c\le cK$ by \eqref{eq:comb-dot-range}, contradicting the
+preceding forbidden interval.
+
+\paragraph{Exactly three large occurrences.}
+Call a prime occurrence larger than $cK$ large. Any two large
+occurrences have product greater than $c^2K^2\ge K$. The divisor
+gap therefore forces their product above $L$. Four such
+occurrences would have product greater than
+$L^2=M(cK)>M$, so a source has at most three.
+
+It cannot have at most two. Delete a prime occurrence so that at
+most one large occurrence remains; if none is large, delete any
+prime. The quotient is then at most
+\[
+ uK\le UK=\frac K{\sqrt c}<cK^2=L,
+\]
+where $c^{3/2}K>1$ was used. This contradicts
+\eqref{eq:comb-quotient-size}. Thus every source has the canonical
+form
+\begin{equation}
+ a=u p q r,\qquad u\le U,
+ \label{eq:comb-dot-triples}
+\end{equation}
+where $p,q,r$ are three large prime occurrences, with repetition
+allowed. The small part $u$ need not have a bounded number of
+prime factors.
+
+\paragraph{Full demands at the large primes.}
+Fix any large occurrence $p$ in a source
+\eqref{eq:comb-dot-triples}. The other two have product above
+$L=cK^2$, so one of them, say $q$, is larger than $\sqrt cK$.
+Also $pq>L>K$. Lemma~\ref{lem:comb-pair} gives
+\begin{equation}
+ D_p(A)>qv_p(a/q)\ge q>\sqrt cK.
+ \label{eq:comb-dot-demand}
+\end{equation}
+This remains valid when occurrences have equal prime values.
+It is the two-prime removal argument, rather than bank inclusion
+alone, that justifies \eqref{eq:comb-dot-demand}.
+
+Let $h$ be the number of distinct large primes across the sources.
+There are exactly $3n$ large-prime occurrences in total, so
+\[
+ h<\frac{3n}{\sqrt cK}\le\frac2{\sqrt c}=2U,
+\]
+where $3n\le2(2n-1)$ for $n\ge2$.
+
+\paragraph{Counting the distinct sources.}
+Unique factorization makes \eqref{eq:comb-dot-triples} an injection
+into the pairs consisting of an integer $u\le U$ and a multiset
+of three primes from the $h$ available large primes. Therefore
+\[
+ n\le\lfloor U\rfloor\binom{h+2}{3}
+   <\frac{U(4U)^3}{6}
+   =\frac{64}{6c^2}
+   <\frac23n.
+\]
+Here $U>1$, $h<2U$, and $c>4/\sqrt n$ were used. The contradiction
+completes the induction.
+\end{proof}
+
+The same three-occurrence argument cannot simply be continued to
+$M=Cn^2$ with fixed $C$. Then $c=M/(2n-1)^3$ is of order $1/n$,
+and the essential condition $c^2K\ge1$ fails for large $n$.
+A quadratic proof therefore requires a different argument; the
+independently checked theorem $M\ge16n^2\Rightarrow\tau\le2n$
+\cite{Wang} supplies that range. None of the necessary conditions
+above resolves the remaining unrestricted exact or asymptotic
+problem.

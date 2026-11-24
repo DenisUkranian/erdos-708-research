@@ -1,0 +1,6260 @@
+{
+  "assumptions": [
+    "A hypothetical least-cardinality counterexample to the unrestricted exact 2n conjecture",
+    "Every smaller source cardinality has a 2m cover on every admissible interval",
+    "M is the interval length and an upper bound for all source integers",
+    "The maximum source M belongs to A"
+  ],
+  "n": 100,
+  "M": 146969,
+  "K": 199,
+  "require_maximum_source": true,
+  "source_filters_are_shift_uniform": true,
+  "direct_filter_rejection_counts": {
+    "at_most_two_prime_units": 47317,
+    "fresh_prime_cofactor_bank": 82457,
+    "two_factor_divisor_gap": 15587,
+    "prime_power_bank_saturation": 92,
+    "forced_union_too_large": 922,
+    "unrestricted_critical_demand": 155
+  },
+  "maximum_source_direct_exclusion": null,
+  "direct_critical_demand_witnesses": [
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 50807,
+      "prime": 47,
+      "forced_valuation_lower": 265,
+      "all_source_demand_upper": 167
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 52142,
+      "prime": 29,
+      "forced_valuation_lower": 259,
+      "all_source_demand_upper": 206
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 53371,
+      "prime": 53,
+      "forced_valuation_lower": 246,
+      "all_source_demand_upper": 152
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 53621,
+      "prime": 43,
+      "forced_valuation_lower": 273,
+      "all_source_demand_upper": 180
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 55738,
+      "prime": 31,
+      "forced_valuation_lower": 236,
+      "all_source_demand_upper": 204
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 57319,
+      "prime": 43,
+      "forced_valuation_lower": 266,
+      "all_source_demand_upper": 180
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 58357,
+      "prime": 67,
+      "forced_valuation_lower": 229,
+      "all_source_demand_upper": 132
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 59177,
+      "prime": 59,
+      "forced_valuation_lower": 227,
+      "all_source_demand_upper": 142
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 62197,
+      "prime": 41,
+      "forced_valuation_lower": 269,
+      "all_source_demand_upper": 189
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 62234,
+      "prime": 29,
+      "forced_valuation_lower": 246,
+      "all_source_demand_upper": 206
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 63257,
+      "prime": 61,
+      "forced_valuation_lower": 216,
+      "all_source_demand_upper": 139
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 64061,
+      "prime": 47,
+      "forced_valuation_lower": 237,
+      "all_source_demand_upper": 167
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 64607,
+      "prime": 53,
+      "forced_valuation_lower": 221,
+      "all_source_demand_upper": 152
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 65533,
+      "prime": 71,
+      "forced_valuation_lower": 214,
+      "all_source_demand_upper": 129
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 66139,
+      "prime": 59,
+      "forced_valuation_lower": 212,
+      "all_source_demand_upper": 142
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 68413,
+      "prime": 43,
+      "forced_valuation_lower": 248,
+      "all_source_demand_upper": 180
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 68479,
+      "prime": 47,
+      "forced_valuation_lower": 230,
+      "all_source_demand_upper": 167
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 68651,
+      "prime": 79,
+      "forced_valuation_lower": 212,
+      "all_source_demand_upper": 123
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 68962,
+      "prime": 29,
+      "forced_valuation_lower": 239,
+      "all_source_demand_upper": 206
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 69277,
+      "prime": 73,
+      "forced_valuation_lower": 205,
+      "all_source_demand_upper": 127
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 70699,
+      "prime": 61,
+      "forced_valuation_lower": 201,
+      "all_source_demand_upper": 139
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 71114,
+      "prime": 31,
+      "forced_valuation_lower": 219,
+      "all_source_demand_upper": 204
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 72283,
+      "prime": 41,
+      "forced_valuation_lower": 256,
+      "all_source_demand_upper": 189
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 72326,
+      "prime": 29,
+      "forced_valuation_lower": 237,
+      "all_source_demand_upper": 206
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 75779,
+      "prime": 83,
+      "forced_valuation_lower": 200,
+      "all_source_demand_upper": 121
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 75809,
+      "prime": 43,
+      "forced_valuation_lower": 240,
+      "all_source_demand_upper": 180
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 76313,
+      "prime": 67,
+      "forced_valuation_lower": 191,
+      "all_source_demand_upper": 132
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 78802,
+      "prime": 31,
+      "forced_valuation_lower": 211,
+      "all_source_demand_upper": 204
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 79007,
+      "prime": 41,
+      "forced_valuation_lower": 250,
+      "all_source_demand_upper": 189
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 79054,
+      "prime": 29,
+      "forced_valuation_lower": 230,
+      "all_source_demand_upper": 206
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 80063,
+      "prime": 59,
+      "forced_valuation_lower": 190,
+      "all_source_demand_upper": 142
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 81133,
+      "prime": 79,
+      "forced_valuation_lower": 187,
+      "all_source_demand_upper": 123
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 81461,
+      "prime": 53,
+      "forced_valuation_lower": 197,
+      "all_source_demand_upper": 152
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 81733,
+      "prime": 47,
+      "forced_valuation_lower": 215,
+      "all_source_demand_upper": 167
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 82646,
+      "prime": 31,
+      "forced_valuation_lower": 209,
+      "all_source_demand_upper": 204
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 85291,
+      "prime": 67,
+      "forced_valuation_lower": 177,
+      "all_source_demand_upper": 132
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 85583,
+      "prime": 61,
+      "forced_valuation_lower": 180,
+      "all_source_demand_upper": 139
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 85697,
+      "prime": 71,
+      "forced_valuation_lower": 177,
+      "all_source_demand_upper": 129
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 86903,
+      "prime": 43,
+      "forced_valuation_lower": 229,
+      "all_source_demand_upper": 180
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 87079,
+      "prime": 53,
+      "forced_valuation_lower": 191,
+      "all_source_demand_upper": 152
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 87131,
+      "prime": 89,
+      "forced_valuation_lower": 184,
+      "all_source_demand_upper": 118
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 89093,
+      "prime": 41,
+      "forced_valuation_lower": 241,
+      "all_source_demand_upper": 189
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 89146,
+      "prime": 29,
+      "forced_valuation_lower": 224,
+      "all_source_demand_upper": 206
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 89383,
+      "prime": 113,
+      "forced_valuation_lower": 205,
+      "all_source_demand_upper": 111
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 89557,
+      "prime": 83,
+      "forced_valuation_lower": 176,
+      "all_source_demand_upper": 121
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 90334,
+      "prime": 31,
+      "forced_valuation_lower": 204,
+      "all_source_demand_upper": 204
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 90569,
+      "prime": 47,
+      "forced_valuation_lower": 207,
+      "all_source_demand_upper": 167
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 90593,
+      "prime": 73,
+      "forced_valuation_lower": 170,
+      "all_source_demand_upper": 127
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 90629,
+      "prime": 11,
+      "forced_valuation_lower": 395,
+      "all_source_demand_upper": 310
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 92323,
+      "prime": 11,
+      "forced_valuation_lower": 395,
+      "all_source_demand_upper": 310
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 94987,
+      "prime": 47,
+      "forced_valuation_lower": 203,
+      "all_source_demand_upper": 167
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 95711,
+      "prime": 11,
+      "forced_valuation_lower": 392,
+      "all_source_demand_upper": 310
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 95779,
+      "prime": 71,
+      "forced_valuation_lower": 164,
+      "all_source_demand_upper": 129
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 97997,
+      "prime": 43,
+      "forced_valuation_lower": 221,
+      "all_source_demand_upper": 180
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 99179,
+      "prime": 41,
+      "forced_valuation_lower": 234,
+      "all_source_demand_upper": 189
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 99238,
+      "prime": 29,
+      "forced_valuation_lower": 219,
+      "all_source_demand_upper": 206
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 99617,
+      "prime": 7,
+      "forced_valuation_lower": 402,
+      "all_source_demand_upper": 370
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 100949,
+      "prime": 59,
+      "forced_valuation_lower": 167,
+      "all_source_demand_upper": 142
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 101251,
+      "prime": 73,
+      "forced_valuation_lower": 157,
+      "all_source_demand_upper": 127
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 101479,
+      "prime": 7,
+      "forced_valuation_lower": 399,
+      "all_source_demand_upper": 370
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 102541,
+      "prime": 41,
+      "forced_valuation_lower": 232,
+      "all_source_demand_upper": 189
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 102602,
+      "prime": 29,
+      "forced_valuation_lower": 218,
+      "all_source_demand_upper": 206
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 102973,
+      "prime": 89,
+      "forced_valuation_lower": 161,
+      "all_source_demand_upper": 118
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 103247,
+      "prime": 67,
+      "forced_valuation_lower": 157,
+      "all_source_demand_upper": 132
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 103499,
+      "prime": 97,
+      "forced_valuation_lower": 165,
+      "all_source_demand_upper": 115
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 103933,
+      "prime": 53,
+      "forced_valuation_lower": 176,
+      "all_source_demand_upper": 152
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 105203,
+      "prime": 7,
+      "forced_valuation_lower": 396,
+      "all_source_demand_upper": 370
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 106097,
+      "prime": 79,
+      "forced_valuation_lower": 153,
+      "all_source_demand_upper": 123
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 107569,
+      "prime": 11,
+      "forced_valuation_lower": 389,
+      "all_source_demand_upper": 310
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 107909,
+      "prime": 61,
+      "forced_valuation_lower": 159,
+      "all_source_demand_upper": 139
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 107911,
+      "prime": 59,
+      "forced_valuation_lower": 162,
+      "all_source_demand_upper": 142
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 109091,
+      "prime": 43,
+      "forced_valuation_lower": 214,
+      "all_source_demand_upper": 180
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 110957,
+      "prime": 11,
+      "forced_valuation_lower": 388,
+      "all_source_demand_upper": 310
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 112211,
+      "prime": 101,
+      "forced_valuation_lower": 158,
+      "all_source_demand_upper": 114
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 112627,
+      "prime": 41,
+      "forced_valuation_lower": 227,
+      "all_source_demand_upper": 189
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 112694,
+      "prime": 29,
+      "forced_valuation_lower": 214,
+      "all_source_demand_upper": 206
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 112789,
+      "prime": 43,
+      "forced_valuation_lower": 213,
+      "all_source_demand_upper": 180
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 112903,
+      "prime": 127,
+      "forced_valuation_lower": 181,
+      "all_source_demand_upper": 109
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 114005,
+      "prime": 151,
+      "forced_valuation_lower": 204,
+      "all_source_demand_upper": 106
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 115169,
+      "prime": 53,
+      "forced_valuation_lower": 169,
+      "all_source_demand_upper": 152
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 115351,
+      "prime": 61,
+      "forced_valuation_lower": 153,
+      "all_source_demand_upper": 139
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 115943,
+      "prime": 71,
+      "forced_valuation_lower": 145,
+      "all_source_demand_upper": 129
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 116039,
+      "prime": 11,
+      "forced_valuation_lower": 386,
+      "all_source_demand_upper": 310
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 116699,
+      "prime": 103,
+      "forced_valuation_lower": 153,
+      "all_source_demand_upper": 113
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 117077,
+      "prime": 47,
+      "forced_valuation_lower": 190,
+      "all_source_demand_upper": 167
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 117113,
+      "prime": 83,
+      "forced_valuation_lower": 144,
+      "all_source_demand_upper": 121
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 117733,
+      "prime": 11,
+      "forced_valuation_lower": 386,
+      "all_source_demand_upper": 310
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 118237,
+      "prime": 7,
+      "forced_valuation_lower": 389,
+      "all_source_demand_upper": 370
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 118579,
+      "prime": 79,
+      "forced_valuation_lower": 141,
+      "all_source_demand_upper": 123
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 119351,
+      "prime": 41,
+      "forced_valuation_lower": 224,
+      "all_source_demand_upper": 189
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 119422,
+      "prime": 29,
+      "forced_valuation_lower": 212,
+      "all_source_demand_upper": 206
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 120127,
+      "prime": 131,
+      "forced_valuation_lower": 174,
+      "all_source_demand_upper": 108
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 120787,
+      "prime": 53,
+      "forced_valuation_lower": 166,
+      "all_source_demand_upper": 152
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 121961,
+      "prime": 7,
+      "forced_valuation_lower": 388,
+      "all_source_demand_upper": 370
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 122317,
+      "prime": 97,
+      "forced_valuation_lower": 144,
+      "all_source_demand_upper": 115
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 122567,
+      "prime": 73,
+      "forced_valuation_lower": 139,
+      "all_source_demand_upper": 127
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 122713,
+      "prime": 41,
+      "forced_valuation_lower": 223,
+      "all_source_demand_upper": 189
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 122786,
+      "prime": 29,
+      "forced_valuation_lower": 211,
+      "all_source_demand_upper": 206
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 123245,
+      "prime": 157,
+      "forced_valuation_lower": 196,
+      "all_source_demand_upper": 105
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 123883,
+      "prime": 43,
+      "forced_valuation_lower": 208,
+      "all_source_demand_upper": 180
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 125905,
+      "prime": 13,
+      "forced_valuation_lower": 381,
+      "all_source_demand_upper": 271
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 125939,
+      "prime": 107,
+      "forced_valuation_lower": 146,
+      "all_source_demand_upper": 112
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 126203,
+      "prime": 11,
+      "forced_valuation_lower": 384,
+      "all_source_demand_upper": 310
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 126581,
+      "prime": 13,
+      "forced_valuation_lower": 282,
+      "all_source_demand_upper": 271
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 127547,
+      "prime": 7,
+      "forced_valuation_lower": 385,
+      "all_source_demand_upper": 370
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 127595,
+      "prime": 13,
+      "forced_valuation_lower": 381,
+      "all_source_demand_upper": 271
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 127897,
+      "prime": 11,
+      "forced_valuation_lower": 384,
+      "all_source_demand_upper": 310
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 128797,
+      "prime": 59,
+      "forced_valuation_lower": 149,
+      "all_source_demand_upper": 142
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 128947,
+      "prime": 13,
+      "forced_valuation_lower": 281,
+      "all_source_demand_upper": 271
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 129409,
+      "prime": 7,
+      "forced_valuation_lower": 385,
+      "all_source_demand_upper": 370
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 130181,
+      "prime": 67,
+      "forced_valuation_lower": 137,
+      "all_source_demand_upper": 132
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 130331,
+      "prime": 47,
+      "forced_valuation_lower": 184,
+      "all_source_demand_upper": 167
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 130375,
+      "prime": 5,
+      "forced_valuation_lower": 567,
+      "all_source_demand_upper": 457
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 130691,
+      "prime": 109,
+      "forced_valuation_lower": 144,
+      "all_source_demand_upper": 112
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 130891,
+      "prime": 83,
+      "forced_valuation_lower": 133,
+      "all_source_demand_upper": 121
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 131279,
+      "prime": 43,
+      "forced_valuation_lower": 205,
+      "all_source_demand_upper": 180
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 131383,
+      "prime": 137,
+      "forced_valuation_lower": 166,
+      "all_source_demand_upper": 107
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 132023,
+      "prime": 53,
+      "forced_valuation_lower": 161,
+      "all_source_demand_upper": 152
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 132125,
+      "prime": 5,
+      "forced_valuation_lower": 567,
+      "all_source_demand_upper": 457
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 132613,
+      "prime": 101,
+      "forced_valuation_lower": 137,
+      "all_source_demand_upper": 114
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 132665,
+      "prime": 13,
+      "forced_valuation_lower": 380,
+      "all_source_demand_upper": 271
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 132799,
+      "prime": 41,
+      "forced_valuation_lower": 219,
+      "all_source_demand_upper": 189
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 132845,
+      "prime": 163,
+      "forced_valuation_lower": 189,
+      "all_source_demand_upper": 105
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 132878,
+      "prime": 29,
+      "forced_valuation_lower": 209,
+      "all_source_demand_upper": 206
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 132979,
+      "prime": 11,
+      "forced_valuation_lower": 384,
+      "all_source_demand_upper": 310
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 133679,
+      "prime": 13,
+      "forced_valuation_lower": 281,
+      "all_source_demand_upper": 271
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 134657,
+      "prime": 89,
+      "forced_valuation_lower": 131,
+      "all_source_demand_upper": 118
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 134749,
+      "prime": 47,
+      "forced_valuation_lower": 182,
+      "all_source_demand_upper": 167
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 134977,
+      "prime": 43,
+      "forced_valuation_lower": 203,
+      "all_source_demand_upper": 180
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 135247,
+      "prime": 139,
+      "forced_valuation_lower": 164,
+      "all_source_demand_upper": 107
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 135779,
+      "prime": 7,
+      "forced_valuation_lower": 419,
+      "all_source_demand_upper": 370
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 137375,
+      "prime": 5,
+      "forced_valuation_lower": 567,
+      "all_source_demand_upper": 457
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 137677,
+      "prime": 61,
+      "forced_valuation_lower": 141,
+      "all_source_demand_upper": 139
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 137735,
+      "prime": 13,
+      "forced_valuation_lower": 380,
+      "all_source_demand_upper": 271
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 137917,
+      "prime": 103,
+      "forced_valuation_lower": 134,
+      "all_source_demand_upper": 113
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 138061,
+      "prime": 11,
+      "forced_valuation_lower": 384,
+      "all_source_demand_upper": 310
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 138719,
+      "prime": 7,
+      "forced_valuation_lower": 382,
+      "all_source_demand_upper": 370
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 139111,
+      "prime": 7,
+      "forced_valuation_lower": 419,
+      "all_source_demand_upper": 370
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 139159,
+      "prime": 67,
+      "forced_valuation_lower": 132,
+      "all_source_demand_upper": 132
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 139445,
+      "prime": 167,
+      "forced_valuation_lower": 185,
+      "all_source_demand_upper": 105
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 139523,
+      "prime": 41,
+      "forced_valuation_lower": 217,
+      "all_source_demand_upper": 189
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 139606,
+      "prime": 29,
+      "forced_valuation_lower": 207,
+      "all_source_demand_upper": 206
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 140459,
+      "prime": 113,
+      "forced_valuation_lower": 139,
+      "all_source_demand_upper": 111
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 140581,
+      "prime": 7,
+      "forced_valuation_lower": 382,
+      "all_source_demand_upper": 370
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 141115,
+      "prime": 13,
+      "forced_valuation_lower": 380,
+      "all_source_demand_upper": 271
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 141449,
+      "prime": 11,
+      "forced_valuation_lower": 384,
+      "all_source_demand_upper": 310
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 142625,
+      "prime": 5,
+      "forced_valuation_lower": 567,
+      "all_source_demand_upper": 457
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 142721,
+      "prime": 59,
+      "forced_valuation_lower": 142,
+      "all_source_demand_upper": 142
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 143543,
+      "prime": 79,
+      "forced_valuation_lower": 125,
+      "all_source_demand_upper": 123
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 144109,
+      "prime": 7,
+      "forced_valuation_lower": 419,
+      "all_source_demand_upper": 370
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 146071,
+      "prime": 43,
+      "forced_valuation_lower": 201,
+      "all_source_demand_upper": 180
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 146125,
+      "prime": 5,
+      "forced_valuation_lower": 567,
+      "all_source_demand_upper": 457
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 146167,
+      "prime": 7,
+      "forced_valuation_lower": 382,
+      "all_source_demand_upper": 370
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 146185,
+      "prime": 13,
+      "forced_valuation_lower": 380,
+      "all_source_demand_upper": 271
+    },
+    {
+      "reason": "unrestricted_critical_demand",
+      "source": 146531,
+      "prime": 11,
+      "forced_valuation_lower": 384,
+      "all_source_demand_upper": 310
+    }
+  ],
+  "initial_core_size": 438,
+  "initial_core": [
+    15379,
+    20449,
+    24167,
+    28561,
+    34225,
+    48778,
+    59582,
+    62974,
+    63878,
+    68921,
+    70262,
+    73167,
+    73718,
+    75106,
+    77314,
+    77326,
+    78213,
+    79402,
+    79507,
+    79994,
+    81098,
+    82574,
+    83607,
+    83942,
+    84506,
+    84694,
+    84878,
+    85054,
+    86602,
+    87986,
+    88642,
+    89373,
+    90206,
+    90506,
+    91922,
+    92278,
+    92966,
+    93351,
+    94054,
+    94282,
+    94461,
+    94658,
+    95038,
+    95294,
+    95506,
+    95817,
+    96406,
+    96746,
+    97478,
+    97498,
+    97556,
+    98642,
+    99674,
+    99789,
+    99958,
+    100418,
+    100491,
+    100862,
+    101306,
+    101614,
+    101866,
+    102131,
+    102254,
+    102487,
+    102778,
+    103443,
+    103822,
+    103823,
+    104017,
+    104222,
+    104284,
+    104386,
+    104673,
+    104834,
+    105374,
+    105393,
+    106079,
+    106082,
+    106262,
+    106318,
+    106597,
+    106671,
+    106742,
+    107066,
+    107107,
+    107113,
+    107242,
+    107543,
+    107707,
+    107818,
+    108489,
+    108914,
+    108946,
+    109109,
+    109306,
+    109478,
+    109678,
+    109779,
+    109839,
+    109922,
+    110081,
+    110577,
+    110618,
+    110741,
+    110902,
+    111274,
+    111476,
+    111569,
+    111683,
+    111766,
+    111982,
+    112201,
+    112258,
+    112606,
+    112659,
+    112961,
+    113113,
+    113398,
+    113458,
+    113693,
+    113734,
+    113738,
+    114026,
+    114034,
+    114586,
+    114637,
+    114638,
+    114829,
+    115046,
+    115103,
+    115197,
+    115699,
+    115778,
+    115971,
+    115989,
+    116014,
+    116143,
+    116513,
+    116653,
+    116654,
+    116702,
+    116714,
+    117218,
+    117238,
+    117242,
+    117547,
+    117734,
+    118121,
+    118203,
+    118354,
+    118523,
+    118581,
+    118637,
+    118826,
+    119103,
+    119164,
+    119239,
+    119282,
+    119474,
+    119621,
+    119662,
+    119843,
+    119939,
+    119991,
+    120125,
+    120466,
+    120589,
+    120658,
+    120734,
+    120842,
+    120931,
+    121121,
+    121186,
+    121307,
+    121423,
+    121481,
+    121582,
+    121647,
+    121739,
+    121945,
+    122366,
+    122543,
+    122843,
+    122854,
+    123082,
+    123281,
+    123287,
+    123398,
+    123469,
+    123682,
+    123861,
+    123969,
+    124246,
+    124267,
+    124394,
+    124468,
+    124867,
+    124903,
+    125173,
+    125294,
+    125302,
+    125599,
+    125689,
+    125911,
+    125913,
+    125947,
+    125948,
+    126034,
+    126242,
+    126362,
+    126514,
+    126614,
+    126697,
+    126759,
+    126806,
+    126874,
+    126947,
+    127041,
+    127127,
+    127166,
+    127317,
+    127322,
+    127351,
+    127558,
+    127571,
+    127581,
+    127658,
+    127756,
+    127903,
+    127942,
+    128122,
+    128207,
+    128371,
+    128441,
+    128686,
+    128699,
+    128774,
+    129007,
+    129086,
+    129109,
+    129137,
+    129214,
+    129301,
+    129314,
+    129601,
+    129623,
+    129646,
+    129673,
+    129797,
+    129859,
+    129903,
+    130355,
+    130378,
+    130462,
+    130559,
+    130906,
+    130913,
+    131066,
+    131131,
+    131254,
+    131387,
+    131546,
+    131629,
+    131638,
+    131882,
+    131979,
+    131989,
+    132053,
+    132182,
+    132211,
+    132278,
+    132526,
+    132553,
+    132634,
+    132641,
+    132963,
+    133052,
+    133163,
+    133298,
+    133429,
+    133517,
+    133719,
+    133906,
+    133988,
+    134017,
+    134261,
+    134357,
+    134402,
+    134458,
+    134461,
+    134633,
+    134726,
+    134758,
+    134938,
+    135013,
+    135169,
+    135309,
+    135346,
+    135407,
+    135501,
+    135539,
+    135622,
+    135707,
+    135759,
+    135923,
+    135997,
+    136091,
+    136369,
+    136462,
+    136526,
+    136762,
+    136793,
+    136817,
+    136826,
+    136958,
+    137057,
+    137137,
+    137149,
+    137299,
+    137302,
+    137381,
+    137618,
+    137663,
+    137678,
+    137747,
+    137842,
+    137883,
+    137924,
+    137953,
+    138043,
+    138417,
+    138539,
+    138554,
+    138662,
+    138958,
+    139018,
+    139019,
+    139139,
+    139231,
+    139277,
+    139315,
+    139345,
+    139357,
+    139449,
+    139564,
+    139675,
+    139751,
+    139771,
+    139934,
+    139997,
+    140063,
+    140087,
+    140302,
+    140306,
+    140353,
+    140361,
+    140389,
+    140438,
+    140524,
+    140671,
+    140911,
+    141081,
+    141094,
+    141154,
+    141185,
+    141266,
+    141298,
+    141329,
+    141398,
+    141423,
+    141599,
+    141703,
+    141839,
+    141987,
+    142013,
+    142042,
+    142222,
+    142228,
+    142358,
+    142426,
+    142557,
+    142598,
+    142631,
+    142681,
+    142805,
+    142861,
+    142934,
+    142941,
+    142994,
+    143129,
+    143143,
+    143153,
+    143259,
+    143375,
+    143491,
+    143623,
+    143782,
+    143842,
+    144254,
+    144337,
+    144343,
+    144394,
+    144478,
+    144491,
+    144509,
+    144566,
+    144586,
+    144609,
+    144652,
+    144854,
+    145058,
+    145114,
+    145119,
+    145199,
+    145225,
+    145297,
+    145337,
+    145426,
+    145591,
+    145597,
+    145669,
+    145834,
+    145841,
+    146047,
+    146189,
+    146217,
+    146227,
+    146247,
+    146261,
+    146329,
+    146334,
+    146372,
+    146438,
+    146452,
+    146795,
+    146827,
+    146861,
+    146969
+  ],
+  "pruning_rounds": [
+    {
+      "round": 0,
+      "pool_size_before": 438,
+      "removed": [
+        {
+          "source": 34225,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 195,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            34225,
+            146969
+          ]
+        },
+        {
+          "source": 48778,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 186,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            48778,
+            146969
+          ]
+        },
+        {
+          "source": 59582,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 160,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            59582,
+            146969
+          ]
+        },
+        {
+          "source": 62974,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 91,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            62974,
+            146969
+          ]
+        },
+        {
+          "source": 63878,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 100,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            63878,
+            146969
+          ]
+        },
+        {
+          "source": 68921,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 41,
+          "forced_valuation_lower": 176,
+          "source_demand_upper": 103,
+          "mandatory_sources": [
+            68921,
+            146969
+          ]
+        },
+        {
+          "source": 70262,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 95,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            70262,
+            146969
+          ]
+        },
+        {
+          "source": 73167,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 130,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            73167,
+            146969
+          ]
+        },
+        {
+          "source": 73718,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 145,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            73718,
+            146969
+          ]
+        },
+        {
+          "source": 75106,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 17,
+          "forced_valuation_lower": 97,
+          "source_demand_upper": 35,
+          "mandatory_sources": [
+            75106,
+            146969
+          ]
+        },
+        {
+          "source": 77314,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 141,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            77314,
+            146969
+          ]
+        },
+        {
+          "source": 77326,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 81,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            77326,
+            146969
+          ]
+        },
+        {
+          "source": 78213,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 176,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            78213,
+            146969
+          ]
+        },
+        {
+          "source": 79402,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 175,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            79402,
+            146969
+          ]
+        },
+        {
+          "source": 79507,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 43,
+          "forced_valuation_lower": 159,
+          "source_demand_upper": 93,
+          "mandatory_sources": [
+            79507,
+            146969
+          ]
+        },
+        {
+          "source": 79994,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 157,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            79994,
+            146969
+          ]
+        },
+        {
+          "source": 81098,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 155,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            81098,
+            146969
+          ]
+        },
+        {
+          "source": 82574,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 172,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            82574,
+            146969
+          ]
+        },
+        {
+          "source": 83607,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 159,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            83607,
+            146969
+          ]
+        },
+        {
+          "source": 83942,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 87,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            83942,
+            146969
+          ]
+        },
+        {
+          "source": 84506,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 136,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            84506,
+            146969
+          ]
+        },
+        {
+          "source": 84694,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 17,
+          "forced_valuation_lower": 179,
+          "source_demand_upper": 35,
+          "mandatory_sources": [
+            84694,
+            146969
+          ]
+        },
+        {
+          "source": 84878,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 171,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            84878,
+            146969
+          ]
+        },
+        {
+          "source": 85054,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 78,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            85054,
+            146969
+          ]
+        },
+        {
+          "source": 86602,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 167,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            86602,
+            146969
+          ]
+        },
+        {
+          "source": 87986,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 131,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            87986,
+            146969
+          ]
+        },
+        {
+          "source": 88642,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 148,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            88642,
+            146969
+          ]
+        },
+        {
+          "source": 89373,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 108,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            89373,
+            146969
+          ]
+        },
+        {
+          "source": 90206,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 149,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            90206,
+            146969
+          ]
+        },
+        {
+          "source": 90506,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 13,
+          "forced_valuation_lower": 103,
+          "source_demand_upper": 69,
+          "mandatory_sources": [
+            90506,
+            146969
+          ]
+        },
+        {
+          "source": 91922,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 164,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            91922,
+            146969
+          ]
+        },
+        {
+          "source": 92278,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 128,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            92278,
+            146969
+          ]
+        },
+        {
+          "source": 92966,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 145,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            92966,
+            146969
+          ]
+        },
+        {
+          "source": 93351,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 165,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            93351,
+            146969
+          ]
+        },
+        {
+          "source": 94054,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 122,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            94054,
+            146969
+          ]
+        },
+        {
+          "source": 94282,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 17,
+          "forced_valuation_lower": 171,
+          "source_demand_upper": 35,
+          "mandatory_sources": [
+            94282,
+            146969
+          ]
+        },
+        {
+          "source": 94461,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 129,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            94461,
+            146969
+          ]
+        },
+        {
+          "source": 94658,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 159,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            94658,
+            146969
+          ]
+        },
+        {
+          "source": 95038,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 162,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            95038,
+            146969
+          ]
+        },
+        {
+          "source": 95294,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 130,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            95294,
+            146969
+          ]
+        },
+        {
+          "source": 95506,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 17,
+          "forced_valuation_lower": 86,
+          "source_demand_upper": 35,
+          "mandatory_sources": [
+            95506,
+            146969
+          ]
+        },
+        {
+          "source": 95817,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 67,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            95817,
+            146969
+          ]
+        },
+        {
+          "source": 96406,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 159,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            96406,
+            146969
+          ]
+        },
+        {
+          "source": 96746,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 13,
+          "forced_valuation_lower": 100,
+          "source_demand_upper": 69,
+          "mandatory_sources": [
+            96746,
+            146969
+          ]
+        },
+        {
+          "source": 97478,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 17,
+          "forced_valuation_lower": 168,
+          "source_demand_upper": 35,
+          "mandatory_sources": [
+            97478,
+            146969
+          ]
+        },
+        {
+          "source": 97498,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 41,
+          "forced_valuation_lower": 148,
+          "source_demand_upper": 103,
+          "mandatory_sources": [
+            97498,
+            146969
+          ]
+        },
+        {
+          "source": 98642,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 120,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            98642,
+            146969
+          ]
+        },
+        {
+          "source": 99674,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 157,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            99674,
+            146969
+          ]
+        },
+        {
+          "source": 99958,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 140,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            99958,
+            146969
+          ]
+        },
+        {
+          "source": 100418,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 143,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            100418,
+            146969
+          ]
+        },
+        {
+          "source": 100491,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 127,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            100491,
+            146969
+          ]
+        },
+        {
+          "source": 100862,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 123,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            100862,
+            146969
+          ]
+        },
+        {
+          "source": 101306,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 110,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            101306,
+            146969
+          ]
+        },
+        {
+          "source": 101614,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 70,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            101614,
+            146969
+          ]
+        },
+        {
+          "source": 101866,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 198,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            101866,
+            146969
+          ]
+        },
+        {
+          "source": 102131,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 41,
+          "forced_valuation_lower": 142,
+          "source_demand_upper": 103,
+          "mandatory_sources": [
+            102131,
+            146969
+          ]
+        },
+        {
+          "source": 102254,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 121,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            102254,
+            146969
+          ]
+        },
+        {
+          "source": 102778,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 13,
+          "forced_valuation_lower": 190,
+          "source_demand_upper": 69,
+          "mandatory_sources": [
+            102778,
+            146969
+          ]
+        },
+        {
+          "source": 103443,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 161,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            103443,
+            146969
+          ]
+        },
+        {
+          "source": 103822,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 141,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            103822,
+            146969
+          ]
+        },
+        {
+          "source": 103823,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 47,
+          "forced_valuation_lower": 133,
+          "source_demand_upper": 90,
+          "mandatory_sources": [
+            103823,
+            146969
+          ]
+        },
+        {
+          "source": 104017,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 41,
+          "forced_valuation_lower": 143,
+          "source_demand_upper": 103,
+          "mandatory_sources": [
+            104017,
+            146969
+          ]
+        },
+        {
+          "source": 104222,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 41,
+          "forced_valuation_lower": 144,
+          "source_demand_upper": 103,
+          "mandatory_sources": [
+            104222,
+            146969
+          ]
+        },
+        {
+          "source": 104284,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 127,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            104284,
+            146969
+          ]
+        },
+        {
+          "source": 104386,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 156,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            104386,
+            146969
+          ]
+        },
+        {
+          "source": 104673,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 111,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            104673,
+            146969
+          ]
+        },
+        {
+          "source": 104834,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 137,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            104834,
+            146969
+          ]
+        },
+        {
+          "source": 105374,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 152,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            105374,
+            146969
+          ]
+        },
+        {
+          "source": 105393,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 64,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            105393,
+            146969
+          ]
+        },
+        {
+          "source": 106079,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 149,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            106079,
+            146969
+          ]
+        },
+        {
+          "source": 106082,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 124,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            106082,
+            146969
+          ]
+        },
+        {
+          "source": 106262,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 13,
+          "forced_valuation_lower": 187,
+          "source_demand_upper": 69,
+          "mandatory_sources": [
+            106262,
+            146969
+          ]
+        },
+        {
+          "source": 106318,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 17,
+          "forced_valuation_lower": 160,
+          "source_demand_upper": 35,
+          "mandatory_sources": [
+            106318,
+            146969
+          ]
+        },
+        {
+          "source": 106597,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 151,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            106597,
+            146969
+          ]
+        },
+        {
+          "source": 106671,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 145,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            106671,
+            146969
+          ]
+        },
+        {
+          "source": 106742,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 76,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            106742,
+            146969
+          ]
+        },
+        {
+          "source": 107066,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 17,
+          "forced_valuation_lower": 161,
+          "source_demand_upper": 35,
+          "mandatory_sources": [
+            107066,
+            146969
+          ]
+        },
+        {
+          "source": 107107,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 7,
+          "forced_valuation_lower": 198,
+          "source_demand_upper": 21,
+          "mandatory_sources": [
+            107107,
+            146969
+          ]
+        },
+        {
+          "source": 107113,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 43,
+          "forced_valuation_lower": 135,
+          "source_demand_upper": 93,
+          "mandatory_sources": [
+            107113,
+            146969
+          ]
+        },
+        {
+          "source": 107242,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 43,
+          "forced_valuation_lower": 136,
+          "source_demand_upper": 93,
+          "mandatory_sources": [
+            107242,
+            146969
+          ]
+        },
+        {
+          "source": 107543,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 41,
+          "forced_valuation_lower": 141,
+          "source_demand_upper": 103,
+          "mandatory_sources": [
+            107543,
+            146969
+          ]
+        },
+        {
+          "source": 107707,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 151,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            107707,
+            146969
+          ]
+        },
+        {
+          "source": 107818,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 115,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            107818,
+            146969
+          ]
+        },
+        {
+          "source": 108489,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 159,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            108489,
+            146969
+          ]
+        },
+        {
+          "source": 108914,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 13,
+          "forced_valuation_lower": 185,
+          "source_demand_upper": 69,
+          "mandatory_sources": [
+            108914,
+            146969
+          ]
+        },
+        {
+          "source": 108946,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 150,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            108946,
+            146969
+          ]
+        },
+        {
+          "source": 109109,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 7,
+          "forced_valuation_lower": 198,
+          "source_demand_upper": 21,
+          "mandatory_sources": [
+            109109,
+            146969
+          ]
+        },
+        {
+          "source": 109306,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 112,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            109306,
+            146969
+          ]
+        },
+        {
+          "source": 109478,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 151,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            109478,
+            146969
+          ]
+        },
+        {
+          "source": 109678,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 123,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            109678,
+            146969
+          ]
+        },
+        {
+          "source": 109779,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 109,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            109779,
+            146969
+          ]
+        },
+        {
+          "source": 109839,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 121,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            109839,
+            146969
+          ]
+        },
+        {
+          "source": 109922,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 17,
+          "forced_valuation_lower": 157,
+          "source_demand_upper": 35,
+          "mandatory_sources": [
+            109922,
+            146969
+          ]
+        },
+        {
+          "source": 110081,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 160,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            110081,
+            146969
+          ]
+        },
+        {
+          "source": 110618,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 153,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            110618,
+            146969
+          ]
+        },
+        {
+          "source": 110741,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 150,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            110741,
+            146969
+          ]
+        },
+        {
+          "source": 110902,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 11,
+          "forced_valuation_lower": 103,
+          "source_demand_upper": 50,
+          "mandatory_sources": [
+            110902,
+            146969
+          ]
+        },
+        {
+          "source": 111274,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 134,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            111274,
+            146969
+          ]
+        },
+        {
+          "source": 111476,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 117,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            111476,
+            146969
+          ]
+        },
+        {
+          "source": 111569,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 158,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            111569,
+            146969
+          ]
+        },
+        {
+          "source": 111683,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 11,
+          "forced_valuation_lower": 236,
+          "source_demand_upper": 50,
+          "mandatory_sources": [
+            111683,
+            146969
+          ]
+        },
+        {
+          "source": 111766,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 115,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            111766,
+            146969
+          ]
+        },
+        {
+          "source": 111982,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 13,
+          "forced_valuation_lower": 182,
+          "source_demand_upper": 69,
+          "mandatory_sources": [
+            111982,
+            146969
+          ]
+        },
+        {
+          "source": 112201,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 166,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            112201,
+            146969
+          ]
+        },
+        {
+          "source": 112258,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 155,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            112258,
+            146969
+          ]
+        },
+        {
+          "source": 112606,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 13,
+          "forced_valuation_lower": 182,
+          "source_demand_upper": 69,
+          "mandatory_sources": [
+            112606,
+            146969
+          ]
+        },
+        {
+          "source": 112659,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 17,
+          "forced_valuation_lower": 66,
+          "source_demand_upper": 35,
+          "mandatory_sources": [
+            112659,
+            146969
+          ]
+        },
+        {
+          "source": 112961,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 147,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            112961,
+            146969
+          ]
+        },
+        {
+          "source": 113113,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 7,
+          "forced_valuation_lower": 196,
+          "source_demand_upper": 21,
+          "mandatory_sources": [
+            113113,
+            146969
+          ]
+        },
+        {
+          "source": 113398,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 194,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            113398,
+            146969
+          ]
+        },
+        {
+          "source": 113458,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 17,
+          "forced_valuation_lower": 157,
+          "source_demand_upper": 35,
+          "mandatory_sources": [
+            113458,
+            146969
+          ]
+        },
+        {
+          "source": 113693,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 41,
+          "forced_valuation_lower": 135,
+          "source_demand_upper": 103,
+          "mandatory_sources": [
+            113693,
+            146969
+          ]
+        },
+        {
+          "source": 113734,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 151,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            113734,
+            146969
+          ]
+        },
+        {
+          "source": 113738,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 116,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            113738,
+            146969
+          ]
+        },
+        {
+          "source": 114026,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 11,
+          "forced_valuation_lower": 199,
+          "source_demand_upper": 50,
+          "mandatory_sources": [
+            114026,
+            146969
+          ]
+        },
+        {
+          "source": 114034,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 136,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            114034,
+            146969
+          ]
+        },
+        {
+          "source": 114586,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 129,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            114586,
+            146969
+          ]
+        },
+        {
+          "source": 114637,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 161,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            114637,
+            146969
+          ]
+        },
+        {
+          "source": 114638,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 43,
+          "forced_valuation_lower": 133,
+          "source_demand_upper": 93,
+          "mandatory_sources": [
+            114638,
+            146969
+          ]
+        },
+        {
+          "source": 114829,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 11,
+          "forced_valuation_lower": 234,
+          "source_demand_upper": 50,
+          "mandatory_sources": [
+            114829,
+            146969
+          ]
+        },
+        {
+          "source": 115046,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 132,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            115046,
+            146969
+          ]
+        },
+        {
+          "source": 115103,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 161,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            115103,
+            146969
+          ]
+        },
+        {
+          "source": 115197,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 117,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            115197,
+            146969
+          ]
+        },
+        {
+          "source": 115699,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 141,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            115699,
+            146969
+          ]
+        },
+        {
+          "source": 115778,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 13,
+          "forced_valuation_lower": 179,
+          "source_demand_upper": 69,
+          "mandatory_sources": [
+            115778,
+            146969
+          ]
+        },
+        {
+          "source": 115989,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 41,
+          "forced_valuation_lower": 111,
+          "source_demand_upper": 103,
+          "mandatory_sources": [
+            115989,
+            146969
+          ]
+        },
+        {
+          "source": 116014,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 148,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            116014,
+            146969
+          ]
+        },
+        {
+          "source": 116143,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 146,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            116143,
+            146969
+          ]
+        },
+        {
+          "source": 116513,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 143,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            116513,
+            146969
+          ]
+        },
+        {
+          "source": 116653,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 156,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            116653,
+            146969
+          ]
+        },
+        {
+          "source": 116654,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 17,
+          "forced_valuation_lower": 156,
+          "source_demand_upper": 35,
+          "mandatory_sources": [
+            116654,
+            146969
+          ]
+        },
+        {
+          "source": 116702,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 131,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            116702,
+            146969
+          ]
+        },
+        {
+          "source": 116714,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 13,
+          "forced_valuation_lower": 91,
+          "source_demand_upper": 69,
+          "mandatory_sources": [
+            116714,
+            146969
+          ]
+        },
+        {
+          "source": 117218,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 112,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            117218,
+            146969
+          ]
+        },
+        {
+          "source": 117238,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 11,
+          "forced_valuation_lower": 100,
+          "source_demand_upper": 50,
+          "mandatory_sources": [
+            117238,
+            146969
+          ]
+        },
+        {
+          "source": 117242,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 192,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            117242,
+            146969
+          ]
+        },
+        {
+          "source": 117547,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 41,
+          "forced_valuation_lower": 133,
+          "source_demand_upper": 103,
+          "mandatory_sources": [
+            117547,
+            146969
+          ]
+        },
+        {
+          "source": 117734,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 153,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            117734,
+            146969
+          ]
+        },
+        {
+          "source": 118121,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 41,
+          "forced_valuation_lower": 136,
+          "source_demand_upper": 103,
+          "mandatory_sources": [
+            118121,
+            146969
+          ]
+        },
+        {
+          "source": 118203,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 141,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            118203,
+            146969
+          ]
+        },
+        {
+          "source": 118354,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 17,
+          "forced_valuation_lower": 78,
+          "source_demand_upper": 35,
+          "mandatory_sources": [
+            118354,
+            146969
+          ]
+        },
+        {
+          "source": 118523,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 159,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            118523,
+            146969
+          ]
+        },
+        {
+          "source": 118581,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 155,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            118581,
+            146969
+          ]
+        },
+        {
+          "source": 118637,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 164,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            118637,
+            146969
+          ]
+        },
+        {
+          "source": 118826,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 141,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            118826,
+            146969
+          ]
+        },
+        {
+          "source": 119103,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 117,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            119103,
+            146969
+          ]
+        },
+        {
+          "source": 119239,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 43,
+          "forced_valuation_lower": 128,
+          "source_demand_upper": 93,
+          "mandatory_sources": [
+            119239,
+            146969
+          ]
+        },
+        {
+          "source": 119282,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 147,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            119282,
+            146969
+          ]
+        },
+        {
+          "source": 119474,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 107,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            119474,
+            146969
+          ]
+        },
+        {
+          "source": 119621,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 139,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            119621,
+            146969
+          ]
+        },
+        {
+          "source": 119662,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 144,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            119662,
+            146969
+          ]
+        },
+        {
+          "source": 119843,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 146,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            119843,
+            146969
+          ]
+        },
+        {
+          "source": 119939,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 154,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            119939,
+            146969
+          ]
+        },
+        {
+          "source": 119991,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 105,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            119991,
+            146969
+          ]
+        },
+        {
+          "source": 120466,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 119,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            120466,
+            146969
+          ]
+        },
+        {
+          "source": 120589,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 7,
+          "forced_valuation_lower": 341,
+          "source_demand_upper": 21,
+          "mandatory_sources": [
+            120589,
+            146969
+          ]
+        },
+        {
+          "source": 120658,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 129,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            120658,
+            146969
+          ]
+        },
+        {
+          "source": 120734,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 17,
+          "forced_valuation_lower": 151,
+          "source_demand_upper": 35,
+          "mandatory_sources": [
+            120734,
+            146969
+          ]
+        },
+        {
+          "source": 120842,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 132,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            120842,
+            146969
+          ]
+        },
+        {
+          "source": 120931,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 158,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            120931,
+            146969
+          ]
+        },
+        {
+          "source": 121186,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 13,
+          "forced_valuation_lower": 176,
+          "source_demand_upper": 69,
+          "mandatory_sources": [
+            121186,
+            146969
+          ]
+        },
+        {
+          "source": 121307,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 164,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            121307,
+            146969
+          ]
+        },
+        {
+          "source": 121423,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 161,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            121423,
+            146969
+          ]
+        },
+        {
+          "source": 121481,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 157,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            121481,
+            146969
+          ]
+        },
+        {
+          "source": 121582,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 109,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            121582,
+            146969
+          ]
+        },
+        {
+          "source": 121647,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 103,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            121647,
+            146969
+          ]
+        },
+        {
+          "source": 121739,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 179,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            121739,
+            146969
+          ]
+        },
+        {
+          "source": 122366,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 17,
+          "forced_valuation_lower": 149,
+          "source_demand_upper": 35,
+          "mandatory_sources": [
+            122366,
+            146969
+          ]
+        },
+        {
+          "source": 122543,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 151,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            122543,
+            146969
+          ]
+        },
+        {
+          "source": 122843,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 7,
+          "forced_valuation_lower": 338,
+          "source_demand_upper": 21,
+          "mandatory_sources": [
+            122843,
+            146969
+          ]
+        },
+        {
+          "source": 122854,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 139,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            122854,
+            146969
+          ]
+        },
+        {
+          "source": 123082,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 147,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            123082,
+            146969
+          ]
+        },
+        {
+          "source": 123281,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 43,
+          "forced_valuation_lower": 127,
+          "source_demand_upper": 93,
+          "mandatory_sources": [
+            123281,
+            146969
+          ]
+        },
+        {
+          "source": 123287,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 164,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            123287,
+            146969
+          ]
+        },
+        {
+          "source": 123398,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 11,
+          "forced_valuation_lower": 191,
+          "source_demand_upper": 50,
+          "mandatory_sources": [
+            123398,
+            146969
+          ]
+        },
+        {
+          "source": 123469,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 139,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            123469,
+            146969
+          ]
+        },
+        {
+          "source": 123682,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 13,
+          "forced_valuation_lower": 173,
+          "source_demand_upper": 69,
+          "mandatory_sources": [
+            123682,
+            146969
+          ]
+        },
+        {
+          "source": 123861,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 114,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            123861,
+            146969
+          ]
+        },
+        {
+          "source": 123969,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 139,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            123969,
+            146969
+          ]
+        },
+        {
+          "source": 124246,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 131,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            124246,
+            146969
+          ]
+        },
+        {
+          "source": 124267,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 11,
+          "forced_valuation_lower": 231,
+          "source_demand_upper": 50,
+          "mandatory_sources": [
+            124267,
+            146969
+          ]
+        },
+        {
+          "source": 124394,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 41,
+          "forced_valuation_lower": 135,
+          "source_demand_upper": 103,
+          "mandatory_sources": [
+            124394,
+            146969
+          ]
+        },
+        {
+          "source": 124468,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 121,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            124468,
+            146969
+          ]
+        },
+        {
+          "source": 124867,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 179,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            124867,
+            146969
+          ]
+        },
+        {
+          "source": 124903,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 155,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            124903,
+            146969
+          ]
+        },
+        {
+          "source": 125173,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 41,
+          "forced_valuation_lower": 133,
+          "source_demand_upper": 103,
+          "mandatory_sources": [
+            125173,
+            146969
+          ]
+        },
+        {
+          "source": 125294,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 13,
+          "forced_valuation_lower": 173,
+          "source_demand_upper": 69,
+          "mandatory_sources": [
+            125294,
+            146969
+          ]
+        },
+        {
+          "source": 125599,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 155,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            125599,
+            146969
+          ]
+        },
+        {
+          "source": 125689,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 142,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            125689,
+            146969
+          ]
+        },
+        {
+          "source": 125911,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 143,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            125911,
+            146969
+          ]
+        },
+        {
+          "source": 125913,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 58,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            125913,
+            146969
+          ]
+        },
+        {
+          "source": 125947,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 169,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            125947,
+            146969
+          ]
+        },
+        {
+          "source": 126034,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 109,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            126034,
+            146969
+          ]
+        },
+        {
+          "source": 126242,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 17,
+          "forced_valuation_lower": 151,
+          "source_demand_upper": 35,
+          "mandatory_sources": [
+            126242,
+            146969
+          ]
+        },
+        {
+          "source": 126362,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 127,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            126362,
+            146969
+          ]
+        },
+        {
+          "source": 126514,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 17,
+          "forced_valuation_lower": 75,
+          "source_demand_upper": 35,
+          "mandatory_sources": [
+            126514,
+            146969
+          ]
+        },
+        {
+          "source": 126614,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 111,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            126614,
+            146969
+          ]
+        },
+        {
+          "source": 126697,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 148,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            126697,
+            146969
+          ]
+        },
+        {
+          "source": 126806,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 140,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            126806,
+            146969
+          ]
+        },
+        {
+          "source": 126874,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 11,
+          "forced_valuation_lower": 188,
+          "source_demand_upper": 50,
+          "mandatory_sources": [
+            126874,
+            146969
+          ]
+        },
+        {
+          "source": 126947,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 138,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            126947,
+            146969
+          ]
+        },
+        {
+          "source": 127041,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 17,
+          "forced_valuation_lower": 120,
+          "source_demand_upper": 35,
+          "mandatory_sources": [
+            127041,
+            146969
+          ]
+        },
+        {
+          "source": 127127,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 7,
+          "forced_valuation_lower": 193,
+          "source_demand_upper": 21,
+          "mandatory_sources": [
+            127127,
+            146969
+          ]
+        },
+        {
+          "source": 127166,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 13,
+          "forced_valuation_lower": 171,
+          "source_demand_upper": 69,
+          "mandatory_sources": [
+            127166,
+            146969
+          ]
+        },
+        {
+          "source": 127317,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 114,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            127317,
+            146969
+          ]
+        },
+        {
+          "source": 127322,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 13,
+          "forced_valuation_lower": 173,
+          "source_demand_upper": 69,
+          "mandatory_sources": [
+            127322,
+            146969
+          ]
+        },
+        {
+          "source": 127351,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 7,
+          "forced_valuation_lower": 336,
+          "source_demand_upper": 21,
+          "mandatory_sources": [
+            127351,
+            146969
+          ]
+        },
+        {
+          "source": 127558,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 123,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            127558,
+            146969
+          ]
+        },
+        {
+          "source": 127571,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 158,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            127571,
+            146969
+          ]
+        },
+        {
+          "source": 127581,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 43,
+          "forced_valuation_lower": 103,
+          "source_demand_upper": 93,
+          "mandatory_sources": [
+            127581,
+            146969
+          ]
+        },
+        {
+          "source": 127658,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 117,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            127658,
+            146969
+          ]
+        },
+        {
+          "source": 127903,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 175,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            127903,
+            146969
+          ]
+        },
+        {
+          "source": 127942,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 17,
+          "forced_valuation_lower": 146,
+          "source_demand_upper": 35,
+          "mandatory_sources": [
+            127942,
+            146969
+          ]
+        },
+        {
+          "source": 128122,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 47,
+          "forced_valuation_lower": 119,
+          "source_demand_upper": 90,
+          "mandatory_sources": [
+            128122,
+            146969
+          ]
+        },
+        {
+          "source": 128207,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 41,
+          "forced_valuation_lower": 126,
+          "source_demand_upper": 103,
+          "mandatory_sources": [
+            128207,
+            146969
+          ]
+        },
+        {
+          "source": 128371,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 162,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            128371,
+            146969
+          ]
+        },
+        {
+          "source": 128441,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 168,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            128441,
+            146969
+          ]
+        },
+        {
+          "source": 128686,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 149,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            128686,
+            146969
+          ]
+        },
+        {
+          "source": 128699,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 41,
+          "forced_valuation_lower": 132,
+          "source_demand_upper": 103,
+          "mandatory_sources": [
+            128699,
+            146969
+          ]
+        },
+        {
+          "source": 128774,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 189,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            128774,
+            146969
+          ]
+        },
+        {
+          "source": 129007,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 172,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            129007,
+            146969
+          ]
+        },
+        {
+          "source": 129086,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 142,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            129086,
+            146969
+          ]
+        },
+        {
+          "source": 129109,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 41,
+          "forced_valuation_lower": 128,
+          "source_demand_upper": 103,
+          "mandatory_sources": [
+            129109,
+            146969
+          ]
+        },
+        {
+          "source": 129137,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 153,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            129137,
+            146969
+          ]
+        },
+        {
+          "source": 129214,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 53,
+          "forced_valuation_lower": 112,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            129214,
+            146969
+          ]
+        },
+        {
+          "source": 129301,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 159,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            129301,
+            146969
+          ]
+        },
+        {
+          "source": 129314,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 144,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            129314,
+            146969
+          ]
+        },
+        {
+          "source": 129601,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 171,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            129601,
+            146969
+          ]
+        },
+        {
+          "source": 129623,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 13,
+          "forced_valuation_lower": 227,
+          "source_demand_upper": 69,
+          "mandatory_sources": [
+            129623,
+            146969
+          ]
+        },
+        {
+          "source": 129646,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 11,
+          "forced_valuation_lower": 187,
+          "source_demand_upper": 50,
+          "mandatory_sources": [
+            129646,
+            146969
+          ]
+        },
+        {
+          "source": 129673,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 154,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            129673,
+            146969
+          ]
+        },
+        {
+          "source": 129797,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 150,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            129797,
+            146969
+          ]
+        },
+        {
+          "source": 129859,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 147,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            129859,
+            146969
+          ]
+        },
+        {
+          "source": 129903,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 111,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            129903,
+            146969
+          ]
+        },
+        {
+          "source": 130378,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 138,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            130378,
+            146969
+          ]
+        },
+        {
+          "source": 130559,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 11,
+          "forced_valuation_lower": 228,
+          "source_demand_upper": 50,
+          "mandatory_sources": [
+            130559,
+            146969
+          ]
+        },
+        {
+          "source": 130906,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 110,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            130906,
+            146969
+          ]
+        },
+        {
+          "source": 130913,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 162,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            130913,
+            146969
+          ]
+        },
+        {
+          "source": 131066,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 13,
+          "forced_valuation_lower": 86,
+          "source_demand_upper": 69,
+          "mandatory_sources": [
+            131066,
+            146969
+          ]
+        },
+        {
+          "source": 131131,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 7,
+          "forced_valuation_lower": 191,
+          "source_demand_upper": 21,
+          "mandatory_sources": [
+            131131,
+            146969
+          ]
+        },
+        {
+          "source": 131254,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 116,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            131254,
+            146969
+          ]
+        },
+        {
+          "source": 131387,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 133,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            131387,
+            146969
+          ]
+        },
+        {
+          "source": 131546,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 17,
+          "forced_valuation_lower": 145,
+          "source_demand_upper": 35,
+          "mandatory_sources": [
+            131546,
+            146969
+          ]
+        },
+        {
+          "source": 131629,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 177,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            131629,
+            146969
+          ]
+        },
+        {
+          "source": 131638,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 13,
+          "forced_valuation_lower": 170,
+          "source_demand_upper": 69,
+          "mandatory_sources": [
+            131638,
+            146969
+          ]
+        },
+        {
+          "source": 131882,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 121,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            131882,
+            146969
+          ]
+        },
+        {
+          "source": 131989,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 11,
+          "forced_valuation_lower": 98,
+          "source_demand_upper": 50,
+          "mandatory_sources": [
+            131989,
+            146969
+          ]
+        },
+        {
+          "source": 132053,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 139,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            132053,
+            146969
+          ]
+        },
+        {
+          "source": 132182,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 53,
+          "forced_valuation_lower": 78,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            132182,
+            146969
+          ]
+        },
+        {
+          "source": 132211,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 160,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            132211,
+            146969
+          ]
+        },
+        {
+          "source": 132278,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 69,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            132278,
+            146969
+          ]
+        },
+        {
+          "source": 132526,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 124,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            132526,
+            146969
+          ]
+        },
+        {
+          "source": 132553,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 41,
+          "forced_valuation_lower": 124,
+          "source_demand_upper": 103,
+          "mandatory_sources": [
+            132553,
+            146969
+          ]
+        },
+        {
+          "source": 132634,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 17,
+          "forced_valuation_lower": 149,
+          "source_demand_upper": 35,
+          "mandatory_sources": [
+            132634,
+            146969
+          ]
+        },
+        {
+          "source": 132641,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 170,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            132641,
+            146969
+          ]
+        },
+        {
+          "source": 132963,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 99,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            132963,
+            146969
+          ]
+        },
+        {
+          "source": 133163,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 131,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            133163,
+            146969
+          ]
+        },
+        {
+          "source": 133298,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 11,
+          "forced_valuation_lower": 184,
+          "source_demand_upper": 50,
+          "mandatory_sources": [
+            133298,
+            146969
+          ]
+        },
+        {
+          "source": 133429,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 166,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            133429,
+            146969
+          ]
+        },
+        {
+          "source": 133517,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 145,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            133517,
+            146969
+          ]
+        },
+        {
+          "source": 133719,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 151,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            133719,
+            146969
+          ]
+        },
+        {
+          "source": 133906,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 124,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            133906,
+            146969
+          ]
+        },
+        {
+          "source": 133988,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 94,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            133988,
+            146969
+          ]
+        },
+        {
+          "source": 134017,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 13,
+          "forced_valuation_lower": 227,
+          "source_demand_upper": 69,
+          "mandatory_sources": [
+            134017,
+            146969
+          ]
+        },
+        {
+          "source": 134261,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 144,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            134261,
+            146969
+          ]
+        },
+        {
+          "source": 134357,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 169,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            134357,
+            146969
+          ]
+        },
+        {
+          "source": 134402,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 17,
+          "forced_valuation_lower": 142,
+          "source_demand_upper": 35,
+          "mandatory_sources": [
+            134402,
+            146969
+          ]
+        },
+        {
+          "source": 134458,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 128,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            134458,
+            146969
+          ]
+        },
+        {
+          "source": 134461,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 43,
+          "forced_valuation_lower": 121,
+          "source_demand_upper": 93,
+          "mandatory_sources": [
+            134461,
+            146969
+          ]
+        },
+        {
+          "source": 134633,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 157,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            134633,
+            146969
+          ]
+        },
+        {
+          "source": 134726,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 53,
+          "forced_valuation_lower": 77,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            134726,
+            146969
+          ]
+        },
+        {
+          "source": 134758,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 13,
+          "forced_valuation_lower": 165,
+          "source_demand_upper": 69,
+          "mandatory_sources": [
+            134758,
+            146969
+          ]
+        },
+        {
+          "source": 134938,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 133,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            134938,
+            146969
+          ]
+        },
+        {
+          "source": 135013,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 140,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            135013,
+            146969
+          ]
+        },
+        {
+          "source": 135169,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 150,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            135169,
+            146969
+          ]
+        },
+        {
+          "source": 135309,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 100,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            135309,
+            146969
+          ]
+        },
+        {
+          "source": 135346,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 97,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            135346,
+            146969
+          ]
+        },
+        {
+          "source": 135407,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 43,
+          "forced_valuation_lower": 122,
+          "source_demand_upper": 93,
+          "mandatory_sources": [
+            135407,
+            146969
+          ]
+        },
+        {
+          "source": 135501,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 136,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            135501,
+            146969
+          ]
+        },
+        {
+          "source": 135539,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 169,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            135539,
+            146969
+          ]
+        },
+        {
+          "source": 135622,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 140,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            135622,
+            146969
+          ]
+        },
+        {
+          "source": 135707,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 11,
+          "forced_valuation_lower": 98,
+          "source_demand_upper": 50,
+          "mandatory_sources": [
+            135707,
+            146969
+          ]
+        },
+        {
+          "source": 135759,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 13,
+          "forced_valuation_lower": 69,
+          "source_demand_upper": 69,
+          "mandatory_sources": [
+            135759,
+            146969
+          ]
+        },
+        {
+          "source": 135923,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 165,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            135923,
+            146969
+          ]
+        },
+        {
+          "source": 135997,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 160,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            135997,
+            146969
+          ]
+        },
+        {
+          "source": 136091,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 172,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            136091,
+            146969
+          ]
+        },
+        {
+          "source": 136369,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 147,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            136369,
+            146969
+          ]
+        },
+        {
+          "source": 136462,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 187,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            136462,
+            146969
+          ]
+        },
+        {
+          "source": 136526,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 13,
+          "forced_valuation_lower": 167,
+          "source_demand_upper": 69,
+          "mandatory_sources": [
+            136526,
+            146969
+          ]
+        },
+        {
+          "source": 136762,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 132,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            136762,
+            146969
+          ]
+        },
+        {
+          "source": 136793,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 152,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            136793,
+            146969
+          ]
+        },
+        {
+          "source": 136817,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 41,
+          "forced_valuation_lower": 125,
+          "source_demand_upper": 103,
+          "mandatory_sources": [
+            136817,
+            146969
+          ]
+        },
+        {
+          "source": 136826,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 43,
+          "forced_valuation_lower": 124,
+          "source_demand_upper": 93,
+          "mandatory_sources": [
+            136826,
+            146969
+          ]
+        },
+        {
+          "source": 136958,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 47,
+          "forced_valuation_lower": 116,
+          "source_demand_upper": 90,
+          "mandatory_sources": [
+            136958,
+            146969
+          ]
+        },
+        {
+          "source": 137057,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 174,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            137057,
+            146969
+          ]
+        },
+        {
+          "source": 137137,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 7,
+          "forced_valuation_lower": 191,
+          "source_demand_upper": 21,
+          "mandatory_sources": [
+            137137,
+            146969
+          ]
+        },
+        {
+          "source": 137149,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 170,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            137149,
+            146969
+          ]
+        },
+        {
+          "source": 137299,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 157,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            137299,
+            146969
+          ]
+        },
+        {
+          "source": 137302,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 11,
+          "forced_valuation_lower": 92,
+          "source_demand_upper": 50,
+          "mandatory_sources": [
+            137302,
+            146969
+          ]
+        },
+        {
+          "source": 137381,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 134,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            137381,
+            146969
+          ]
+        },
+        {
+          "source": 137618,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 13,
+          "forced_valuation_lower": 164,
+          "source_demand_upper": 69,
+          "mandatory_sources": [
+            137618,
+            146969
+          ]
+        },
+        {
+          "source": 137663,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 158,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            137663,
+            146969
+          ]
+        },
+        {
+          "source": 137678,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 123,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            137678,
+            146969
+          ]
+        },
+        {
+          "source": 137747,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 180,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            137747,
+            146969
+          ]
+        },
+        {
+          "source": 137883,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 110,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            137883,
+            146969
+          ]
+        },
+        {
+          "source": 137924,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 118,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            137924,
+            146969
+          ]
+        },
+        {
+          "source": 137953,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 147,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            137953,
+            146969
+          ]
+        },
+        {
+          "source": 138043,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 143,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            138043,
+            146969
+          ]
+        },
+        {
+          "source": 138539,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 159,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            138539,
+            146969
+          ]
+        },
+        {
+          "source": 138554,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 13,
+          "forced_valuation_lower": 83,
+          "source_demand_upper": 69,
+          "mandatory_sources": [
+            138554,
+            146969
+          ]
+        },
+        {
+          "source": 138662,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 141,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            138662,
+            146969
+          ]
+        },
+        {
+          "source": 138958,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 17,
+          "forced_valuation_lower": 139,
+          "source_demand_upper": 35,
+          "mandatory_sources": [
+            138958,
+            146969
+          ]
+        },
+        {
+          "source": 139018,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 11,
+          "forced_valuation_lower": 181,
+          "source_demand_upper": 50,
+          "mandatory_sources": [
+            139018,
+            146969
+          ]
+        },
+        {
+          "source": 139019,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 43,
+          "forced_valuation_lower": 119,
+          "source_demand_upper": 93,
+          "mandatory_sources": [
+            139019,
+            146969
+          ]
+        },
+        {
+          "source": 139139,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 7,
+          "forced_valuation_lower": 191,
+          "source_demand_upper": 21,
+          "mandatory_sources": [
+            139139,
+            146969
+          ]
+        },
+        {
+          "source": 139231,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 130,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            139231,
+            146969
+          ]
+        },
+        {
+          "source": 139277,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 41,
+          "forced_valuation_lower": 128,
+          "source_demand_upper": 103,
+          "mandatory_sources": [
+            139277,
+            146969
+          ]
+        },
+        {
+          "source": 139315,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 5,
+          "forced_valuation_lower": 224,
+          "source_demand_upper": 19,
+          "mandatory_sources": [
+            139315,
+            146969
+          ]
+        },
+        {
+          "source": 139357,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 167,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            139357,
+            146969
+          ]
+        },
+        {
+          "source": 139449,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 97,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            139449,
+            146969
+          ]
+        },
+        {
+          "source": 139564,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 82,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            139564,
+            146969
+          ]
+        },
+        {
+          "source": 139675,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 5,
+          "forced_valuation_lower": 436,
+          "source_demand_upper": 19,
+          "mandatory_sources": [
+            139675,
+            146969
+          ]
+        },
+        {
+          "source": 139751,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 148,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            139751,
+            146969
+          ]
+        },
+        {
+          "source": 139771,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 173,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            139771,
+            146969
+          ]
+        },
+        {
+          "source": 139934,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 96,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            139934,
+            146969
+          ]
+        },
+        {
+          "source": 139997,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 11,
+          "forced_valuation_lower": 228,
+          "source_demand_upper": 50,
+          "mandatory_sources": [
+            139997,
+            146969
+          ]
+        },
+        {
+          "source": 140063,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 7,
+          "forced_valuation_lower": 158,
+          "source_demand_upper": 21,
+          "mandatory_sources": [
+            140063,
+            146969
+          ]
+        },
+        {
+          "source": 140087,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 187,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            140087,
+            146969
+          ]
+        },
+        {
+          "source": 140302,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 59,
+          "forced_valuation_lower": 71,
+          "source_demand_upper": 63,
+          "mandatory_sources": [
+            140302,
+            146969
+          ]
+        },
+        {
+          "source": 140306,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 186,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            140306,
+            146969
+          ]
+        },
+        {
+          "source": 140353,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 184,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            140353,
+            146969
+          ]
+        },
+        {
+          "source": 140361,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 13,
+          "forced_valuation_lower": 131,
+          "source_demand_upper": 69,
+          "mandatory_sources": [
+            140361,
+            146969
+          ]
+        },
+        {
+          "source": 140389,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 157,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            140389,
+            146969
+          ]
+        },
+        {
+          "source": 140438,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 120,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            140438,
+            146969
+          ]
+        },
+        {
+          "source": 140671,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 41,
+          "forced_valuation_lower": 124,
+          "source_demand_upper": 103,
+          "mandatory_sources": [
+            140671,
+            146969
+          ]
+        },
+        {
+          "source": 140911,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 164,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            140911,
+            146969
+          ]
+        },
+        {
+          "source": 141094,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 134,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            141094,
+            146969
+          ]
+        },
+        {
+          "source": 141154,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 13,
+          "forced_valuation_lower": 164,
+          "source_demand_upper": 69,
+          "mandatory_sources": [
+            141154,
+            146969
+          ]
+        },
+        {
+          "source": 141185,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 5,
+          "forced_valuation_lower": 224,
+          "source_demand_upper": 19,
+          "mandatory_sources": [
+            141185,
+            146969
+          ]
+        },
+        {
+          "source": 141266,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 126,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            141266,
+            146969
+          ]
+        },
+        {
+          "source": 141298,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 53,
+          "forced_valuation_lower": 75,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            141298,
+            146969
+          ]
+        },
+        {
+          "source": 141329,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 149,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            141329,
+            146969
+          ]
+        },
+        {
+          "source": 141398,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 67,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            141398,
+            146969
+          ]
+        },
+        {
+          "source": 141423,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 17,
+          "forced_valuation_lower": 115,
+          "source_demand_upper": 35,
+          "mandatory_sources": [
+            141423,
+            146969
+          ]
+        },
+        {
+          "source": 141599,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 136,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            141599,
+            146969
+          ]
+        },
+        {
+          "source": 141703,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 170,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            141703,
+            146969
+          ]
+        },
+        {
+          "source": 141839,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 145,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            141839,
+            146969
+          ]
+        },
+        {
+          "source": 141987,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 105,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            141987,
+            146969
+          ]
+        },
+        {
+          "source": 142013,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 147,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            142013,
+            146969
+          ]
+        },
+        {
+          "source": 142042,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 114,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            142042,
+            146969
+          ]
+        },
+        {
+          "source": 142222,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 17,
+          "forced_valuation_lower": 145,
+          "source_demand_upper": 35,
+          "mandatory_sources": [
+            142222,
+            146969
+          ]
+        },
+        {
+          "source": 142228,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 109,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            142228,
+            146969
+          ]
+        },
+        {
+          "source": 142358,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 17,
+          "forced_valuation_lower": 141,
+          "source_demand_upper": 35,
+          "mandatory_sources": [
+            142358,
+            146969
+          ]
+        },
+        {
+          "source": 142426,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 17,
+          "forced_valuation_lower": 139,
+          "source_demand_upper": 35,
+          "mandatory_sources": [
+            142426,
+            146969
+          ]
+        },
+        {
+          "source": 142557,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 108,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            142557,
+            146969
+          ]
+        },
+        {
+          "source": 142631,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 155,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            142631,
+            146969
+          ]
+        },
+        {
+          "source": 142681,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 7,
+          "forced_valuation_lower": 157,
+          "source_demand_upper": 21,
+          "mandatory_sources": [
+            142681,
+            146969
+          ]
+        },
+        {
+          "source": 142861,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 185,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            142861,
+            146969
+          ]
+        },
+        {
+          "source": 142934,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 11,
+          "forced_valuation_lower": 178,
+          "source_demand_upper": 50,
+          "mandatory_sources": [
+            142934,
+            146969
+          ]
+        },
+        {
+          "source": 142994,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 130,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            142994,
+            146969
+          ]
+        },
+        {
+          "source": 143129,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 7,
+          "forced_valuation_lower": 332,
+          "source_demand_upper": 21,
+          "mandatory_sources": [
+            143129,
+            146969
+          ]
+        },
+        {
+          "source": 143153,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 128,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            143153,
+            146969
+          ]
+        },
+        {
+          "source": 143259,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 17,
+          "forced_valuation_lower": 59,
+          "source_demand_upper": 35,
+          "mandatory_sources": [
+            143259,
+            146969
+          ]
+        },
+        {
+          "source": 143491,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 43,
+          "forced_valuation_lower": 119,
+          "source_demand_upper": 93,
+          "mandatory_sources": [
+            143491,
+            146969
+          ]
+        },
+        {
+          "source": 143623,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 158,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            143623,
+            146969
+          ]
+        },
+        {
+          "source": 143782,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 98,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            143782,
+            146969
+          ]
+        },
+        {
+          "source": 143842,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 116,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            143842,
+            146969
+          ]
+        },
+        {
+          "source": 144254,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 11,
+          "forced_valuation_lower": 176,
+          "source_demand_upper": 50,
+          "mandatory_sources": [
+            144254,
+            146969
+          ]
+        },
+        {
+          "source": 144337,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 132,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            144337,
+            146969
+          ]
+        },
+        {
+          "source": 144343,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 185,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            144343,
+            146969
+          ]
+        },
+        {
+          "source": 144394,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 120,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            144394,
+            146969
+          ]
+        },
+        {
+          "source": 144478,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 53,
+          "forced_valuation_lower": 76,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            144478,
+            146969
+          ]
+        },
+        {
+          "source": 144491,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 141,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            144491,
+            146969
+          ]
+        },
+        {
+          "source": 144509,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 169,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            144509,
+            146969
+          ]
+        },
+        {
+          "source": 144566,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 41,
+          "forced_valuation_lower": 129,
+          "source_demand_upper": 103,
+          "mandatory_sources": [
+            144566,
+            146969
+          ]
+        },
+        {
+          "source": 144586,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 13,
+          "forced_valuation_lower": 161,
+          "source_demand_upper": 69,
+          "mandatory_sources": [
+            144586,
+            146969
+          ]
+        },
+        {
+          "source": 144609,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 107,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            144609,
+            146969
+          ]
+        },
+        {
+          "source": 144652,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 117,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            144652,
+            146969
+          ]
+        },
+        {
+          "source": 144854,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 117,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            144854,
+            146969
+          ]
+        },
+        {
+          "source": 145058,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 61,
+          "forced_valuation_lower": 70,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            145058,
+            146969
+          ]
+        },
+        {
+          "source": 145114,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 145,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            145114,
+            146969
+          ]
+        },
+        {
+          "source": 145119,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 61,
+          "forced_valuation_lower": 90,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            145119,
+            146969
+          ]
+        },
+        {
+          "source": 145199,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 171,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            145199,
+            146969
+          ]
+        },
+        {
+          "source": 145225,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 5,
+          "forced_valuation_lower": 436,
+          "source_demand_upper": 19,
+          "mandatory_sources": [
+            145225,
+            146969
+          ]
+        },
+        {
+          "source": 145297,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 155,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            145297,
+            146969
+          ]
+        },
+        {
+          "source": 145337,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 164,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            145337,
+            146969
+          ]
+        },
+        {
+          "source": 145426,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 137,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            145426,
+            146969
+          ]
+        },
+        {
+          "source": 145591,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 41,
+          "forced_valuation_lower": 120,
+          "source_demand_upper": 103,
+          "mandatory_sources": [
+            145591,
+            146969
+          ]
+        },
+        {
+          "source": 145597,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 183,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            145597,
+            146969
+          ]
+        },
+        {
+          "source": 145669,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 168,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            145669,
+            146969
+          ]
+        },
+        {
+          "source": 145834,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 13,
+          "forced_valuation_lower": 160,
+          "source_demand_upper": 69,
+          "mandatory_sources": [
+            145834,
+            146969
+          ]
+        },
+        {
+          "source": 145841,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 156,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            145841,
+            146969
+          ]
+        },
+        {
+          "source": 146047,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 11,
+          "forced_valuation_lower": 190,
+          "source_demand_upper": 50,
+          "mandatory_sources": [
+            146047,
+            146969
+          ]
+        },
+        {
+          "source": 146189,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 71,
+          "forced_valuation_lower": 128,
+          "source_demand_upper": 47,
+          "mandatory_sources": [
+            146189,
+            146969
+          ]
+        },
+        {
+          "source": 146217,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 17,
+          "forced_valuation_lower": 114,
+          "source_demand_upper": 35,
+          "mandatory_sources": [
+            146217,
+            146969
+          ]
+        },
+        {
+          "source": 146227,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 31,
+          "forced_valuation_lower": 144,
+          "source_demand_upper": 107,
+          "mandatory_sources": [
+            146227,
+            146969
+          ]
+        },
+        {
+          "source": 146261,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 37,
+          "forced_valuation_lower": 126,
+          "source_demand_upper": 96,
+          "mandatory_sources": [
+            146261,
+            146969
+          ]
+        },
+        {
+          "source": 146329,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 41,
+          "forced_valuation_lower": 127,
+          "source_demand_upper": 103,
+          "mandatory_sources": [
+            146329,
+            146969
+          ]
+        },
+        {
+          "source": 146372,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 23,
+          "forced_valuation_lower": 81,
+          "source_demand_upper": 68,
+          "mandatory_sources": [
+            146372,
+            146969
+          ]
+        },
+        {
+          "source": 146438,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 17,
+          "forced_valuation_lower": 138,
+          "source_demand_upper": 35,
+          "mandatory_sources": [
+            146438,
+            146969
+          ]
+        },
+        {
+          "source": 146452,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 19,
+          "forced_valuation_lower": 91,
+          "source_demand_upper": 57,
+          "mandatory_sources": [
+            146452,
+            146969
+          ]
+        },
+        {
+          "source": 146795,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 5,
+          "forced_valuation_lower": 224,
+          "source_demand_upper": 19,
+          "mandatory_sources": [
+            146795,
+            146969
+          ]
+        },
+        {
+          "source": 146827,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 29,
+          "forced_valuation_lower": 146,
+          "source_demand_upper": 108,
+          "mandatory_sources": [
+            146827,
+            146969
+          ]
+        },
+        {
+          "source": 146861,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 11,
+          "forced_valuation_lower": 98,
+          "source_demand_upper": 50,
+          "mandatory_sources": [
+            146861,
+            146969
+          ]
+        },
+        {
+          "source": 146969,
+          "reason": "critical_demand_exceeds_pool",
+          "prime": 47,
+          "forced_valuation_lower": 112,
+          "source_demand_upper": 90,
+          "mandatory_sources": [
+            146969
+          ]
+        }
+      ]
+    }
+  ],
+  "final_core_size": 33,
+  "final_core": [
+    15379,
+    20449,
+    24167,
+    28561,
+    97556,
+    99789,
+    102487,
+    110577,
+    115971,
+    119164,
+    120125,
+    121121,
+    121945,
+    125302,
+    125948,
+    126759,
+    127756,
+    130355,
+    130462,
+    131979,
+    133052,
+    137842,
+    138417,
+    139345,
+    140524,
+    141081,
+    142598,
+    142805,
+    142941,
+    143143,
+    143375,
+    146247,
+    146334
+  ],
+  "least_cardinality_counterexample_parameters_excluded": true,
+  "exclusion_reason": "The required maximum source M was excluded.",
+  "necessary_demand_constraints": [
+    {
+      "source": 97556,
+      "forced_union_minimum": 44,
+      "if_source_selected_then_D_p_at_least": {
+        "29": 92
+      }
+    },
+    {
+      "source": 99789,
+      "forced_union_minimum": 140,
+      "if_source_selected_then_D_p_at_least": {
+        "29": 101,
+        "31": 98,
+        "37": 90
+      }
+    },
+    {
+      "source": 110577,
+      "forced_union_minimum": 131,
+      "if_source_selected_then_D_p_at_least": {
+        "29": 97,
+        "31": 94,
+        "41": 81
+      }
+    },
+    {
+      "source": 115971,
+      "forced_union_minimum": 127,
+      "if_source_selected_then_D_p_at_least": {
+        "29": 95,
+        "31": 92,
+        "43": 76
+      }
+    },
+    {
+      "source": 119164,
+      "forced_union_minimum": 39,
+      "if_source_selected_then_D_p_at_least": {
+        "31": 81
+      }
+    },
+    {
+      "source": 120125,
+      "forced_union_minimum": 41,
+      "if_source_selected_then_D_p_at_least": {
+        "31": 48
+      }
+    },
+    {
+      "source": 121945,
+      "forced_union_minimum": 38,
+      "if_source_selected_then_D_p_at_least": {
+        "29": 83
+      }
+    },
+    {
+      "source": 125302,
+      "forced_union_minimum": 138,
+      "if_source_selected_then_D_p_at_least": {
+        "31": 106,
+        "43": 92,
+        "47": 87
+      }
+    },
+    {
+      "source": 125948,
+      "forced_union_minimum": 68,
+      "if_source_selected_then_D_p_at_least": {
+        "23": 46,
+        "37": 96
+      }
+    },
+    {
+      "source": 126759,
+      "forced_union_minimum": 120,
+      "if_source_selected_then_D_p_at_least": {
+        "29": 91,
+        "31": 89,
+        "47": 69
+      }
+    },
+    {
+      "source": 127756,
+      "forced_union_minimum": 67,
+      "if_source_selected_then_D_p_at_least": {
+        "19": 51,
+        "41": 90
+      }
+    },
+    {
+      "source": 130355,
+      "forced_union_minimum": 68,
+      "if_source_selected_then_D_p_at_least": {
+        "29": 108,
+        "31": 38
+      }
+    },
+    {
+      "source": 130462,
+      "forced_union_minimum": 132,
+      "if_source_selected_then_D_p_at_least": {
+        "37": 95,
+        "41": 90,
+        "43": 88
+      }
+    },
+    {
+      "source": 131979,
+      "forced_union_minimum": 116,
+      "if_source_selected_then_D_p_at_least": {
+        "29": 88,
+        "37": 79,
+        "41": 75
+      }
+    },
+    {
+      "source": 133052,
+      "forced_union_minimum": 103,
+      "if_source_selected_then_D_p_at_least": {
+        "29": 75,
+        "31": 73,
+        "37": 66
+      }
+    },
+    {
+      "source": 137842,
+      "forced_union_minimum": 44,
+      "if_source_selected_then_D_p_at_least": {
+        "41": 91
+      }
+    },
+    {
+      "source": 138417,
+      "forced_union_minimum": 113,
+      "if_source_selected_then_D_p_at_least": {
+        "29": 86,
+        "37": 78,
+        "43": 71
+      }
+    },
+    {
+      "source": 139345,
+      "forced_union_minimum": 64,
+      "if_source_selected_then_D_p_at_least": {
+        "29": 38,
+        "31": 99
+      }
+    },
+    {
+      "source": 140524,
+      "forced_union_minimum": 63,
+      "if_source_selected_then_D_p_at_least": {
+        "19": 48,
+        "43": 84
+      }
+    },
+    {
+      "source": 141081,
+      "forced_union_minimum": 110,
+      "if_source_selected_then_D_p_at_least": {
+        "31": 82,
+        "37": 76,
+        "41": 71
+      }
+    },
+    {
+      "source": 142598,
+      "forced_union_minimum": 125,
+      "if_source_selected_then_D_p_at_least": {
+        "37": 91,
+        "41": 87,
+        "47": 80
+      }
+    },
+    {
+      "source": 142941,
+      "forced_union_minimum": 114,
+      "if_source_selected_then_D_p_at_least": {
+        "29": 88,
+        "31": 86,
+        "53": 62
+      }
+    },
+    {
+      "source": 143375,
+      "forced_union_minimum": 71,
+      "if_source_selected_then_D_p_at_least": {
+        "31": 43,
+        "37": 36
+      }
+    },
+    {
+      "source": 146247,
+      "forced_union_minimum": 71,
+      "if_source_selected_then_D_p_at_least": {
+        "29": 45,
+        "41": 103
+      }
+    },
+    {
+      "source": 146334,
+      "forced_union_minimum": 32,
+      "if_source_selected_then_D_p_at_least": {
+        "29": 69
+      }
+    }
+  ],
+  "elapsed_seconds": 0.5348866339991218,
+  "limitations": "A surviving core is a necessary arithmetic relaxation, not a counterexample. Exclusion is conditional on the least-cardinality assumptions, not a standalone proof for this cardinality."
+}

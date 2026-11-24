@@ -1,0 +1,1367 @@
+{
+  "cases": 61,
+  "certificate_positions_checked": 191861,
+  "low_U_sources_checked": 30,
+  "high_U_sources_checked": 1139,
+  "records": [
+    {
+      "M": 30,
+      "primes": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "weights": [
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "carriers": 3,
+      "high_cases": 9,
+      "low_cases": 0,
+      "prefix_hinge": "11",
+      "criterion": "3329/420",
+      "certificate_positions_checked": 2561
+    },
+    {
+      "M": 30,
+      "primes": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "weights": [
+        "11/20",
+        "3/5",
+        "19/20",
+        "3/20"
+      ],
+      "carriers": 4,
+      "high_cases": 2,
+      "low_cases": 2,
+      "prefix_hinge": "3/5",
+      "criterion": "9263/1680",
+      "certificate_positions_checked": 2561
+    },
+    {
+      "M": 30,
+      "primes": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "weights": [
+        "7/10",
+        "7/10",
+        "7/10",
+        "1/20"
+      ],
+      "carriers": 3,
+      "high_cases": 8,
+      "low_cases": 0,
+      "prefix_hinge": "11/5",
+      "criterion": "617/105",
+      "certificate_positions_checked": 2561
+    },
+    {
+      "M": 30,
+      "primes": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "weights": [
+        "13/20",
+        "13/20",
+        "13/20",
+        "1/20"
+      ],
+      "carriers": 4,
+      "high_cases": 2,
+      "low_cases": 0,
+      "prefix_hinge": "6/5",
+      "criterion": "9431/1680",
+      "certificate_positions_checked": 2561
+    },
+    {
+      "M": 30,
+      "primes": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "weights": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "carriers": 0,
+      "high_cases": 0,
+      "low_cases": 0,
+      "prefix_hinge": "0",
+      "criterion": "457/210",
+      "certificate_positions_checked": 2561
+    },
+    {
+      "M": 60,
+      "primes": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "weights": [
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "carriers": 4,
+      "high_cases": 19,
+      "low_cases": 0,
+      "prefix_hinge": "30",
+      "criterion": "3329/420",
+      "certificate_positions_checked": 2621
+    },
+    {
+      "M": 60,
+      "primes": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "weights": [
+        "11/20",
+        "3/5",
+        "19/20",
+        "3/20"
+      ],
+      "carriers": 7,
+      "high_cases": 9,
+      "low_cases": 3,
+      "prefix_hinge": "93/20",
+      "criterion": "9263/1680",
+      "certificate_positions_checked": 2621
+    },
+    {
+      "M": 60,
+      "primes": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "weights": [
+        "7/10",
+        "7/10",
+        "7/10",
+        "1/20"
+      ],
+      "carriers": 4,
+      "high_cases": 17,
+      "low_cases": 0,
+      "prefix_hinge": "35/4",
+      "criterion": "617/105",
+      "certificate_positions_checked": 2621
+    },
+    {
+      "M": 60,
+      "primes": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "weights": [
+        "13/20",
+        "13/20",
+        "13/20",
+        "1/20"
+      ],
+      "carriers": 7,
+      "high_cases": 8,
+      "low_cases": 0,
+      "prefix_hinge": "61/10",
+      "criterion": "9431/1680",
+      "certificate_positions_checked": 2621
+    },
+    {
+      "M": 60,
+      "primes": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "weights": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "carriers": 0,
+      "high_cases": 0,
+      "low_cases": 0,
+      "prefix_hinge": "0",
+      "criterion": "457/210",
+      "certificate_positions_checked": 2621
+    },
+    {
+      "M": 120,
+      "primes": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "weights": [
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "carriers": 6,
+      "high_cases": 37,
+      "low_cases": 0,
+      "prefix_hinge": "68",
+      "criterion": "3329/420",
+      "certificate_positions_checked": 2741
+    },
+    {
+      "M": 120,
+      "primes": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "weights": [
+        "11/20",
+        "3/5",
+        "19/20",
+        "3/20"
+      ],
+      "carriers": 9,
+      "high_cases": 20,
+      "low_cases": 3,
+      "prefix_hinge": "287/20",
+      "criterion": "9263/1680",
+      "certificate_positions_checked": 2741
+    },
+    {
+      "M": 120,
+      "primes": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "weights": [
+        "7/10",
+        "7/10",
+        "7/10",
+        "1/20"
+      ],
+      "carriers": 5,
+      "high_cases": 31,
+      "low_cases": 0,
+      "prefix_hinge": "457/20",
+      "criterion": "617/105",
+      "certificate_positions_checked": 2741
+    },
+    {
+      "M": 120,
+      "primes": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "weights": [
+        "13/20",
+        "13/20",
+        "13/20",
+        "1/20"
+      ],
+      "carriers": 10,
+      "high_cases": 18,
+      "low_cases": 0,
+      "prefix_hinge": "347/20",
+      "criterion": "9431/1680",
+      "certificate_positions_checked": 2741
+    },
+    {
+      "M": 120,
+      "primes": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "weights": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "carriers": 0,
+      "high_cases": 0,
+      "low_cases": 0,
+      "prefix_hinge": "0",
+      "criterion": "457/210",
+      "certificate_positions_checked": 2741
+    },
+    {
+      "M": 400,
+      "primes": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "weights": [
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "carriers": 10,
+      "high_cases": 120,
+      "low_cases": 0,
+      "prefix_hinge": "249",
+      "criterion": "3329/420",
+      "certificate_positions_checked": 3301
+    },
+    {
+      "M": 400,
+      "primes": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "weights": [
+        "11/20",
+        "3/5",
+        "19/20",
+        "3/20"
+      ],
+      "carriers": 14,
+      "high_cases": 65,
+      "low_cases": 9,
+      "prefix_hinge": "307/5",
+      "criterion": "9263/1680",
+      "certificate_positions_checked": 3301
+    },
+    {
+      "M": 400,
+      "primes": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "weights": [
+        "7/10",
+        "7/10",
+        "7/10",
+        "1/20"
+      ],
+      "carriers": 8,
+      "high_cases": 106,
+      "low_cases": 0,
+      "prefix_hinge": "1769/20",
+      "criterion": "617/105",
+      "certificate_positions_checked": 3301
+    },
+    {
+      "M": 400,
+      "primes": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "weights": [
+        "13/20",
+        "13/20",
+        "13/20",
+        "1/20"
+      ],
+      "carriers": 18,
+      "high_cases": 58,
+      "low_cases": 0,
+      "prefix_hinge": "1381/20",
+      "criterion": "9431/1680",
+      "certificate_positions_checked": 3301
+    },
+    {
+      "M": 400,
+      "primes": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "weights": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "carriers": 0,
+      "high_cases": 0,
+      "low_cases": 0,
+      "prefix_hinge": "0",
+      "criterion": "457/210",
+      "certificate_positions_checked": 3301
+    },
+    {
+      "M": 30,
+      "primes": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13
+      ],
+      "weights": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "carriers": 3,
+      "high_cases": 9,
+      "low_cases": 0,
+      "prefix_hinge": "11",
+      "criterion": "25958/3003",
+      "certificate_positions_checked": 2561
+    },
+    {
+      "M": 30,
+      "primes": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13
+      ],
+      "weights": [
+        "11/20",
+        "3/5",
+        "19/20",
+        "3/20",
+        "1/4",
+        "0"
+      ],
+      "carriers": 4,
+      "high_cases": 2,
+      "low_cases": 2,
+      "prefix_hinge": "3/5",
+      "criterion": "1382947/240240",
+      "certificate_positions_checked": 2561
+    },
+    {
+      "M": 30,
+      "primes": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13
+      ],
+      "weights": [
+        "7/10",
+        "7/10",
+        "7/10",
+        "1/20",
+        "7/20",
+        "9/20"
+      ],
+      "carriers": 3,
+      "high_cases": 8,
+      "low_cases": 0,
+      "prefix_hinge": "11/5",
+      "criterion": "7521341/1201200",
+      "certificate_positions_checked": 2561
+    },
+    {
+      "M": 30,
+      "primes": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13
+      ],
+      "weights": [
+        "13/20",
+        "13/20",
+        "13/20",
+        "1/20",
+        "7/20",
+        "9/20"
+      ],
+      "carriers": 4,
+      "high_cases": 2,
+      "low_cases": 0,
+      "prefix_hinge": "6/5",
+      "criterion": "3603013/600600",
+      "certificate_positions_checked": 2561
+    },
+    {
+      "M": 30,
+      "primes": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13
+      ],
+      "weights": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "carriers": 0,
+      "high_cases": 0,
+      "low_cases": 0,
+      "prefix_hinge": "0",
+      "criterion": "70391/30030",
+      "certificate_positions_checked": 2561
+    },
+    {
+      "M": 60,
+      "primes": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13
+      ],
+      "weights": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "carriers": 4,
+      "high_cases": 21,
+      "low_cases": 0,
+      "prefix_hinge": "32",
+      "criterion": "25958/3003",
+      "certificate_positions_checked": 2621
+    },
+    {
+      "M": 60,
+      "primes": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13
+      ],
+      "weights": [
+        "11/20",
+        "3/5",
+        "19/20",
+        "3/20",
+        "1/4",
+        "0"
+      ],
+      "carriers": 7,
+      "high_cases": 9,
+      "low_cases": 3,
+      "prefix_hinge": "93/20",
+      "criterion": "1382947/240240",
+      "certificate_positions_checked": 2621
+    },
+    {
+      "M": 60,
+      "primes": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13
+      ],
+      "weights": [
+        "7/10",
+        "7/10",
+        "7/10",
+        "1/20",
+        "7/20",
+        "9/20"
+      ],
+      "carriers": 4,
+      "high_cases": 17,
+      "low_cases": 0,
+      "prefix_hinge": "35/4",
+      "criterion": "7521341/1201200",
+      "certificate_positions_checked": 2621
+    },
+    {
+      "M": 60,
+      "primes": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13
+      ],
+      "weights": [
+        "13/20",
+        "13/20",
+        "13/20",
+        "1/20",
+        "7/20",
+        "9/20"
+      ],
+      "carriers": 7,
+      "high_cases": 8,
+      "low_cases": 0,
+      "prefix_hinge": "61/10",
+      "criterion": "3603013/600600",
+      "certificate_positions_checked": 2621
+    },
+    {
+      "M": 60,
+      "primes": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13
+      ],
+      "weights": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "carriers": 0,
+      "high_cases": 0,
+      "low_cases": 0,
+      "prefix_hinge": "0",
+      "criterion": "70391/30030",
+      "certificate_positions_checked": 2621
+    },
+    {
+      "M": 120,
+      "primes": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13
+      ],
+      "weights": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "carriers": 6,
+      "high_cases": 44,
+      "low_cases": 0,
+      "prefix_hinge": "77",
+      "criterion": "25958/3003",
+      "certificate_positions_checked": 2741
+    },
+    {
+      "M": 120,
+      "primes": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13
+      ],
+      "weights": [
+        "11/20",
+        "3/5",
+        "19/20",
+        "3/20",
+        "1/4",
+        "0"
+      ],
+      "carriers": 9,
+      "high_cases": 20,
+      "low_cases": 3,
+      "prefix_hinge": "287/20",
+      "criterion": "1382947/240240",
+      "certificate_positions_checked": 2741
+    },
+    {
+      "M": 120,
+      "primes": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13
+      ],
+      "weights": [
+        "7/10",
+        "7/10",
+        "7/10",
+        "1/20",
+        "7/20",
+        "9/20"
+      ],
+      "carriers": 5,
+      "high_cases": 31,
+      "low_cases": 0,
+      "prefix_hinge": "473/20",
+      "criterion": "7521341/1201200",
+      "certificate_positions_checked": 2741
+    },
+    {
+      "M": 120,
+      "primes": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13
+      ],
+      "weights": [
+        "13/20",
+        "13/20",
+        "13/20",
+        "1/20",
+        "7/20",
+        "9/20"
+      ],
+      "carriers": 10,
+      "high_cases": 20,
+      "low_cases": 0,
+      "prefix_hinge": "361/20",
+      "criterion": "3603013/600600",
+      "certificate_positions_checked": 2741
+    },
+    {
+      "M": 120,
+      "primes": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13
+      ],
+      "weights": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "carriers": 0,
+      "high_cases": 0,
+      "low_cases": 0,
+      "prefix_hinge": "0",
+      "criterion": "70391/30030",
+      "certificate_positions_checked": 2741
+    },
+    {
+      "M": 400,
+      "primes": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13
+      ],
+      "weights": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "carriers": 13,
+      "high_cases": 141,
+      "low_cases": 0,
+      "prefix_hinge": "290",
+      "criterion": "25958/3003",
+      "certificate_positions_checked": 3301
+    },
+    {
+      "M": 400,
+      "primes": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13
+      ],
+      "weights": [
+        "11/20",
+        "3/5",
+        "19/20",
+        "3/20",
+        "1/4",
+        "0"
+      ],
+      "carriers": 14,
+      "high_cases": 71,
+      "low_cases": 5,
+      "prefix_hinge": "631/10",
+      "criterion": "1382947/240240",
+      "certificate_positions_checked": 3301
+    },
+    {
+      "M": 400,
+      "primes": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13
+      ],
+      "weights": [
+        "7/10",
+        "7/10",
+        "7/10",
+        "1/20",
+        "7/20",
+        "9/20"
+      ],
+      "carriers": 11,
+      "high_cases": 106,
+      "low_cases": 0,
+      "prefix_hinge": "1911/20",
+      "criterion": "7521341/1201200",
+      "certificate_positions_checked": 3301
+    },
+    {
+      "M": 400,
+      "primes": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13
+      ],
+      "weights": [
+        "13/20",
+        "13/20",
+        "13/20",
+        "1/20",
+        "7/20",
+        "9/20"
+      ],
+      "carriers": 19,
+      "high_cases": 70,
+      "low_cases": 0,
+      "prefix_hinge": "1511/20",
+      "criterion": "3603013/600600",
+      "certificate_positions_checked": 3301
+    },
+    {
+      "M": 400,
+      "primes": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13
+      ],
+      "weights": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "carriers": 0,
+      "high_cases": 0,
+      "low_cases": 0,
+      "prefix_hinge": "0",
+      "criterion": "70391/30030",
+      "certificate_positions_checked": 3301
+    },
+    {
+      "M": 30,
+      "primes": [
+        5,
+        11,
+        37,
+        101
+      ],
+      "weights": [
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "carriers": 0,
+      "high_cases": 0,
+      "low_cases": 0,
+      "prefix_hinge": "0",
+      "criterion": "23322103/12332100",
+      "certificate_positions_checked": 2561
+    },
+    {
+      "M": 30,
+      "primes": [
+        5,
+        11,
+        37,
+        101
+      ],
+      "weights": [
+        "11/20",
+        "3/5",
+        "19/20",
+        "3/20"
+      ],
+      "carriers": 0,
+      "high_cases": 0,
+      "low_cases": 0,
+      "prefix_hinge": "0",
+      "criterion": "346286299/246642000",
+      "certificate_positions_checked": 2561
+    },
+    {
+      "M": 30,
+      "primes": [
+        5,
+        11,
+        37,
+        101
+      ],
+      "weights": [
+        "7/10",
+        "7/10",
+        "7/10",
+        "1/20"
+      ],
+      "carriers": 0,
+      "high_cases": 0,
+      "low_cases": 0,
+      "prefix_hinge": "0",
+      "criterion": "375554483/246642000",
+      "certificate_positions_checked": 2561
+    },
+    {
+      "M": 30,
+      "primes": [
+        5,
+        11,
+        37,
+        101
+      ],
+      "weights": [
+        "13/20",
+        "13/20",
+        "13/20",
+        "1/20"
+      ],
+      "carriers": 0,
+      "high_cases": 0,
+      "low_cases": 0,
+      "prefix_hinge": "0",
+      "criterion": "361578103/246642000",
+      "certificate_positions_checked": 2561
+    },
+    {
+      "M": 30,
+      "primes": [
+        5,
+        11,
+        37,
+        101
+      ],
+      "weights": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "carriers": 0,
+      "high_cases": 0,
+      "low_cases": 0,
+      "prefix_hinge": "0",
+      "criterion": "149596/205535",
+      "certificate_positions_checked": 2561
+    },
+    {
+      "M": 60,
+      "primes": [
+        5,
+        11,
+        37,
+        101
+      ],
+      "weights": [
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "carriers": 0,
+      "high_cases": 0,
+      "low_cases": 0,
+      "prefix_hinge": "0",
+      "criterion": "23322103/12332100",
+      "certificate_positions_checked": 2621
+    },
+    {
+      "M": 60,
+      "primes": [
+        5,
+        11,
+        37,
+        101
+      ],
+      "weights": [
+        "11/20",
+        "3/5",
+        "19/20",
+        "3/20"
+      ],
+      "carriers": 0,
+      "high_cases": 0,
+      "low_cases": 0,
+      "prefix_hinge": "0",
+      "criterion": "346286299/246642000",
+      "certificate_positions_checked": 2621
+    },
+    {
+      "M": 60,
+      "primes": [
+        5,
+        11,
+        37,
+        101
+      ],
+      "weights": [
+        "7/10",
+        "7/10",
+        "7/10",
+        "1/20"
+      ],
+      "carriers": 0,
+      "high_cases": 0,
+      "low_cases": 0,
+      "prefix_hinge": "0",
+      "criterion": "375554483/246642000",
+      "certificate_positions_checked": 2621
+    },
+    {
+      "M": 60,
+      "primes": [
+        5,
+        11,
+        37,
+        101
+      ],
+      "weights": [
+        "13/20",
+        "13/20",
+        "13/20",
+        "1/20"
+      ],
+      "carriers": 0,
+      "high_cases": 0,
+      "low_cases": 0,
+      "prefix_hinge": "0",
+      "criterion": "361578103/246642000",
+      "certificate_positions_checked": 2621
+    },
+    {
+      "M": 60,
+      "primes": [
+        5,
+        11,
+        37,
+        101
+      ],
+      "weights": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "carriers": 0,
+      "high_cases": 0,
+      "low_cases": 0,
+      "prefix_hinge": "0",
+      "criterion": "149596/205535",
+      "certificate_positions_checked": 2621
+    },
+    {
+      "M": 120,
+      "primes": [
+        5,
+        11,
+        37,
+        101
+      ],
+      "weights": [
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "carriers": 0,
+      "high_cases": 0,
+      "low_cases": 0,
+      "prefix_hinge": "0",
+      "criterion": "23322103/12332100",
+      "certificate_positions_checked": 2741
+    },
+    {
+      "M": 120,
+      "primes": [
+        5,
+        11,
+        37,
+        101
+      ],
+      "weights": [
+        "11/20",
+        "3/5",
+        "19/20",
+        "3/20"
+      ],
+      "carriers": 0,
+      "high_cases": 0,
+      "low_cases": 0,
+      "prefix_hinge": "0",
+      "criterion": "346286299/246642000",
+      "certificate_positions_checked": 2741
+    },
+    {
+      "M": 120,
+      "primes": [
+        5,
+        11,
+        37,
+        101
+      ],
+      "weights": [
+        "7/10",
+        "7/10",
+        "7/10",
+        "1/20"
+      ],
+      "carriers": 0,
+      "high_cases": 0,
+      "low_cases": 0,
+      "prefix_hinge": "0",
+      "criterion": "375554483/246642000",
+      "certificate_positions_checked": 2741
+    },
+    {
+      "M": 120,
+      "primes": [
+        5,
+        11,
+        37,
+        101
+      ],
+      "weights": [
+        "13/20",
+        "13/20",
+        "13/20",
+        "1/20"
+      ],
+      "carriers": 0,
+      "high_cases": 0,
+      "low_cases": 0,
+      "prefix_hinge": "0",
+      "criterion": "361578103/246642000",
+      "certificate_positions_checked": 2741
+    },
+    {
+      "M": 120,
+      "primes": [
+        5,
+        11,
+        37,
+        101
+      ],
+      "weights": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "carriers": 0,
+      "high_cases": 0,
+      "low_cases": 0,
+      "prefix_hinge": "0",
+      "criterion": "149596/205535",
+      "certificate_positions_checked": 2741
+    },
+    {
+      "M": 400,
+      "primes": [
+        5,
+        11,
+        37,
+        101
+      ],
+      "weights": [
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "carriers": 1,
+      "high_cases": 4,
+      "low_cases": 0,
+      "prefix_hinge": "4",
+      "criterion": "23322103/12332100",
+      "certificate_positions_checked": 3301
+    },
+    {
+      "M": 400,
+      "primes": [
+        5,
+        11,
+        37,
+        101
+      ],
+      "weights": [
+        "11/20",
+        "3/5",
+        "19/20",
+        "3/20"
+      ],
+      "carriers": 1,
+      "high_cases": 0,
+      "low_cases": 0,
+      "prefix_hinge": "0",
+      "criterion": "346286299/246642000",
+      "certificate_positions_checked": 3301
+    },
+    {
+      "M": 400,
+      "primes": [
+        5,
+        11,
+        37,
+        101
+      ],
+      "weights": [
+        "7/10",
+        "7/10",
+        "7/10",
+        "1/20"
+      ],
+      "carriers": 1,
+      "high_cases": 4,
+      "low_cases": 0,
+      "prefix_hinge": "2/5",
+      "criterion": "375554483/246642000",
+      "certificate_positions_checked": 3301
+    },
+    {
+      "M": 400,
+      "primes": [
+        5,
+        11,
+        37,
+        101
+      ],
+      "weights": [
+        "13/20",
+        "13/20",
+        "13/20",
+        "1/20"
+      ],
+      "carriers": 1,
+      "high_cases": 0,
+      "low_cases": 0,
+      "prefix_hinge": "0",
+      "criterion": "361578103/246642000",
+      "certificate_positions_checked": 3301
+    },
+    {
+      "M": 400,
+      "primes": [
+        5,
+        11,
+        37,
+        101
+      ],
+      "weights": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "carriers": 0,
+      "high_cases": 0,
+      "low_cases": 0,
+      "prefix_hinge": "0",
+      "criterion": "149596/205535",
+      "certificate_positions_checked": 3301
+    },
+    {
+      "M": 20000,
+      "primes": [
+        17,
+        19,
+        23
+      ],
+      "weights": [
+        "1",
+        "1",
+        "1"
+      ],
+      "carriers": 6,
+      "high_cases": 23,
+      "low_cases": 0,
+      "prefix_hinge": "23",
+      "criterion": "3214015/3922512",
+      "certificate_positions_checked": 23501
+    }
+  ]
+}

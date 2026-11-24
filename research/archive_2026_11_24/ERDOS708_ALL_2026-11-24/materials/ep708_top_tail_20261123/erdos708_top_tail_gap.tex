@@ -1,0 +1,352 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm}
+\usepackage{xcolor,fancyhdr}
+\usepackage{xurl}
+\usepackage[colorlinks=true,urlcolor=blue!45!black,linkcolor=blue!45!black]{hyperref}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{Erd\H{o}s 708: the exact top-tail target}
+\fancyhead[R]{23 November 2026}\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+\setlength{\emergencystretch}{2em}
+\newcommand{\pos}[1]{(#1)_+}
+\newcommand{\Top}{\operatorname{Top}}
+\newcommand{\raw}{L_{\rm raw}}
+\newcommand{\ind}{\mathbf1}
+\newtheorem{proposition}{Proposition}[section]
+\title{\vspace{-12mm}Erd\H{o}s 708: exact top tails\\and verified breaks in two intermediate arguments}
+\author{Research checkpoint}
+\date{23 November 2026}
+\begin{document}
+\maketitle\vspace{-5mm}
+\noindent\textbf{Status.}
+No uniform inequality proving \(g(n)\le(2+o(1))n\) was obtained.
+No violation of that bound or of the exact \(2n\) bound was obtained.
+The new results here are counterexamples to intermediate shortcuts,
+with their scopes stated explicitly. Normalizations and exact
+identities are not reported as a solution.
+
+\section{The verified target and the exact remaining bank mass}
+For \(X_w(t)=\sum_pw_pv_p(t)\), \(0\le w_p\le1\), write
+\[
+ H_I(w)=\sum_{b\in I}\pos{X_w(b)-1}.
+\]
+The required expression is exactly
+\[
+ Q_n(M,I,w)=X_w(M)+\Top_{n-1}\{X_w(a):2\le a<M\}-H_I(w).
+ \tag{T}
+\]
+The forced term \(X_w(M)\) reflects the original condition
+\(\max A=M\). Maximizing the fixed-set dual over all such source
+sets gives (T), with no approximation.
+
+Wang's raw finite-envelope theorem equates the worst-case leading
+coefficients of the boxed raw LP and the integer problem
+\cite{WangRaw}. Thus a uniform \(Q_n\le2n+o(n)\) would suffice.
+His quadratic construction gives the exact \(2n\) bound for
+\(M\ge16n^2\) \cite{WangMain}; its proof also works at fixed
+ambient \(M\ge\max A\). No new rounding theorem is needed here.
+The unresolved interval range is \(2n<M<16n^2\).
+
+Only a \emph{jointly maximizing} source set and weight vector give
+the paired optimality equations. Choosing a top set at an arbitrary
+fixed weight vector does not supply those equations.
+For a genuine paired optimum \((A,w,z)\), let
+\[
+ D_p(A)=\sum_{a\in A}v_p(a),\qquad
+ V_p(U)=\sum_{b\in U}v_p(b),
+\]
+and let \(U\subseteq\{b\in I:X_w(b)>1\}\).
+Every point of \(U\) has \(z_b=1\).
+For each active prime, the whole raw row is tight, so
+\[
+ D_p(A)-V_p(U)
+   =\sum_{b\in I\setminus U}z_bv_p(b)\ge0.
+ \tag{1}
+\]
+Consequently the residual is exactly
+\[
+ \boxed{\ 
+ \sum_pw_p\bigl(D_p(A)-V_p(U)\bigr)
+ -\sum_{b\in I\setminus U}\pos{X_w(b)-1}
+ =\sum_{b\in I\setminus U}z_b\ge0.\ }
+ \tag{2}
+\]
+To verify (2), at a hot target \(z_b=1\), so the difference of its
+two summands is one. At a target of load one the difference is
+\(z_b\); at a cold target \(z_b=0\). These exhaust all positions.
+
+Thus exact row balance does not discard the residual. It identifies
+it as the still-selected mass outside the bank union. No uniform
+bound of the required size for that mass was proved.
+Similarly, a logarithmic cap must retain its unused source budget:
+if \(E=F-\Phi_A(u)\) and \(S=(2+\delta)n-\Phi_A(u)\), then
+\[
+ E-S=F-(2+\delta)n.
+ \tag{3}
+\]
+This equality is an accounting identity, not a bound on its sign.
+
+\section{Dense same-threshold discrepancy is linear}
+A possible dense shortcut would be to replace the target hinge by
+the prefix hinge with an \(o(M)\) error. The next construction
+disproves that shortcut, even with exact top-tail source selection
+in the required numerical range.
+
+Fix
+\[
+ \frac13<\alpha<\beta<\frac12,\qquad
+ P_M=\{p\text{ prime}:M^\alpha<p\le M^\beta\},
+ \qquad X(t)=\sum_{p\in P_M}v_p(t).
+ \tag{4}
+\]
+All active weights are one. Put
+\[
+ k=|P_M|,\quad \mu_j=\sum_{p\in P_M}p^{-j},
+ \quad \theta=\prod_{p\in P_M}(1-1/p).
+ \tag{5}
+\]
+Every prefix integer has at most two active prime occurrences,
+since \(3\alpha>1\). Therefore, with
+\(N_2=|\{a\le M:X(a)=2\}|\), the exact formula is
+\[
+ H_{[1,M]}(w)=N_2
+ =\sum_{\substack{p,q\in P_M\\p<q}}\left\lfloor\frac M{pq}\right\rfloor
+  +\sum_{p\in P_M}\left\lfloor\frac M{p^2}\right\rfloor.
+ \tag{6}
+\]
+In particular
+\[
+ \left|\frac{N_2}M-\frac{\mu_1^2+\mu_2}{2}\right|
+ \le\frac{k(k+1)}{2M}=o(1).
+ \tag{7}
+\]
+The last estimate follows already from \(k\le M^\beta\).
+Mertens' product theorem \cite{Tao} gives
+\[
+ \mu_1\to\mu=\log(\beta/\alpha),\quad
+ \theta\to e^{-\mu}=\alpha/\beta,\quad \mu_2,\mu_3\to0.
+ \tag{8}
+\]
+
+\subsection*{A finite family of actual intervals}
+For every \(p\in P_M\), choose independently and uniformly
+\[
+ r_p\in\{0,\ldots,p^3-1\},
+\]
+and let \(x\) be the least nonnegative solution of
+\[
+ x\equiv r_p\pmod{p^4}\qquad(p\in P_M).
+ \tag{9}
+\]
+Use \(I_x=\{x+1,\ldots,x+M\}\). Since \(p^3>M\), every position
+\(1\le j\le M\) satisfies \(1\le r_p+j<2p^3\le p^4\).
+Its actual \(p\)-valuation is at most three, and for \(a=1,2,3\),
+\[
+ \mathbb P(p^a\mid x+j)=p^{-a}.
+ \tag{10}
+\]
+These prime coordinates are independent at a fixed position.
+No independence of different positions is used.
+
+For integer-valued \(X\), \((X-1)_+=X-\ind_{X>0}\).
+The exact finite average over these CRT choices is therefore
+\[
+ \boxed{\quad
+ \mathbb E\,H_{I_x}(w)
+ =M(\mu_1+\mu_2+\mu_3-1+\theta).
+ \quad}
+ \tag{11}
+\]
+Choose a member of this finite family whose hinge is at most its
+average. Equations (6)--(11) imply
+\[
+ H_{[1,M]}(w)-H_{I_x}(w)
+ \ge\left(\frac{\mu^2}{2}-\mu+1-e^{-\mu}+o(1)\right)M.
+ \tag{12}
+\]
+\begin{samepage}
+The coefficient
+\[
+ \kappa(\mu)=\frac{\mu^2}{2}-\mu+1-e^{-\mu}
+ \tag{13}
+\]
+is strictly positive for \(\mu>0\): it vanishes at zero and has
+derivative \(\mu-1+e^{-\mu}>0\).
+\end{samepage}
+
+For the concrete rational band
+\[
+ \alpha=\frac7{20},\quad\beta=\frac9{20},\quad\mu=\log(9/7),
+\]
+we have
+\[
+ \frac{\mu^2}{2}=0.03157947093\ldots,\qquad
+ \kappa(\mu)=0.002487264872\ldots.
+ \tag{14}
+\]
+
+\subsection*{The forced maximum and what is not disproved}
+Let \(M\) tend to infinity through primes and set
+\[
+ A_M=\{a<M:X(a)=2\}\cup\{M\},\qquad n=N_2+1.
+ \tag{15}
+\]
+Here \(X(M)=0\), and (15) is exactly the required top set with
+the maximum forced in. Thus
+\[
+ Q_n(w)=2N_2-H_{I_x}(w)
+ \ge\left(1+\frac{2\kappa(\mu)}{\mu^2}+o(1)\right)n
+ =(1.07876208179\ldots+o(1))n.
+ \tag{16}
+\]
+Weak duality makes this a lower bound for the raw covering optimum,
+without claiming the chosen weights are optimal.
+Also \(n/M\to0.03157947093\ldots\), and
+\(2n<M<16n^2\) eventually.
+The discrepancy (12) is therefore linear in \(n\) as well.
+But
+\[
+ Q_n(w)\le2N_2<2n
+\]
+because the target hinge is nonnegative.
+This construction refutes \(H_{[1,M]}-H_I=o(M)\) and the stronger
+dense guess \(\raw\le n+o(n)\). It does \emph{not} refute
+the desired coefficient two. Its sources have load two (and the forced maximum has load zero), so it does not meet the high-load minimal-obstruction hypothesis.
+
+\section{A complete hot top tail still need not dominate its bank union}
+This finite construction strengthens the earlier bank-product
+counterexample to an exact top set, with every selected load above
+two and the source maximum retained.
+
+Let
+\[
+ N=11763=3^2\cdot1307,\quad h=5881,\quad p=11777,\quad
+ M=pN=138532851.
+ \tag{17}
+\]
+The supplied exact CRT certificate specifies residues \(c_r\) for
+every prime \(r\le N\). Let \(C\) be the least nonnegative solution
+of
+\[
+ C\equiv c_r\pmod r\quad(r\le N,\ r\text{ prime}),\qquad
+ C\equiv h+1\pmod p.
+ \tag{18}
+\]
+The full residue table and hexadecimal value of \(C\), together
+with a standard-library verifier, are in the accompanying archive.
+For \(J=\{C-h,\ldots,C+h\}\), that certificate checks:
+\begin{itemize}
+\item no member of \(J\) is divisible by \(p\);
+\item exactly \(10352\) members have a prime divisor at most \(N/2\);
+\item the other \(1411\) members avoid every prime at most \(N\);
+\item the prefix \([4,N]\) has \(10353\) composite integers.
+\end{itemize}
+Set
+\[
+ I=\{p(C-h-1)+1,\ldots,p(C+h)\}.
+ \tag{19}
+\]
+It has length \(M\); its \(p\)-multiples are exactly \(pt\),
+\(t\in J\), and have \(p\)-valuation one.
+
+Choose the exact clipped weights
+\[
+ w_p=1,\qquad w_r=\frac35\quad(r\le N,\ r\text{ prime}),
+ \qquad w_r=0\ \text{otherwise},
+ \tag{20}
+\]
+and take the \emph{whole} strict superlevel
+\[
+ A_*=\{a\in[2,M]:X_w(a)>2\}.
+ \tag{21}
+\]
+Since \(p^2>M\), the selected \(p\)-multiples are exactly \(ps\)
+with \(s\le N\) composite. Selected non-\(p\)-multiples have
+at least four small-prime occurrences. Hence
+\[
+ \min_{a\in A_*}X_w(a)=\frac{11}{5},\qquad
+ \max_{a\notin A_*}X_w(a)\le\frac95,\qquad
+ X_w(M)=\frac{14}{5}.
+ \tag{22}
+\]
+This is an exact top set, is closed upward for divisibility, and
+retains every price-monotone exchange
+\(a\mapsto ar/q\le M\) with \(q\mid a\), \(w_r\ge w_q\).
+
+Let \(U\) be the union of \emph{all} banks \(a/q\), where
+\(a\in A_*\) and \(q\mid a\) is prime. Then
+\[
+ \boxed{\quad D_p(A_*)=10353,\qquad V_p(U)=10352.\quad}
+ \tag{23}
+\]
+Indeed, if \(t\in J\) is one of the \(1411\) rough positions,
+\(X_w(pt)=1\). Every deleted source has
+\(X_w(a/q)\ge11/5-1=6/5>1\), so no such quotient divides \(pt\).
+Conversely, if a prime \(r\le N/2\) divides \(t\), the source
+\(2rp\le M\) has load \(11/5\); deleting its occurrence of \(2\)
+gives \(rp\mid pt\). This identifies the \(p\)-part of \(U\)
+exactly and proves (23).
+
+\subsection*{The numerical range and the exact failed optimality condition}
+An integer prime-power sieve, supplied with its output, gives
+\[
+ n=|A_*|=56063090,\qquad D_2(A_*)=101157183.
+ \tag{24}
+\]
+It counts this stated set and its row demand; it does not compute
+\(g(n)\) or solve a covering problem. The mask is exactly
+\(\Omega_{\{r\le N\}}(a)\ge4\), together with \(p\)-multiples
+having at least two small-prime occurrences. Thus
+\[
+ 2n=112126180<M=138532851<16n^2,\qquad n/M=0.4046916640\ldots.
+ \tag{25}
+\]
+
+The displayed weights are \emph{provably nonoptimal}, not merely
+unverified. Every multiple of \(4\) has load at least \(6/5\).
+If these weights were optimal, all such targets would be selected
+with \(z_b=1\). Their raw two-row supply is at least
+\[
+ 2\left\lfloor\frac M4\right\rfloor+
+ \sum_{j\ge3}\left\lfloor\frac M{2^j}\right\rfloor
+ =103899623
+ =D_2(A_*)+2742440.
+ \tag{26}
+\]
+This contradicts tightness of the active row \(w_2=3/5>0\).
+In fact the bank of \(4\) is itself in \(U\), from the source \(4p\).
+
+Thus (23) refutes coordinatewise bank-product dominance even after
+adding exact top selection, a strict load gap above two, divisibility
+closure, all price-monotone exchanges, and the required numerical
+range. Equation (26) shows exactly why it does not refute a statement
+restricted to actual paired optima or to minimal obstructions.
+The one-unit deficit in (23) is not an asymptotic counterexample.
+
+\section{The unresolved step}
+The complete top-tail and whole-row conditions were retained in
+the attempted proof. They did not yield a uniform upper bound for
+the residual selected mass in (2), either when \(n/M\to0\) or at
+fixed positive density below the trivial interval-size threshold.
+The dense same-threshold error cannot simply be declared negligible
+by (12). The coordinatewise bank dominance shortcut fails by (23),
+and its repair must use actual joint balance, as (26) demonstrates.
+
+No new inequality sufficient for the required contradiction after
+Wang's transfer is claimed. Exact \(2n\) remains separate.
+
+\begin{thebibliography}{9}
+\bibitem{WangRaw} Z. Wang, \emph{Raw fractional covers and worst-case
+leading coefficients}, raw-transfer.tex in the interval-divisor-covers
+repository, accessed 23 November 2026.
+\url{https://github.com/science-prince/erdos-708-interval-divisor-covers/blob/main/papers/main-paper/raw-transfer.tex}.
+\bibitem{WangMain} Z. Wang, \emph{Fractional-to-Integer Transference and
+Five-Prime Bounds for Interval Divisor Covers}, Appendix on the
+quadratic gate, accessed 23 November 2026.
+\url{https://github.com/science-prince/erdos-708-interval-divisor-covers/blob/main/papers/main-paper/main.tex}.
+\bibitem{Tao} T. Tao, \emph{Mertens' theorems}, 11 December 2013.
+\url{https://terrytao.wordpress.com/2013/12/11/mertens-theorems/}.
+\end{thebibliography}
+\end{document}

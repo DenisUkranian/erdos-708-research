@@ -1,0 +1,108 @@
+{
+  "date": "2026-11-23",
+  "language": "English",
+  "prepared_for": "Denis Paliy",
+  "general_problem_solved": false,
+  "external_peer_review": false,
+  "formal_verification": false,
+  "priority_claim": false,
+  "report_pages": 27,
+  "claims": [
+    {
+      "id": "unrestricted_exact",
+      "statement": "g(n)<=2n",
+      "status": "NOT_PROVED"
+    },
+    {
+      "id": "unrestricted_asymptotic",
+      "statement": "g(n)<=(2+o(1))n",
+      "status": "NOT_PROVED"
+    },
+    {
+      "id": "quadratic_range",
+      "statement": "M>=16*n^2 implies tau<=2*n",
+      "status": "EXTERNAL_WRITTEN_THEOREM_CHECKED",
+      "source": "Ziming Wang, quadratic coefficient-two gate"
+    },
+    {
+      "id": "dot_reconstruction",
+      "statement": "M>=32*n^(5/2) implies tau<=2*n",
+      "status": "RECONSTRUCTED_AND_INTERNALLY_AUDITED",
+      "limitation": "The triple structure uses c^2*K>=1 and does not extend directly to fixed C*n^2."
+    },
+    {
+      "id": "diffuse_raw_hinge",
+      "statement": "For each epsilon>0, sufficiently small individual raw weights imply H_(2+epsilon) at all scales and all shifts, for any finite support. One arbitrary exceptional coordinate is allowed.",
+      "status": "PROVED_WITH_INTERNAL_AUDIT",
+      "external_input": "Fundamental lemma of the combinatorial sieve"
+    },
+    {
+      "id": "controlled_exceptional_weights",
+      "statement": "At most k coordinates above c_epsilon/(k+1) imply Delta_(2+epsilon)<=2^(k+1)*(1+log_2 M)^(k+1).",
+      "status": "PROVED_WITH_INTERNAL_AUDIT",
+      "limitation": "Exclusion of dual vectors; not general per-instance integer rounding."
+    },
+    {
+      "id": "dense_smooth_sources",
+      "statement": "If all source primes<=Y(M), with logY=o(sqrt(logM)), then tau<=(2+o(1))*n uniformly in shift.",
+      "status": "PROVED_WITH_INTERNAL_AUDIT",
+      "external_inputs": [
+        "Fundamental lemma",
+        "Wang quadratic range"
+      ],
+      "limitation": "No single fixed positive gamma in exp(gamma*sqrt(logM)) is claimed to work at every epsilon."
+    },
+    {
+      "id": "separated_prime_bands",
+      "statement": "There is an absolute kappa0: sources a=d*r with d supported on primes<=Y, r one prime>=Z>=Y^kappa0, have exact 2n covers. With pure small-prime sources A_Q, bound 2*|A_R|+sum_{A_Q}Omega(a).",
+      "status": "PROVED_WITH_SEPARATE_INTERNAL_CHECK",
+      "limitation": "kappa0 not computed; multiple large occurrences and unrestricted pure small-prime excess are not covered."
+    },
+    {
+      "id": "demand_core",
+      "statement": "Minimal counterexamples in the quadratic range have an O(sqrt(n/logn)) demand core; each source has at most one outside occurrence, its unique largest prime.",
+      "status": "PROVED_WITH_INTERNAL_AUDIT",
+      "limitation": "Demand core is not identified with exceptional dual support."
+    },
+    {
+      "id": "finite_recognizer",
+      "statement": "Exact sufficient certificate traces with fixed ambient M, all shifts.",
+      "status": "IMPLEMENTED_AND_REVERIFIED",
+      "limitation": "UNKNOWN is not a counterexample; certificates prove existence and do not construct a cover."
+    },
+    {
+      "id": "source_only_barrier",
+      "statement": "16,384-source family satisfies specified source-only filters, but not all minimality conditions.",
+      "status": "EXACT_CERTIFICATE_REVERIFIED",
+      "limitation": "Not a counterexample to 708 or H2."
+    },
+    {
+      "id": "reduced_obstruction_rounding",
+      "statement": "On minimal asymptotic obstruction sequences all source primes are <10n, so tau<=L_raw+O(n/logn) uniformly.",
+      "status": "PROVED_WITH_SEPARATE_INTERNAL_AUDIT",
+      "limitation": "The required uniform fractional coefficient-two bound on that structural class remains unproved."
+    }
+  ],
+  "verification": {
+    "latex_compile_passes": 2,
+    "unresolved_references": false,
+    "overflow_warnings": false,
+    "final_latex_warnings": false,
+    "recognition_examples_reverified_from_source_lists": 10,
+    "necessary_core_n100_M146969_reverified": true,
+    "dense_core_n16384_M268435456_reverified": true,
+    "cofactor_obstruction_171_sources_170_neighbors_recomputed": true,
+    "all_27_pages_rendered_and_visually_reviewed": true
+  },
+  "excluded_intermediates": [
+    "PDF render images and compiler intermediates",
+    "Nonportable exploratory seed-repair probe",
+    "Third-party paper mirrors"
+  ],
+  "main_document": "erdos708_synthesis.pdf",
+  "proof_sources": [
+    "erdos708_synthesis.tex",
+    "sections/"
+  ],
+  "prior_result_document": "prior_results/erdos708_partial_results.pdf"
+}

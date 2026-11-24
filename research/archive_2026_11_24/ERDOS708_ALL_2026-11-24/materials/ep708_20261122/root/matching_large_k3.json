@@ -1,0 +1,12 @@
+{
+  "status": "no_counterexample_in_sample",
+  "k": 3,
+  "largest_only": false,
+  "tested": 20000,
+  "seed": 70820261122,
+  "start": 10,
+  "stop": 2000,
+  "step": 10,
+  "trials_per_M": 100,
+  "seconds": 264.48
+}

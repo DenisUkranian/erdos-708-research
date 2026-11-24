@@ -1,0 +1,222 @@
+[
+  {
+    "name": "erdos708_proof_ladders.pdf",
+    "library_file_id": "libfile_fde3_f-1008fbf380b08191a6857dadb8fc77b2_bdd719cd8618819192752f3878448245",
+    "file_id": "file_000000009d1c81f58ad8883451c42c72",
+    "version_id": "0",
+    "size_bytes": 406761,
+    "created_at": "2026-11-23T21:55:13.196711Z",
+    "modified_at": "2026-11-23T21:55:13.196711Z",
+    "library_path": "/erdos708_proof_ladders.pdf"
+  },
+  {
+    "name": "erdos708_proof_ladders_bundle.zip",
+    "library_file_id": "libfile_fde3_f-973679c5c404819180540d4d7fe6fd47_bdd719cd8618819192752f3878448245",
+    "file_id": "file_0000000039e081f591e51bbe165091af",
+    "version_id": "0",
+    "size_bytes": 432124,
+    "created_at": "2026-11-23T21:55:13.040849Z",
+    "modified_at": "2026-11-23T21:55:13.040849Z",
+    "library_path": "/erdos708_proof_ladders_bundle.zip"
+  },
+  {
+    "name": "erdos708_dot_audit.pdf",
+    "library_file_id": "libfile_fde3_f-5d8d9bb761748191956e1ad81887a250_bdd719cd8618819192752f3878448245",
+    "file_id": "file_000000009e9481fbb9fe000904649f1d",
+    "version_id": "0",
+    "size_bytes": 427258,
+    "created_at": "2026-11-23T18:53:08.254480Z",
+    "modified_at": "2026-11-23T18:53:08.254480Z",
+    "library_path": "/erdos708_dot_audit.pdf"
+  },
+  {
+    "name": "erdos708_dot_audit_bundle.zip",
+    "library_file_id": "libfile_fde3_f-50a66e62e33481919e56790d9a8bb5b7_bdd719cd8618819192752f3878448245",
+    "file_id": "file_000000001f8c81fb95bf4042e7021fb3",
+    "version_id": "0",
+    "size_bytes": 416992,
+    "created_at": "2026-11-23T18:53:08.202782Z",
+    "modified_at": "2026-11-23T18:53:08.202782Z",
+    "library_path": "/erdos708_dot_audit_bundle.zip"
+  },
+  {
+    "name": "erdos708_surplus_tail.pdf",
+    "library_file_id": "libfile_fde3_f-bbe2475abf8081919671b9f6d379f7fc_bdd719cd8618819192752f3878448245",
+    "file_id": "file_00000000f62081fd98a7c2e8a2679bfc",
+    "version_id": "0",
+    "size_bytes": 369676,
+    "created_at": "2026-11-23T17:53:16.510254Z",
+    "modified_at": "2026-11-23T17:53:16.510254Z",
+    "library_path": "/erdos708_surplus_tail.pdf"
+  },
+  {
+    "name": "erdos708_surplus_tail_bundle.zip",
+    "library_file_id": "libfile_fde3_f-60c691f8f10481918b4952114cf971df_bdd719cd8618819192752f3878448245",
+    "file_id": "file_0000000087d081fd9b4e8a18f9bc6277",
+    "version_id": "0",
+    "size_bytes": 359444,
+    "created_at": "2026-11-23T17:53:16.472165Z",
+    "modified_at": "2026-11-23T17:53:16.472165Z",
+    "library_path": "/erdos708_surplus_tail_bundle.zip"
+  },
+  {
+    "name": "erdos708_top_tail_gap.pdf",
+    "library_file_id": "libfile_fde3_f-5505ef8dc99881919e4d448d56ccc22a_bdd719cd8618819192752f3878448245",
+    "file_id": "file_00000000754081f5b32fdee952eab0e3",
+    "version_id": "0",
+    "size_bytes": 328863,
+    "created_at": "2026-11-23T16:34:08.495392Z",
+    "modified_at": "2026-11-23T16:34:08.495392Z",
+    "library_path": "/erdos708_top_tail_gap.pdf"
+  },
+  {
+    "name": "erdos708_top_tail_gap_bundle.zip",
+    "library_file_id": "libfile_fde3_f-0a9d671929d881918a9e7a7c93617f33_bdd719cd8618819192752f3878448245",
+    "file_id": "file_0000000062b081f59e5c660152ff00d3",
+    "version_id": "0",
+    "size_bytes": 337747,
+    "created_at": "2026-11-23T16:34:08.447937Z",
+    "modified_at": "2026-11-23T16:34:08.447937Z",
+    "library_path": "/erdos708_top_tail_gap_bundle.zip"
+  },
+  {
+    "name": "erdos708_joint_estimate_bundle.zip",
+    "library_file_id": "libfile_fde3_f-464c6abca0a48191bb7bcd24a3726a0f_bdd719cd8618819192752f3878448245",
+    "file_id": "file_0000000031dc81f582609ee3ae2847ea",
+    "version_id": "0",
+    "size_bytes": 356643,
+    "created_at": "2026-11-23T15:31:59.843287Z",
+    "modified_at": "2026-11-23T15:31:59.843287Z",
+    "library_path": "/erdos708_joint_estimate_bundle.zip"
+  },
+  {
+    "name": "erdos708_joint_estimate_addendum.pdf",
+    "library_file_id": "libfile_fde3_f-b47e2ed255d881919d14fb5c19c8b7c5_bdd719cd8618819192752f3878448245",
+    "file_id": "file_00000000365881fb91046b6e198b29fd",
+    "version_id": "0",
+    "size_bytes": 350343,
+    "created_at": "2026-11-23T15:31:59.823851Z",
+    "modified_at": "2026-11-23T15:31:59.823851Z",
+    "library_path": "/erdos708_joint_estimate_addendum.pdf"
+  },
+  {
+    "name": "erdos708_jweak_attempt.pdf",
+    "library_file_id": "libfile_fde3_f-cc761f4072c48191b35305196950f54d_bdd719cd8618819192752f3878448245",
+    "file_id": "file_000000006d8881fda610afab583f2712",
+    "version_id": "0",
+    "size_bytes": 432569,
+    "created_at": "2026-11-23T14:16:28.359063Z",
+    "modified_at": "2026-11-23T14:16:28.359063Z",
+    "library_path": "/erdos708_jweak_attempt.pdf"
+  },
+  {
+    "name": "erdos708_jweak_attempt_bundle.zip",
+    "library_file_id": "libfile_fde3_f-e9ba26bbbdc08191857d8280ed45253f_bdd719cd8618819192752f3878448245",
+    "file_id": "file_00000000296481fd8bd71f2618acd748",
+    "version_id": "0",
+    "size_bytes": 763662,
+    "created_at": "2026-11-23T14:16:28.335875Z",
+    "modified_at": "2026-11-23T14:16:28.335875Z",
+    "library_path": "/erdos708_jweak_attempt_bundle.zip"
+  },
+  {
+    "name": "erdos708_global_gap.pdf",
+    "library_file_id": "libfile_fde3_f-9489f94c3c308191a9a4e29d7320a0b9_bdd719cd8618819192752f3878448245",
+    "file_id": "file_00000000a2c881fdb9d1cf8d0f60d5e8",
+    "version_id": "0",
+    "size_bytes": 388524,
+    "created_at": "2026-11-23T12:12:08.854747Z",
+    "modified_at": "2026-11-23T12:12:08.854747Z",
+    "library_path": "/erdos708_global_gap.pdf"
+  },
+  {
+    "name": "erdos708_global_gap_bundle.zip",
+    "library_file_id": "libfile_fde3_f-97bc89f6c24c81919986f55af4933249_bdd719cd8618819192752f3878448245",
+    "file_id": "file_000000003c0481fdb513c1e245de6a42",
+    "version_id": "0",
+    "size_bytes": 1179920,
+    "created_at": "2026-11-23T12:12:08.691432Z",
+    "modified_at": "2026-11-23T12:12:08.691432Z",
+    "library_path": "/erdos708_global_gap_bundle.zip"
+  },
+  {
+    "name": "erdos708_continuation.pdf",
+    "library_file_id": "libfile_fde3_f-5bdceca30b4c81918420c9bdd75a667d_bdd719cd8618819192752f3878448245",
+    "file_id": "file_00000000e348821293f01b0298f8933b",
+    "version_id": "0",
+    "size_bytes": 611277,
+    "created_at": "2026-11-23T02:18:57.859110Z",
+    "modified_at": "2026-11-23T02:18:57.859110Z",
+    "library_path": "/erdos708_continuation.pdf"
+  },
+  {
+    "name": "erdos708_continuation_bundle.zip",
+    "library_file_id": "libfile_fde3_f-99a5255204c481919a1d510f4863e3c5_bdd719cd8618819192752f3878448245",
+    "file_id": "file_00000000f6c082129a250c6d7f384ea6",
+    "version_id": "0",
+    "size_bytes": 1132359,
+    "created_at": "2026-11-23T02:18:57.817754Z",
+    "modified_at": "2026-11-23T02:18:57.817754Z",
+    "library_path": "/erdos708_continuation_bundle.zip"
+  },
+  {
+    "name": "erdos708_synthesis_bundle.zip",
+    "library_file_id": "libfile_fde3_f-53a14bbacb608191a139f17179244a44_bdd719cd8618819192752f3878448245",
+    "file_id": "file_00000000c05881f69866152cd5dd09c1",
+    "version_id": "1",
+    "size_bytes": 1384381,
+    "created_at": "2026-11-23T00:55:17.848512Z",
+    "modified_at": "2026-11-23T00:59:58.796098Z",
+    "library_path": "/erdos708_synthesis_bundle.zip"
+  },
+  {
+    "name": "erdos708_synthesis.pdf",
+    "library_file_id": "libfile_fde3_f-f7043863478c81918ad02a560f46b8c5_bdd719cd8618819192752f3878448245",
+    "file_id": "file_00000000923081f6a3c58b68feb95e19",
+    "version_id": "1",
+    "size_bytes": 554831,
+    "created_at": "2026-11-23T00:55:17.878171Z",
+    "modified_at": "2026-11-23T00:59:58.787180Z",
+    "library_path": "/erdos708_synthesis.pdf"
+  },
+  {
+    "name": "erdos708_partial_results.pdf",
+    "library_file_id": "libfile_fde3_f-5aba181bbfdc819199290baba90af73c_bdd719cd8618819192752f3878448245",
+    "file_id": "file_000000006e6081f593f5e18f6e1213f4",
+    "version_id": "0",
+    "size_bytes": 427167,
+    "created_at": "2026-11-22T23:54:34.243024Z",
+    "modified_at": "2026-11-22T23:54:34.243024Z",
+    "library_path": "/erdos708_partial_results.pdf"
+  },
+  {
+    "name": "erdos708_research_bundle(1).zip",
+    "library_file_id": "libfile_fde3_f-c410eb00bef08191ac01cd8977ee757c_bdd719cd8618819192752f3878448245",
+    "file_id": "file_00000000d69081f588c6c29688a2bed6",
+    "version_id": "0",
+    "size_bytes": 496666,
+    "created_at": "2026-11-22T23:54:34.045603Z",
+    "modified_at": "2026-11-22T23:54:34.045603Z",
+    "library_path": "/erdos708_research_bundle(1).zip"
+  },
+  {
+    "name": "erdos708_research_note.pdf",
+    "library_file_id": "libfile_fde3_f-4e82baceb9808191b70f9d2c4ceeafe3_bdd719cd8618819192752f3878448245",
+    "file_id": "file_00000000d90081f5b6b1f17876c7205f",
+    "version_id": "0",
+    "size_bytes": 394464,
+    "created_at": "2026-11-22T21:48:21.475220Z",
+    "modified_at": "2026-11-22T21:48:21.475220Z",
+    "library_path": "/erdos708_research_note.pdf"
+  },
+  {
+    "name": "erdos708_research_bundle.zip",
+    "library_file_id": "libfile_fde3_f-e9f395aa8c988191ae1c9ad2fc3ad056_bdd719cd8618819192752f3878448245",
+    "file_id": "file_000000000cf881f5b99e19dff9fa2da7",
+    "version_id": "0",
+    "size_bytes": 380045,
+    "created_at": "2026-11-22T21:48:20.300810Z",
+    "modified_at": "2026-11-22T21:48:20.300810Z",
+    "library_path": "/erdos708_research_bundle.zip"
+  }
+]

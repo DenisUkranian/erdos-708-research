@@ -1,0 +1,20 @@
+{
+  "purpose": "Counterlemma parameter verification, not a computation of g(n)",
+  "N": 11763,
+  "p": 11777,
+  "M": 138532851,
+  "small_prime_count": 1409,
+  "n_top": 56063090,
+  "density": 0.4046916640732385,
+  "M_is_selected": true,
+  "source_M_load": "14/5",
+  "selected_min_load": "11/5",
+  "unselected_max_load": "9/5",
+  "D_p": 10353,
+  "D_2": 101157183,
+  "unavoidable_hot_2_row_lower": 103899623,
+  "hot_2_lower_minus_D2": 2742440,
+  "2n_less_than_M": true,
+  "M_less_than_16n_squared": true,
+  "not_an_optimality_claim": true
+}

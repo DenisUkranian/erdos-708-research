@@ -1,0 +1,826 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm}
+\usepackage[margin=25mm]{geometry}
+\usepackage{booktabs,array,xurl}
+\usepackage[hidelinks,unicode]{hyperref}
+\hypersetup{pdftitle={Erdos 708: Global Dual Normalization and the Remaining Joint Inequality},
+pdfauthor={Research working note}}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\DeclareMathOperator{\supp}{supp}
+\newcommand{\pos}[1]{(#1)_+}
+\newcommand{\LP}{L_{\mathrm{raw}}}
+\newcommand{\DD}{\mathcal D}
+\title{Erd\H{o}s 708: Global Dual Normalization\\
+and the Remaining Joint Inequality}
+\author{Research working note}
+\date{23 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+This note addresses the unrestricted asymptotic target
+\(g(n)\le(2+o(1))n\), using the fixed-ambient minimal-obstruction
+framework of Section 8 of the preceding report. The target is
+\textbf{not proved here}. We prove a uniform normalization of an
+optimal raw dual vector: all but \(o(m)\) sources have load above
+\(2+2\delta\), their discarded weighted demand is \(o(m)\), and their
+entire prime-deletion bank union is saturated in one full optimum.
+Its positive weighted row excess over the retained demands is also
+\(o(m)\). The proof uses all proper subsets at once and incurs no
+per-source rounding multiplier.
+
+We state the exact remaining joint estimate, and prove that even
+a weaker version with an additional \(\delta m\) error would close the
+general asymptotic problem. We also give a separately verified
+counterexample to universal coordinatewise bank-product domination.
+That counterexample does not refute the required joint inequality.
+No new value of \(g(n)\), restricted source class, or unrestricted
+coefficient-two bound is claimed.
+\end{abstract}
+\tableofcontents
+
+\section{The precise scope and inherited inputs}
+
+For distinct \(A\subseteq\{2,\ldots,M\}\), let \(I\) be a positive
+interval of \(M\) consecutive integers, and put
+\[
+ \tau(A,I)=\min\left\{|B|:B\subseteq I,\
+          \prod_{a\in A}a\mid\prod_{b\in B}b\right\}.
+\]
+The ambient \(M\) and the interval \(I\) are retained when sources are
+deleted. In the original definition one may take \(M=\max A\);
+the enlarged ambient formulation is needed for induction. A source
+equal to one can be deleted without affecting divisibility. Intervals
+containing zero are immediate, and a negative interval not containing
+zero reduces by absolute values to a positive interval of the same
+length.
+
+Write \(P\) for the source primes and
+\[
+ D_p(A)=\sum_{a\in A}v_p(a),\qquad
+ X_w(t)=\sum_{p\in P}w_pv_p(t),\qquad
+ H_I(w)=\sum_{b\in I}\pos{X_w(b)-1}.
+\]
+All valuations are raw, with their full multiplicities. In particular,
+target powers are not truncated at \(M\) or at the largest exponent
+of a single source.
+
+We use two established inputs of the preceding report \cite{Previous}:
+the forced-bank reduction below, and the quadratic ambient theorem
+\[
+ M\ge16|A|^2\quad\Longrightarrow\quad \tau(A,I)\le2|A|.
+ \tag{Q}
+\]
+The full proof of (Q) was checked in the retained source of Wang
+\cite{Wang}; it only uses \(a\le M\), and so applies with the ambient
+length fixed after deletion. Its role here is to give
+\(M<16m^2\) at a minimal obstruction, not to solve the remaining range.
+
+Fix \(\delta>0\), put \(c=2+3\delta\), and suppose that \(A\) is a
+least-cardinality violation at these fixed \(M,I\):
+\begin{equation}
+ |A|=m,\qquad \tau(A,I)>cm,\qquad
+ \tau(S,I)\le c|S|\quad(S\subsetneq A).
+ \label{eq:minimal}
+\end{equation}
+Set \(K=\lfloor c(m-1)\rfloor+1\). If \(q\mid a\) is prime, every
+integer deletion cover of \(A\setminus\{a\}\) of size at most \(K-1\)
+contains
+\[
+ C_q(a)=\{b\in I:a/q\mid b\}.
+\]
+Otherwise add a fresh \(a/q\)-multiple and at most one further target
+to repair a missing \(q\)-unit. Full supply guarantees that repair:
+\begin{equation}
+ \prod A\mid M!\mid\prod I,\qquad
+ \prod I=M!\binom{x+M}{M}\quad(I=\{x+1,\ldots,x+M\}).
+ \label{eq:supply}
+\end{equation}
+The resulting number of targets is within the budget \(cm\).
+Because \(|C_q(a)|\ge q\), we obtain
+\begin{equation}
+ p<K<cm\quad(p\in P),\qquad
+ r:=|P|\le\pi(cm)=O_\delta(m/\log m).
+ \label{eq:primecap}
+\end{equation}
+
+The pair-bank inequality from the preceding report states that if
+\(pq\mid a\), counting occurrences and allowing \(p=q\), and
+\(pq\ge K\), then
+\[
+ D_p(A)>v_p\!\left(\prod C_q(a)\right)\ge qv_p(a/q).
+\]
+Consequently the demand core and its complement
+\begin{equation}
+ E=\{p\in P:p\le\sqrt K\}\cup\{p\in P:D_p(A)>p\},
+ \qquad R=P\setminus E
+ \label{eq:core}
+\end{equation}
+have the following properties: every source contains at most one
+occurrence from \(R\), that occurrence is the unique largest prime,
+and
+\begin{equation}
+ |E|=O_\delta\!\left(\sqrt{\frac m{\log m}}\right).
+ \label{eq:corebound}
+\end{equation}
+For completeness, the heavy-demand part follows from
+\[
+ \sum_{D_p(A)>p}p\log p
+ <\sum_pD_p(A)\log p
+ =\sum_{a\in A}\log a\le m\log M.
+\]
+Together with \(M<16m^2\) and the elementary prime-count bounds, this
+gives \eqref{eq:corebound}. We do not replace that growing core by a
+bounded or polylogarithmic core.
+
+\section{The raw LP and the single rounding loss}
+
+The boxed raw relaxation is
+\begin{equation}
+ \LP(A,I)=\min\left\{\sum_{b\in I}z_b:
+ 0\le z_b\le1,\quad
+ \sum_{b\in I}z_bv_p(b)\ge D_p(A)\ (p\in P)\right\}.
+ \label{eq:primal}
+\end{equation}
+It is feasible by \eqref{eq:supply}. Finite linear programming duality
+gives
+\begin{equation}
+ \LP(A,I)=
+ \max_{0\le w_p\le1}\Phi_A(w),\qquad
+ \Phi_A(w)=\sum_{a\in A}X_w(a)-H_I(w).
+ \label{eq:dual}
+\end{equation}
+To justify the clipping, when \(w_p>1\), every target with positive
+\(p\)-valuation is in the linear part of the hinge. Lowering \(w_p\)
+to one cannot decrease the objective because
+\(D_p(A)\le\sum_Iv_p\). Thus an optimum exists in the displayed compact
+box.
+
+An optimal primal vertex has at most \(r\) strictly fractional
+coordinates: otherwise the corresponding columns have a nonzero
+linear dependence in the \(r\) rows, giving a feasible two-sided
+perturbation. Rounding up yields
+\[
+ \tau(A,I)\le\LP(A,I)+r.
+\]
+In the rest of the main argument, fix any optimal clipped dual \(w\),
+write \(X=X_w\), and let \(z\) be a primal optimum. Then
+\begin{equation}
+ F:=\LP(A,I)=\Phi_A(w)>cm-r.
+ \label{eq:F-lower}
+\end{equation}
+The loss \(r=o(m)\) is used once. It will not be added separately for
+each deletion.
+
+\section{A uniform normalization using all proper subsets}
+
+\begin{lemma}[Total source shortfall]
+\label{lem:shortfall}
+Under \eqref{eq:minimal}, for every nonnegative weight vector \(w\),
+not necessarily optimal,
+\begin{equation}
+ \sum_{a\in A}\pos{c-X_w(a)}
+ \le\pos{cm-\Phi_A(w)}.
+ \label{eq:shortfall}
+\end{equation}
+In particular, for an optimal clipped vector,
+\begin{equation}
+ \sum_{a\in A}\pos{c-X(a)}<r.
+ \label{eq:optimal-shortfall}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Let \(S=\{a\in A:X_w(a)>c\}\). If \(S=A\), the left side of
+\eqref{eq:shortfall} is zero. Otherwise \(S\) is a proper subset,
+possibly empty. Keep the same weight vector and the same full target
+hinge. Weak duality and \eqref{eq:minimal} give
+\[
+ \Phi_S(w)\le\LP(S,I)\le\tau(S,I)\le c|S|.
+\]
+Coordinates having zero demand on \(S\) may be retained in this
+weak dual objective; their target contributions do not invalidate
+weak duality. When \(S=\varnothing\), this reads \(-H_I(w)\le0\).
+Now
+\[
+ \Phi_S(w)-c|S|
+ =\Phi_A(w)-cm+\sum_{a\in A\setminus S}(c-X_w(a)).
+\]
+The last sum is the positive-part shortfall. Its nonnegativity also
+shows that \(cm-\Phi_A(w)\ge0\) in this case. This proves
+\eqref{eq:shortfall}. Equation \eqref{eq:F-lower} gives
+\eqref{eq:optimal-shortfall}, including the case \(F>cm\).
+\end{proof}
+
+Put
+\begin{equation}
+ h=c-\delta=2+2\delta,\qquad
+ G=\{a\in A:X(a)>h\},\qquad B=A\setminus G,\qquad
+ W=\sum_{a\in B}X(a).
+ \label{eq:G}
+\end{equation}
+Every discarded source contributes at least \(\delta\) to
+\eqref{eq:optimal-shortfall}. Therefore
+\begin{equation}
+ |B|\le\frac r\delta,\qquad
+ W\le\frac{(2+2\delta)r}{\delta}=o_\delta(m),\qquad
+ |G|=m-O_\delta(r).
+ \label{eq:discard}
+\end{equation}
+Moreover,
+\begin{equation}
+ \Phi_G(w)>c|G|-r,
+ \label{eq:G-lower}
+\end{equation}
+since
+\[
+ \Phi_G(w)-c|G|
+ =F-cm+\sum_{a\in B}(c-X(a))>-r.
+\]
+The set \(G\) is a subset used in the dual calculation. We do not
+declare it a new integer-minimal instance, and do not assume that
+\(w\) is optimal for \(G\). The demand core \eqref{eq:core} is still
+defined using the original demands of \(A\).
+
+\section{One global saturated union and its actual demands}
+
+\subsection{The exact optimality identities}
+
+Let
+\[
+ H=\{b\in I:X(b)>1\},\qquad T=\{b\in I:X(b)=1\}.
+\]
+Complementary slackness gives
+\begin{equation}
+ z_b=1\ (b\in H),\quad z_b=0\ (X(b)<1),\quad
+ \sum_{b\in I}z_bv_p(b)=D_p(A)\quad(w_p>0).
+ \label{eq:cs}
+\end{equation}
+Consequently
+\begin{equation}
+ \sum_{a\in A}X(a)=\sum_{b\in H}X(b)+\sum_{b\in T}z_b,
+ \qquad F=|H|+\sum_{b\in T}z_b.
+ \label{eq:boundary}
+\end{equation}
+The threshold-one term has not disappeared. A vertex has at most
+\(r\) fractional coordinates, but it can have many integral
+coordinates with \(X(b)=1\).
+
+For example, take \(A=\{2,4,\ldots,2m\}\), \(M=2m\),
+\(I=\{1,\ldots,2m\}\), and \(w_2=1\), with all other weights zero.
+Every even target must be selected fully to meet the total
+\(2\)-valuation. The optimum has no fractional coordinate and only
+one active dual weight, whereas
+\(\sum_Tz_b=\lceil m/2\rceil\). The full source-prime count is
+\(r=\pi(m)=o(m)\) for \(m\ge2\). This is an exact counterexample to
+bounding all threshold-one mass by the number of fractional
+coordinates. It is not an instance violating the desired cover bound.
+
+\subsection{Simultaneous bank saturation}
+
+Define the retained union, with all overlaps identified,
+\begin{equation}
+ U=U(G,I)=\bigcup_{a\in G}\ \bigcup_{\substack{q\mid a\\q\ {\rm prime}}}
+                  C_q(a),\qquad
+ V_p(U)=\sum_{b\in U}v_p(b).
+ \label{eq:union}
+\end{equation}
+For every \(b\in C_q(a)\),
+\[
+ X(b)\ge X(a/q)=X(a)-w_q>1+2\delta.
+\]
+Thus \(U\subseteq H\), and \emph{one full primal optimum} selects
+every position of \(U\) with mass one. In particular,
+\begin{equation}
+ V_p(U)\le D_p(A)\qquad(w_p>0).
+ \label{eq:global-rows}
+\end{equation}
+More generally, any target multiple of a divisor \(d\) satisfying
+\(X(d)>1\) is saturated. The prime-deletion union is a useful
+explicit subunion, not the whole set of saturated targets.
+
+\begin{lemma}[Joint weighted excess]
+\label{lem:excess}
+With the original optimal weights, put
+\begin{equation}
+ \Xi=\sum_{p\in P}w_p\pos{V_p(U)-D_p(G)}.
+ \label{eq:Xi}
+\end{equation}
+Then, uniformly in all the parameters,
+\begin{equation}
+ \Xi\le W\le\frac{(2+2\delta)r}{\delta}=o_\delta(m).
+ \label{eq:Xi-small}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+For every active row, \eqref{eq:global-rows} gives
+\[
+ \pos{V_p(U)-D_p(G)}
+ \le D_p(A)-D_p(G)=D_p(B).
+\]
+Multiply by \(w_p\) and sum. The right side is exactly
+\(\sum_{a\in B}X(a)=W\). Inactive rows have zero weight.
+\end{proof}
+
+This is a sum over actual demands, with no multiplier \(|G|\),
+\(|E|\), or \(|R|\). It does not assert that each bank separately
+has the full interval budget.
+
+\subsection{Prime powers must be summed before taking row excess}
+
+For a finite set \(S\), write
+\(N_S(p^j)=|\{s\in S:p^j\mid s\}|\). The exact level identities are
+\[
+ D_p(G)=\sum_{j\ge1}N_G(p^j),\qquad
+ V_p(U)=\sum_{j\ge1}N_U(p^j).
+\]
+Hence the excess in \eqref{eq:Xi} is
+\begin{equation}
+ \Xi=\sum_p w_p
+ \left(\sum_{j\ge1}\bigl[N_U(p^j)-N_G(p^j)\bigr]\right)_+.
+ \label{eq:level-excess}
+\end{equation}
+It is not the sum of the positive parts of the separate level
+differences. For the elementary valuation example
+\(G=\{2,4\}\), \(U=\{8\}\), the differences at powers of two are
+\(-1,0,1\). The row excess is zero, whereas the sum of the
+positive level differences is one. This example illustrates the
+algebraic distinction only; these two sets are not asserted to be
+the bank union of a minimal obstruction.
+
+In \eqref{eq:level-excess}, target levels extend as far as the actual
+targets require. An unbounded interval shift does not permit their
+truncation at the source maximum \(M\). The row balance
+\eqref{eq:global-rows} is what controls their selected aggregate.
+
+\subsection{A factorial refinement of an individual bank}
+
+\begin{proposition}
+\label{prop:factorial}
+Fix \(a\in G\), a prime \(q\mid a\), and an active prime \(p\).
+Put \(d=a/q\), \(N=\lfloor M/d\rfloor\). Then
+\begin{equation}
+ D_p(A)\ge N v_p(d)+v_p(N!).
+ \label{eq:factorial}
+\end{equation}
+In particular, if \(p\mid a/q\) and \(q\ge p\), then
+\begin{equation}
+ D_p(A)\ge qv_p(a/q)+1>p.
+ \label{eq:factorial-cor}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The entire \(d\)-bank belongs to \(U\), hence is selected fully.
+Its quotients \(b/d\) form \(N'\ge N\) consecutive positive integers.
+For every \(j\), their \(p^j\)-multiple count is at least
+\(\lfloor N'/p^j\rfloor\). Their total \(p\)-valuation is therefore
+at least \(v_p(N'!)\ge v_p(N!)\). Adding the \(N'\) copies of
+\(v_p(d)\), then using \eqref{eq:global-rows}, proves
+\eqref{eq:factorial}. Since \(N\ge q\ge p\),
+\(v_p(N!)\ge1\), proving \eqref{eq:factorial-cor}.
+\end{proof}
+
+As a consequence, every active prime \(p\) with \(D_p(A)\le p\)
+occurs at most once in a retained source and is its unique largest
+prime, even in comparison with inactive prime occurrences. If a
+second occurrence \(q\ge p\) existed, including \(q=p\), then
+\eqref{eq:factorial-cor} would contradict \(D_p(A)\le p\).
+This conclusion does not need the pair threshold \(pq\ge K\).
+It still leaves the joint contribution of a potentially large
+heavy-demand core unresolved.
+
+\section{The exact remaining step and the closing contradiction}
+
+The sufficient estimate requested as formula (91) in the preceding
+report was
+\[
+ \sup_{0\le w\le1}\left\{
+ \sum_{a\in A}\pos{X_w(a)-2-\delta}-H_I(w)\right\}
+ =o_\delta(m)
+\]
+uniformly on the full integer-minimal class. It is not proved here.
+The preceding lemmas reduce the obligation to a smaller family of
+dual vectors without shrinking the source class.
+
+\subsection{A balanced-optimal sufficient lemma}
+
+Set \(g=|G|\). The following statement is the precise remaining
+arithmetic obligation; it is \textbf{unproved}.
+
+\medskip
+\noindent\textbf{Joint estimate \(J_\delta\).}
+For the original minimal instances and their normalized optimal
+data \(w,G,U,\Xi\) above, there exist a constant \(C_\delta\) and
+a function \(\varepsilon_\delta(m)\to0\), independent of
+\(M,A,x,w\), such that
+\begin{equation}
+ \boxed{\quad
+ \sum_{a\in G}\bigl(X(a)-2-\delta\bigr)
+ \le H_I(w)+C_\delta\Xi+
+       \varepsilon_\delta(m)m.
+ \quad}
+ \label{eq:joint}
+\end{equation}
+The positive part on the source terms is unnecessary because
+\(X(a)>2+2\delta\) on \(G\).
+
+\begin{proposition}[Conditional completion]
+\label{prop:completion}
+If \eqref{eq:joint} holds uniformly, the requested raw bound
+\(\LP(A,I)\le(2+\delta)m+o_\delta(m)\) holds on the original
+minimal class, giving the unrestricted asymptotic conclusion.
+Even the weaker statement obtained by adding \(\delta g\) to the
+right side of \eqref{eq:joint} suffices for
+\(g(n)\le(2+o(1))n\).
+\end{proposition}
+
+\begin{proof}
+By \eqref{eq:Xi-small}, the extra \(\Xi\) term is \(o_\delta(m)\).
+Equation \eqref{eq:joint} yields
+\[
+ \Phi_G(w)\le(2+\delta)g+o_\delta(m).
+\]
+Restore the discarded weighted demand once:
+\[
+ F=\Phi_G(w)+W
+ \le(2+\delta)m+o_\delta(m)
+\]
+by \eqref{eq:discard}. Rounding costs another \(r=o(m)\), so
+\(\tau(A,I)\le(2+\delta)m+o_\delta(m)<(2+3\delta)m\)
+for sufficiently large \(m\), contradicting \eqref{eq:minimal}.
+
+For the weaker version, exactly the same argument gives
+\[
+ F\le(2+2\delta)m+o_\delta(m),
+\]
+which still leaves a fixed \(\delta m\) gap to the integer budget.
+Equivalently, it contradicts \eqref{eq:G-lower} directly.
+
+To pass from minimal instances to the original asymptotic
+statement, suppose violations of the \((2+3\delta)n\) budget
+exist for arbitrarily large \(n\). Their ambient lengths satisfy
+\(M\ge n+1\to\infty\). At each fixed ambient \(M,I\), choose
+\eqref{eq:minimal}. The quadratic gate gives
+\(m>\sqrt M/4\to\infty\), so the contradiction applies.
+Since \(\delta>0\) is arbitrary, the general asymptotic assertion
+would follow.
+\end{proof}
+
+The weaker statement has three advantages over an all-vector
+version of (91): it is needed only at optimal vectors, it has a
+single already controlled weighted row-excess allowance, and it
+may lose a fixed \(\delta g\). It still requires a new uniform
+arithmetic estimate. None of the proved normalization identities
+establishes \eqref{eq:joint}.
+
+\subsection{An exact joint accounting identity}
+
+Since \(U\subseteq H\), the retained dual objective can be written
+without any repeated target capacity:
+\begin{equation}
+\begin{split}
+ \Phi_G(w)
+  ={}& |U|+\sum_p w_p\bigl(D_p(G)-V_p(U)\bigr)\\
+    &-\sum_{b\in I\setminus U}\pos{X(b)-1}.
+\end{split}
+\label{eq:residual}
+\end{equation}
+Replacing the signed residual sum in this formula by its
+coordinatewise positive part increases the right side by exactly
+\(\Xi=o_\delta(m)\).
+
+The missing step is a uniform upper bound on
+\eqref{eq:residual} by \((2+\delta)g+o(m)\), or by
+\((2+2\delta)g+o(m)\) for the weaker completion. The known bank
+inequalities give lower bounds on many separate \(V_p(C_q(a))\);
+they do not supply this joint bound on \(U\) and its residual
+demands. In particular, \(\Xi=o(m)\) controls excess supply,
+not the still-positive residual demand.
+
+For arbitrary weights there is also the exact low-load-credit
+identity
+\begin{equation}
+ \left[\sum_{a\in A}\pos{X(a)-t}-H_I(w)\right]
+ -\sum_{a\in A}\pos{t-X(a)}
+ =\Phi_A(w)-t|A|.
+ \label{eq:credit}
+\end{equation}
+Thus an all-vector hinge bound is stronger than necessary for the
+raw optimum. At the optimal vectors under consideration and
+\(t\le c\), Lemma~\ref{lem:shortfall} bounds that credit by \(r\).
+
+\section{Why the two tempting aggregation shortcuts fail}
+
+\subsection{Individual banks do not have separate copies of the hinge}
+
+If \(\mu(b)\) is the number of indexed banks \(C_q(a)\) containing
+\(b\), then
+\[
+ \sum_{a\in G}\sum_{\substack{q\mid a\\q\ {\rm prime}}}
+       \sum_{b\in C_q(a)}
+       \pos{X(b)-1}
+ =\sum_{b\in U}\mu(b)\pos{X(b)-1}.
+\]
+The usable budget is only
+\(\sum_{b\in U}\pos{X(b)-1}\). A common multiple can lie in many
+banks. Replacing the expression with multiplicity by the single
+budget is not a legitimate inequality. Equations
+\eqref{eq:Xi} and \eqref{eq:residual} avoid this error, but do not
+by themselves prove the missing upper bound.
+
+\subsection{Actual source levels are few, but absolute variation is not quadratic}
+
+Let
+\[
+ J_E=\sum_{p\in E}\max_{a\in A}v_p(a).
+\]
+This counts the actual input prime-power levels in the core. In
+the present minimal class,
+\begin{equation}
+ J_E=O_\delta\!\left(\sqrt{\frac m{\log m}}\right),\qquad
+ J_E^2+|R|=O_\delta(m/\log m)=o_\delta(m).
+ \label{eq:levels}
+\end{equation}
+Indeed, primes \(p\le m^{1/4}\) contribute at most
+\(\pi(m^{1/4})\log_2 M=O(m^{1/4})\). Every larger prime
+contributes at most nine levels for sufficiently large \(m\).
+Use \eqref{eq:corebound} for their number.
+
+A genuinely joint error \(O_\delta(J_E^2+|R|)\) would therefore
+be sufficient. It has not been proved. It cannot be obtained
+by merely taking absolute values in a finite divisor expansion:
+for \(k\) unit coordinates \(z_i\in\{0,1\}\),
+\[
+ {\bf1}_{\sum_i z_i>0}
+ =\sum_{\varnothing\ne S\subseteq\{1,\ldots,k\}}
+       (-1)^{|S|+1}\prod_{i\in S}z_i.
+\]
+The exact coefficient \(\ell^1\)-norm is \(2^k-1\), although
+there are only \(J=k\) levels. This disproves that algebraic
+shortcut. It does not disprove a joint estimate exploiting
+optimality, actual source demand, and cancellation.
+
+\section{A verified counterexample to coordinatewise bank domination}
+
+Another possible shortcut would be the universal assertion
+\begin{equation}
+ \prod_{a\in A}a\mid\prod_{b\in U(A,I)}b,
+ \qquad
+ U(A,I)=\bigcup_{a\in A}
+       \bigcup_{\substack{q\mid a\\q\ {\rm prime}}}C_q(a).
+ \label{eq:false-bank}
+\end{equation}
+It is false. The accompanying certificate gives an exact witness;
+the following description explains its arithmetic and its limits.
+
+Set
+\[
+ N=11763=3^2\cdot1307,\quad H_0=5881,\quad p=11777,
+ \qquad S=\{s\le N:s\text{ is composite}\}.
+\]
+Then \(\pi(N)=1409\) and \(|S|=10353\). The file
+\nolinkurl{bank_product_certificate.json} specifies CRT residues
+\(c_r\) for every prime \(r\le N\), and a center \(C\) satisfying
+\[
+ C\equiv c_r\pmod r,\qquad C\equiv H_0+1\pmod p.
+\]
+It gives 1411 offsets in \([-H_0,H_0]\) avoiding every prime
+at most \(N\). The independent exact verifier reconstructs
+the CRT solution and checks all these residues. For
+\(J=\{C-H_0,\ldots,C+H_0\}\), the proper prime-deletion
+neighborhood of \(S\) is
+\[
+ V=\{t\in J:\text{some prime }r\le N/2\text{ divides }t\},
+ \qquad |V|=10352.
+\]
+To identify this neighborhood, every quotient \(s/q\) is at
+least two and has a prime factor at most \(N/2\). Conversely
+each prime \(r\le N/2\) is the quotient of the source \(2r\)
+by two.
+
+Lift to
+\[
+ A=pS,\qquad M=pN=138532851,\qquad
+ I=\{p(C-H_0-1)+1,\ldots,p(C+H_0)\}.
+\]
+The \(p\)-multiples in \(I\) are precisely \(pt\), \(t\in J\).
+The last CRT congruence makes the residues of \(J\) modulo \(p\)
+equal to \(1,\ldots,N\), so every such target has \(p\)-valuation
+one. Deleting a prime \(q\mid s\) from \(ps\) gives the
+neighborhood condition \(s/q\mid t\). Deleting \(p\) gives
+\(s\mid t\), which adds no new \(p\)-multiple. Therefore
+\[
+ U(A,I)\cap p\mathbb Z=\{pt:t\in V\},
+\]
+and exactly
+\begin{equation}
+ D_p(A)=10353,\qquad V_p(U(A,I))=10352.
+ \label{eq:counter}
+\end{equation}
+Every source has at least three prime occurrences.
+
+\paragraph{The scope is essential.}
+This family is not a minimal violation. The source \(4p\) occurs,
+and its bank obtained by deleting \(p\) contains all multiples
+of four, at least
+\[
+ \lfloor M/4\rfloor=34633212>10|A|.
+ \]
+It cannot fit inside the relevant deletion cover. The example
+even has \(p<2|A|-1\) and \(M<16|A|^2\), illustrating why those
+two numerical restrictions alone do not replace full minimality.
+
+It also does not refute the joint weighted expansion at high
+source loads. For every other source prime \(r\ne p\), the bank
+of four gives
+\[
+ V_r(U)>1471D_r(A).
+\]
+Indeed \(D_r(A)\le N/(r-1)\), whereas
+\[
+ V_r(U)\ge\left\lfloor\frac{pN}{4r}\right\rfloor
+ \ge\frac p8D_r(A)-1
+ \ge\left(\frac p8-1\right)D_r(A)>1471D_r(A).
+\]
+If clipped weights satisfy \(X(a)>2\) for every source, then
+\(\sum_{r\ne p}w_rD_r(A)>(2-w_p)|A|\ge|A|\).
+The weighted total bank surplus is consequently positive.
+The negative \(p\)-row in \eqref{eq:counter} cannot be used as a
+counterexample to the required weighted statement.
+
+\paragraph{Verification record.}
+The standalone standard-library verifier checked 1410 CRT
+conditions, 1,988,099 rough-residue avoidance conditions, and
+27,390 prime-deletion quotients. It returns the exact deficit
+one in \eqref{eq:counter}. The certificate SHA256 is
+\begin{center}
+\small\texttt{6da6d75f3f7a2580c0eb0cb6ac1c4d2c17c4358b2f9ac1ae82a66941956ca92b}.
+\end{center}
+Only the quotient interval of length 11763 is enumerated.
+No numerical search for a new value of \(g(n)\) is involved.
+
+\section{Status and uniformity audit}
+
+The following statements are proved in this note on the full
+minimal class:
+\begin{itemize}
+ \item the total optimal source shortfall is less than the single
+ rounding loss \(r=o(m)\);
+ \item all but \(o(m)\) sources have load above \(2+2\delta\),
+ and their discarded weighted demand is \(o(m)\);
+ \item their one global prime-deletion bank union is fully
+ saturated in a full optimal primal solution;
+ \item its positive weighted row excess over the retained
+ demands is \(o(m)\);
+ \item each active bank obeys the factorial lower bound
+ \eqref{eq:factorial}, uniformly in the interval shift;
+ \item the actual source core-level count satisfies
+ \eqref{eq:levels}.
+\end{itemize}
+The arithmetic estimate \eqref{eq:joint}, its weaker version
+with \(\delta g\), and a sufficient weighted bank-expansion
+replacement remain unproved. Formula (91) is neither proved
+nor refuted. The exact place where the current argument stops
+is the bound on the joint residual functional
+\eqref{eq:residual}.
+
+No small-core hypothesis, bound on the number of substantial
+weights, or gap between prime sizes is imposed in the proved
+reductions. The interval length and shift are not altered.
+All error constants may depend on fixed \(\delta\), but not
+on \(M,A,x,w\). The target prime powers are retained in full.
+The only use of an asymptotic estimate is through bounds
+depending on \(m\) alone, including \(r=O_\delta(m/\log m)\).
+
+Even a proof of the remaining joint estimate would establish
+the asymptotic coefficient two, not automatically the exact
+integer inequality \(2n\). The latter would still require
+removing the asymptotic and rounding slack or an exact
+construction. Apart from inherited exact results such as
+(Q), no new exact \(2n\) assertion is claimed here.
+
+\appendix
+\section{A separately valid raw-minimal alternative}
+
+The main argument deliberately kept the original integer-minimal
+instance. There is also a fully justified raw-minimal reduction,
+which may be useful for a subsequent attack.
+
+Fix \(c_0>2,M,I\), and take \(A_0\) of least cardinality
+\(m_0\) with \(\LP(A_0,I)>c_0m_0\). Write
+\[
+ F_0=c_0m_0+e,\quad e>0,\qquad K_0=c_0(m_0-1)+1.
+\]
+Every deletion has a fractional cover of cost at most \(K_0-1\).
+For the same optimal full dual, weak duality on each deletion gives
+\[
+ X(a)\ge c_0+e>c_0\qquad(a\in A_0).
+ \tag{A1}
+\]
+
+\begin{lemma}[Residual unit repair and union saturation]
+For every deletion fractional cover \(y\) of cost at most \(K_0-1\),
+and \(U_a=\bigcup_{\substack{q\mid a\\q\ {\rm prime}}}C_q(a)\),
+\[
+ \sum_{b\in U_a}(1-y_b)<1.
+ \tag{A2}
+\]
+\end{lemma}
+\begin{proof}
+A partial fractional selection with positive valuation deficits
+\(d_p\) can be extended at cost at most \(\sum_pd_p\).
+Whenever a row is deficient, full supply supplies enough residual
+valuation in the capacities \(1-y_b\). A positive integer
+valuation is at least one, so buying the needed valuation costs
+no more than the deficit. Sequential repairs never increase
+other deficits.
+
+If (A2) failed, buy a total mass one inside \(U_a\). Label each
+used target by a witnessing removed prime \(q\).
+Its valuations supply \(v(a)-{\bf e}_q\), so the mixed mass
+supplies \(v(a)\) except for a nonnegative vector with total
+mass at most one. Repair it at additional cost at most one.
+The resulting cover costs at most
+\(c_0(m_0-1)+2<c_0m_0\), a contradiction.
+\end{proof}
+
+Since each \(q\)-bank has at least \(q\) targets, (A2) gives
+\(q<K_0<c_0m_0\). If \(pq\mid a\) and \(pq\ge K_0\), then
+\[
+ D_p(A_0)>(q-1)v_p(a/q).
+ \tag{A3}
+\]
+Indeed, otherwise the almost-full \(a/q\)-bank already supplies
+the full \(p\)-demand. The \(a/(pq)\)-bank has residual mass at
+least \(pq-(K_0-1)\ge1\). Buy mass one there and repair at most
+one \(q\)-unit, again below the failing budget.
+The correct factor is \(q-1\) in this fractional argument.
+
+Thus the core
+\[
+ E_0=\{p\le\sqrt{K_0}\}\cup\{p:D_p(A_0)\ge p\}
+\]
+has the same size bound as before, and its complement has
+at most one prime occurrence per source, as its unique
+largest prime. The slight change from \(D_p>p\) to \(D_p\ge p\)
+is necessary when using (A3).
+
+For any such deletion cover \(y\), with cost \(C_a\), the exact
+primal--dual gap identity is
+\begin{align*}
+ C_a-F_0+X(a)
+ ={}&\sum_p w_p\left(\sum_by_bv_p(b)-D_p(A_0)+v_p(a)\right)\\
+ &+\sum_{X(b)>1}(1-y_b)(X(b)-1)
+   +\sum_{X(b)<1}y_b(1-X(b)).
+ \tag{A4}
+\end{align*}
+All three terms are nonnegative, and the left side is at most
+\(X(a)-c_0-e\). The weighted oversupply and the two types of
+target slack share this one budget. If
+\(w_{\max}(a)=\max_{\substack{q\mid a\\q\ {\rm prime}}}w_q\),
+(A4) sharpens (A2) to
+\[
+ \sum_{b\in U_a}(1-y_b)
+ \le\frac{X(a)-c_0-e}{X(a)-1-w_{\max}(a)}<1.
+ \tag{A5}
+\]
+
+Finally, this alternative is reached from the requested integer
+budget with the same fixed \(\delta\). Start with
+\eqref{eq:minimal}. Equation \eqref{eq:F-lower} gives
+ \(F>(2+2\delta)m\) for large \(m\).
+At the same \(M,I\), choose a smallest subset with raw value
+above \((2+2\delta)\) times its cardinality. Apply (A1)--(A5)
+with \(c_0=2+2\delta\). Its own quadratic gate gives
+\(m_0>\sqrt M/4\to\infty\), and its own prime cap uses \(m_0\),
+not the size of the original source set.
+A uniform upper bound \((2+\delta)m_0+o(m_0)\) would contradict
+this raw minimality. This is an alternative formulation of the
+remaining general task, not a proof of that upper bound.
+
+\begin{thebibliography}{9}
+\bibitem{Previous}
+Research working report,
+\emph{Erd\H{o}s 708: continuation report}, 23 November 2026,
+Section 8, equation (91). Retained as
+\nolinkurl{erdos708_continuation.pdf} in the preceding deliverable.
+\bibitem{Wang}
+Ziming Wang,
+\emph{Fractional-to-Integer Transference and Five-Prime Bounds
+for Interval Divisor Covers}, appendix on the exact quadratic gate.
+Primary project and result catalogue:
+\url{https://github.com/science-prince/erdos-708-interval-divisor-covers}
+and
+\url{https://github.com/science-prince/erdos-708-interval-divisor-covers/blob/main/docs/RESULTS.md}.
+The retained proof, rather than a new status claim, is the input
+used in this note.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,39 @@
+{
+  "status": "PASS: local separate-root comparison is false",
+  "M": 338,
+  "I": [
+    2939,
+    3276
+  ],
+  "root": 26,
+  "source_terms": [
+    [
+      1,
+      "0"
+    ],
+    [
+      13,
+      "1/10"
+    ]
+  ],
+  "target_quotients": [
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126
+  ],
+  "target_coprime_quotients": [],
+  "lhs": "1/10",
+  "rhs": "0",
+  "weighted_mean": "3687/20000",
+  "scope": "Not a counterexample to J_weak or to the minimal class."
+}

@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "certificate_sha256": "8c8aa23af5c74ddb6ba9d6333a16587a31d28ecf042d82b5238acbd9c11107d4",
+  "M": 1590446354641,
+  "number_of_primes": 20,
+  "smallest_prime": 1009,
+  "largest_prime": 1123,
+  "maximum_prefix_prime_occurrences": 4,
+  "crt_conditions_checked": 20,
+  "four_prime_intersections_checked": 4845,
+  "five_prime_intersections_checked": 15504,
+  "center_bit_length": 1005,
+  "pair_count_excess": 89,
+  "triple_count_excess": 573,
+  "raw_power_tail_excess": 39,
+  "capped_H1_prefix_minus_interval": 4360,
+  "raw_H1_prefix_minus_interval": 4321,
+  "general_lower_bound": 3626,
+  "scope": "Refutes a universal O(k^2) H1 tail-discrepancy bound even with at most four heavy occurrences per prefix source; not a counterexample to J_weak or Erdos 708."
+}

@@ -1,0 +1,45 @@
+{
+  "title": "Erdos 708: Controlled Cores and Joint Divisor Certificates",
+  "date": "2026-11-23",
+  "prepared_for": "Denis Paliy",
+  "unrestricted_exact_2n_solved": false,
+  "unrestricted_asymptotic_coefficient_2_solved": false,
+  "original_problem_counterexample_found": false,
+  "proof_status": "New derivations with separate internal mathematical audits",
+  "externally_peer_reviewed": false,
+  "formally_verified": false,
+  "priority_claim": false,
+  "external_quadratic_gate": {
+    "statement": "M >= 16 n^2 implies an integer cover of at most 2n positions",
+    "attribution": "Ziming Wang, written working manuscript, Appendix A",
+    "url": "https://github.com/science-prince/erdos-708-interval-divisor-covers",
+    "used_as_external_input": true
+  },
+  "new_restricted_results": [
+    "Diffuse-core joint hinge theorem with one distinct outside prime per source",
+    "Zero-defect extension with one arbitrary substantial core coordinate",
+    "Controlled-core defect B(epsilon,k)(1+|R|) independent of M, improved by an aggregate cap",
+    "Integer asymptotic coefficient two for a designated core of at most c0*(log M)^2/log log M primes for some absolute c0>0, and one distinct outside prime per source",
+    "Explicit elementary variant with core size at most 10^(-6)*(log M/log log M)^2",
+    "Direct global construction combining exact core-part bins, nested outside-prime-power matchings, and repair of sparse exceptional core demands",
+    "Arbitrary pure-small-core sources absorbed into a common hinge budget",
+    "Discounted certificate with two explicit positive-overlap bounds",
+    "Integer asymptotic coefficient two for separated prime supports at every fixed positive power cutoff",
+    "An explicit shrinking-power cutoff under quantitative error conditions",
+    "Uniform large-mean exact H2 criterion with limiting threshold 241/136",
+    "Fixed-ambient hereditary fractional-to-integer transfer"
+  ],
+  "dependent_scope_check": "Prime-disjoint source components with support size o(log M) already have eventual exact 2n covers by the external quadratic gate and Rankin counting; not promoted as an independent new frontier",
+  "remaining_sufficient_goal": "Uniform Delta_(2+epsilon)(A,I,w)=o(n) for every clipped vector on the full minimal-obstruction demand core",
+  "main_remaining_limitation": "The substantial core can be much larger than O(log log n); the present finite-difference variation grows exponentially in its size",
+  "exact_endpoint_additional_gap": "An asymptotic hinge bound alone does not remove the o(n) slack or integer rounding to yield exact 2n",
+  "computer_search_used_as_universal_proof": false,
+  "validation": {
+    "mathematical_checks": "Separate internal audits of all principal new proofs, quantitative corollaries, and integer transfer",
+    "pdf_pages": 34,
+    "latex_release_passes": 2,
+    "latex_release_warnings": 0,
+    "all_pdf_pages_rendered_and_visually_checked": true,
+    "small_exact_count_example": "Aggregate core tail on {11,13,17}: prefix 5 versus shifted interval 4; not a counterexample to problem 708"
+  }
+}

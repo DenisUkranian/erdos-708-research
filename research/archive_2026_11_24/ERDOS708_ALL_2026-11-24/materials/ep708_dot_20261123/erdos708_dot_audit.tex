@@ -1,0 +1,718 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=26mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,booktabs,xcolor}
+\usepackage{xurl,microtype}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,urlcolor=blue!45!black,citecolor=blue!45!black]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\pos}[1]{\left(#1\right)_+}
+\newcommand{\LP}{L_{\mathrm{raw}}}
+\newcommand{\ind}{\mathbf 1}
+\newcommand{\A}{\mathcal A}
+\newcommand{\Pset}{\mathcal P}
+\title{Erd\H{o}s 708: auditing the new dot arguments\\
+\large Near-quadratic exclusion, a relative row certificate, and the remaining gap}
+\author{Research checkpoint based on the supplied dot sketches}
+\date{23 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We complete the supplied two-matching proof excluding positive global
+surplus maxima with $M\asymp n^2$, without a restriction on prime support
+or weights. We also repair the three/four-occurrence certificate to retain
+repeated primes and obtain relative row errors. Under its actual
+small-period-core hypothesis, this yields $J_2(X)\le Q(r+\|S\|_\infty)$
+and works at the tail scale $n$, including sparse tails. Two supplied
+large-prime reductions are verified; a further reduction does not need a
+common periodic core. Finally, we give an actual-interval counterexample
+to replacing a fixed-bank union discrepancy by the number of roots.
+\textbf{The unrestricted estimate $g(n)\le(2+o(1))n$ is not proved.}
+The exact $2n$ bound is not claimed either. The missing steps are stated
+with their quantifiers; none of the conditional results is used as a
+general core normalization.
+\end{abstract}
+
+\section{The objective and the inputs carried forward}
+
+Let $I=\{x+1,\ldots,x+M\}$, $x\ge0$, and
+\[
+ X(a)=\sum_{p\le M}w_pv_p(a),\qquad 0\le w_p\le1,
+ \qquad J_c(w)=\sum_{a\le M}\pos{X(a)-c}-\sum_{b\in I}\pos{X(b)-1}.
+\]
+All target valuations are raw. Fix $c=2+\delta>2$. The exact maximization
+identity is
+\begin{equation}
+ \max_wJ_c(w)=\max_{A\subseteq[2,M]}
+       \bigl(\LP(A,I)-c|A|\bigr).                     \label{eq:global}
+\end{equation}
+At a global maximizer take the entire strict tail
+$A=\{a\le M:X(a)>c\}$ and write $n=|A|$. The same $w$ is a raw dual
+optimum for this $A$. If $z$ is a paired primal optimum and
+$F=\LP(A,I)$, then
+\begin{equation}
+ F=cn+J_c(w),\quad z_b=1\ (X(b)>1),\quad
+ \sum_{b\in I}z_bv_p(b)=D_p(A)\ (w_p>0).              \label{eq:paired}
+\end{equation}
+Also, for every $U\subseteq A$,
+\begin{equation}
+ \LP(A\setminus U,I)\le F-c|U|.                      \label{eq:deletion}
+\end{equation}
+Prices on zero-demand primes may be removed without changing the full
+tail or the maximal value.
+
+The preceding checkpoint proved a uniform conditional first moment on
+every complete additive prefix tail, using disjoint first-crossing cells
+and uniform rough-number estimates. Its proof and the subsequent MGF
+derivation are included in the accompanying notes; the rough-number
+input is recorded in \cite{Fan}. Positive surplus implies
+$\sum_p w_p/(p-1)=O_c(1)$. Consequently there are constants $C_0,B_0$
+depending only on $c$ such that, at a positive maximum,
+\begin{equation}
+ \sum_{a\in A}X(a)\le C_0n,\quad F\le C_0n,\quad
+ \sum_{a\in A}\exp\!\left(\frac{X(a)-c}{2B_0}\right)\le2n.
+                                                               \label{eq:mgf}
+\end{equation}
+Jensen's inequality gives the particularly useful consequence
+\begin{equation}
+ \boxed{\quad
+ \sum_{a\in U}X(a)\le ct+2B_0t\log(2n/t),\quad t=|U|>0.
+ \quad}                                                       \label{eq:subset}
+\end{equation}
+Thus \emph{any} $o(n)$ exceptional subset has original weighted demand
+$o(n)$, uniformly in $M/n$. The older requirement of an extra
+$\log(M/n)$ factor is superseded for these complete tails.
+
+Every prime factor of every source, including a zero-price factor,
+satisfies $p<C_0n$. Indeed, deleting a source divisible by
+$p\ge F-c+1$ leaves a cover of cost at most $F-c$. Its cofactor bank
+has at least $p$ positions and at least one unit of remaining capacity.
+Buying that unit supplies $a/p$; a remaining single $p$-unit can be
+repaired at cost at most one using full-interval supply. This contradicts
+$F-c+2<F$. In particular the number of active rows is
+$r\le\pi(C_0n)=O_c(n/\log n)$.
+
+We use Wang's already established ambient gate
+$M\ge16n^2\Rightarrow\LP(A,I)\le2n$ and raw-to-integer transfer
+\cite{WangMain,WangRaw}. Hence a positive extremum has
+\begin{equation}
+ cn<M<16n^2.                                           \label{eq:range}
+\end{equation}
+Rounding is not reproved in this checkpoint.
+
+\section{Completion of the near-quadratic argument}
+
+\begin{theorem}\label{thm:nearquad}
+Fix $\delta,\kappa>0$. There is no sequence of positive global maxima
+of $J_{2+\delta}$ whose complete-tail sizes $n$ tend to infinity and
+whose lengths satisfy $M\ge\kappa n^2$.
+\end{theorem}
+
+\subsection{Few hot divisors near the cold threshold}
+Put $K=\#\{b\in I:X(b)>1\}\le F\le C_0n$ and $T=M/(K+1)$.
+Every integer $d\le T$ is cold, meaning $X(d)\le1$: otherwise its
+at least $K+1$ interval multiples would be hot.
+
+\begin{lemma}\label{lem:packing}
+If the prefix contains a source of load greater than two, then,
+uniformly for $C\ge1$,
+\[
+ \#\{d\le CT:X(d)>1\}=O(C^7).
+\]
+\end{lemma}
+\begin{proof}
+First $K\ge\lfloor M^{1/3}\rfloor$. For a source $a$ with $X(a)>2$,
+there is a hot divisor $d\le a^{2/3}$. If a prime $p>a^{2/3}$ divides
+$a$, its complementary divisor is hot because $w_p\le1$. Otherwise a
+prime or an initial product of prime factors gives a divisor in
+$[a^{1/3},a^{2/3}]$; it and its complement both have size at most
+$a^{2/3}$, and one is hot. The bank of that divisor proves the claim.
+
+Every hot $d\le CT$ exceeds $T$ and has at least $(K+1)/C-1$ targets.
+For two such roots,
+\[
+ |I\cap d\mathbb Z\cap e\mathbb Z|
+ \le\frac{M\gcd(d,e)}{de}+1
+ \le\frac{(K+1)\gcd(d,e)}T+1.
+\]
+Take $L=\lceil4C\rceil$, $\alpha=1/(4L^2)$. If $K$ exceeds a
+suitable absolute multiple of $C^2$, then $L$ roots with pairwise
+gcd at most $\alpha T$ have, by the first Bonferroni inequality, a
+bank union of size at least
+\[
+ L\frac{K}{2C}-\binom L2(2\alpha K+1)>K,
+\]
+which is impossible. A maximal separated family therefore has fewer
+than $L$ representatives. Every other root $d$ has
+$g=\gcd(d,h)>\alpha T$ with a representative $h$. Both $d/g$ and
+$h/g$ are at most $C/\alpha=O(C^3)$, and the representative and this
+pair of integer quotients determine $d$. This gives $O(C^7)$ roots.
+For the remaining range $K=O(C^2)$, the earlier bound on $K$ gives
+$M<(K+1)^3$, so $CT<C(K+1)^2=O(C^5)$, proving the same conclusion.
+\end{proof}
+
+\subsection{The two source groups}
+Fix a large $B$ and then
+$B'\ge\max(B,C_0+2,5)$. Define
+\[
+ \mathcal H=\{h\le B'n:X(h)>1\},\qquad H_0=|\mathcal H|.
+\]
+When $M\ge\kappa n^2$, Lemma~\ref{lem:packing} gives
+$H_0=O_{c,\kappa,B'}(1)$.
+
+Let $A_1$ consist of sources with a divisor in $\mathcal H$.
+Discard sources expressible as $a=hk$ with both factors hot and at
+most $B'n$. There are at most $H_0^2$ such numbers. This removes all
+hot-complement cases: a chosen hot $h>T$ has
+$a/h<M/T=K+1\le B'n$. For each remaining source choose a hot carrier
+$h\le B'n$ with cold complement. It will earn
+\begin{equation}
+ X(h)-1\ge X(a)-2.                                    \label{eq:payment}
+\end{equation}
+For any subset of these sources, its source integers lie in the prefix
+union of their chosen carrier banks. Inclusion--exclusion transfers that
+union to $I$ with error at most $2^{H_0}$: every multiple count differs
+by at most one. Hall's deficiency form therefore matches all but
+\begin{equation}
+ t_1\le H_0^2+2^{H_0}                                \label{eq:t1}
+\end{equation}
+sources of the first group to distinct targets.
+
+Let $A_2=A\setminus A_1$ and $G=M/(B'n)$. We have $G\le B'n$.
+No divisor of an $A_2$ source lies in $[G,B'n]$, since both that divisor
+and its complement would then be cold, contradicting $X(a)>2$.
+Every such source has a cold divisor
+\[
+ \sqrt{Bn}\le u\le B'n.
+\]
+If there is a prime factor at least $\sqrt{Bn}$, use it and the source
+prime bound. Otherwise multiply prime factors, including repetitions,
+until the product first reaches $\sqrt{Bn}$; it is less than $Bn$.
+The carrier $d=a/u$ is hot and greater than $B'n$, and its bank has
+at least $\sqrt{Bn}-1$ positions.
+
+Whenever two current second-group carriers have gcd $g\ge G$, merge
+them into $g$. It divides every source assigned to either carrier.
+The divisor gap forces $g>B'n$, and the new complement obeys
+$a/g<G\le B'n$, so it remains cold. Thus the new carrier is hot,
+preserves \eqref{eq:payment}, and enlarges both banks. Repeating leaves
+distinct carriers with pairwise gcd less than $G$ and bank sizes
+$N_i\ge q_0=\sqrt{Bn}-1$.
+
+\subsection{One second moment and one shared payment budget}
+Take a subset of $s$ second-group sources and their $k$ distinct
+carriers. Put $V=\sum_iN_i$. Since these distinct sources are prefix
+multiples of their assigned carriers, $V\ge s$; also $k\le V/q_0$.
+For $i\ne j$,
+\[
+ |I\cap d_i\mathbb Z\cap d_j\mathbb Z|
+ \le\frac GM(N_i+1)(N_j+1)+1.
+\]
+Consequently the bank multiplicity function $\nu$ satisfies
+\[
+ \sum_I\nu^2\le V+\alpha_nV^2,
+ \qquad
+ \alpha_n=\frac1{B'n}(1+1/q_0)^2+\frac1{q_0^2}.
+\]
+The last term retains all pairwise rounding errors. Cauchy--Schwarz
+and the monotonicity of $v/(1+\alpha_nv)$ give
+\[
+ |\Gamma(S)|\ge\frac{V}{1+\alpha_nV}
+ \ge\frac{s}{1+\alpha_ns}\ge s-\alpha_nn^2.
+\]
+The second-group deficiency is thus at most
+\begin{equation}
+ t_2\le(1/B'+1/B+o(1))n.                              \label{eq:t2}
+\end{equation}
+
+The two matchings may intersect. This does not spend a target twice
+without justification. If its carriers are $h\le B'n<d$, their gcd
+divides a second-group source and is at most $B'n$. The gap forces
+$\gcd(h,d)<G\le T$, hence $X(\gcd(h,d))\le1$. Therefore
+\begin{equation}
+ X(b)-1\ge X(h)+X(d)-X(\gcd(h,d))-1
+ \ge (X(h)-1)+(X(d)-1).                              \label{eq:cross}
+\end{equation}
+There is at most one assigned source from each group at any target.
+
+Let $t$ be the total number of discarded or unmatched sources.
+Equations \eqref{eq:payment} and \eqref{eq:cross} yield the exact bound
+\[
+ J_c(w)\le\sum_{a\text{ unmatched}}(X(a)-c)-\delta(n-t).
+\]
+Together with \eqref{eq:subset}, this becomes
+\begin{equation}
+ \boxed{\quad
+ \frac{J_c(w)}n\le
+ 2B_0\frac tn\log\frac{2n}t-\delta\left(1-\frac tn\right).
+ \quad}                                               \label{eq:closing}
+\end{equation}
+Choose $B,B'$ large enough in terms of $c$, and then $n$ large.
+Equations \eqref{eq:t1}--\eqref{eq:t2} make the right side negative.
+This proves Theorem~\ref{thm:nearquad}.
+
+\paragraph{Precisely what deteriorates.}
+For $\kappa_n=M/n^2$, the same packing proof only gives
+\[
+ H_0\le C_1(c,B')\kappa_n^{-7},\qquad
+ t_1\le H_0^2+2^{H_0}.
+\]
+It extends to $\kappa_n^{-7}=o(\log n)$, for example
+$M\ge n^2/(\log n)^a$ with fixed $a<1/7$. It does not make
+$t_1=o(n)$ throughout $M=o(n^2)$. The second-group argument itself
+does not deteriorate with $\kappa_n$.
+
+\section{The three/four-occurrence certificate with relative errors}
+
+Here the hypothesis on the core is substantive. It is not inferred from
+global optimality.
+
+\begin{theorem}\label{thm:core}
+Let $S\ge0$ be an actual periodic function of period $Q$, and set
+\[
+ X(t)=S(t)+\sum_{p\in\Pset}w_pv_p(t),\quad 0\le w_p\le1.
+\]
+Assume that every active $p\in\Pset$ exceeds $M^{1/5}$, that
+$\gcd(p,Q)=1$, and that $Q=o(\log M)$. Put
+$r=\#\{p:w_p>0\}$ and $S_{\max}=\max S$. Then, uniformly in the
+shift and the weights, for all sufficiently large $M$ along this regime,
+\begin{equation}
+ \boxed{J_2(X)\le Q(r+S_{\max}).}                     \label{eq:fullcore}
+\end{equation}
+The proof retains all source prime powers; it discards no $o(M)$ set.
+\end{theorem}
+
+\subsection{Cap comparison and residual payments}
+Put $f_p=\min(w_pv_p,1)$, $Y=S+\sum_pf_p$ and $T_0=X-Y$.
+The function $T_0$ has a nonnegative prime-power indicator expansion,
+so $\sum_{a\le M}T_0(a)\le\sum_IT_0(b)$. Where $T_0>0$, a capped
+prime already contributes one; hence
+\[
+ (X-1)_+=(Y-1)_++T_0,
+ \qquad (X-c)_+\le(Y-c)_++T_0.
+\]
+Thus $J_c(X)\le J_c(Y)$. This does not turn $Y$ into another raw
+dual or transfer row balances to it.
+
+Fix a residue modulo $Q$ with $S<1$, and write
+\[
+ s=1-S,\quad u_p=\min(w_p,s),\quad
+ e_{pq}=(u_p+u_q-s)_+,
+\]
+\[
+ L(a)=\Bigl(\sum_p\min(f_p(a),s)-1-s\Bigr)_+,
+ \quad R(b)=\Bigl(\sum_p\min(f_p(b),s)-s\Bigr)_+.
+\]
+In row $p$, allow partners $q\le U_p=\sqrt{M/p}$, and let $g_p(b)$
+be the largest $e_{pq}$ among present eligible distinct primes; set it
+to zero unless $p\mid b$. Only rows $p\le M^{3/5}$ are needed.
+At every target,
+\begin{equation}
+ \sum_pg_p(b)\le2\Bigl(\sum_{p\mid b}u_p-s\Bigr)_+\le2R(b).
+                                                               \label{eq:rowbudget}
+\end{equation}
+For completeness, remove eligibility restrictions and let $U\ge V$
+be the largest two present weights. If $U+V\le s$, all prices vanish.
+Otherwise let $\mathcal T$ be the other positive rows, $k=|\mathcal T|$.
+The row sum is at most
+$U+V-s+\sum_{i\in\mathcal T}u_i+k(U-s)$.
+Its difference from $2(U+\sum_{i\in\mathcal T}u_i-s)$ is at least zero,
+because
+$\sum_{i\in\mathcal T}u_i-V+(k-1)(s-U)\ge0$.
+
+A source has at most four external occurrences. With at most two
+distinct external primes its residual is zero. With three distinct
+occurrences, every pair price is at least $L$, and each row has an
+eligible partner, so its total row payment is at least $3L$.
+With four distinct occurrences all pairs are mutually eligible:
+$q<M^{2/5}$ whereas the remaining two primes have product greater
+than $M^{2/5}$, implying $pq^2\le M$. Every perfect matching of the
+four primes has pair prices summing to at least $L$, so the rows pay
+at least $2L$.
+
+The previously discarded repeated pattern is $p^2qr$. Its residual is
+at most $e_{qr}$ because $\min(2w_p,s)\le1$. The two simple rows
+$q,r$ are mutually eligible and pay at least $2L$. Patterns $p^4$,
+$p^3q$ and $p^2q^2$ have zero residual. For four-occurrence sources
+only simple rows and simple partners will be counted below.
+
+\subsection{A common union for both source types}
+Fix a row, a residue, and a price level $z\ge0$. Put $y=M^{1/5}$ and
+\[
+ \mathcal B=\{q\in\Pset:q\ne p,\ y<q\le U_p,\ e_{pq}>z\},
+ \quad h=\sum_{q\in\mathcal B}\frac1q,\quad k=|\mathcal B|,
+ \quad N=\frac{M}{Qp}.
+\]
+If $\mathcal B$ is empty there is nothing to count. Otherwise
+$y\le U_p\le M^{2/5}$ and Chebyshev's estimate gives
+\begin{equation}
+ k\le U_ph,\qquad k\ll U_p/\log M,\qquad
+ k^2\ll (M/p)h/\log M.                              \label{eq:kerror}
+\end{equation}
+For the target union of $pq$ banks in that residue, the first moment is
+$Nh+O(k)$ and the second is at most $N(h+h^2)+O(k+k^2)$.
+Consequently its cardinality $T_p(z)$ satisfies
+\begin{equation}
+ T_p(z)\ge(1-o(1))\frac{Nh}{1+h}.                     \label{eq:union}
+\end{equation}
+This is a relative estimate even for arbitrarily small $h$:
+$k/(Nh)\le Q/U_p$ and $k^2/(Nh)\ll Q/\log M$. Also
+$h\le\log2+o(1)$.
+
+Let $D_{3,p}(z)$ count the three-distinct-occurrence sources seen in
+this row and level. Count all possible partners $q\in\mathcal B$ and
+third primes $r>y$, subtracting once when both partners belong to
+$\mathcal B$. This counts unordered pairs meeting $\mathcal B$ and
+is nonnegative on every integer. Multiple counts and
+\eqref{eq:kerror} give
+\[
+ D_{3,p}(z)\le N\sum_{q\in\mathcal B}\frac1q
+                    \sum_{y<r\le M/(pq)}\frac1r
+                     -\frac N2h^2+o(Nh).
+\]
+All rounding errors are $O(QNh/\log M)$, including the subtracted
+terms. Put
+\[
+ x(q)=5\log q/\log M\in[1,2].
+\]
+Uniform prime reciprocal estimates give the inner sum at most
+$\log(4-x(q))+o(1)$.
+Since the derivative of $\log(4-x)$ with respect to $\log x$ is
+at most $-1/3$, and reciprocal-prime mass in $\log x$ has cumulative
+mass at most $t+o(1)$, rearrangement gives
+\[
+ \sum_{q\in\mathcal B}\frac{\log x(q)}q\ge h^2/2-o(h).
+\]
+Hence
+\begin{equation}
+ D_{3,p}(z)\le Nh\bigl(\log3-\tfrac23h+o(1)\bigr).    \label{eq:D3}
+\end{equation}
+The error remains proportional to $h$, which is essential.
+
+For four-occurrence sources count only simple $p$ and simple partners
+$q$. The remaining two primes $r,t>y$ may be equal and obey
+$rt\le M/(pq)<y^3$. The unordered reciprocal sum is at most
+\[
+ \gamma+o(1),\qquad
+ \gamma=\frac12\int_1^2\frac{\log(3-x)}x\,dx<0.15.
+\]
+The diagonal adds only $\frac12\sum_{r>y}r^{-2}=o(1)$. The number
+of pair moduli $rt\le V$, with $y^2\le V\le y^3$, is
+$O(V/\log M)$, so again all floor errors are $O(QNh/\log M)$.
+It follows that
+\begin{equation}
+ D_{4,p}(z)\le Nh(0.15+o(1)).                          \label{eq:D4}
+\end{equation}
+The strict integral bound can be checked with a four-panel trapezoid
+upper sum for the convex function $\log(3-x)/x$; it is less than
+$0.149011$. No numerical optimization is used as a theorem.
+
+Put $A_0=\frac23\log3+0.15$ and $B_0'=4/9$. Direct calculation gives
+\[
+ \max_{h\ge0}(1+h)(A_0-B_0'h)
+ =A_0+\frac{(A_0-B_0')^2}{4B_0'}<0.990304<0.991.
+\]
+Thus \eqref{eq:union}--\eqref{eq:D4} imply, uniformly in all rows,
+residues, levels and weights,
+\[
+ \tfrac23D_{3,p}(z)+D_{4,p}(z)\le0.995T_p(z)
+\]
+for sufficiently large $M$ along $Q=o(\log M)$. Integrating over
+$z$ and using the source payments and \eqref{eq:rowbudget} proves
+\begin{equation}
+ \sum_{\substack{a\le M\\a\equiv\rho\ (Q)}}L(a)
+ \le0.995\sum_{\substack{b\in I\\b\equiv\rho\ (Q)}}R(b).
+                                                               \label{eq:residual}
+\end{equation}
+The two source types use one common target union and one row budget.
+
+\subsection{Restoring the base and single-prime terms}
+Let $B=(S-1)_+$ and
+$G_p=(S+f_p-1)_+-B$. For $S\ge1$ put $L=R=0$. Everywhere,
+\[
+ (Y-1)_+=B+\sum_pG_p+R,\qquad
+ (Y-2)_+\le B+\sum_pG_p+L.
+\]
+The discrepancy of the periodic base is at most $QS_{\max}$.
+Within each residue $G_p$ is nondecreasing in $v_p$, starts at zero,
+and has total increment mass at most one. Expand it over \emph{all}
+prime-power levels. Each corresponding congruence count differs between
+the prefix and the interval by at most one, so its total discrepancy is
+at most $Q$ per prime, independent of the number of levels. Summing
+\eqref{eq:residual} gives the stronger estimate
+\[
+ J_2(Y)\le Q(r+S_{\max})-0.005\sum_{b\in I}R(b).
+\]
+The cap comparison proves \eqref{eq:fullcore}.
+
+At a genuine original raw extremum, $r\le\pi(C_0n)$ and
+$cn<M<16n^2$. If a justified one-sided cap reduction gives the stated
+core with $Q=o(\log M)$ and $S_{\max}\le\log_2M$, then
+$Q(r+S_{\max})=o(n)$. But on the original full tail,
+\[
+ J_2(X)-J_{2+\delta}(X)\ge\delta n,
+\]
+so positive surplus is impossible in this entire class, even when
+$n/M\to0$.
+
+\paragraph{The unproved bridge.}
+A nonzero raw valuation function on unbounded integers is not periodic.
+A bounded capped small-prime profile can be periodic, but the product
+of its moduli need not be $o(\log M)$. No such representation or
+small-error reduction has been derived here for arbitrary extremal
+weights. The theorem therefore cannot be applied to all optimizers.
+
+\section{Large-prime reductions and what they actually remove}
+
+The accompanying audit gives full details of both supplied reductions.
+Their relevant quantitative statements are recorded here so that the
+scope of each is explicit.
+
+\subsection{Repeated active cofactors near the tail scale}
+Retain weights at least a fixed $b>0$, call their load $Y$, and take
+sources $2<Y(a)\le L$. Put $k=\lceil L/b\rceil$,
+$P=n/(\log n)^{1/(4k)}$, and $H=(\log n)^{1/(2k)}$.
+Choose an active $p\in[P,C_0n]$ and let $d$ be the retained active
+part of $a/p$. For each fixed $d$, the number $m_d$ of source copies is
+\[
+ m_d\le\frac Md\sum_{P\le p\le C_0n}\frac1p
+ =\frac Md\,O\!\left(\frac{\log\log n}{\log n}\right).
+\]
+This includes all inactive cofactors in $a=dpu$.
+The original paired rows give $\sum_Iz_bY(b)=O(n)$.
+Remove targets with $Y>H$; there are $O(n/H)=o(P)$ of them.
+Each remaining bank has $(1-o(1))M/d$ positions, since $M/d\ge P$.
+A surviving target has at most $H/b$ retained occurrences and hence
+only $O_{b,k}(H^k)=O_{b,k}(\sqrt{\log n})$ possible divisors $d$.
+Uniformly spreading all $m_d$ copies over their banks gives point load
+\[
+ O_{b,k}\!\left(\frac{\log\log n}{\sqrt{\log n}}\right)=o(1).
+\]
+It proves the claimed matching. More strongly its support has $O(n)$
+hot targets, so the number of these sources is itself
+\begin{equation}
+ O_{b,k}\!\left(n\frac{\log\log n}{\sqrt{\log n}}\right)=o(n).
+                                                               \label{eq:nearn}
+\end{equation}
+Equation \eqref{eq:subset} converts this to $o(n)$ original weighted
+demand. Discarded positive weights must still be covered by a valid
+normalization budget; the matched divisor is the active part, not
+automatically the whole original cofactor.
+
+\subsection{Triple-large sources with a periodic lower load}
+Let $\log M/\log P\le K_1=O(1)$ and let $\mathcal R$ consist of
+active primes at least $P$ occurring with another such prime in a
+source. Deleting the other prime gives a hot $p$-divisible bank with
+at least $P$ positions. Exact rows imply
+\[
+ D_p(A)\ge P,\qquad \sum_{p\in\mathcal R}D_p(A)\le K_1n,
+ \qquad |\mathcal R|\le K_1n/P.
+\]
+Suppose an actual periodic lower load $S$ has period $Q$, the three
+active primes $p,q,r\ge P$ are coprime to $Q$, and
+$S(a)+w_p+w_q>1$. In a fixed row and residue, the $pq$ banks have
+natural lengths $L_q=M/(Qpq)\ge P/Q$ and intersections at most
+$L_q/q'+1$. For $\epsilon=nQ/P^2\to0$, their union has size
+$(1-O_{K_1}(\epsilon))\sum_qL_q$, whereas all corresponding sources
+with a third $r\in\mathcal R$ number at most
+$O_{K_1}(\epsilon)\sum_qL_q$. Residues are disjoint and their union
+is paid by $D_p(A)$. Summing rows gives
+\begin{equation}
+ |T|=O_{K_1}(n^2Q/P^2)=o(n).                           \label{eq:tripleperiod}
+\end{equation}
+The periodic load must be a genuine lower load on the actual targets,
+and the third prime must be active. These conditions are needed.
+
+\subsection{A varying-core reduction without a common period}
+There is also the following consequence of genuine optimality:
+\begin{equation}
+ \boxed{\quad
+ \#\{a\in A:\sum_{p\ge P,\ w_p>0}v_p(a)\ge3\}
+ \ll\frac{n^2M}{P^5}+\frac{nM}{P^4},
+ \quad P/n^{3/5}\longrightarrow\infty.
+ \quad}                                                       \label{eq:tripleplain}
+\end{equation}
+Here $M\le16n^2$. For large $n$, $P^4>M$, so each such source has
+exactly three large occurrences and a remaining cofactor
+$u\le U=M/P^3<P$.
+
+For distinct $p,q,r$, fix $p$ and choose any witness $u_qpqr$ for each
+partner $q$. The bank of $pqu_q$ is hot and has natural size
+$L_q=M/(pqu_q)\ge P$. Since all $u_q<P$,
+\[
+ \operatorname{lcm}(pqu_q,pq'u_{q'})
+ =pqq'\operatorname{lcm}(u_q,u_{q'}),
+\]
+so intersections are at most $L_q/q'+1$. There are at most
+$K_1n/P$ large active primes, and the union has at least
+$(1-O(n/P^2))\sum_qL_q$ positions, bounded by $D_p(A)$.
+For each $p,q$ there are at most $|\mathcal R|U$ sources, hence at
+most $(|\mathcal R|U/P)L_q$. Summing rows gives the first term of
+\eqref{eq:tripleplain}.
+
+For $up^2q$, group by the doubled $p$ and use the same $pqu_q$ banks;
+there are only $U$ sources per $p,q$, giving the second term.
+For $up^3$, at most $U$ sources per active large prime gives the same
+bound. Thus repetitions are included. At $P=n^{3/5}\log n$,
+\eqref{eq:tripleplain} is $O(n/(\log n)^5)$ and its original weighted
+demand is $O(n\log\log n/(\log n)^5)=o(n)$.
+This leaves all lower ranges and does not prove coefficient two.
+
+\section{Exact obstructions to two proposed closing shortcuts}
+
+\subsection{An actual union discrepancy much larger than the root count}
+Let $y\to\infty$, $N=y^2$, $\mathcal P_y=\{p\le y\}$ and
+$Q_y=\prod_{p\le y}p$. Write
+$R(C)=\#\{1\le j\le N:\gcd(C+j,Q_y)=1\}$.
+The prefix contains only one and primes above $y$ among these rough
+numbers, so the prime number theorem gives
+\[
+ R(0)=1+\pi(y^2)-\pi(y)
+      =(1/2+o(1))N/\log y.
+\]
+On the other hand, averaging over all $Q_y$ shift classes and applying
+Mertens' product theorem gives
+\[
+ \frac1{Q_y}\sum_{C\bmod Q_y}R(C)
+ =N\frac{\varphi(Q_y)}{Q_y}
+ =(e^{-\gamma}+o(1))N/\log y.
+\]
+Both classical asymptotics are stated in \cite{Tao}. Therefore some
+actual interval $J$ of length $N$ satisfies
+\begin{equation}
+ \begin{split}
+ &\#\{a\le N:\exists p\le y,\ p\mid a\}
+   -\#\{b\in J:\exists p\le y,\ p\mid b\}\\
+ &\hspace{12mm}\ge(e^{-\gamma}-1/2+o(1))N/\log y.
+ \end{split}                                                \label{eq:unioncounter}
+\end{equation}
+There are only $\pi(y)\sim y/\log y$ roots. Thus the loss divided
+by the root count tends to infinity. Every individual and composite
+multiple count is nevertheless exactly $\lfloor N/d\rfloor$ or
+$\lfloor N/d\rfloor+1$. Replacing $2^{H_0}$ by $O(H_0)$ without
+additional structure is false.
+
+The accompanying note lifts this to a complete tail with hot carriers
+and cold complements. Explicitly take
+\[
+ R_0=\lceil3\log_2\log N\rceil,\quad
+ h=2^{\lfloor cR_0\rfloor+1},\quad M=hN,\quad
+ w_2=1/R_0,
+\]
+with other prices zero. The full tail is $A=\{h,2h,\ldots,Nh\}$,
+so $n=N$ and $M=o(n^2)$. For sources $hb$ with a factor $p\le y$
+and $v_2(b)\le R_0$, choose carrier $hp$. They are hot, their
+complements are cold, and all carriers are at most $B'n$ for large
+$N$. The fixed-carrier Hall deficit is $\gg N/\log N$, while the
+number of all hot integers below $B'n$ is $O(N/(\log N)^3)$.
+
+\emph{This is not a counterexample at a positive global optimum.}
+Its hot target count satisfies $K/n\to\infty$, and an adaptive choice
+of the common carrier $h$ repairs the matching entirely. It identifies
+exactly why fixed carrier selection and full-tail membership alone
+cannot supply the needed general estimate.
+The displayed deficit is itself $o(n)$: it refutes the stronger
+$O(H_0)$ shortcut, not the sufficient general $o(n)$ target.
+
+\subsection{A diffuse core cannot simply be replaced by its mean}
+Let $S(t)=\sum_{p\in E}w_pv_p(t)$ be any restriction of genuine
+positive-price rows of a paired optimum. Then
+$\sum_AS=\sum_Iz_bS(b)$. For any constant $t\ge0$ put
+\[
+ E_t=\sum_{a\in A}|S(a)-t|+\sum_{b\in I}z_b|S(b)-t|.
+\]
+The triangle inequality gives the exact lower bound
+\begin{equation}
+ \boxed{E_t\ge(F-n)t.}                                \label{eq:constantobstruction}
+\end{equation}
+Indeed, the difference between the two signed centered sums is
+$(F-n)t$. Since $F>cn$, an $o(n)$ common selected-budget
+approximation requires $t=o(1)$; it then also forces
+$\sum_AS=o(n)$. Thus an unspecified $O(n)$ error cannot be absorbed
+by the strict $0.005$ margin in the row certificate.
+
+\subsection{A valid local state transfer, with its missing hypothesis}
+Let $E$ be primes at most $y$, $\mu_E=\sum_{p\in E}1/p$, and let
+$d=\prod_{p\in E}p^{e_p}$ specify an exact state. For $\ell$ coprime
+to $E$, put $L=M/(d\ell)$. If $L\ge y$, then
+\begin{equation}
+ \#\{b\in I:d\ell\mid b,\ v_p(b)=e_p\ (p\in E)\}
+ \ge L(1-2\mu_E)-1.                                  \label{eq:state}
+\end{equation}
+There are at least $L-1$ multiples of $d\ell$; exclude those for which
+the quotient has an additional factor from $E$. Their number is at
+most $L\mu_E+|E|\le L\mu_E+y\mu_E\le2L\mu_E$.
+Different exact states use disjoint target sets. Therefore
+$\mu_E=o(1)$ gives a genuine relative transfer without a common
+period, whenever the banks have $L\ge y$.
+
+This lemma does not establish $\mu_E=o(1)$ for the entire relevant
+core at every optimizer. Existing heavy-state estimates supply it only
+below a cutoff depending on the fixed weight threshold. They do not
+reach all primes up to $M^{1/5}$ for arbitrary small positive weights,
+nor do they justify combining separate state matchings with an
+independent external-prime budget.
+
+\section{The remaining general obligation}
+
+The near-quadratic theorem forces any unbounded sequence of positive
+global extrema into $M/n^2\to0$. It does not resolve either sparse
+$n/M\to0$ or positive-density sequences within that range.
+For the two-group route, the outstanding obligation is to pay the
+first group $A_1$ with $o(n)$ exceptional source demand, jointly with
+the already controlled second group. The payment must use genuine
+optimality and adaptive carrier choices, and must control multiway
+overlap. Pairwise cold gcd is not enough: the three roots $pq,pr,qr$
+with unit prices demand three payments at a target divisible by $pqr$,
+whose hinge is only two.
+
+One sufficient, explicitly unproved assertion is a uniform adaptive
+carrier assignment for the complete tail: all but $o(n)$ sources have
+a carrier $d\mid a$ with $X(a/d)\le1$, assigned to interval multiples
+so that at every target the sum of their carrier payments is at most
+$X(b)-1$. Such an assertion, combined with \eqref{eq:subset}, would
+make \eqref{eq:closing} negative throughout the remaining range.
+Neither this assertion nor a direct substitute bounding $J_c$ is
+proved here. The periodic-core theorem supplies one valid conditional
+payment construction, not the missing general normalization.
+
+A weaker one-sided normalization than common selected-budget $L^1$
+approximation would suffice for the core route. Specifically, if one
+could construct a load $Y$ covered by Theorem~\ref{thm:core}, with
+$Q(r+S_{\max})=o_\delta(n)$, such that
+\[
+ J_2(X)\le J_2(Y)+\lambda\sum_{b\in I}R_Y(b)+o_\delta(n),
+ \qquad \lambda<0.005,
+\]
+then its residual margin would imply $J_2(X)=o_\delta(n)$, contradicting
+$J_2(X)\ge J_{2+\delta}(X)+\delta n>\delta n$.
+No such uniform one-sided comparison has been established here.
+
+To obtain the requested unrestricted asymptotic through the surplus
+route it would suffice, for each $\delta>0$, to exclude positive
+extrema with arbitrarily large full tails. Finite tail sizes are bounded
+by \eqref{eq:mgf}; this would give a uniform $J_{2+\delta}\le C_\delta$,
+then a uniform raw fractional coefficient two, and finally the integer
+asymptotic by \cite{WangRaw}. That last universal exclusion remains
+unproved. No exact $2n$ conclusion follows from this checkpoint.
+
+\begin{thebibliography}{9}
+\small
+\setlength{\itemsep}{1pt}
+\bibitem{WangRaw} Ziming Wang, \emph{Interval divisor covers---Erd\H{o}s
+Problem 708}, raw transfer theorem, repository source inspected
+23 November 2026. Exact source identifiers are in the accompanying manifest.
+\url{https://github.com/science-prince/erdos-708-interval-divisor-covers/blob/main/papers/main-paper/raw-transfer.tex}.
+\bibitem{WangMain} Ziming Wang, same manuscript, quadratic range
+appendix and main paper:
+\url{https://github.com/science-prince/erdos-708-interval-divisor-covers/blob/main/papers/main-paper/main.tex}.
+\bibitem{Fan} Kai Fan, \emph{Numerically explicit estimates for the
+distribution of rough numbers}, Journal of Number Theory 260 (2024),
+120--150. \href{https://doi.org/10.1016/j.jnt.2024.01.008}{doi:10.1016/j.jnt.2024.01.008}.
+\bibitem{Tao} Terence Tao, \emph{Mertens' theorems}, 11 December 2013
+(the two classical inputs to \eqref{eq:unioncounter}).
+\url{https://terrytao.wordpress.com/2013/12/11/mertens-theorems/}.
+\end{thebibliography}
+\end{document}

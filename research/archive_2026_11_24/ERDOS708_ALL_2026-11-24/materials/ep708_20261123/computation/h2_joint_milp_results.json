@@ -1,0 +1,179 @@
+[
+  {
+    "M": 20,
+    "primes": [
+      2,
+      3,
+      5,
+      7,
+      11,
+      13
+    ],
+    "source_hinges": 5,
+    "binary_phase_variables": 175,
+    "seconds": 3.155187764999937,
+    "status": 0,
+    "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+    "dual_bound": 0.0,
+    "phases": [
+      [
+        50,
+        64
+      ],
+      [
+        40,
+        81
+      ],
+      [
+        24,
+        125
+      ],
+      [
+        54,
+        343
+      ],
+      [
+        139,
+        1331
+      ],
+      [
+        175,
+        2197
+      ]
+    ],
+    "incumbent_float": 0.0,
+    "weights": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "lhs": "0",
+    "rhs": "0",
+    "delta": "0"
+  },
+  {
+    "M": 40,
+    "primes": [
+      2,
+      3,
+      5,
+      7,
+      11,
+      13
+    ],
+    "source_hinges": 12,
+    "binary_phase_variables": 347,
+    "seconds": 30.027358434000234,
+    "status": 1,
+    "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+    "dual_bound": -17.733142663148072,
+    "phases": [
+      [
+        66,
+        128
+      ],
+      [
+        103,
+        243
+      ],
+      [
+        41,
+        625
+      ],
+      [
+        88,
+        343
+      ],
+      [
+        45,
+        1331
+      ],
+      [
+        177,
+        2197
+      ]
+    ],
+    "incumbent_float": 0.0,
+    "weights": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "lhs": "0",
+    "rhs": "0",
+    "delta": "0"
+  },
+  {
+    "M": 60,
+    "primes": [
+      2,
+      3,
+      5,
+      7,
+      11,
+      13,
+      17,
+      19
+    ],
+    "source_hinges": 21,
+    "binary_phase_variables": 639,
+    "seconds": 30.03147412400085,
+    "status": 1,
+    "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+    "dual_bound": -31.64752532469857,
+    "phases": [
+      [
+        122,
+        128
+      ],
+      [
+        93,
+        243
+      ],
+      [
+        134,
+        625
+      ],
+      [
+        358,
+        2401
+      ],
+      [
+        144,
+        1331
+      ],
+      [
+        170,
+        2197
+      ],
+      [
+        333,
+        4913
+      ],
+      [
+        392,
+        6859
+      ]
+    ],
+    "incumbent_float": 0.0,
+    "weights": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "lhs": "0",
+    "rhs": "0",
+    "delta": "0"
+  }
+]

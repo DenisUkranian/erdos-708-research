@@ -1,0 +1,100 @@
+\section{Disjoint support components: a dependent consequence and scope check}
+\label{bs:section}
+
+The aggregate-core estimates suggest covering prime-disjoint source
+components separately. That argument is valid, but for components with
+$o(\log M)$ primes it does not produce a previously untreated integer
+class: an elementary smooth-number count and the inherited quadratic
+theorem already give an eventual exact $2n$ bound. We record the stronger
+dependent consequence to make this limitation explicit.
+
+\begin{lemma}[A uniform count on a small prime support]
+\label{bs:rankin}
+For every finite prime set $Q$ with $|Q|\le k$, the number $\Psi_Q(M)$
+of $Q$-smooth positive integers at most $M$ satisfies
+\begin{equation}
+ \Psi_Q(M)\le M^{1/4}\exp(Ck^{3/4}),
+ \qquad C=\frac4{3(1-2^{-1/4})}.
+ \label{bs:smooth-count}
+\end{equation}
+The bound is uniform in the actual prime values.
+\end{lemma}
+
+\begin{proof}
+Rankin's inequality at exponent $1/4$ gives
+\[
+ \Psi_Q(M)\le
+ M^{1/4}\sum_{\substack{h\ge1\\h\ Q\text{-smooth}}}h^{-1/4}
+ =M^{1/4}\prod_{p\in Q}(1-p^{-1/4})^{-1}.
+\]
+If the primes are listed as $p_1<\cdots<p_f$, then $p_j\ge j+1$.
+Using $-\log(1-x)\le x/(1-x)$, we obtain
+\[
+ \begin{split}
+ \log\prod_{p\in Q}(1-p^{-1/4})^{-1}
+ &\le\frac1{1-2^{-1/4}}\sum_{j=1}^f(j+1)^{-1/4}\\
+ &\le\frac4{3(1-2^{-1/4})}k^{3/4}.
+ \end{split}
+\]
+The empty support also satisfies the bound, since it contains only
+the smooth integer one.
+\end{proof}
+
+\begin{corollary}[An inherited exact bound for disjoint small supports]
+\label{bs:exact}
+Let $k(M)=o(\log M)$. Suppose the prime support of a distinct source set
+$A\subseteq[2,M]$ can be partitioned into disjoint blocks
+$P_1,\ldots,P_s$, each of size at most $k(M)$, and every source has
+\emph{all} its prime factors in a single block. Then, for all sufficiently
+large $M$, uniformly in the partition, the prime values, and every
+positive $M$-term interval,
+\[
+ \tau(A,I)\le2|A|.
+ \]
+\end{corollary}
+
+\begin{proof}
+Group the sources as $A_i$, supported on $P_i$, and discard empty
+groups. Let $n_i=|A_i|$. Lemma~\ref{bs:rankin} gives, uniformly in $i$,
+\[
+ n_i\le M^{1/4}\exp(Ck(M)^{3/4})
+      =M^{1/4+o(1)}<\sqrt M/4
+\]
+for large $M$. Hence $M\ge16n_i^2$ for every group.
+The ambient quadratic theorem of \cite{Wang} supplies a cover $B_i$
+of $A_i$ in the original interval $I$ with $|B_i|\le2n_i$.
+
+The union $B=\bigcup_iB_i$ covers all of $A$.
+Indeed, each demanded prime belongs to a unique block. Its entire
+source demand is supplied by that block's cover, which is contained
+in $B$. Possible overlaps of different $B_i$ therefore cause no loss:
+there is no additional source demand at that prime from another
+block. Finally,
+$|B|\le\sum_i|B_i|\le2\sum_i n_i=2|A|$.
+\end{proof}
+
+For comparison, the aggregate-core bound with no outside primes gives
+\[
+ \mathcal L_{\rm raw}(A_i,I)
+ \le(2+\delta)n_i+B_{\delta,k},\qquad
+ B_{\delta,k}\le D_\delta^k,
+\]
+and rounding adds at most $k$ positions. Applying this only to groups
+with $n_i>\sqrt M/4$, while using the exact quadratic bound for smaller
+groups, would give the valid estimate
+\[
+ \tau(A,I)\le(2+\delta)|A|
+       +\frac{4|A|}{\sqrt M}(B_{\delta,k}+k).
+\]
+For $k=o(\log M)$ its last term is $o(|A|)$.
+However, the smooth-number argument shows that eventually every group
+is already small, so the fractional route is unnecessary for this class.
+
+The component hypothesis is stronger than a bound on the number of
+distinct primes in each individual source. Different sources can connect
+many prime values through overlaps. It also differs from a shared-core
+geometry, where common primes occur across many source groups; in that
+case the prime-disjoint union argument is unavailable.
+The auxiliary weighted block-gluing theorem permits such a shared load
+only when its weights are diffuse, and it does not remove the arbitrary
+shared-core obstruction.

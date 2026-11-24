@@ -1,0 +1,65 @@
+\section{Raw fractional covers and worst-case leading coefficients}\label{sec:raw}
+For a positive original instance, define
+\[
+ L_{\rm raw}(A,I)=\min\left\{\sum_{b\in I}x_b:0\le x_b\le1,
+ \ \sum_{b\in I}v_p(b)x_b\ge E_p\ \text{for all demanded }p\right\}.
+\]
+Let $\ell(n)$ and $h(n)$ be the suprema of $L_{\rm raw}$ and $L_{\rm cap}$, respectively, over positive original instances with $n$ sources, and put $\ell(0)=h(0)=0$. The boxes are part of both definitions. Pointwise,
+\[
+ L_{\rm raw}(A,I)\le L_{\rm cap}(A,I)\le\tau(A,I),\qquad
+ \ell(n)\le h(n)\le g(n).
+\]
+An individual raw feasible vector need not remain feasible after demand capping. The following proof never makes that substitution.
+
+\begin{theorem}[Raw finite envelope]\label{thm:raw}
+For $n\ge1$, set
+\[
+ G_n=\max_{0\le m\le n}\{\ell(m)+2(n-m)\},\qquad
+ K_n=\lceil G_n\rceil,\qquad Z_n=2K_n.
+\]
+Then, for every original interval length,
+\[
+ g(n)\le K_n+\pi(Z_n)-1.
+\]
+Moreover,
+\[
+ \limsup_{n\to\infty}\frac{g(n)}n
+ =\limsup_{n\to\infty}\frac{h(n)}n
+ =\limsup_{n\to\infty}\frac{\ell(n)}n.
+\]
+\end{theorem}
+\begin{proof}
+The cited public linear bound ensures $\ell(m)\le12m$, so $2n\le G_n\le12n$ and $4n\le Z_n\le24n$. Work in a positive interval and abbreviate $K=K_n$, $Z=Z_n$. Retain the $m$ original sources all of whose primes are at most $Z$. In a contained interval of their own maximum length, solve their raw boxed program and extend the solution by zero. A vertex has at most $\pi(Z)$ fractional entries. Upward rounding therefore covers this subset on a set $B_0$ of size at most
+\[
+ \lceil\ell(m)\rceil+\pi(Z)-1\quad(m>0).
+\]
+For $m=0$, use $B_0=\varnothing$.
+
+For each remaining source choose one prime $p_i>Z$ and write $a_i=p_id_i$. Neither uniqueness of this prime nor the absence of further large primes from $d_i$ is required. If $t_p$ sources chose $p$, distinctness gives $t_p\le\lfloor M/p\rfloor$. Choose that many distinct interval multiples for each chosen prime, and let their union be $K'$. It has at most $n-m$ elements. Different chosen primes may use the same element, and any overlap with $B_0$ is harmless because no chosen prime occurs in the retained sources.
+
+Place every nonunit $d_i$ on a fresh multiple outside $B_0\cup K'$ and all earlier cofactor positions. Its candidate set has at least $\lfloor M/d_i\rfloor\ge p_i>Z$ elements. For $m>0$, the eventual cardinality budget is at most
+\[
+ \lceil\ell(m)\rceil+\pi(Z)-1+2(n-m)
+ \le K+\pi(Z)-1\le2K-1=Z-1.
+\]
+Here $Z=2K$ is even and $\pi(2K)\le K$; apart from two, every counted prime is one of the $K-1$ odd integers from three to $2K-1$. Thus each successive fresh placement is possible. If $m=0$, at most $2n\le K$ positions are needed and the same argument is immediate. All cofactor positions are distinct from the first two parts, so repeated factors and shared prime powers are fully paid. The decomposition $\prod A=(\prod A_0)(\prod_i p_i)(\prod_i d_i)$ proves the finite bound. Zero and negative intervals are handled as before.
+
+For completeness, the worst-case raw coefficient is at least two. Take $s$ odd primes $p_1<\cdots<p_s$ with $p_s/p_1<4/3$, let $A=\{p_ip_j:i\le j\}$, $n_s=s(s+1)/2$, $M=p_s^2$, and $C=\prod_i p_i^2$. In the centered $M$-term interval about $C$, any relevant prime square or product of two relevant primes exceeds $(M-1)/2$ and divides $C$. Consequently the total relevant valuation is at most one off $C$ and equals $2s$ at $C$. Each source-prime demand is $s+1$. Summing the raw constraints and using $x_C\le1$ yields
+\[
+ \ell(n_s)\ge s(s+1)-(2s-1)=2n_s-2s+1.
+\]
+Such clusters exist for unbounded $s$: bounded occupancy of all geometric intervals of ratio $4/3$ would make the reciprocal-prime sum converge, contrary to Euler's harmonic-product argument. This familiar close-prime lower mechanism is consistent with the classical lower-bound scale \cite{ES1959}.
+
+Write $\gamma=\limsup\ell(n)/n$, so $2\le\gamma\le12$. For every $\epsilon>0$ there is $D_\epsilon<\infty$ such that $\ell(m)\le(\gamma+\epsilon)m+D_\epsilon$ for every $m$. Therefore $G_n\le(\gamma+\epsilon)n+D_\epsilon$. Since $Z_n\le24n$ and the elementary prime estimate above gives $\pi(Z_n)=o(n)$, the finite bound implies $\limsup g(n)/n\le\gamma+\epsilon$. Let $\epsilon\downarrow0$ and use $\ell\le h\le g$ for the reverse inequalities.
+\end{proof}
+
+The sharper capped finite envelope retained in the historical fourth checkpoint is
+\[
+ F_n=\max_{0\le m\le n}\{h(m)+2(n-m)\},\quad
+ Z'_n=\lceil\max(4n,F_n)\rceil,\quad
+ g(n)\le\lceil F_n\rceil+\pi(Z'_n)-1.
+\]
+Indeed, for $M\ge16n^2$ use Appendix~\ref{app:quadratic}; otherwise $Z'_n>\sqrt M$ and Lemma~\ref{lem:extension} applies with the retained-subset optimum at most $h(m)$. The raw envelope is often numerically looser but needs no size gate.
+
+If the unproved assertion $\ell(m)\le2m$ held for every $m$, Theorem~\ref{thm:raw} would give $g(n)\le2n+\pi(4n)-1=(2+o(1))n$. It would still not prove the exact integer inequality $g(n)\le2n$. Equality of worst-case coefficients is compatible with a linear integrality gap on particular instances.
+

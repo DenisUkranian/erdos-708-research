@@ -1,0 +1,183 @@
+{
+  "title": "Erdos 708 continuation bundle",
+  "date": "2026-11-23",
+  "scope": "Internal research proofs and inherited dependencies; unrestricted conjectures remain unproved in this investigation",
+  "hash_scope": "All deliverable files except this manifest and the archive itself",
+  "files": [
+    {
+      "path": "README.txt",
+      "size_bytes": 5144,
+      "sha256": "af052e8220908cbf3a6113a282938c055bba856145b74563c1a7ae6476906aa1"
+    },
+    {
+      "path": "STATUS.json",
+      "size_bytes": 3094,
+      "sha256": "82bcac9404a9ced55c352ccc68c31492a5260d8a8e62843a243f44d3635d0e62"
+    },
+    {
+      "path": "analytic/CONTROLLED_CORE_SINGLE_REMAINDER.md",
+      "size_bytes": 11504,
+      "sha256": "28cce14b7ad2d66e191e88ed87b37eebeada8079bbb2bd14ca197233f8d045aa"
+    },
+    {
+      "path": "analytic/DIFFUSE_CORE_SINGLE_REMAINDER.md",
+      "size_bytes": 14494,
+      "sha256": "f4223a895bc1186de8bd6fe47fb7b95cecb713a25b7fcdf095f16c9e5403e629"
+    },
+    {
+      "path": "analytic/GLUING_ARBITRARY_PURE_CORE.md",
+      "size_bytes": 18255,
+      "sha256": "c5753100f38a005269269f39d50b7a2f5bfd0a6bc4f3e78cf396f313092f8981"
+    },
+    {
+      "path": "analytic/SHARED_CORE_POLYLOGARITHMIC.md",
+      "size_bytes": 16210,
+      "sha256": "b5df2410cc24d88ee75ab39629ecdc69da051fc51b6041ded4c58066eae6b967"
+    },
+    {
+      "path": "combinatorial/DISCOUNTED_ADAPTIVE_CERTIFICATE.md",
+      "size_bytes": 13333,
+      "sha256": "43bdbbdde7085303d95ff3d8b4da95025de5e556e336b5fd7538df914b53f7a4"
+    },
+    {
+      "path": "combinatorial/MIXED_SEPARATED_SUPPORT_CERTIFICATE_AUDIT.md",
+      "size_bytes": 9883,
+      "sha256": "11a836e0df4e0594edc6468edecc0da933503afbe8ef331e33ce003a26204b93"
+    },
+    {
+      "path": "combinatorial/PRIME_BLOCK_GLUE_AND_COMPONENT_COVERS.md",
+      "size_bytes": 15094,
+      "sha256": "48e71bc8e6d44af2267a531fd223d7be52a1b98c6457764f499bc5f128eee0c6"
+    },
+    {
+      "path": "combinatorial/UNIFORM_RAW_MOMENTS.md",
+      "size_bytes": 7706,
+      "sha256": "9f74623460bc54ff61fd081598f1671aadc1106dd1eb620187cce1e9b935b00a"
+    },
+    {
+      "path": "computation/CONTROLLED_CORE_SINGLE_REMAINDER_AUDIT.md",
+      "size_bytes": 13114,
+      "sha256": "4821d445ad4e736d79591039276f880abe85006315435eb107f4a82b03d50563"
+    },
+    {
+      "path": "computation/DIFFUSE_CORE_SINGLE_REMAINDER_AUDIT.md",
+      "size_bytes": 11679,
+      "sha256": "2914a3465cc58b25f0316f99353041782001a41902e00f3799e0493d7e288619"
+    },
+    {
+      "path": "computation/DISJOINT_PRIME_BLOCKS_SCOPE_AUDIT.md",
+      "size_bytes": 3940,
+      "sha256": "16d8d8551f3ad5a9d6df24c09a755904c93f08e58e0bba6c5f5a418ae28b7d86"
+    },
+    {
+      "path": "computation/HEREDITARY_RAW_INTEGER_TRANSFER.md",
+      "size_bytes": 8413,
+      "sha256": "a3b319734030481fa397e07c06c629b8bafc8130f383b5e055216c21ea5d2bc6"
+    },
+    {
+      "path": "computation/SHARED_CORE_POLYLOGARITHMIC_AUDIT.md",
+      "size_bytes": 10694,
+      "sha256": "a87168416fb549de045e1fab5c99e890d69fce568c4312af5cb95e1ece9e262c"
+    },
+    {
+      "path": "computation/aggregate_tail_count_example.json",
+      "size_bytes": 584,
+      "sha256": "e8b74ec6771128f486dcf20e0e206cf82806a64249bff7be3e7ad980a646eee0"
+    },
+    {
+      "path": "erdos708_continuation.pdf",
+      "size_bytes": 524301,
+      "sha256": "d9ec1f3940ea1b529cf7d2b599f007bbee63325799ed00204af0c4c3d25feffb"
+    },
+    {
+      "path": "erdos708_continuation.tex",
+      "size_bytes": 10530,
+      "sha256": "9826a2788802551a2cc2802f40008280f07be528181ce221ee7146e2340f7277"
+    },
+    {
+      "path": "inherited/analytic/DENSE_GROWING_SUPPORT.md",
+      "size_bytes": 8521,
+      "sha256": "dee8b7f21cb4af40f980a9bb8403cbe89c65555a806810e557541a26a928c37c"
+    },
+    {
+      "path": "inherited/analytic/DIFFUSE_RAW_WEIGHTS.md",
+      "size_bytes": 12866,
+      "sha256": "daf0bc7331a63088dc3b04f6a0abd51c03535b7123aa029667645363edfcbd2a"
+    },
+    {
+      "path": "inherited/analytic/FIXED_HEAVY_CORE.md",
+      "size_bytes": 13099,
+      "sha256": "446b7209bcb4ee8aeb3543f8789d67988057b5f9ac20b17d0081675dc1a839ad"
+    },
+    {
+      "path": "inherited/analytic/SEPARATED_PRIME_BANDS.md",
+      "size_bytes": 8692,
+      "sha256": "718443ac96af497d080e67934e891920e1c62886c0cc1441b1d939132701a860"
+    },
+    {
+      "path": "inherited/analytic/SUBEXPONENTIAL_DENSE_SUPPORT.md",
+      "size_bytes": 8291,
+      "sha256": "c7e8f1de4937530af23bb9af3bc92c0489c6657a07f9e9b6fd5a7119e1164127"
+    },
+    {
+      "path": "inherited/combinatorial/DIFFUSE_RAW_WEIGHTS_AUDIT.md",
+      "size_bytes": 6558,
+      "sha256": "c65990205675377ae3198b93f5ca2c772bf54936c2630aea85afb69aca58a5b7"
+    },
+    {
+      "path": "inherited/combinatorial/FIXED_HEAVY_CORE_AUDIT.md",
+      "size_bytes": 6747,
+      "sha256": "c416046af72fa5b6103d1ed350dda1eace28046e5c476478bef46be9b9b859de"
+    },
+    {
+      "path": "inherited/combinatorial/PAIR_BANK_AND_CORE_REDUCTION.md",
+      "size_bytes": 11155,
+      "sha256": "3f7148149ce6e8db270b888932ac86f46593994261df94df3077fa62afac5e20"
+    },
+    {
+      "path": "inherited/combinatorial/SUBEXPONENTIAL_SUPPORT_AUDIT.md",
+      "size_bytes": 5565,
+      "sha256": "3dcdf76da802d58f2de41f874f25bb23dae8a011599af283a1f3d1bf20ec27c3"
+    },
+    {
+      "path": "inherited/erdos708_synthesis.pdf",
+      "size_bytes": 475232,
+      "sha256": "303f140fb0126e538fc54d6f0b0d30609ed7d8bfb17439c2ec6f91aebd85746d"
+    },
+    {
+      "path": "sections/block_support.tex",
+      "size_bytes": 3852,
+      "sha256": "7af532f52708bb8c50ad1f3aebeb7f7db20a110a404a503c54231d63b4c95e2b"
+    },
+    {
+      "path": "sections/core_gluing.tex",
+      "size_bytes": 30183,
+      "sha256": "34d7f3fef5bf8fad4ef52f1c34b56fc333646efe2e35120383f37bba31df8204"
+    },
+    {
+      "path": "sections/moment_bound.tex",
+      "size_bytes": 5531,
+      "sha256": "dbc5d12350eb389e31841336860837550cd1413a2855388c9a9fdedb3b0823d6"
+    },
+    {
+      "path": "sections/remaining.tex",
+      "size_bytes": 8364,
+      "sha256": "132e0c67db9715f601b0a27006475e21d07842ae6c35b25b2ca40acac5fa0d56"
+    },
+    {
+      "path": "sections/separated_support.tex",
+      "size_bytes": 19671,
+      "sha256": "2d9e5bc5f710c4bc80c6e6494de5fc9fc58cb75c0943be0a42cc08aeeebfbc23"
+    },
+    {
+      "path": "sections/shared_core_matching.tex",
+      "size_bytes": 20540,
+      "sha256": "db9acccb94faee541daa531b00a3397128debf8c15cea27e754c3fcbd4191a96"
+    },
+    {
+      "path": "sections/transfer.tex",
+      "size_bytes": 6951,
+      "sha256": "d2046517d1519fe1b5ea75c8b585bdd6145fa5dec6775c6636d081257e4063a0"
+    }
+  ]
+}

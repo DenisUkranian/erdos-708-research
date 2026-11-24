@@ -1,0 +1,474 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=26mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Erd\H{o}s 708: joint estimate addendum}
+\fancyhead[R]{23 November 2026}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{claim}[theorem]{Unproved sufficient statement}
+\newcommand{\pos}[1]{(#1)_+}
+\newcommand{\Ph}{\Phi}
+\newcommand{\Om}{\Omega}
+\newcommand{\ind}{\mathbf{1}}
+\newcommand{\raw}{L_{\mathrm{raw}}}
+\title{\vspace{-13mm}Erd\H{o}s 708:\\Exact coverage and a canonical joint certificate}
+\author{Research addendum and proof audit}
+\date{23 November 2026}
+\begin{document}
+\maketitle
+\vspace{-5mm}
+\noindent\textbf{Status.}
+This addendum does \emph{not} prove \(J_{\rm weak}\), the unrestricted
+asymptotic \(g(n)\le(2+o(1))n\), or the exact \(2n\) bound.
+It proves an exact global coverage identity, records a precise conditional
+route to the desired contradiction, and proves a canonical signed
+certificate whose positive contributions never reuse a target budget.
+An explicit counterexample rules out one attempted local completion.
+All statements labelled unproved remain unproved. Internal mathematical
+audits are not external peer review or formal verification.
+
+\section{Fixed ambient problem and the requested estimate}
+Let \(A\subseteq[2,M]\) consist of \(m\) distinct integers, and let
+\(I=\{x+1,\ldots,x+M\}\), where \(x\ge0\). Put
+\[
+ D_p(A)=\sum_{a\in A}v_p(a),\qquad
+ X_w(n)=\sum_p w_pv_p(n).
+\]
+All target valuations in this note are the actual, untruncated valuations.
+The boxed fractional covering problem and its dual are
+\begin{align}
+ \raw(A,I)&=\min\left\{\sum_{b\in I}z_b:
+ 0\le z_b\le1,\ \sum_{b\in I}z_bv_p(b)\ge D_p(A)\right\},\\
+ \Ph_A(w)&=\sum_{a\in A}X_w(a)
+       -\sum_{b\in I}\pos{X_w(b)-1}.
+\end{align}
+An optimal dual can be chosen with \(0\le w_p\le1\), supported on the
+source primes. We write \(F=\raw(A,I)=\Ph_A(w)\) for a paired optimum.
+Complementary slackness gives
+\begin{align}
+ X_w(b)>1&\ \Longrightarrow\ z_b=1, &
+ X_w(b)<1&\ \Longrightarrow\ z_b=0, \label{eq:cs1}\\
+ w_p>0&\ \Longrightarrow\
+ \sum_{b\in I}z_bv_p(b)=D_p(A). \label{eq:cs2}
+\end{align}
+
+In the previously normalized integer-minimal obstruction at budget
+\(c=2+3\delta\), the established reduction supplies
+\[
+ F>(2+3\delta)m-r,\qquad r=o_\delta(m),
+ \tag{N}
+\]
+where \(r\) is the number of source-prime rows. The source normalization,
+the core/external-prime restrictions, and the rounding estimate leading
+to (N) belong to the preceding report. They are not strengthened by
+assertion here.
+
+In its original notation, the requested joint estimate is
+\[
+ \sum_{a\in G}\bigl(X_w(a)-2-\delta\bigr)
+ \le \sum_{b\in I}\pos{X_w(b)-1}
+       +C_\delta\Xi+\delta|G|+o_\delta(m).
+ \tag{\(J_{\rm weak}\)}
+\]
+The retained source set \(G\) and row-excess error \(\Xi=o_\delta(m)\)
+come from that normalization. The results below do not establish this
+inequality.
+
+\section{An exact global coverage identity}
+\begin{theorem}\label{thm:coverage}
+For every coordinatewise reduction \(0\le u\le w\),
+\begin{align}
+ \Ph_A(u)&=\sum_{b\in I}z_b\min\{X_u(b),1\}, \label{eq:coverage}\\
+ F-\Ph_A(u)&=\sum_{b\in I}z_b\pos{1-X_u(b)}. \label{eq:loss}
+\end{align}
+Both identities hold for every \(M,A,x\) and every paired optimum.
+There is no restriction on the number or sizes of active primes.
+\end{theorem}
+\begin{proof}
+Since \(u_p=0\) whenever \(w_p=0\), the exact active-row equations
+\eqref{eq:cs2} imply
+\[
+ \sum_{a\in A}X_u(a)=\sum_{b\in I}z_bX_u(b).
+\]
+If \(X_u(b)>1\), then \(X_w(b)>1\), so \(z_b=1\). Consequently
+\[
+ \sum_{b\in I}\pos{X_u(b)-1}
+ =\sum_{b\in I}z_b\pos{X_u(b)-1}.
+\]
+Subtracting proves \eqref{eq:coverage}. Also \(z_b>0\) implies
+\(X_w(b)\ge1\), so the same formula at \(u=w\) yields
+\(F=\sum_bz_b\). Subtraction proves \eqref{eq:loss}.
+\end{proof}
+
+The loss at a target is at most its single chosen mass \(z_b\).
+Thus overlapping prime blocks cannot spend the same target repeatedly
+when the loss is estimated through \eqref{eq:loss}.
+For example, exact row conservation gives, for any block \(E\) of active primes,
+\[
+ \sum_b z_b\Om_E(b)=\sum_a\Om_E(a).
+\]
+If the right side is at most \(Km\), targets with \(\Om_E(b)>L\)
+contribute at most \(Km/L\) to \eqref{eq:loss}. This assertion concerns
+the bounded loss, not the generally unbounded target hinge.
+
+\subsection{A precise sufficient estimate for completion}
+Fix \(\delta>0\), put
+\[
+ \lambda=\frac{2+\delta}{\log M},\qquad
+ u_p=\min\{w_p,\lambda\log p\}.
+ \label{eq:logcap}\tag{C}
+\]
+For every source,
+\[
+ X_u(a)\le\lambda\log a\le2+\delta.
+\]
+Hence \(\Ph_A(u)\le(2+\delta)m\). Define the single loss functional
+\[
+ \mathcal E_\delta(A,I;w,z)
+   =\sum_{b\in I}z_b
+       \left(1-\sum_p
+          \min\{w_p,\lambda\log p\}v_p(b)\right)_+.
+ \tag{L}
+\]
+Theorem \ref{thm:coverage} gives the unconditional inequality
+\[
+ \boxed{F\le(2+\delta)m+\mathcal E_\delta(A,I;w,z).}
+ \tag{R}
+\]
+
+\begin{claim}\label{claim:cap}
+On the entire actual integer-minimal class used in (N), uniformly in
+\(M,A,x,w,z\),
+\[
+ \mathcal E_\delta(A,I;w,z)\le\delta m+o_\delta(m).
+ \tag{U}
+\]
+\end{claim}
+If (U) were proved, (R) would give
+\[
+ (2+3\delta)m-o_\delta(m)<F
+ \le(2+2\delta)m+o_\delta(m),
+\]
+which is impossible for fixed \(\delta>0\) and large \(m\).
+This is an exact conditional contradiction. Neither the coverage
+identity nor the bound \(X_u(a)\le2+\delta\) proves (U).
+The issue is precisely the chosen mass of targets whose capped load
+falls below one.
+
+There is a strictly weaker sufficient quantifier: for each actual
+minimal instance it is enough that \emph{one} optimal dual vector \(w\)
+satisfy (U), with an error uniform in the instance. For fixed \(w\),
+the loss in (L) is independent of the choice of paired optimal \(z\),
+because it equals \(F-\Ph_A(u)\). This existential version is also
+unproved; it must not be inferred from the proved identities.
+
+\subsection{Why a uniform statement without minimality is false}
+Let \(p\) be fixed, let \(m=\lfloor M/p\rfloor\), and take
+\(A=\{p,2p,\ldots,mp\}\), \(I=[1,M]\).
+The primal vector \(\ind_A\) is feasible with cost \(m\).
+The vector \(w_p=1\), all other weights zero, has dual value \(m\),
+so this is a paired optimum. For (C), with \(p,\delta\) fixed and
+\(M\) sufficiently large,
+\[
+ \sum_{a\in A}X_u(a)
+ =\lambda\log p\sum_{a\in A}v_p(a)
+ =O_{p,\delta}(m/\log M).
+\]
+The identity \eqref{eq:loss} therefore gives
+\(\mathcal E_\delta=m-O_{p,\delta}(m/\log M)\).
+This is not a counterexample to (U): its sources do not satisfy the
+high-load minimal-obstruction conditions. It proves that those
+conditions must be used in any valid argument for (U).
+
+\section{What the prime-conserving flow proves exactly}
+Assume, in this section only, that every proper source subset satisfies
+\(\raw(S,I)\le c|S|\), at the same \(M,I\).
+Let \(h_b=\pos{X_w(b)-1}\) and \(H=\sum_bh_b\).
+Build a network
+\[
+ \text{start}\ \longrightarrow\ a\ \longrightarrow\ p\
+ \longrightarrow\ b\ \longrightarrow\ \text{end}
+\]
+with capacities, in that order,
+\[
+ q_a=\pos{X_w(a)-c},\quad
+ w_pv_p(a),\quad w_pv_p(b),\quad h_b.
+\]
+\begin{proposition}\label{prop:flow}
+Its maximum flow is exactly
+\[
+ \min\left\{\sum_aq_a,H\right\}.
+\]
+If \(F>cm\), its total deficiency is exactly \(F-cm\).
+\end{proposition}
+\begin{proof}
+For a cut with source subset \(S\) and prime subset \(P\) on the
+start side, first optimize the sides of the target vertices.
+Sources of quota zero may be removed from \(S\).
+The cut deficiency relative to \(\sum_aq_a\) becomes
+\[
+ \sum_{a\in S}X_{w_P}(a)-c|S|
+ -\sum_b\min\{h_b,X_{w_P}(b)\}.
+\]
+Because \(0\le X_{w_P}\le X_w\), the last sum is at least
+\(\sum_b\pos{X_{w_P}(b)-1}\).
+The deficiency is therefore at most
+\(\Ph_S(w_P)-c|S|\). It is nonpositive for proper \(S\), and is
+at most \(F-cm\) for \(S=A\).
+If \(F>cm\), deletion of one source gives
+\(X_w(a)\ge c+(F-cm)>c\), so
+\(\sum_aq_a=H+(F-cm)\).
+The full-source cut has capacity \(H\). Max-flow/min-cut now proves
+both assertions. If \(F\le cm\), every quota is routable.
+\end{proof}
+
+Thus this flow representation adds no unaccounted linear gain.
+Its unknown global deficiency is the very quantity that needs to be
+excluded. A path preserving one prime is not automatically a path
+through a hot common divisor, and it does not by itself prove a
+two-target cover.
+
+\section{A canonical signed certificate with one positive root}
+This section does not require optimality. Fix a finite prime set \(P\)
+and arbitrary weights \(0<w_p\le1\). Order the prime occurrences of
+an integer increasingly, with multiplicity.
+For an integer of load greater than one, let \(B\) be its first
+prefix crossing one. If \(p_0\) is the largest prime of \(B\), then
+\[
+ X(B/p_0)\le1<X(B),\qquad h_B=X(B)-1\in(0,1].
+ \tag{B}
+\]
+The remaining ordered pieces after deleting the first total unit are
+\(h_B\) and the weights of all subsequent prime occurrences.
+For a current piece \(u\in(0,1]\) and right-tail load \(R\ge0\), put
+\[
+ \psi_u(R)=\pos{u+R-1}-\pos{R-1}
+          =\min\{u,\pos{u+R-1}\}\le uR.
+ \tag{P}
+\]
+Telescoping gives exactly
+\[
+ \pos{X(n)-2}=\sum_{\text{pieces }u}\psi_u(R_u).
+ \tag{T}
+\]
+
+For each root \(B\), use a base carrier \(d=B,u=h_B,q=p_0\);
+also use carriers \(d=Bq^j,u=w_q\), where \(q\in P\) and \(q\ge p_0\)
+and \(j\ge1\).
+Keep only carriers with \(dq\le M\), since all others have zero
+source contribution. Set \(Q_B=\{p\in P:p<p_0\}\) and
+\[
+ K_{B,d}(b)=\ind_{d\mid b}
+             -\sum_{p\in Q_B}\ind_{dp\mid b}.
+ \tag{K}
+\]
+\begin{theorem}\label{thm:star}
+For every positive target integer \(b\),
+\[
+ \sum_{\text{eligible carriers}}uK_{B,d}(b)
+ \le\pos{X(b)-1}.
+ \tag{S}
+\]
+There is at most one root with positive contributions at any target.
+\end{theorem}
+\begin{proof}
+A positive kernel equals one. Its conditions say that \(d\mid b\)
+and no prime below \(p_0\) divides \(b/d\).
+Since \(d/B\) uses only a prime at least \(p_0\), \(B\) must contain
+the complete lower-prime blocks of \(b\).
+Condition (B) then identifies \(B\) as the unique actual first
+crossing root of \(b\). All other roots have nonpositive contributions.
+For this unique root, the positive base and star terms sum to at most
+\[
+ h_B+\sum_{q\ge p_0}w_qv_q(b/B)=X(b)-1.
+\]
+Eligibility may only remove nonnegative terms. This proves (S),
+including targets with arbitrarily large prime powers.
+\end{proof}
+
+For one carrier let \(T_d=M/d\). Its exact total source contribution
+in (T), summed over the full prefix, is
+\[
+ S_{B,d}=
+ \sum_{\substack{t\le T_d\\
+          \gcd(t,\prod_{p\in Q_B}p)=1}}
+       \psi_u\!\left(\sum_{\substack{r\in P\\r\ge q}}
+                       w_rv_r(t)\right).
+ \tag{F}
+\]
+This formula handles repeated occurrences: for a \(q^j\) carrier,
+occurrences below \(q\) in \(t\) precede the current occurrence and
+are excluded from its right-tail load. By (P),
+\[
+ S_{B,d}\le
+ uT_d\sum_{\substack{r\in P\\q\le r\le T_d}}\frac{w_r}{r-1}.
+ \tag{F1}
+\]
+The upper cutoff \(r\le T_d\) is valid and can materially improve
+the bound. On every shifted interval,
+\[
+ \sum_{b\in I}K_{B,d}(b)
+ \ge T_d\left(1-\sum_{p\in Q_B}\frac1p\right)-|Q_B|-1.
+ \tag{F2}
+\]
+Together these prove full hinge domination if every contributing
+carrier satisfies
+\[
+ \sum_{p\in Q_B}\frac1p+
+ \sum_{\substack{r\in P\\q\le r\le T_d}}\frac{w_r}{r-1}
+ +\frac{|Q_B|+1}{T_d}\le1.
+ \tag{FC}
+\]
+Condition (FC) is sufficient, not known on the entire minimal class.
+In particular its first sum is unweighted. Weighted mean control
+alone does not imply it.
+
+\section{An exact failure of a separate-root completion}
+Replace (K) by the exact nonnegative kernel
+\[
+ K^{\rm ex}_{B,d}(b)
+ =\ind_{d\mid b}
+   \ind_{\gcd(b/d,\prod_{p\in Q_B}p)=1}.
+ \tag{E}
+\]
+The same one-positive-root argument still gives
+\(\sum uK^{\rm ex}_{B,d}\le\pos{X-1}\).
+However the tempting \emph{separate} comparison
+\[
+ S_{B,d}\ \stackrel{?}{\le}\
+ u\sum_{b\in I}K^{\rm ex}_{B,d}(b)
+ \tag{false}
+\]
+is false, even with weighted reciprocal mean less than one.
+
+Take
+\[
+ P=\{2,3,5,7,11,13\},\qquad
+ w_2=\frac1{10},\quad w_{13}=1,\quad
+ w_3=w_5=w_7=w_{11}=\frac1{1000}.
+\]
+Then \(\sum_pw_p/(p-1)=0.18435\).
+For \(B=d=26\), \(p_0=13\), \(u=h_B=1/10\), let
+\[
+ M=338,\qquad I=\{2939,\ldots,3276\}.
+\]
+The source cofactor length is \(13\), and the only prefix cofactors
+coprime to \(2\cdot3\cdot5\cdot7\cdot11\) are \(1,13\).
+Their total in (F) is \(\psi_{1/10}(0)+\psi_{1/10}(1)=1/10\).
+The contributing source is \(338=2\cdot13^2\), of load \(2.1\).
+
+The multiples of \(26\) in \(I\), after division by \(26\), are
+\(\{114,\ldots,126\}\). Each is divisible by \(2,3,5,7\), or \(11\).
+In particular the two less immediate odd cases are
+\(119=7\cdot17\) and \(121=11^2\).
+Thus the right side of (false) is zero.
+
+This is a counterexample to the individual-fibre comparison, not
+to \(J_{\rm weak}\), (U), or the desired asymptotic. The weights
+were not claimed to be an optimum of an actual minimal obstruction.
+On the targets, additional earlier prime factors move contributions
+to other roots. A complete proof must account for that transfer
+jointly, with its signs and its single shared budget.
+
+\section{A uniform finite theorem for all low-prime states}
+The following auxiliary theorem controls all state combinations at
+once, rather than multiplying an error by their number.
+\begin{theorem}\label{thm:tv}
+Let \(P\) be any \(k\)-element prime set and \(s\ge1\) an integer.
+Define \(z_p(n)=\min\{v_p(n),s\}\), \(z(n)=(z_p(n))_{p\in P}\),
+and \(\mu=\sum_{p\in P}1/p\).
+Let \(N_0(\sigma)\) and \(N_I(\sigma)\) count each state in
+\([1,M]\) and \(I\), respectively. Then, uniformly in the shift,
+\[
+ \sum_\sigma\pos{N_0(\sigma)-N_I(\sigma)}
+ \le C_s\bigl(k^s+M\mu^{s+1}+k^{s+1}\bigr).
+ \tag{TV}
+\]
+\end{theorem}
+\begin{proof}
+For any \(f:\{0,\ldots,s\}^P\to[0,1]\), apply presence-set
+M\"obius inversion to \(f\), and retain its terms supported on at
+most \(s\) primes. Call the resulting function \(T_sf\).
+It agrees with \(f\) when \(\nu(n)=|\{p\in P:p\mid n\}|\le s\).
+In general
+\[
+ |f(z(n))-T_sf(z(n))|
+ \le B_s\binom{\nu(n)}{s+1}.
+ \tag{TV1}
+\]
+Indeed the support-\(j\) coefficients have absolute value at most
+\(2^j\), and for \(\nu\ge s+1\),
+\(\binom{\nu}{j}\le\binom{s+1}{j}\binom{\nu}{s+1}\).
+
+Each support-\(j\) term has a finite prime-power difference expansion
+in indicators of moduli \(\prod_{p\in S}p^{e_p}\), \(1\le e_p\le s\).
+Its total coefficient absolute sum is at most \((4s)^j\).
+All nonconstant retained coefficients therefore have total absolute
+sum at most \(A_sk^s\). Every multiple count differs by at most one
+between the prefix and an equal-length interval, so
+\[
+ \left|\sum_{n\le M}T_sf(z(n))-\sum_{b\in I}T_sf(z(b))\right|
+ \le A_sk^s.
+ \tag{TV2}
+\]
+The tails on both actual sets satisfy
+\begin{align*}
+ \sum_{n\le M}\binom{\nu(n)}{s+1}
+   &\le M e_{s+1}((1/p)_{p\in P}),\\
+ \sum_{b\in I}\binom{\nu(b)}{s+1}
+   &\le M e_{s+1}((1/p)_{p\in P})+\binom{k}{s+1}.
+\end{align*}
+Combine these with (TV1)--(TV2) and
+\(e_{s+1}\le\mu^{s+1}/(s+1)!\).
+The bound is uniform over \(f\). Choosing the indicator of all
+states with \(N_0(\sigma)>N_I(\sigma)\) proves (TV).
+\end{proof}
+
+State bins give an injective state-preserving matching of every
+source subset except at most the deficit in (TV). This is one
+matching through disjoint bins. It does not automatically cover
+the remaining prime demands with one additional target per source.
+
+For the low substantial primes in the established sparse reduction,
+\[
+ s=\lfloor1/\eta\rfloor+1,\quad
+ y=M^{1/(s+1)},\quad
+ P=\{p\le y:w_p\ge\eta\},\quad \rho=m/M\to0,
+\]
+the companion absorption proof yields
+\(\mu=O_{c,\eta}(\rho^{1/s})\), \(k\le y\mu\).
+Consequently (TV) is
+\[
+ O_{c,\eta}\!\left(m\bigl[\rho^{1/s}+M^{-1/(s+1)}\bigr]\right)
+ =o(m).
+\]
+The companion note also controls the full weighted demand of the
+unmatched sources, not only their cardinality. This auxiliary
+matching is not presented as a solution of the unrestricted problem.
+
+\section{Remaining obligation}
+The global identities above are exact, and their proofs do not
+assume a small core, a bounded number of substantial weights, or
+gaps between primes. The finite state theorem likewise sums all
+states jointly.
+
+The missing step is still a quantitative joint estimate on actual
+minimal obstructions. One sufficient form is (U). In the canonical
+certificate it is the signed compensation between different roots.
+Neither separate-root averaging, a sum of independently chosen
+covers, nor the prime-conserving flow alone supplies that estimate.
+No counterexample to \(J_{\rm weak}\) has been obtained.
+
+\end{document}

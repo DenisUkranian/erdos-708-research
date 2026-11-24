@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "theorem": "g(7)=9 in the at-most covering convention",
+  "mathematical_inputs": [
+    "g(2)<=2",
+    "g(3)<=4",
+    "g(4)<=5",
+    "g(5)<=6"
+  ],
+  "external_finite_source": "https://hexagonmath.org/pdf/2611.00694v1",
+  "g6_upper_bound": "independently replayed in this bundle",
+  "analytic_general_cutoff": 24697,
+  "finite_maximum": 24696,
+  "all_computational_components_passed": true,
+  "scope": "Computer-assisted proof with exact integer checks; not a Lean formalization of the new result.",
+  "seconds": 84.113
+}

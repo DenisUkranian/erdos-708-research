@@ -1,0 +1,316 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array,longtable}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\setlist{nosep,leftmargin=*}
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\vp}{v_p}
+\title{Erd\H{o}s 708: verified finite bounds for\texorpdfstring{\\}{ }$g(7)$, $g(8)$, and $g(9)$}
+\author{Research note prepared for Denis Paliy}
+\date{24 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We give reproducible certificates for the bounds
+\[
+  9\le g(7)\le10,\qquad 11\le g(8)\le12,\qquad 12\le g(9)\le14,
+\]
+and independently recover $g(6)=8$, using the external theorem $g(5)\le6$ as a stated input. The upper bounds combine a prime-unit deletion lemma, descending prime-factor packing, explicit analytic tails, and finite certificates valid for every interval shift. The lower bounds are supported by alternative explicit witnesses with maximum source integers $551$, $2491$, and $1333$. These are bounds, not exact determinations of the three requested values. The remaining gaps and the scope of the computational verification are recorded explicitly.
+\end{abstract}
+
+\section{Definition, dependencies, and status}
+For a set $A\subseteq\mathbb Z_{\ge2}$ of $n$ distinct integers, put $M=\max A$. For $x\ge0$ an integer, let $I=\{x+1,\ldots,x+M\}$ and define
+\[
+ \tau(A,I)=\min\left\{|B|:B\subseteq I,\quad
+                  \prod_{a\in A}a\mid\prod_{b\in B}b\right\},
+ \qquad g(n)=\sup_{|A|=n,\ x\ge0}\tau(A,I).
+\]
+We use the ``at most'' convention for cover size. Distinctness gives
+\begin{equation}\label{eq:whole}
+ \prod_{a\in A}a\mid M!\mid \prod_{b\in I}b,
+ \qquad \frac{\prod_{b\in I}b}{M!}=\binom{x+M}{M}.
+\end{equation}
+Thus a cover always exists, and $M\le B$ immediately implies $\tau(A,I)\le B$.
+
+\begin{theorem}[Certified bounds, with an explicit external input]\label{thm:main}
+Assume the theorem $g(5)\le6$ of Tripodo, Theorem~1.6 in the cited version~\cite{tripodo}. The accompanying finite verification and the lemmas below give
+\[
+ g(6)=8,\qquad g(7)\in\{9,10\},\qquad
+ g(8)\in\{11,12\},\qquad g(9)\in\{12,13,14\}.
+\]
+\end{theorem}
+
+The external $g(5)\le6$ result is a dependency, not a theorem proved from scratch here. Its source reports a Lean development; that development was not rebuilt in this investigation. The logical chain is
+\[
+ g(5)\le6\ \Longrightarrow\ g(6)\le8\ \Longrightarrow\ g(7)\le10
+ \ \Longrightarrow\ g(8)\le12\ \Longrightarrow\ g(9)\le14.
+\]
+Each arrow uses a complete smooth-source reduction, rather than an assumption about the size of the interval shift. No finite sample of shifts is used as a substitute for a universal upper bound.
+
+The lower values $9,11,12$ were already present in the project's earlier work. Bergstr\"om~\cite{bergstrom} gives the first two of these lower bounds and the six-input witness used below. Our three displayed witnesses are alternative constructions, not claims of new lower-bound values or of priority for those values. The cumulative-GCD criterion in Section~\ref{sec:criteria} also appears in~\cite{bergstrom}; we supply its short proof because it is central to certificate checking.
+
+\section{Deletion reduces the problem to finitely many primes}
+\begin{lemma}[Deletion of one prime unit]\label{lem:deletion}
+Suppose $g(n-1)\le r$. If some $a\in A$ has a prime factor $p$ such that
+\[
+ \left\lfloor\frac{M}{a/p}\right\rfloor\ge r+1,
+\]
+then $\tau(A,I)\le r+2$ for every interval $I$ of length $M$.
+\end{lemma}
+\begin{proof}
+Cover $A\setminus\{a\}$ by a set $B_0$ of at most $r$ target points, using a subinterval of $I$ of the required shorter length if necessary. At least $r+1$ interval points are multiples of $a/p$, so one is outside $B_0$. Adjoin it to form $B_1$; then
+\[
+ \frac{\prod A}{p}\mid\prod B_1,\qquad |B_1|\le r+1.
+\]
+If the full demand is not yet covered, its only possible deficit is one unit of $p$-adic valuation. By~\eqref{eq:whole}, the entire interval contains enough $p$-adic valuation. Hence an unused point divisible by $p$ exists. Adjoining it completes a cover of size at most $r+2$. The argument removes only one copy of $p$ and therefore applies without change when $a$ contains a higher power of $p$.
+\end{proof}
+
+If $p\ge r+1$, the hypothesis follows from $a\le M$. Consequently a counterexample to the bound $r+2$ would use only primes at most $r$. Moreover, every source integer would have to satisfy
+\begin{equation}\label{eq:eligible}
+ (r+1)a>M\,p_{\max}(a).
+\end{equation}
+It would also satisfy $\Omega(a)\ge3$, where prime factors are counted with multiplicity. Indeed, deleting an integer with at most two prime factors can be repaired with at most two additional target points: repair a deficient prime unit each time, using~\eqref{eq:whole} to guarantee an unused point supplying that prime.
+
+For the four steps of Theorem~\ref{thm:main}, the allowed primes and target budgets are therefore
+\begin{center}
+\begin{tabular}{@{}cccl@{}}
+\toprule
+$n$ & Prior budget $r$ & Target $B=r+2$ & Allowed source primes\\
+\midrule
+6&6&8&$2,3,5$\\
+7&8&10&$2,3,5,7$\\
+8&10&12&$2,3,5,7$\\
+9&12&14&$2,3,5,7,11$\\
+\bottomrule
+\end{tabular}
+\end{center}
+No common-factor assumption, source-set maximality assumption, or unproved structural classification is needed for this reduction.
+
+\section{Three cover criteria valid for every shift}\label{sec:criteria}
+Write $D_p=\sum_{a\in A}v_p(a)$ for the demand at prime $p$.
+
+\begin{lemma}[Prime-union criterion]\label{lem:union}
+If nonnegative integers $k_p$ satisfy
+\[
+ \sum_{e\ge1}\min\!\left(k_p,\left\lfloor\frac{M}{p^e}\right\rfloor\right)
+ \ge D_p\quad\text{for every active prime }p,
+ \qquad \sum_p k_p\le B,
+\]
+then $\tau(A,I)\le B$.
+\end{lemma}
+\begin{proof}
+The sum of the $k_p$ largest $p$-adic valuations in $I$ equals the sum, over all prime-power levels, of the smaller of $k_p$ and the actual number of points at that level. That count is at least $\lfloor M/p^e\rfloor$. Thus $k_p$ target points can cover prime $p$'s demand. Unite these sets over the primes. Overlaps between them can only reduce the cardinality, and the union covers all demands.
+\end{proof}
+
+\begin{lemma}[Ordinary bins]\label{lem:bins}
+If $\prod A$ factors as $h_1\cdots h_B$ with
+\[
+ 1\le h_j\le\left\lfloor M/j\right\rfloor\quad(1\le j\le B),
+\]
+then $\tau(A,I)\le B$.
+\end{lemma}
+\begin{proof}
+There are at least $j$ multiples of $h_j$ in $I$. At step $j$, choose one outside the at most $j-1$ previously chosen points. Empty bins, represented by $h_j=1$, cause no difficulty and can be omitted.
+\end{proof}
+
+\begin{lemma}[Cumulative-GCD slots]\label{lem:gcd}
+Suppose $\prod A\mid\prod_{j=1}^{\ell}h_j$, where $\ell\le B$, $1\le h_j\le M$, and
+\begin{equation}\label{eq:gcd}
+ \gcd(h_1\cdots h_{j-1},h_j)\le\left\lfloor M/j\right\rfloor
+ \quad(2\le j\le\ell).
+\end{equation}
+Then $\tau(A,I)\le B$.
+\end{lemma}
+\begin{proof}
+Inductively let the product of the already chosen, distinct target points be divisible by $H=h_1\cdots h_{j-1}$. If an unused multiple of $h_j$ exists, select it. Otherwise a multiple of $h_j$ is already selected, so the old target product is divisible by both $H$ and $h_j$, and hence by $\operatorname{lcm}(H,h_j)$. Put $d=\gcd(H,h_j)$. Condition~\eqref{eq:gcd} guarantees at least $j$ multiples of $d$ in $I$, one of which is unused. Adjoining it supplies the missing overlap because $d\operatorname{lcm}(H,h_j)=Hh_j$.
+\end{proof}
+
+These criteria use only interval divisibility counts. In particular, a checked slot sequence certifies all $x\ge0$, even when the demand vector was found by a finite source computation.
+
+\section{Descending packing proves the infinite tail}
+Let $S$ be one of the allowed prime sets above. Set the $B$ bin capacities to $C_j=\lfloor M/j\rfloor$. Process the prime factors of $Q=\prod A$, with multiplicity, in descending order, placing each into any bin that remains within its capacity.
+
+Suppose the next prime $p$ cannot be placed, and $p\le C_B$. If $b_j$ is the current product in bin $j$, failure implies
+\[
+ b_j\ge \left\lfloor\frac{M}{jp}\right\rfloor+1.
+\]
+No bin is empty, since an empty one could accept $p$, and all already placed factors are at least $p$. Thus $b_j\ge p$ as well. The part $Q_{\ge p}$ supported on primes at least $p$ consequently satisfies
+\begin{equation}\label{eq:T}
+ Q_{\ge p}\ge T_p(M):=
+ p\prod_{j=1}^{B}\max\left\{\left\lfloor\frac{M}{jp}\right\rfloor+1,p\right\}.
+\end{equation}
+But $Q_{\ge p}\le M^n$. At the largest allowed prime $P=\max S$ there is a useful improvement:
+\begin{equation}\label{eq:distinct}
+ P^{D_P}\le \frac{M^n}{n!}.
+\end{equation}
+To prove it, order the $n$ powers $P^{v_P(a)}$ as $q_1\ge\cdots\ge q_n$. The corresponding first $j$ source integers are distinct multiples of $q_j$, so $jq_j\le M$. Multiply these $n$ inequalities.
+
+Since each floor-plus-one in~\eqref{eq:T} strictly exceeds its unrounded argument,
+\[
+ T_p(M)>\frac{M^B}{B!p^{B-1}}.
+\]
+Define $d_P=n!$ and $d_p=1$ for $p<P$. The exact integer inequalities
+\begin{equation}\label{eq:tail}
+ d_pM^{B-n}>B!p^{B-1}\quad(p\in S),\qquad \max S\le M/B
+\end{equation}
+therefore rule out every packing failure. Successful bins give a cover by Lemma~\ref{lem:bins}.
+
+The checker finds coarse thresholds for~\eqref{eq:tail} by integer binary search and checks~\eqref{eq:T} directly below them. This proves the following infinite tails:
+\begin{center}
+\begin{tabular}{@{}crrr@{}}
+\toprule
+$n$ & $B$ & Coarse tail from~\eqref{eq:tail} & Improved tail after exact checks\\
+\midrule
+6&8&9391&9360\\
+7&10&19209&19170\\
+8&12&12367&12320\\
+9&14&24285&24206\\
+\bottomrule
+\end{tabular}
+\end{center}
+For example, the nine-input coarse threshold follows by checking
+$d_p24285^5>14!p^{13}$ for the five allowed primes; the left side increases thereafter. The smaller threshold $24206$ additionally uses a finite exact arithmetic check of~\eqref{eq:T}. No asymptotic approximation or floating-point inequality is needed.
+
+\section{Finite verification and its completeness}
+Below the appropriate tail threshold, enumerate all allowed-smooth maxima $M$ and all eligible smaller sources satisfying~\eqref{eq:eligible} and $\Omega(a)\ge3$. Sets with $M\le B$ are already covered by~\eqref{eq:whole}. The source $M$ is always included and the remaining $n-1$ inputs are distinct.
+
+The primary implementation stores the exponent-demand vectors of subsets. It processes candidate integers one at a time, updating subset size in descending order. Within a fixed processed prefix and fixed subset size, a demand vector dominated coordinatewise by another can be discarded: adding any future source subset preserves that dominance. A cover for the larger vector also covers the smaller one. Thus the final Pareto frontier dominates every actual source demand without assuming that interval shifts are periodic or bounded.
+
+There is also a safe shortcut for an entire maximum $M$. For each $p\in S$, take the eight, or more generally $n-1$, largest $p$-rough parts among eligible smaller candidates and multiply them with the $p$-rough part of $M$. This gives an upper envelope $U_p$ for every actual source choice. If $U_p<T_p(M)$ for every $p$, the descending packing argument covers every set at that $M$.
+
+Remaining demands are handled by Lemma~\ref{lem:union}, explicit bins from Lemma~\ref{lem:bins}, or stored sequences satisfying Lemma~\ref{lem:gcd}. Success of a bin heuristic is used only when its integer factor placement respects every capacity. Failure of a heuristic is not treated as impossibility.
+
+\begin{center}
+\begin{tabular}{@{}crrl@{}}
+\toprule
+$n$ & Independent cutoff $M<$ & Represented source subsets & Result\\
+\midrule
+6&9360&1,045,917&PASS\\
+7&19170&23,743,770&PASS\\
+8&12320&599,136,880&PASS\\
+9&24206&137,818,182,175&PASS\\
+\bottomrule
+\end{tabular}
+\end{center}
+The six-, seven-, and eight-input independent checkers enumerate actual source subsets after valid whole-maximum pruning; they do not import the Pareto routine. Arithmetic overflow is guarded against in the independent implementation.
+
+For nine inputs the primary scan covers $M<24286$, overlapping the analytic tail. It has 702 eligible maxima, of which 201 remain after the rough-envelope shortcut. Every final demand passes a universal cover criterion; 74 demands at 15 maxima, all at most $240$, use cumulative-GCD fallback certificates.
+
+A separate integer checker verifies all 74 sequences, their products, their slot bounds, and every overlap inequality. A further independent dynamic program, retaining every achievable demand rather than pruning by dominance, checks every eligible $M\le240$: 61 maxima and 588,195 distinct demand vectors. Every such vector is dominated by an actual retained frontier vector. The five-dimensional skyline routine also agrees with a direct pairwise reference on 350 test collections containing random vectors, duplicates, zeroes, and long dominance chains.
+
+The independent nine-input checker also returns PASS for all $M<24206$. It trial-factors the source integers and imports no Pareto routine. Of 701 eligible maxima, 500 pass the whole-maximum rough envelope. Across the remaining 201 maxima it covers 137,818,182,175 represented source subsets and checks 3,611,037 distinct leaf demands individually.
+
+Its additional branch pruning is itself certified. For a partially chosen subset, the largest possible remaining exponent sum in each coordinate gives an upper demand vector for every completion. If that vector satisfies Lemma~\ref{lem:union}, the whole branch is covered. A second branch criterion multiplies the chosen $p$-rough part by the largest remaining eligible $p$-rough values; comparison with every $T_p(M)$ proves that all completions pack. The number of completions is counted by an exact binomial coefficient. Thus the represented-subset count includes mathematically discharged branches; it is not a claim that this many individual certificates were stored. The recorded run finished in approximately 32 seconds.
+
+The numerical counts above distinguish complete bounded enumerations from auxiliary tests. The proof's universal scope comes from the source reduction, the infinite analytic tail, completeness of the finite source computation, and the shift-independent cover lemmas.
+
+\section{Alternative lower-bound witnesses}
+\begin{lemma}[One mixed point]\label{lem:hub}
+Let the active primes be $p_1,\ldots,p_k$, with demands $D_i$. Suppose a distinguished point $y=x+c$ has valuation vector $h_i$. Every other point of $I$ is divisible by at most one active prime, and its valuation at that prime, truncated at $D_i$, is at most $u_i$. Then
+\[
+ \tau(A,I)\ge
+ \min\left\{\sum_i\left\lceil\frac{D_i}{u_i}\right\rceil,
+  1+\sum_i\left\lceil\frac{(D_i-h_i)_+}{u_i}\right\rceil\right\}.
+\]
+\end{lemma}
+\begin{proof}
+If $y$ is omitted, the disjoint single-prime supports must meet all demands. If $y$ is selected, they must meet the residual demands. Truncating at the demand is harmless because surplus valuation at one prime cannot satisfy another prime's demand.
+\end{proof}
+
+The three instances are as follows; their exact minimum cover sizes are $9,11,12$.
+\begin{center}\small
+\begin{tabular}{@{}crrl@{}}
+\toprule
+$n$&$M$&$x$&Active primes\\
+\midrule
+7&551&14,478,502,565,190&$17,19,23,29$\\
+8&2491&246,043,396,342,067,361&$37,41,43,47,53$\\
+9&1333&155,833,862,424,257,354&$29,31,37,41,43$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\paragraph{Seven inputs.}
+Take
+\[
+ A_7=\{289,323,361,391,437,493,551\}
+     =\{17^2,17\cdot19,19^2,17\cdot23,19\cdot23,17\cdot29,19\cdot29\}.
+\]
+The center is $y=x+276$. Its congruences are $y\equiv17^2\pmod{17^3}$, $y\equiv19^2\pmod{19^3}$, and $y\equiv r\pmod{r^2}$ for $r=23,29$. Every interval point is within 275 of $y$. Since $17\cdot19=323>275$, noncentral points contain at most one active prime. Both $17^2$ and $19^2$ divide $y$ and exceed 275, so their noncentral valuations are at most one. In prime order,
+\[
+ D=(5,5,2,2),\quad h=(2,2,1,1),\quad u=(1,1,2,2).
+\]
+Lemma~\ref{lem:hub} gives at least $12$ picks without the center and at least $9$ with it. Nine are achieved at offsets
+\[
+ 276,259,293,242,257,295,238,253,247.
+\]
+
+\paragraph{Eight inputs.}
+Take
+\begin{align*}
+ A_8&=\{1369,1517,1591,1739,1961,2173,2279,2491\}\\
+ &=\{37^2\}\cup\{37r:r=41,43,47,53\}\cup\{53r:r=41,43,47\}.
+\end{align*}
+The center is $y=x+1246$. Choose $y\equiv37^2\pmod{37^3}$, $y\equiv r\pmod{r^2}$ for $r=41,43,47$, and $y\equiv1378\pmod{53^2}$. The radius is 1245; the least distinct-prime product is $37\cdot41=1517$, and $37^2=1369$ also exceeds the radius. The neighboring multiples of $53^2=2809$ lie at distances 1378 and 1431 from $y$, outside the interval. Thus
+\[
+ D=(6,2,2,2,4),\quad h=(2,1,1,1,1),\quad u=(1,2,2,2,1).
+\]
+The lower counts are $13$ without the center and $11$ with it. Eleven are achieved at offsets
+\[
+ 1246,1209,1283,1172,1320,1205,1203,1199,1193,1299,1140.
+\]
+
+\paragraph{Nine inputs.}
+Take
+\begin{align*}
+ A_9&=\{841,899,961,1073,1147,1189,1247,1271,1333\}\\
+ &=\{29^2,29\cdot31,31^2\}\cup\{29r,31r:r=37,41,43\}.
+\end{align*}
+The center is $y=x+667$. The congruences are $y\equiv29^2\pmod{29^3}$, $y\equiv31^2\pmod{31^3}$, and $y\equiv r\pmod{r^2}$ for $r=37,41,43$. The radius is 666, smaller than $29\cdot31=899$, $29^2=841$, and $31^2=961$. Consequently
+\[
+ D=(6,6,2,2,2),\quad h=(2,2,1,1,1),\quad u=(1,1,2,2,2).
+\]
+The lower counts are $15$ without the center and $12$ with it. Twelve are achieved at offsets
+\[
+ 667,638,696,609,725,636,698,605,729,630,626,624.
+\]
+All congruences, interval valuation caps, and achieving-cover divisibilities are checked with standard-library integer arithmetic in the accompanying witness script.
+
+For completeness, the six-input lower witness from~\cite{bergstrom} is
+\[
+ A_6=\{221,289,299,323,391,437\},\quad M=437,\quad x=581200167.
+\]
+At center offset 219 its prime demands, central supply, and noncentral caps for primes $(13,17,19,23)$ are $(2,5,2,3)$, $(1,2,1,1)$, and $(2,1,2,1)$. Lemma~\ref{lem:hub} gives a lower bound of eight, attained at offsets $12,15,32,35,49,86,128,219$. Combined with the independently certified upper bound, this recovers $g(6)=8$.
+
+\section{Further structural reduction}
+The separate companion note \texttt{proofs/CORE\_REDUCTIONS.md} proves the following more targeted fact using the bounds established above. Any counterexample to $g(7)\le9$ has at most three distinct prime divisors at least $11$; every such prime divides at least three sources and exceeds $\sqrt{M}/3$. Similarly, any counterexample to $g(8)\le11$ has at most three distinct prime divisors at least $11$. These statements hold for every $M$.
+
+The seven-input argument first reduces to at most four large primes, then excludes the four-prime case through its forced two-low/two-high incidence pattern and an exact accounting of shared target multiples. The companion note includes the complete proof and the missing smooth-cofactor obligation. These reductions do not settle the cases with one, two, or three large primes and do not change the bounds in Theorem~\ref{thm:main}.
+
+\section{What remains to obtain exact values}
+To determine $g(7)$, one must either prove a universal nine-point cover theorem or produce an instance requiring ten points. The analogous alternatives for $g(8)$ are a universal eleven-point theorem or a twelve-point witness. For $g(9)$ the current certified possibilities are $12,13,14$; additional lower or upper arguments are needed to distinguish them.
+
+The alternative lower examples do not settle these gaps, and their exact cover sizes do not bound other source sets. Likewise, the proven $B$-slot smooth-source statements do not imply the stronger $(B-1)$-slot statements. The asymptotic Erd\H{o}s--Sur\'anyi question is not resolved by these finite bounds.
+
+\begin{thebibliography}{9}
+\bibitem{tripodo}
+Tripodo, \emph{Sharp finite cases of the Erd\H{o}s--Sur\'anyi interval-product problem}, version 1, Theorem 1.6.
+\url{https://hexagonmath.org/pdf/2611.00694v1}.
+External input used here: $g(5)\le6$. The reported Lean development was not rebuilt for this note.
+
+\bibitem{bergstrom}
+C. Bergstr\"om, \emph{Exact Small-$n$ Values ($g(4)=5$, $g(5)=6$, $g(6)=8$) and Constructive Lower Bounds ($g(7)\ge9$, $g(8)\ge11$) for Erd\H{o}s Problem 708}, 19 November 2026.
+\url{https://doi.org/10.5281/zenodo.24366897}.
+Used for attribution of the six-input lower witness and cumulative-GCD slot criterion; the upper finite verification in the present note is supplied separately.
+\end{thebibliography}
+\end{document}

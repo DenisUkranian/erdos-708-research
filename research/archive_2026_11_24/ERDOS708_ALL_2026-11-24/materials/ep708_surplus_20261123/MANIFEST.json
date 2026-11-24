@@ -1,0 +1,65 @@
+{
+  "status": "J_(2+delta)<=C_delta NOT proved; unrestricted asymptotic NOT proved",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 5095,
+      "sha256": "7d82373a584a5eeb36cde86ee2a14c7cca2df798f05affd6beae17756180fb7f"
+    },
+    {
+      "path": "analytic/GEOMETRIC_GRID_AND_FEW_COFACTORS.md",
+      "bytes": 9357,
+      "sha256": "57aef39a02ae38b07d7798f0419af4e38fa0019b7640d7dab0df6c7687704ed1"
+    },
+    {
+      "path": "analytic/POSITIVE_KERNEL_THRESHOLD_AND_LOG_CAP.md",
+      "bytes": 9158,
+      "sha256": "8abaee29022f15c8e0c2a30fc6814cd1263e403118927208e1995854221446eb"
+    },
+    {
+      "path": "analytic/ROOTWISE_SIEVE_OBSTRUCTION.md",
+      "bytes": 7830,
+      "sha256": "eb862ff4eb02356215a979ded2f05d262d49e1396d103011634a43de913602b8"
+    },
+    {
+      "path": "audit/ALL_COFACTOR_HALL_DEFICIENCY.md",
+      "bytes": 5620,
+      "sha256": "b899a64bcec780c80703b41823d7aedf14df085fbac74dbf342ebdd1bd039b93"
+    },
+    {
+      "path": "audit/FULL_TAIL_CONDITIONAL_FIRST_MOMENT.md",
+      "bytes": 7266,
+      "sha256": "695a1e688a3637b6cd091af21a8619860342606ca15cbe30495a93f4b690a85b"
+    },
+    {
+      "path": "audit/GLOBAL_MAXIMIZER_AND_SHIFT_REDUCTION.md",
+      "bytes": 10725,
+      "sha256": "a2bfdf26d0feb433e50384eef9240c805a43ae6a3ac2b90f38556312deae99c6"
+    },
+    {
+      "path": "audit/WEIGHT_ADAPTED_CUTOFF_TEST.md",
+      "bytes": 3738,
+      "sha256": "db7e962a9dba57268826d20b394e7c320e7163026ba8ddd031d45284ecb36033"
+    },
+    {
+      "path": "erdos708_surplus_tail.pdf",
+      "bytes": 323456,
+      "sha256": "3be3f2359e4e7adff7edee7afeb087fa1d3056ad94c57f9ac8608abf4abd7581"
+    },
+    {
+      "path": "erdos708_surplus_tail.tex",
+      "bytes": 14644,
+      "sha256": "a4507372497e0b76e96d1c2ddaffb16716bcc9f8abe55e8edd88eaa8d6597d11"
+    },
+    {
+      "path": "variations/GLOBAL_SURPLUS_VARIATIONS.md",
+      "bytes": 9535,
+      "sha256": "13e88655ec2660869ad46b46debbd350002c98d80e350f11ef3453fff148cfbe"
+    },
+    {
+      "path": "variations/SOURCE_TAIL_AND_DEMAND_BAND_CLEANUP.md",
+      "bytes": 8478,
+      "sha256": "f629171bf0dd34e9b196fbb2444de9485ce254895c7b0df4055b719e5f630a1c"
+    }
+  ]
+}
