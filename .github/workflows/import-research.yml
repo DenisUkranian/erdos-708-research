@@ -1,0 +1,54 @@
+name: Import research archive into the repository
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "transport/part-*.b64"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  expand:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Verify archive and extract research
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f transport/part-000.b64
+          cat transport/part-*.b64 | base64 --decode > /tmp/erdos708-public-with-g8.zip
+          echo "28c13a6140c1892209f625f9826fc83d24ba4911b22bf5865f682a7852383752  /tmp/erdos708-public-with-g8.zip" | sha256sum -c -
+          python3 - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile
+          root=Path.cwd().resolve()
+          with ZipFile('/tmp/erdos708-public-with-g8.zip') as z:
+              names=z.namelist()
+              assert len(names)==473, len(names)
+              for name in names:
+                  p=Path(name)
+                  assert not p.is_absolute() and '..' not in p.parts
+              z.extractall(root)
+              assert (root/'research/g8_exact/verify_all.py').is_file()
+              assert (root/'research/g8_exact/certificates/slot_certificates.txt').is_file()
+          print('Archive verified and extracted (473 files)')
+          PY
+      - name: Remove one-time transport and commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm -r --quiet transport
+          git add -A
+          if ! git diff --cached --quiet; then
+            git commit -m "Import full Erdős 708 research and g(8)=11 exact proof"
+            git push origin HEAD:main
+          fi
