@@ -46,14 +46,14 @@ Historical counterexamples and correction notes demonstrate that local witness i
 
 ## Reproducibility
 
-Once the upload is complete, the `g(7)` package is nested under:
+The complete `g(7)` package is available under:
 
 ```sh
 cd research/g7_exact/erdos708_g7_proof
 python3 g7_exact/verify_all.py
 ```
 
-It requires Python 3, a C++17 compiler, and enabled assertions. Run the exact g(8) verification using `cd research/g8_exact && python3 verify_all.py`. Other research packages contain independent scripts and instructions inside their own READMEs. Tests are *not* assumed to have been rerun in this assembly. See `MANIFEST_SHA256.txt` for payload hashes.
+It requires Python 3, a C++17 compiler, and enabled assertions. Run the exact g(8) verification using `cd research/g8_exact && python3 verify_all.py`. Other research packages contain independent scripts and instructions inside their own READMEs. The `g(8)` verifier was independently replayed on 24 November 2026; not all older historical programs have been rerun. See `MANIFEST_SHA256.txt` for payload hashes.
 
 ## Editorial policy
 
