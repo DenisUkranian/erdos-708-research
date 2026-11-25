@@ -12,3 +12,5 @@
 The prior archive and two-bin certificate package retain their original status. No blanket endorsement of old provisional claims is implied. No new finite verification counts are claimed unless an executable replay is supplied or a replay is explicitly reported.
 
 For nine sources, see [the separate finite-case update](../g9_12_or_13/README.md) and [the partial-closure inventory](../g9_followup/README.md). The unrestricted asymptotic does not follow from these finite results.
+
+Additional recovered prior report: [An Audited Route with Joint Budget Accounting](../recovered_2026_11_25/erdos708_route_refinement.pdf) (24 November 2026). It explicitly leaves arithmetic descent open.

@@ -30,3 +30,7 @@ The original packages are historical research, not independently refereed or uni
 ## Browseable files
 
 [Source index](SOURCE_INDEX.md): 67 original proof, code, small data and log files, available directly on GitHub in addition to the complete byte-preserving archives.
+
+## Additional original analytical report
+
+[An Audited Route with Joint Budget Accounting (24 November 2026)](erdos708_route_refinement.pdf) is the original eight-page PDF, restored without modification (SHA-256: 9e91d945af3d394c1e98673acb270ba81bcd43befbda25fdad6653cfd18fd36e). It preserves the same paired optimum while selecting an integer part, the weighted residual factor, a divisor-bank inequality, a quotient descent reduction with endpoint and clipping gains, and finite phase attainment. The required arithmetic descent inequality remains open. This report is a research checkpoint, not a general asymptotic proof.
