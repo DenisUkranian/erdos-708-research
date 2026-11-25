@@ -23,4 +23,10 @@ Demand at \(29,31,37,41,43\) is \((6,6,2,2,2)\); the center supplies \((2,2,1,1,
 
 Therefore the original verified computation proves the conditional upper bound 13. The new replay checked the exact original archive's regenerated demand/frontier/miss files against its saved data, rather than merely relying on its old logs. See REPLAY_2026-11-25.md for counts and archive hashes.
 
-The original archive includes regenerable large intermediate tables, logs, and a bundled copy of the prior g(8) proof. Rather than representing absent large binaries as uploaded, use the source package and regeneration instructions; the separate g(8) dependency is already present at [research/g8_exact](../g8_exact/). See [follow-up inventory](../g9_followup/README.md) for later reductions toward 12. No proof of exact equality is claimed.
+The complete original archive, including large intermediate tables, logs, and the bundled prior g(8) proof, is preserved byte-for-byte in [the recovered archives](../recovered_2026_11_25/README.md). Restore and independently rerun it from the repository root with:
+
+~~~sh
+python3 research/recovered_2026_11_25/restore_archives.py --output recovered_2026_11_25 --verify-g9
+~~~
+
+The separate g(8) dependency is also available at [research/g8_exact](../g8_exact/). See [follow-up inventory](../g9_followup/README.md) for later reductions toward 12. No proof of exact equality is claimed.

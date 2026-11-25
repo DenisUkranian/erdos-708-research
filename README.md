@@ -16,6 +16,7 @@ Central goals include the asymptotic estimate `g(n) <= (2+o(1))n` and the strong
 - [`research/g8_exact/`](research/g8_exact/): the later computer-assisted exact-case result **g(8)=11**, conditional on prior g(5), g(6), and g(7) upper bounds; proof in English, C++/Python verifiers, 57,487 universal certificates, and 28 exact CRT residual checks. Independently replayed on 24 November 2026.
 - [`research/asymptotic_2026_11_25/`](research/asymptotic_2026_11_25/): new audited conversation consolidation, component lemmas, external-research comparison, corrections, and precise remaining gates.
 - [`research/g9_12_or_13/`](research/g9_12_or_13/): recovered narrow nine-source bounds **12 ≤ g(9) ≤ 13**, with unconditional lower witness and upper bound conditional on the prior g(8) proof. The original verifier was independently replayed on 25 November 2026.
+- [`research/recovered_2026_11_25/`](research/recovered_2026_11_25/): all eight recovered original ZIP packages, with complete code, data and logs preserved byte-for-byte in a verified split archive; restore using the included Python script.
 - [`research/g9_followup/`](research/g9_followup/): inventory and scope audit of the subsequent partial upper-12 reductions (not a proof of exact g(9)).
 - [`research/two_bin_certificate/`](research/two_bin_certificate/): a subsequent working package of valuation/weight transfer attempts and counterexamples; distinguish proved component lemmas from unsuccessful global steps.
 

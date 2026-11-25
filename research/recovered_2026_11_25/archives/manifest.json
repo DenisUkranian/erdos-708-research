@@ -1,0 +1,103 @@
+{
+  "format": "concatenated binary ZIP",
+  "file": "erdos708_missing_original_packages_2026-11-25.zip",
+  "size": 6921905,
+  "sha256": "e651b895a9df0ee10f64121eac51189f1a339e7519a2e0edfc9d02b5b89c3253",
+  "git_blob": "715f87a2ea1cda56e754957b769992294b996f00",
+  "parts": [
+    {
+      "file": "part-000.bin",
+      "size": 768000,
+      "sha256": "48cf084e4b4dd4f966452afb08b9f518f0c9a9f025a0e89e400770f652ac5fdb",
+      "git_blob": "3ea5398e07b2595370899030a08914d11e778537"
+    },
+    {
+      "file": "part-001.bin",
+      "size": 768000,
+      "sha256": "88fa7ad92e948c9eea473e9e062df9fb0ae49344bee1b4413baf47548eeba237",
+      "git_blob": "48bddccbc03c2284719c260eb24c6135fee1f161"
+    },
+    {
+      "file": "part-002.bin",
+      "size": 768000,
+      "sha256": "f4da99754bd2e54df3f02f3d1d70463e7943178c6d51a7a6942916560099dc97",
+      "git_blob": "ce334637b41cde8e553692200d52821c5c5958d8"
+    },
+    {
+      "file": "part-003.bin",
+      "size": 768000,
+      "sha256": "6ef8dfb1980e646cbe5e46a5ff1fb561816105c2f11c0821168b4696b6a36eef",
+      "git_blob": "a8f8bf49ee113f701736b86f6088e321a2a69651"
+    },
+    {
+      "file": "part-004.bin",
+      "size": 768000,
+      "sha256": "679f62b532d20eb011e5031c88fbef3db83ede49cfab55a4fe248450e4131fdf",
+      "git_blob": "eddd1b5fd4e858f5333d73b34c2ce1c7cb41687d"
+    },
+    {
+      "file": "part-005.bin",
+      "size": 768000,
+      "sha256": "ca6e68468c7b13264b37c4c2c5670c83ae949144f7003733ce8f30cafa1ac1db",
+      "git_blob": "9118f4b5f0ad40ac4b2c1ccf201fdd6e134929ab"
+    },
+    {
+      "file": "part-006.bin",
+      "size": 768000,
+      "sha256": "607ba29e0df02f8d492a3b93a30fbbec89f5cb4dd5829bd7f9c8be242c9105aa",
+      "git_blob": "4297950c5f1ce4ccb116afc36d174112651bbfde"
+    },
+    {
+      "file": "part-007.bin",
+      "size": 768000,
+      "sha256": "b26b42587441b5aef5c534556a1d727f5e08e37583e1fd25976d3ad880ef10d6",
+      "git_blob": "1feb4bb6de1f8c95251e03666b6d02fc8a150bb8"
+    },
+    {
+      "file": "part-008.bin",
+      "size": 768000,
+      "sha256": "c98a9be3fad0d8ac4dec495931be32b4eef418fad327d1670ae8c438d6a88aea",
+      "git_blob": "e450aaef21efc97d3229816820777e74aff02439"
+    },
+    {
+      "file": "part-009.bin",
+      "size": 9905,
+      "sha256": "f581937f2be8f145ee5ce294a8ed158834e08a639f04f1172545453d1190d346",
+      "git_blob": "d8a4c9cfb176bee4d9d8c71c2629ad4dc8e02ac8"
+    }
+  ],
+  "original_packages": [
+    {
+      "file": "ERDOS708_g9_new_prime_group_lemmas.zip",
+      "sha256": "770f68bd1dafc4babf48e7c99f01c4dcc5654e4238150c8179349e772ed5f6a7"
+    },
+    {
+      "file": "ERDOS708_g9_structural_tail_9450.zip",
+      "sha256": "7feb657874d63c6186bc27815623272c43118dae13499a3e1b7b99281041e9d5"
+    },
+    {
+      "file": "ERDOS_708_g9_at_most_two_large_primes.zip",
+      "sha256": "b522192a48897b4cc33bb5fddf5c1f9cad87101c484e2a28ff2d58a1ead24220"
+    },
+    {
+      "file": "ERDOS_708_g9_bounds_12_to_13_verified.zip",
+      "sha256": "4c18390ff98b68ae78aa319d0279ea6ca446530a08f627307c5f06fa0f4a7877"
+    },
+    {
+      "file": "ERDOS_708_g9_high_high_frontier.zip",
+      "sha256": "6653044df69b76b951e8c2602837e6b55c8ad666bbbc0fa54536dfc890f76d42"
+    },
+    {
+      "file": "ERDOS_708_g9_new_partial_closures.zip",
+      "sha256": "6fcd2025d7bf31068a5a13f5dc4a4d4227e93807d16960a35a55c629098564b6"
+    },
+    {
+      "file": "ERDOS_708_g9_partial_new_reductions.zip",
+      "sha256": "94f2522d42e73da4480b062f24de6fc544b82a17927c13f6ab4cb7b2b7666a8b"
+    },
+    {
+      "file": "erdos708_descent_attempt.zip",
+      "sha256": "586297ef4c10a6949ff990eca811944a7f729eda2c50e7bee2b6407956e4cc44"
+    }
+  ]
+}
