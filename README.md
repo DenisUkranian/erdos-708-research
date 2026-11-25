@@ -1,6 +1,6 @@
 # Erdős Problem 708 — Research Archive and Proof Certificates
 
-**Status (24 November 2026): Open in general.** This repository collects our recovered work on the Erdős–Surányi interval-product problem, with historical experiments, exact finite certificates, full research reports, counterexamples to intermediate claims, and reproducible scripts. An archived claim is not automatically an established theorem.
+**Status (25 November 2026): Open in general.** This repository collects our recovered work on the Erdős–Surányi interval-product problem, with historical experiments, exact finite certificates, full research reports, counterexamples to intermediate claims, and reproducible scripts. An archived claim is not automatically an established theorem.
 
 ## Problem
 
@@ -14,6 +14,9 @@ Central goals include the asymptotic estimate `g(n) <= (2+o(1))n` and the strong
 - [`research/finite_bounds_g6_g9/`](research/finite_bounds_g6_g9/): a 24 November finite-case package, recording `g(6)=8`, `9 <= g(7) <= 10`, `11 <= g(8) <= 12`, and `12 <= g(9) <= 14`. **Its g(7) interval is superseded by the later g(7) proof package.**
 - [`research/g7_exact/`](research/g7_exact/): later 24 November *computer-assisted claim* `g(7)=9` with exact integer certificates, C++/Python verifiers, and replay logs; external dependency on the stated `g(5)<=6` result. This compilation has not independently rerun the entire verifier and does not imply peer review or Lean formalization.
 - [`research/g8_exact/`](research/g8_exact/): the later computer-assisted exact-case result **g(8)=11**, conditional on prior g(5), g(6), and g(7) upper bounds; proof in English, C++/Python verifiers, 57,487 universal certificates, and 28 exact CRT residual checks. Independently replayed on 24 November 2026.
+- [`research/asymptotic_2026_11_25/`](research/asymptotic_2026_11_25/): new audited conversation consolidation, component lemmas, external-research comparison, corrections, and precise remaining gates.
+- [`research/g9_12_or_13/`](research/g9_12_or_13/): recovered narrow nine-source bounds **12 ≤ g(9) ≤ 13**, with unconditional lower witness and upper bound conditional on the prior g(8) proof. The original verifier was independently replayed on 25 November 2026.
+- [`research/g9_followup/`](research/g9_followup/): inventory and scope audit of the subsequent partial upper-12 reductions (not a proof of exact g(9)).
 - [`research/two_bin_certificate/`](research/two_bin_certificate/): a subsequent working package of valuation/weight transfer attempts and counterexamples; distinguish proved component lemmas from unsuccessful global steps.
 
 ## Finite cases — provenance matters
@@ -23,7 +26,7 @@ Central goals include the asymptotic estimate `g(n) <= (2+o(1))n` and the strong
 | 6 | g(6)=8, subject to cited prior finite theorem | `finite_bounds_g6_g9`, `g7_exact` |
 | 7 | g(7)=9, computer-assisted proof **claimed** in newest package | `g7_exact`; rerun `verify_all.py` |
 | 8 | g(8)=11 in the later computer-assisted package, conditional on g(7)<=9, g(6)<=8, g(5)<=6; the older 11<=g(8)<=12 interval is superseded | `g8_exact`; `finite_bounds_g6_g9` |
-| 9 | 12 <= g(9) <= 14; exact value not established here | `finite_bounds_g6_g9` |
+| 9 | 12 <= g(9) <= 13; conditional upper bound, exact value not established | `g9_12_or_13`; later partial reductions in `g9_followup` |
 
 The g(8) upper proof additionally depends on the g(7) and g(6) bounds and an external g(5) result. The g(8) verifier passed independently on 24 November 2026.
 
@@ -40,6 +43,10 @@ Q_n(M,I,w) = X_w(M) + Top_{n-1}{X_w(a) : 2 <= a < M}
 
 Its uniform upper bound by `2n+o(n)` is the remaining asymptotic target under the raw-transfer framework. The archived lemmas include quotient/cofactor banks, prime valuation repairs, diffuse prime weights, smooth-source and separated-band results, and exact bookkeeping. Uniform control over growing mixed prime cores is **still missing**. Refer to the status and corrections ledger before citing any lemma.
 
+## Latest research checkpoint (25 November)
+
+The new capped-valuation certificate handles an explicit separated-support class with growing Hall reserve. Weighted bank overlap and local LCM loss give common-budget components. The broader conjectured mixed-weight and arbitrary-support extensions remain open; consult the [claim ledger](research/asymptotic_2026_11_25/CLAIM_LEDGER.md) before using them. No unrestricted asymptotic proof is claimed.
+
 ## Known failed shortcuts
 
 Historical counterexamples and correction notes demonstrate that local witness inequalities cannot be summed and transported to arbitrary target intervals without controlling competing charges and positional budgets. In particular the previously proposed whole-sum transfer (8) is false: the archived `p,W,q` family has discrepancy larger than square-root scale. Counterexamples refute specific intermediate lemmas, not the original conjectures.
@@ -53,7 +60,7 @@ cd research/g7_exact/erdos708_g7_proof
 python3 g7_exact/verify_all.py
 ```
 
-It requires Python 3, a C++17 compiler, and enabled assertions. Run the exact g(8) verification using `cd research/g8_exact && python3 verify_all.py`. Other research packages contain independent scripts and instructions inside their own READMEs. The `g(8)` verifier was independently replayed on 24 November 2026; not all older historical programs have been rerun. See `MANIFEST_SHA256.txt` for payload hashes.
+It requires Python 3, a C++17 compiler, and enabled assertions. Run the exact g(8) verification using `cd research/g8_exact && python3 verify_all.py`. Other research packages contain independent scripts and instructions inside their own READMEs. The `g(8)` verifier was independently replayed on 24 November 2026; not all older historical programs have been rerun. See `MANIFEST_SHA256.txt` for the historical payload hashes and the newer packet's provenance and replay notes for added materials. The historical archive is preserved; its inventory is not a complete manifest of later additions.
 
 ## Editorial policy
 
