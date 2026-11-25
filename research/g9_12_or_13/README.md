@@ -30,3 +30,5 @@ python3 research/recovered_2026_11_25/restore_archives.py --output recovered_202
 ~~~
 
 The separate g(8) dependency is also available at [research/g8_exact](../g8_exact/). See [follow-up inventory](../g9_followup/README.md) for later reductions toward 12. No proof of exact equality is claimed.
+
+[Original verification source files](../recovered_2026_11_25/source/ERDOS_708_g9_bounds_12_to_13_verified/G9_12_OR_13_PROOF/src/) are browseable here. The full replay requires the restored original data tables, as documented above.

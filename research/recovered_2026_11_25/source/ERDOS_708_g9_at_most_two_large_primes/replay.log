@@ -1,0 +1,27 @@
+{
+  "1": {
+    "type_patterns": 32,
+    "after_product": 32,
+    "after_square": 32,
+    "after_common_prime": 24
+  },
+  "2": {
+    "type_patterns": 108,
+    "after_product": 88,
+    "after_square": 82,
+    "after_common_prime": 82
+  },
+  "3": {
+    "type_patterns": 9,
+    "after_product": 0,
+    "after_square": 0,
+    "after_common_prime": 0
+  },
+  "4": {
+    "type_patterns": 0,
+    "after_product": 0,
+    "after_square": 0,
+    "after_common_prime": 0
+  }
+}
+PASS: no possible type patterns for v=3 or v=4.

@@ -1,0 +1,9 @@
+M=198 demands=275 states=491367 total=1235169 misses=0 sec=0.902825
+M=200 demands=216 states=515883 total=1336608 misses=0 sec=0.805571
+M=210 demands=467 states=515677 total=1332800 misses=0 sec=0.882992
+M=216 demands=293 states=583263 total=1688310 misses=0 sec=0.91942
+M=220 demands=202 states=565371 total=1503684 misses=0 sec=0.942191
+M=224 demands=169 states=588315 total=1690752 misses=0 sec=1.04384
+M=225 demands=292 states=447138 total=924768 misses=0 sec=0.769168
+M=231 demands=452 states=484978 total=1034880 misses=0 sec=0.838341
+M=240 demands=330 states=565869 total=1405404 misses=0 sec=0.975036

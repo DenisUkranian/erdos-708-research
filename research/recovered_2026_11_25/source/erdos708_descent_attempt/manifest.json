@@ -1,0 +1,42 @@
+{
+  "README.txt": {
+    "bytes": 1547,
+    "sha256": "28b02945621a6a983d007fc4b8923f01ea75c877d4312d2b8408ff949aa498aa"
+  },
+  "erdos708_descent_attempt.tex": {
+    "bytes": 12521,
+    "sha256": "40c8656cd0d2b6bbb36d92f14f9ecff0eb846aee9ab2aec706cfe5951386bc42"
+  },
+  "hyperbola/HOT_ROOT_UNION_OBSTRUCTION.md": {
+    "bytes": 5231,
+    "sha256": "242d0b21e3acf6974606d091bc5c85dbe0dab7ff5f157dc9f5c8305f217a8ab1"
+  },
+  "hyperbola/VANDERMONDE_SCOPE.md": {
+    "bytes": 2092,
+    "sha256": "265a246a3440b7c895ab23fd7fa7f974080db9496223d5074c971a4fd02db79a"
+  },
+  "hyperbola/check_hot_union.py": {
+    "bytes": 985,
+    "sha256": "2b2142f1092bbc23a8b18352deaef93e76ee97a1ec6cf54b74c98744da184c4a"
+  },
+  "obstruction/COLD_QUOTIENT_STRESSTEST.md": {
+    "bytes": 6611,
+    "sha256": "e6ba60379b935d5bca294a15e3e4f5b521fe794752b4476ac60e0c801c048a22"
+  },
+  "variation/VARIATION_DESCENT_OBSTRUCTION.md": {
+    "bytes": 5347,
+    "sha256": "0c7748197bdd86a0865ba322bb707104248c493abd15e48abce869ff3a41cdc4"
+  },
+  "variation/abstract_global_certificates.json": {
+    "bytes": 126109,
+    "sha256": "8ac27d61e13570263b85092fbe7eb51044f15577b98b57056fd37b7a8069c38d"
+  },
+  "variation/check_abstract_globality.py": {
+    "bytes": 3539,
+    "sha256": "44f832d56c84610201c13adc41bfd517b6f20c2f277d3f2ea3a0279bdb54d192"
+  },
+  "erdos708_descent_attempt.pdf": {
+    "bytes": 265733,
+    "sha256": "c0e2b425653a83a2697c14b7f270ac17b8b035848e55fad03c9a7fd1c61594ef"
+  }
+}

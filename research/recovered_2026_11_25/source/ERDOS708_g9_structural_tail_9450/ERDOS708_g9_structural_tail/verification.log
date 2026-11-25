@@ -1,0 +1,22 @@
+type counts 1 [(0, 7), (1, 20)]
+type counts 2 [(0, 10), (1, 25), (2, 16)]
+v=3 low= 0 pattern= [((0,), 3), ((1,), 3), ((2,), 3)]
+v=3 low= 1 pattern= [((0,), 3), ((0, 1), 1), ((0, 2), 1), ((1,), 2), ((2,), 2)]
+v=3 low= 1 pattern= [((0,), 2), ((0, 0), 1), ((0, 1), 1), ((0, 2), 1), ((1,), 2), ((2,), 2)]
+type counts 3 [(0, 1), (1, 2)]
+type counts 4 []
+pair thresholds above 9450: {(21, 49): 10290, (25, 49): 12250, (27, 49): 13230, (35, 35): 12250, (35, 49): 17150, (49, 49): 24010}
+minimum exact supply margins (margin, M):
+21,49 p3 (2, 9450)
+21,49 p7 (15, 9450)
+25,49 p5 (8, 9450)
+25,49 p7 (3, 9450)
+27,49 p3 (10, 9450)
+27,49 p7 (3, 9450)
+35,35 p5 (6, 9450)
+35,35 p7 (0, 9450)
+35,49 p5 (0, 9450)
+35,49 p7 (2, 9450)
+49,49 p7 (-1, 9450)
+lower witness: exact tau=12
+PASS: conditional structural and tail checks; global exact g(9) is NOT established.

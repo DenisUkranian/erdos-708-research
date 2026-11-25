@@ -1,0 +1,271 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,mathtools,booktabs}
+\usepackage[a4paper,margin=24mm]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+\usepackage{enumitem}
+\setlist{nosep,leftmargin=*}
+\newtheorem{proposition}{Proposition}
+\newcommand{\pos}[1]{(#1)_+}
+\title{Erd\H{o}s Problem 708: Execution of the Cold-Quotient Route}
+\author{Research continuation prepared for Denis Paliy}
+\date{24 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+The proposed general descent inequality remains unproved. This continuation
+checks three attempted ways to establish it and gives exact obstructions to
+their intermediate steps. A real full tail can have large source excess and
+no positive cold quotient, while its target banks compensate the excess.
+Unions of hot roots below the square-root scale can have discrepancy much
+larger than that scale. An abstract model has a unique global optimum with
+all cold quotients negative, despite exact rows and divisor domination; its
+failure of the numerical floor laws is explicit. These results neither prove
+nor disprove the general asymptotic or exact $2n$.
+\end{abstract}
+
+\section{The step attempted}
+Fix $c=2+\delta>2$, an actual positive $M$-term interval $I$, and
+\[
+ X(t)=\sum_{p\le M}w_pv_p(t),\quad0\le w_p\le1,
+ \quad A=\{a\le M:X(a)>c\}.
+\]
+Write $S_c=\sum_{a\le M}(X(a)-c)_+$,
+$H=\sum_{b\in I}(X(b)-1)_+$ and $J_c=S_c-H$.
+For a cold $2\le d\le M$, meaning $s=X(d)<1$, put $\tau=1-s$,
+$N_d=\lfloor M/d\rfloor$. The quotients of the interval multiples of $d$
+form $N_d$ or $N_d+1$ consecutive integers. Retain $N_d$ of them as $I_d$,
+and use prices
+\[
+ w_p^{(d)}=\min(w_p/\tau,1)\ (p\le N_d),\qquad w_p^{(d)}=0\ (p>N_d).
+\]
+Let $Q_d=J_c(w^{(d)};N_d,I_d)$, with the better endpoint deletion if
+needed. Then $Q_d\le\Delta_c(N_d)$ and $N_d\le M/2$, where $\Delta_c$
+is the worst genuine surplus. The unproved target is
+\[
+ \boxed{J_c\le\frac43\max\left(0,\max_{d\text{ cold}}Q_d\right)
+                      +C_c\sqrt M.}\tag{D}
+\]
+It is required on genuine global maxima with their own full tails.
+The previously verified recursion and threshold-shift arguments imply
+that (D), combined with the prior near-quadratic exclusion, would close
+the asymptotic. That implication is not a proof of (D).
+
+The exact quotient identity remains valid:
+\[
+ \tau Q_d=K_d+R_d^{\rm tail}+R_d^{\rm end}+R_d^{\rm clip},\qquad R_d^*\ge0,
+\]
+where
+\[
+ K_d=\sum_{\substack{a\in A\\d\mid a}}(X(a)-c)
+ +(c-1)X(d)\#\{a\in A:d\mid a\}
+ -\sum_{\substack{b\in I\\d\mid b}}(X(b)-1)_+.
+\]
+The reserves are new quotient-tail mass, a removed endpoint penalty, and
+clipping gain. No original coordinate balances are transferred to a quotient.
+
+\section{A real full tail need not localize its source excess}
+\begin{proposition}
+For fixed $2<c<3$, there are actual raw full tails with
+$S_c/\sqrt M\to\infty$, but $Q_d\le0$ for every cold $d\ge2$ and every
+actual target interval. Their weights fail genuine optimality: target banks
+pay more than the entire source excess.
+\end{proposition}
+\begin{proof}
+Let $P\ge1$ be an integer, let $R\subset(4P,5P]$ be a nonempty set of
+primes, put $k=|R|$, $M=125P^3$, and give precisely these primes unit
+prices. Every cubic monomial in $R$, repetitions allowed, lies in
+$(64P^3,125P^3]\subset(M/2,M]$. Every quartic monomial exceeds $M$.
+There is no extra inactive cofactor for a cubic monomial, since even
+multiplication by two exceeds $M$. Thus the entire full tail is the
+set of cubic monomials, with
+\[
+ n=\binom{k+2}{3},\qquad S_c=(3-c)\binom{k+2}{3},\qquad
+ D_p(A)=\frac{(k+1)(k+2)}2\quad(p\in R).\tag{1}
+\]
+A cold integer contains only zero-price primes. Its normalized positive
+prices remain one, possibly with coordinates deleted. Its source prefix
+has length at most $M/2$, hence contains no triple of active occurrences.
+The new source hinge is zero, so $Q_d\le0$.
+Taking all primes in $(4P,5P]$, the prime number theorem gives
+$k\sim P/\log P$, and $S_c\asymp_c P^3/(\log P)^3\gg\sqrt M$.
+\end{proof}
+
+\paragraph{Exact compensation and the violated optimality row.}
+For fixed $p\in R$, take the one common union of banks $pq$, $q\in R$,
+including $q=p$, and denote its size by $U_p$. Each bank is strictly hot
+and has at least $5P$ positions. The least common multiple of two distinct
+banks exceeds $64P^3$, so their intersection has at most two positions.
+Consequently
+\[
+ U_p\ge5Pk-k(k-1)>\frac{(k+1)(k+2)}2=D_p(A),\tag{2}
+\]
+since $k\le P$; the difference is at least
+$\tfrac72k^2-\tfrac12k-1>0$.
+If these prices were optimal, every position in the union would have
+$z_b=1$, already exceeding its active $p$-row demand. Thus exact
+complementary slackness excludes these prices.
+
+There is also direct common-budget payment. At a hot target $b$, the
+number $r(b)$ of prime-row unions containing it is at most $X(b)$.
+Since $X(b)\ge2$, $X(b)-1\ge r(b)/2$. Summing gives
+\[
+ H\ge\frac12\sum_{p\in R}U_p
+ \ge\frac{k}{2}[5Pk-k(k-1)]
+ \ge2k^3+\frac{k^2}{2}>\binom{k+2}{3}>S_c.\tag{3}
+\]
+Therefore $J_c<0$ for every real interval. This does not refute (D).
+It disproves the source-only step
+$S_c\le C\sqrt M+C'\max(0,\max_dQ_d)$, and shows why target payment
+must remain coupled to localization.
+
+\section{Hot roots below $\sqrt M$ can have much larger discrepancy}
+\begin{proposition}
+A generic prefix-to-interval union-transfer error $O(\sqrt M)$ is false
+even for strictly hot roots at most $\sqrt M$, with a nonempty full tail
+and no unused active prime.
+\end{proposition}
+\begin{proof}
+Take $c=9/4$, $M=4z^2$, $N=2z^2$, and
+$w_2=3/4$, $w_p=1$ for odd primes $p\le z$, all other prices zero.
+The roots $\mathcal H=\{2p:p\le z\}$ satisfy $h\le\sqrt M$ and are hot:
+$X(4)=3/2$, $X(2p)=7/4$ for odd $p$.
+Every active odd prime occurs in the full tail via $2p^2$, of load $11/4$;
+the prime two occurs too.
+
+Let $P(z)=\prod_{p\le z}p$ and let $R_z(x,N)$ count integers coprime to
+$P(z)$ in $\{x+1,\ldots,x+N\}$. For the actual interval
+$I_x=\{2x+1,\ldots,2x+M\}$,
+\[
+ \left|\bigcup_{h\in\mathcal H}(I_x\cap h\mathbb Z)\right|=N-R_z(x,N).
+\]
+The exact CRT average is
+$\operatorname{Avg}_{x\bmod P(z)}R_z(x,N)=N\prod_{p\le z}(1-1/p)$.
+By Mertens' product theorem this is
+$(e^{-\gamma}+o(1))N/\log z$.
+A $z$-rough integer at most $2z^2$ is one, a prime exceeding $z$, or a
+product of two such primes. The last type has only
+$O(z^2/\log^2z)$ elements. Hence, by the prime number theorem,
+$R_z(0,N)=(1/2+o(1))N/\log z$.
+Some actual shift therefore has prefix-union minus target-union size
+at least
+\[
+ \left(e^{-\gamma}-\frac12+o(1)\right)\frac N{\log z}\gg\sqrt M.\tag{4}
+\]
+\end{proof}
+At $z=1000$, the exact prefix rough count is $152{,}528$ and the ceiling
+of the exact rational CRT mean is $161{,}931$. Thus an actual deficit
+of at least $9403$ exists, while $\sqrt M=2000$. A standard-library
+Python verifier accompanies this existence certificate.
+
+These prices are not asserted to be positive global maximizers. Further,
+the actual eligible sources with a hot root and a cold complement have
+forms $2pqv$ or $4pv$, with odd active $p,q$ and inactive $v$. Their
+number is $o(M)$, whereas the bank union contains all $M/4$ multiples
+of four. Replacing actual source demand by the whole prefix union loses
+an essential reserve. This proposition does not refute (D).
+
+\section{An abstract unique global optimum defeats formal descent}
+This section is expressly nonarithmetic. There are six formal prime
+coordinates and 90 source profiles:
+\begin{itemize}
+\item three copies of $(1,1,1,1,1,1)$;
+\item one copy of $2\mathbf1_S$ for each four-element subset $S$;
+\item twelve copies of each singleton $e_i$.
+\end{itemize}
+The 90 target profiles are six copies of $(2,2,2,2,2,2)$, four copies of
+each $2e_i$, three copies of each $e_i+e_j$, and fifteen zero profiles.
+Set $c=21/10$. At $w_i=1/2$, the strict full tail has 18 sources, load
+sum 69 and demand 23 in every coordinate. Select all six large targets,
+all 24 doubled singletons and mass $1/5$ at each pair target. Every row
+supplies $12+8+3=23$, at total cost $F=39$. Therefore
+\[
+ J_{21/10}=39-\frac{21}{10}\,18=\frac65.\tag{5}
+\]
+Every divisor orthant is dominated on the target; all full raw coordinate
+totals equal 35. The accompanying exact checker verifies all $3^6=729$
+threshold vectors, with higher thresholds identically zero.
+
+\paragraph{Exact globality certificate.}
+Singleton sources have load at most one and never enter the tail.
+A subset of the four-element profiles corresponds to a graph on six
+vertices, its edges being the omitted pairs. If it has $k$ edges, degrees
+$d_i$, and $h\in\{0,1\}$ says whether the three identical all-one sources
+are included, then
+\[
+ D_i=2(k-d_i)+3h,\qquad |A|=k+3h.\tag{6}
+\]
+The $2^{15}$ graphs have 102 sorted degree sequences. For their 204
+cases the supplied JSON gives rational feasible primal covers. The
+verifier checks the actual target columns and capacities, coverage of
+all degree types, every demand inequality and every exact cost.
+All nonempty cases except the full 18-source tail have certified surplus
+at most $-7/10$; the empty case gives zero. Thus (5) is the global maximum.
+Every pair target is strictly fractionally selected in the displayed
+optimal primal, so any optimal dual for this tail obeys $w_i+w_j=1$
+for all $i\ne j$. This forces the unique global maximizer $w_i=1/2$.
+
+\paragraph{Every formal cold quotient is negative.}
+A nonzero cold formal divisor is exactly one $e_i$. Conditioning on it
+and deleting one occurrence leaves 25 sources and 25 targets. After
+normalization the prices equal one. The source loads are three fives,
+ten sevens and twelve zeros; target loads are six elevens and nineteen
+ones. Hence every formal quotient has
+\[
+ Q_i=3\left(5-\frac{21}{10}\right)+10\left(7-\frac{21}{10}\right)
+                    -6(11-1)=-\frac{23}{10}.\tag{7}
+\]
+Replicating all profiles $L$ times preserves the unique optimum, gives
+$J=(6/5)L$, and leaves every cold quotient negative. Thus the abstract
+analogue of (D) with error $C\sqrt{90L}$ fails for any fixed $C$.
+
+\paragraph{The precise arithmetic law missing from this model.}
+Each formal coordinate occurs in $25L$ of the $90L$ sources. An actual
+prime would require $\lfloor90L/p\rfloor=25L$, which is impossible:
+for $p\le3$ the count is at least $30L$, and for $p\ge5$ it is at most
+$18L$. The violation is already linear in $L$. This model does not
+refute arithmetic (D); it proves that abstract full-tail globality,
+exact rows and orthant domination alone cannot establish it.
+
+\section{Other checked consequences and the exact remaining gap}
+At a joint optimum, work with actual bounded prime-adic phases. For an
+active $p$ put $E=\lfloor\log_p M\rfloor+1$ and
+$Y_i=\sum_{q\ne p}w_qv_q(x+i)$. CRT permits changing the $p$-phase while
+keeping every other prime phase. Minimality of the target hinge and
+averaging the $p^E$ phases gives the valid inequality
+\[
+ H-H_{\setminus p}\le\sum_{j=1}^{E}\frac1{p^j}\sum_{i=1}^{M}
+ \big[(Y_i+jw_p-1)_+-(Y_i+(j-1)w_p-1)_+\big].\tag{8}
+\]
+Its proof expands the hinge in valuation levels and uses probability
+$p^{-j}$ for reaching level $j$. It is an upper bound for the target
+marginal. Differentiating it as if it were an equality cannot produce
+the missing lower payment estimate.
+
+For a fully selected target set $B$, let
+$k_{p,j}=\#\{b\in B:p^j\mid b\}$. The difference-product argument gives
+\[
+ \sum_{p,j}\binom{k_{p,j}}2\log p
+ =\sum_{b<b'}\log\gcd(b,b')
+ \le\binom{|B|}{2}\log(M-1).
+\]
+Whole-row balances control sums over $j$, not individual layers.
+Increasing $|B|$ weakens the last inequality, so it does not supply the
+upper bound on selected cost sought here without an additional argument.
+
+\paragraph{Outcome.}
+No proof of (D), no direct $\Delta_c(M)=O_c(\sqrt M)$ bound, and no
+counterexample to (D) on genuine arithmetic positive maxima was obtained.
+The quotient identity and its conditional closing chain remain valid.
+The failed intermediate steps are source-only localization, separate
+small-root union transfer, and derivation from abstract optimization
+and row data alone.
+
+The unresolved step is a joint arithmetic estimate of $S_c-H$, using
+the actual counts $\lfloor M/d\rfloor$ and actual intersections, while
+retaining the true source and quotient reserves. The attached verifiers
+check the finite certificates used here; they do not compute $g(n)$ or
+formally verify a general solution. Detailed working proofs are included
+in the same bundle.
+\end{document}

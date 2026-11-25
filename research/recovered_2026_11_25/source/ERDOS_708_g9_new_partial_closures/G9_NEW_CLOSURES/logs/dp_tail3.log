@@ -1,0 +1,11 @@
+M=352 demands=1 states=4608 total=4608 misses=0 sec=0.0124261
+M=363 demands=11 states=54366 total=57915 misses=0 sec=0.278105
+M=378 demands=1 states=10192 total=10192 misses=0 sec=0.0527126
+M=385 demands=93 states=141592 total=165240 misses=0 sec=0.739636
+M=392 demands=12 states=34257 total=34320 misses=0 sec=0.210762
+M=396 demands=3 states=13860 total=13860 misses=0 sec=0.0822311
+M=400 demands=1 states=8505 total=8505 misses=0 sec=0.0675002
+M=420 demands=1 states=9000 total=9000 misses=0 sec=0.0582859
+M=440 demands=11 states=37857 total=38016 misses=0 sec=0.208065
+M=441 demands=1 states=6336 total=6336 misses=0 sec=0.0230758
+M=450 demands=1 states=9072 total=9072 misses=0 sec=0.07485

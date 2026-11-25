@@ -26,3 +26,7 @@ The script reconstructs the exact 6,921,905-byte ZIP, checks every part and the 
 The external redlydi repository is not republished. The current asymptotic work and its corrections are indexed in [the November 25 checkpoint](../asymptotic_2026_11_25/README.md). The finite-case results are indexed in [g9_12_or_13](../g9_12_or_13/README.md) and [g9_followup](../g9_followup/README.md).
 
 The original packages are historical research, not independently refereed or uniformly proved results. In particular, the exact g(9) and general asymptotic remain open. The upper-13 computation was actually replayed; the other recovered archives have their original provenance and validation limitations.
+
+## Browseable files
+
+[Source index](SOURCE_INDEX.md): 67 original proof, code, small data and log files, available directly on GitHub in addition to the complete byte-preserving archives.
