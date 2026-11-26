@@ -79,3 +79,8 @@ PASS density=3930..3950 low_mean=1 nodes=1010339 schur_nodes=9170
 PASS density=3950..3960 low_mean=0 nodes=5339905 schur_nodes=28095
 ./verify_density 3950 3960 1
 PASS density=3950..3960 low_mean=1 nodes=453047 schur_nodes=5046
+
+./verify_density 3925 3930 0
+PASS density=3925..3930 low_mean=0 nodes=138846747 schur_nodes=61411
+./verify_density 3920 3930 1
+PASS density=3920..3930 low_mean=1 nodes=1732323 schur_nodes=11776

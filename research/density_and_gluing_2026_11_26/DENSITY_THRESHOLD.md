@@ -1,6 +1,6 @@
 # Lowering the coefficient-two density threshold in Erdős problem 708
 
-**Theorem.** Let $A\subseteq\{2,\dots,M\}$, $M=\max A$, $n=|A|$, and let $I$ consist of $M$ consecutive integers. If $n/M\ge0.3930$, then for every sufficiently large $M$, there are at most $2n$ distinct positions of $I$ whose product is divisible by $\prod_{a\in A}a$. The sufficiency threshold is uniform in $A,I$. The unrestricted asymptotic is open.
+**Theorem.** Let $A\subseteq\{2,\dots,M\}$, $M=\max A$, $n=|A|$, and let $I$ consist of $M$ consecutive integers. If $n/M\ge0.3925$, then for every sufficiently large $M$, there are at most $2n$ distinct positions of $I$ whose product is divisible by $\prod_{a\in A}a$. The sufficiency threshold is uniform in $A,I$. The unrestricted asymptotic is open.
 
 The previous [density certificate](../density_2026_11_26/PROOF-3960.md) proves this for $n/M\ge0.3960$. This note supplies the adjacent range. It uses the preceding proof's small-prime profile transfer, variance estimate and nested target bounds from [PROOF.md](../density_2026_11_26/PROOF.md) and [SPLIT-TRIPLES.md](../density_2026_11_26/SPLIT-TRIPLES.md). Its new bounds combine a Bernoulli rounding on the source, the forced conditional mean of a putative counterexample and the integer pair envelope.
 
@@ -96,3 +96,12 @@ Every operation used in a bound rounds outward with integer products or division
 Compile with `c++ -std=c++17 -O3 verify_density.cpp -o verify_density`. For each band run `./verify_density lo hi 0` and `./verify_density lo hi 1`, writing the endpoints in units of $1/10000$. The proof only uses wholly accepted bands together with the earlier theorem from .3960 upward.
 
 The low-mean subproblem alone also passed on [.3900,.3930] in 8,085,999 boxes. The high-mean test on [.3900,.3930] stopped on an unresolved box after 215,949,546 nodes. The integer endpoint pairs for that box, in the displayed coordinate order and units of 1/32000000, are (4807926,4808000), (12569609,12569708), (1008620,1008709), (7573692,7573781), (4897915,4898003). The box describes the limits of these inequalities and supplies no counterexample to the covering conjecture.
+
+## Additional adjacent bands
+
+The same verifier proves the low-mean branch on the full interval $[0.3920,0.3930]$. The high-mean branches in the replay below, together with the earlier bands, certify all densities from $0.3925$ upward. The endpoint is included.
+
+| Density band | Mean branch | Boxes | Schur leaves |
+|---|---|---:|---:|
+| [0.3925, 0.3930] | High | 138,846,747 | 61,411 |
+| [0.3920, 0.3930] | Low | 1,732,323 | 11,776 |
