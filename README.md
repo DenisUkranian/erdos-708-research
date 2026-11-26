@@ -1,5 +1,7 @@
 # Erdős Problem 708 — Research Archive and Proof Certificates
 
+**26 November 2026, exact covers and residual obstructions.** The [new density certificate and structural results](research/density_and_gluing_2026_11_26/README.md) give exact two-per-row covers for all sufficiently large instances of density at least 39.30%, a reduction of every fixed-gap counterexample to rows with arbitrarily many distinct large prime factors, and simultaneous exact covers on polynomially many selected intersections. The unrestricted coefficient two remains open.
+
 **26 November 2026, progression selection and inverse results.** [Routes 7 and 11](research/fiber_selection_2026_11_26/README.md) give a density increment on unions of prime-pair progressions for any putative fixed-gap violation, shift-uniform covers for source sets determined by prime valuations, and a counterfamily to unrestricted full-union selection with singleton repairs.
 
 **26 November 2026, twelve proof routes.** [New proofs and exact replays](research/twelve_routes_2026_11_26/README.md) give a shift-uniform two-budget price bound on reciprocal-sparse supports, a two-budget cover for dense subsets of unions of progressions, a necessary density increment for a counterexample, and exact centered product costs. The general coefficient two remains open.

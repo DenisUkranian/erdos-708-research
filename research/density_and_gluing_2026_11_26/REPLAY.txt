@@ -1,0 +1,81 @@
+python3 verify_double.py
+Ordinary quadratic multiplier 2 + 79/64 d: two exact polynomial identities.
+Interpolated binomial multiplier 2 + 186/115 d: 22 boundary polynomials, each nonnegative in the cubic Bernstein basis.
+x=0 : 0, 1/8, 1/4, 3/8
+small x, mean=2 : 0, 287/14720, 6607/29440, 153/368
+x=1 : 0, 287/14720, 543/14720, 6/115
+large x, mean=3 : 3/4, 9629/29440, 5499/58880, 0
+large x, mean=4 : 2, 25757/22080, 103979/176640, 5/23
+large x, mean=5 : 15/4, 41885/17664, 46433/35328, 61/115
+large x, mean=6 : 6, 58013/14720, 26737/11776, 108/115
+large x, mean=7 : 35/4, 518987/88320, 610649/176640, 166/115
+large x, mean=8 : 12, 90269/11040, 860947/176640, 47/23
+large x, mean=9 : 63/4, 319191/29440, 383983/58880, 63/23
+large x, mean=10 : 20, 122525/8832, 296731/35328, 406/115
+large x, mean=11 : 99/4, 1525183/88320, 371213/35328, 508/115
+large x, mean=12 : 30, 154781/7360, 756393/58880, 27/5
+large x, mean=13 : 143/4, 2221817/88320, 2722997/176640, 149/23
+large x, mean=14 : 42, 1309259/44160, 3217519/176640, 176/23
+large x, mean=15 : 195/4, 203165/5888, 250183/11776, 1026/115
+large x, mean=16 : 56, 219293/5520, 865735/35328, 1183/115
+large x, mean=17 : 255/4, 4002157/88320, 4945309/176640, 1351/115
+large x, mean=18 : 72, 754647/14720, 1867549/58880, 306/23
+large x, mean=19 : 323/4, 5085863/88320, 273943/7680, 344/23
+large x, mean=20 : 90, 283805/4416, 1407887/35328, 1921/115
+x=10 : 90, 97055/1472, 61599/1472, 408/23
+Interpolated binomial multiplier 2 + 8/5 d: 22 boundary polynomials, each nonnegative in the cubic Bernstein basis.
+x=0 : 0, 1/8, 49151/196608, 122871/327680
+small x, mean=2 : 0, 43/1920, 223483/983040, 136951/327680
+x=1 : 0, 43/1920, 13993/327680, 19959/327680
+large x, mean=3 : 3/4, 427/1280, 102523/983040, 4471/327680
+large x, mean=4 : 2, 377/320, 598651/983040, 79991/327680
+large x, mean=5 : 15/4, 1835/768, 88277/65536, 188279/327680
+large x, mean=6 : 6, 2539/640, 455807/196608, 65867/65536
+large x, mean=7 : 35/4, 7567/1280, 3463291/983040, 503159/327680
+large x, mean=8 : 12, 3947/480, 1625641/327680, 709751/327680
+large x, mean=9 : 63/4, 13953/1280, 6519931/983040, 949111/327680
+large x, mean=10 : 20, 1785/128, 1678463/196608, 1221239/327680
+large x, mean=11 : 99/4, 66649/3840, 699605/65536, 305227/65536
+large x, mean=12 : 30, 6763/320, 12825211/983040, 1863799/327680
+large x, mean=13 : 143/4, 32357/1280, 15385723/983040, 2234231/327680
+large x, mean=14 : 42, 57197/1920, 6058537/327680, 2637431/327680
+large x, mean=15 : 195/4, 8875/256, 4238975/196608, 3073399/327680
+large x, mean=16 : 56, 3193/80, 4888703/196608, 708427/65536
+large x, mean=17 : 255/4, 174811/3840, 9307177/327680, 4043639/327680
+large x, mean=18 : 72, 32961/640, 31628923/983040, 4577911/327680
+large x, mean=19 : 323/4, 74043/1280, 35565691/983040, 5144951/327680
+large x, mean=20 : 90, 12395/192, 2648789/65536, 5744759/327680
+x=10 : 90, 12715/192, 2780501/65536, 6097911/327680
+Dense curve: exact section [1/6,1/2] and four reference values.
+
+python3 verify_peel.py
+M, input size, peeled, residual, max surviving p*q, forbidden site count: 1938 63 53 10 221 8
+product base F= 5 expansion= 13/4 deficit= 0 unmatched= [] verified cover= 73
+product full-bank F= 13 expansion= 13/4 deficit= 2 unmatched= [1292, 1564] verified cover= 75
+product full-bank-plus-noise F= 48 expansion= 13/4 deficit= 2 unmatched= [1292, 1564] verified cover= 106
+levels base F= 9 expansion= 13/4 deficit= 0 unmatched= [] verified cover= 95
+levels full-bank F= 17 expansion= 13/4 deficit= 2 unmatched= [1292, 1564] verified cover= 94
+levels full-bank-plus-noise F= 52 expansion= 13/4 deficit= 2 unmatched= [1292, 1564] verified cover= 119
+
+python3 verify_prime_unions.py
+flat-plus-anchor exact family/shift/weight checks M=2..7: [6, 36, 144, 1440, 2880, 40320] total 44826
+prime-union generator sets tested: [31, 258, 258, 258, 258] total 1063
+
+python3 verify_prefix.py
+1327 prefix families, 4558 family/shift certificates, 602 families attaining the saturated regime; all exact assertions passed.
+
+python3 verify_clone.py
+1191 sharp covers passed with 878 duplicate copies replaced
+
+python3 verify_grid_cover.py
+9 grids checked, 286 duplicate positions and 57 fresh level repairs.
+
+Final density verifier, compiled with C++17 -O3 -Wall -Wextra -Werror.
+./verify_density 3930 3950 0
+PASS density=3930..3950 low_mean=0 nodes=51990865 schur_nodes=52506
+./verify_density 3930 3950 1
+PASS density=3930..3950 low_mean=1 nodes=1010339 schur_nodes=9170
+./verify_density 3950 3960 0
+PASS density=3950..3960 low_mean=0 nodes=5339905 schur_nodes=28095
+./verify_density 3950 3960 1
+PASS density=3950..3960 low_mean=1 nodes=453047 schur_nodes=5046
