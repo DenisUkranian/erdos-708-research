@@ -1,5 +1,7 @@
 # Erdős Problem 708 — Research Archive and Proof Certificates
 
+**26 November 2026, full-period shifts.** [Simultaneous almost-all-shifts theorem and deterministic extensions](research/unrestricted_shifts_2026_11_26/README.md). Outside a vanishing proportion of shifts, one common bound gives (2+o(1))n for every family of size much larger than M(log log M)²/log M. The centered result now allows every fixed power of log M at all densities. A proof for the worst shift and unrestricted sources is still missing.
+
 **26 November 2026, cofactor matching.** A [written proof](research/cofactor_flow_2026_11_26/README.md) gives the sharp coefficient two at every source density for intervals with start within M(log M)^α of a multiple of lcm(A), for fixed α<13/34, and a 2n−1 bound for fixed reduced rational centers under the stated hypotheses. Arbitrary shifts remain open.
 
 **26 November 2026 update.** [Publication audit, external results and proof target](research/audit_2026_11_26/README.md). The [density package](research/density_2026_11_26/PROOF-3960.md) gives a written eventual exact 2n bound for n/M ≥ 0.3960 with replayed arithmetic certificates. The general asymptotic remains open.
