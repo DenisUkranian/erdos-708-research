@@ -1,5 +1,7 @@
 # Status and limitations
 
+**26 November 2026, sparse sources and the cost of adding full cells.** A [level-cover proof](research/sparse_threshold_2026_11_26/README.md) gives a bound of $2n+O_\varepsilon(n^{1-c_\varepsilon})$ on every interval when $M\ge n^{e_*+\varepsilon}$, with $e_*=1.223154795829\ldots$. A separate exact construction shows that adding complete prime-pair cells to an optimal residual cover can cost asymptotically three positions per added source. The unrestricted coefficient two remains open.
+
 **26 November 2026, exact covers and residual obstructions.** The [new density certificate and structural results](research/density_and_gluing_2026_11_26/README.md) give exact two-per-row covers for all sufficiently large instances of density at least 39.20%, a reduction of every fixed-gap counterexample to rows with arbitrarily many distinct large prime factors, and simultaneous exact covers on polynomially many selected intersections. The unrestricted coefficient two remains open.
 
 **26 November 2026, progression selection and inverse results.** [Routes 7 and 11](research/fiber_selection_2026_11_26/README.md) give a density increment on unions of prime-pair progressions for any putative fixed-gap violation, shift-uniform covers for source sets determined by prime valuations, and a counterfamily to unrestricted full-union selection with singleton repairs.
