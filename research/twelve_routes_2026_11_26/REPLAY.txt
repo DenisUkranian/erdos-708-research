@@ -1,0 +1,64 @@
+$ python exact_covers.py
+seven rows: tau=5 H=7; maximal valuation profiles: 163 offsets: 11790 27315 28396 56939 60090
+M=2 sources=1 shifts=2 H-period=2
+M=3 sources=2 shifts=6 H-period=6
+M=4 sources=4 shifts=24 H-period=12
+M=5 sources=8 shifts=120 H-period=60
+M=6 sources=16 shifts=720 H-period=60
+M=7 sources=32 shifts=420 H-period=420
+M=8 sources=64 shifts=840 H-period=840
+A/shift cases for tau, full-lcm cases for H, maximum H-tau: 79790 68702 3
+
+$ python cuts.py
+harmonic M=4 shifts=12 max=3/100 x=9 offsets=[3]
+harmonic M=5 shifts=60 max=98/685 x=57 offsets=[3]
+harmonic M=6 shifts=60 max=25/294 x=56 offsets=[4]
+harmonic M=7 shifts=420 max=104/693 x=416 offsets=[4]
+harmonic M=8 shifts=840 max=1981/18264 x=835 offsets=[5]
+harmonic M=9 shifts=2520 max=9782/64161 x=2515 offsets=[5]
+harmonic M=10 shifts=2520 max=8889/73810 x=2514 offsets=[6]
+harmonic M=11 shifts=27720 max=140876/920821 x=27714 offsets=[6]
+harmonic M=12 shifts=27720 max=131263/1032252 x=27713 offsets=[7]
+Hall M=210 shift=zero (rows,fixed,adaptive)=[(33, 0, 0), (1, 0, 0)]
+Hall M=210 shift=center (rows,fixed,adaptive)=[(33, 0, 0), (1, 0, 0)]
+Hall M=210 shift=seeded (rows,fixed,adaptive)=[(33, 0, 0), (1, 0, 0)]
+Hall M=840 shift=zero (rows,fixed,adaptive)=[(240, 0, 0), (16, 0, 0)]
+Hall M=840 shift=center (rows,fixed,adaptive)=[(240, 0, 0), (16, 0, 0)]
+Hall M=840 shift=seeded (rows,fixed,adaptive)=[(240, 0, 0), (16, 0, 0)]
+Hall M=2310 shift=zero (rows,fixed,adaptive)=[(847, 0, 0), (102, 0, 0), (1, 0, 0)]
+Hall M=2310 shift=center (rows,fixed,adaptive)=[(847, 0, 0), (102, 0, 0), (1, 0, 0)]
+Hall M=2310 shift=seeded (rows,fixed,adaptive)=[(847, 0, 0), (102, 0, 0), (1, 0, 0)]
+Hall M=10010 shift=zero (rows,fixed,adaptive)=[(4627, 0, 0), (929, 0, 0), (34, 0, 0)]
+Hall M=10010 shift=center (rows,fixed,adaptive)=[(4627, 0, 0), (929, 0, 0), (34, 0, 0)]
+Hall M=10010 shift=seeded (rows,fixed,adaptive)=[(4627, 0, 0), (929, 0, 0), (34, 0, 0)]
+Preil full cut: density=123740190883/247357937827 error<20482 uniform lower=150053771, exact count inside adaptive neighbors=150074273, surplus over n=17726307
+
+$ python profiles.py
+moment costs [60, 60, 30, 30, 30, 30] prices/12 [4, 9, 4, 9, 9, 9] profiles 25 nonzero 7 L1 47/12
+moment costs [46, 35, 31, 28, 24, 22, 19, 17] prices/12 [4, 9, 9, 4, 9, 4, 9, 4] profiles 105 nonzero 19 L1 110/21
+moment costs [57, 44, 39, 33, 29, 23, 21, 18, 16, 13] prices/12 [9, 4, 9, 9, 4, 9, 4, 9, 4, 9] profiles 193 nonzero 23 L1 23/3
+two-price interval M=30 profiles=602 max excess in twelfths [0, 0, 0, -1, -53]
+two-price interval M=120 profiles=602 max excess in twelfths [0, -7, -1, -7, -53]
+two-price interval M=504 profiles=602 max excess in twelfths [-15, -24, -22, -28, -67]
+two-price interval M=1024 profiles=602 max excess in twelfths [-43, -50, -47, -78, -95]
+center r=2 k=6 n=15 cap=2 optimum=19
+center r=2 k=6 n=15 cap=1 optimum=25
+center r=3 k=7 n=35 cap=3 optimum=43
+center r=3 k=7 n=35 cap=1 optimum=50
+center r=4 k=8 n=70 cap=4 optimum=84
+center r=4 k=8 n=70 cap=1 optimum=92
+twin CRT centers: r=3 k=7 n=35 cheap tau=4, both H=50; offsets [1022117, 1040399, 1065023, 1039]
+single relocations 3; joint optimum 2; five residual tokens give three savings
+ordinary matching gadget equals direct packing on 60 seeded arithmetic instances
+
+$ python placements.py
+rows=(30, 42, 70, 105) x=157 H=joint=4 fixed-full=5 splits=[[(6, 168), (5, 175)], [(7, 168), (6, 180)], [(5, 180), (14, 210)], [(7, 175), (15, 210)]]
+rows=(30, 42, 70, 105) x=831 H=joint=4 fixed-full=4 splits=[[(30, 840)], [(7, 840), (6, 882)], [(7, 882), (10, 910)], [(15, 855), (7, 910)]]
+exact price banks M=96, 3 supports and 3 shifts: passed
+exact price banks M=257, 3 supports and 3 shifts: passed
+exact price banks M=1024, 3 supports and 3 shifts: passed
+exact price banks M=4096, 3 supports and 3 shifts: passed
+union of progressions (6, 10) M=3000 canonical size=700 counts passed
+union of progressions (18, 30, 45) M=3000 canonical size=266 counts passed
+union of progressions (34, 51, 85, 119) M=3000 canonical size=136 counts passed
+marking U=5003 heavy demand=361, guaranteed capacity=9946/15; light supports=669, min guaranteed capacity=19197674/3347007
