@@ -1,5 +1,7 @@
 # Status and limitations — 2026-11-25
 
+**26 November 2026, cofactor matching.** A [written proof](research/cofactor_flow_2026_11_26/README.md) gives the sharp coefficient two at every source density for intervals with start within M(log M)^α of a multiple of lcm(A), for fixed α<13/34, and a 2n−1 bound for fixed reduced rational centers under the stated hypotheses. Arbitrary shifts remain open.
+
 **26 November 2026 update.** [Publication audit, external results and proof target](research/audit_2026_11_26/README.md). The [density package](research/density_2026_11_26/PROOF-3960.md) gives a written eventual exact 2n bound for n/M ≥ 0.3960 with replayed arithmetic certificates. The general asymptotic remains open.
 
 - **General asymptotic** g(n) ≤ (2+o(1))n: **OPEN** in this research.
