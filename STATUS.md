@@ -1,5 +1,7 @@
 # Status and limitations
 
+**26 November 2026, progression selection and inverse results.** [Routes 7 and 11](research/fiber_selection_2026_11_26/README.md) give a density increment on unions of prime-pair progressions for any putative fixed-gap violation, shift-uniform covers for source sets determined by prime valuations, and a counterfamily to unrestricted full-union selection with singleton repairs.
+
 **26 November 2026, twelve proof routes.** [New proofs and exact replays](research/twelve_routes_2026_11_26/README.md) give a shift-uniform two-budget price bound on reciprocal-sparse supports, a two-budget cover for dense subsets of unions of progressions, a necessary density increment for a counterexample, and exact centered product costs. The general coefficient two remains open.
 
 **26 November 2026, uniform upper bound.** The [full proof](research/uniform_three_2026_11_26/README.md) gives g(n) ≤ (3+o(1))n at every source density and every interval shift. The argument assigns a cofactor to each row and controls collisions of pairs of primes using a second moment. The coefficient-two asymptotic remains open.

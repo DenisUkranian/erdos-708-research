@@ -1,0 +1,10 @@
+flow equals exhaustive optimum on 255 source sets
+finite obstruction M, n, 2n, disjoint-multiple lower, exact union optimum, verified H upper: 3001 46 92 137 137 68
+selected offsets: 479 489 514 529 534 544 549 559 574 579 589 599 604 609 619 634 644 649 659 664 669 674 679 694 699 704 709 719 724 729 739 754 769 774 779 784 799 804 809 814 829 844 854 859 864 869 874 879 889 899 904 909 914 919 929 934 939 949 959 964 969 974 979 984 989 994 999 2297
+calibration M, n, max level discrepancy, finite-difference bound: 4095 1468 101521669/58918860 75
+pair selection M, n, lifted pairs, chosen pairs, rows in union, canonical union: 30030 2699 15 [35, 55, 65, 85, 95, 77, 91, 119, 133, 143, 187, 209, 221, 247, 323] 2669 3551
+source density, within-union density: 2699/30030 2669/3551
+mass, large-prime bound, pair uplift, surplus coefficient: 10 3/10 1/32 11/320
+mass, large-prime bound, pair uplift, surplus coefficient: 11 3/10 1/32 3/160
+mass, large-prime bound, pair uplift, surplus coefficient: 11 471/1000 1/256 1453/256000
+nested-level intersections and second-moment check passed
