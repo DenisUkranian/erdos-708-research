@@ -2,13 +2,13 @@
 
 For a set $A$ of $n$ distinct positive integers in $[1,M]$ and an interval $I$ of $M$ consecutive positive integers, let $H(A,I)$ be the minimum number of positions whose counts of multiples dominate those of $A$ at each prime power. Let $\tau(A,I)$ be the minimum for ordinary product divisibility. Always $\tau\le H$.
 
-For every fixed $\varepsilon>0$ there exists $c_\varepsilon>0$ such that
+There exists an absolute $c>0$ such that, uniformly over the source and shift,
 $$
-H(A,I)\le 2n+O_\varepsilon(n^{1-c_\varepsilon})\qquad\text{when }M\ge n^{11/9+\varepsilon}.
+H(A,I)\le 2n+O(n^{1-c})\qquad\text{when }M\ge n^{10000/8201}.
 $$
-This estimate is uniform in the source and shift. In particular $M\ge n^{1.223}$ is an explicit sufficient condition for large $n$. The proof requires a fixed margin above $11/9$. The remaining ranges include $M$ of order $n\log n$ and fixed densities below the separate [39.20% sufficient density](../density_and_gluing_2026_11_26/DENSITY_THRESHOLD.md).
+The [triple transfer proof](TRIPLE_TRANSFER.md) gives an exact $2m-1$ theorem for the identified triples alone and an integral two-slot replacement for each exceptional row in a mixed source. The prime-factor conditions and finite test are in the proof and [its verifier](verify_triple_transfer.py).
 
-The [seven-term progression argument](SEVEN_TERM_TRANSFER.md) proves the stated exponent. It tracks both the largest prime and the exact common cofactor at each occupied position. The [first remaining three-prime configuration](THREE_PRIME_REDUCTION.md) identifies a positive proportion of sources required by a fixed-gap counterexample in a slightly wider range.
+The [seven-term progressions](SEVEN_TERM_TRANSFER.md) gave the preceding bound at $11/9+\varepsilon$. The [three-prime reduction](THREE_PRIME_REDUCTION.md) identified the obstruction beyond it. The remaining ranges still include $M$ of order $n\log n$ and fixed densities below the separate [39.20% sufficient density](../density_and_gluing_2026_11_26/DENSITY_THRESHOLD.md).
 
 1. [Main construction and the simpler exponent $5/4+\varepsilon$](FIVE_QUARTERS.md). A frequent unitary divisor separates the sources into groups. A quotient label has one private list for placement and another for restoring its common factor. Charging one restoration to each repeated use of a position gives actual levels and integral costs. This extends [redlydi's $3/2+\varepsilon$ level-cover argument](https://github.com/redlydi/Erdos708-Research/blob/32f397f8fdc00d0e9c73242d8510c541267a30db/reports/erdos708-power-level-cover%20(1).md).
 2. [Blocked progressions and the intermediate exponent $1.223154795829\ldots+\varepsilon$](BLOCKED_PROGRESSIONS.md). A failed placement on a separate subinterval forces a progression among positions already used at one of two primes. The Katz–Tao bound on how many differences such a set can support makes the number of failures smaller than $n$ by a fixed power. The published projection theorem is an external input.

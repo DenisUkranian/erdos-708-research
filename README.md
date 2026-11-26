@@ -1,5 +1,7 @@
 # Erdős Problem 708 — Research Archive and Proof Certificates
 
+**26 November 2026, three comparable primes.** An [exact-bank transfer](research/sparse_threshold_2026_11_26/TRIPLE_TRANSFER.md) covers the identified triple family in at most $2m-1$ positions on its own. In a mixed source the replacement uses two positions per exceptional row and preserves the other main labels by splitting their credited factors. This proves $H(A,I)\le 2n+O(n^{1-c})$ for arbitrary sources when $M\ge n^{10000/8201}$. The full asymptotic remains open.
+
 **26 November 2026, sparse sources and the cost of adding full cells.** A [level-cover proof](research/sparse_threshold_2026_11_26/README.md) gives a bound of $2n+O_\varepsilon(n^{1-c_\varepsilon})$ on every interval when $M\ge n^{11/9+\varepsilon}$. A separate exact construction shows that adding complete prime-pair cells to an optimal residual cover can cost asymptotically three positions per added source. The unrestricted coefficient two remains open.
 
 **26 November 2026, exact covers and residual obstructions.** The [new density certificate and structural results](research/density_and_gluing_2026_11_26/README.md) give exact two-per-row covers for all sufficiently large instances of density at least 39.20%, a reduction of every fixed-gap counterexample to rows with arbitrarily many distinct large prime factors, and simultaneous exact covers on polynomially many selected intersections. The unrestricted coefficient two remains open.
