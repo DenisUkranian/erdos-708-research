@@ -27,3 +27,19 @@ For each source with at least three atoms allow all choices of one atom to omit.
 Indeed a matched source costs at most two positions in the accounting above, saving r(a)−2 relative to the completely separate atom budget. Matchable source subsets form a transversal matroid. Process sources in descending r order, retaining a row exactly when it can be added while preserving matchability (augmenting paths may reassign previously matched rows). At the end of each rank prefix the retained rows form a maximal independent subset of that prefix, hence a maximum-cardinality matchable subset. The number retained from A_j is |A_j|−d_j by the deficiency form of Hall's theorem. Summing prefix sizes counts each retained source r(a)−2 times and gives the displayed bound. Distinct positions are used once across all prefixes. In particular the formula measures the cost of unmatched rows with many atoms.
 
 **Finite test.** The accompanying program computes one matching simultaneously for *every* source up to the indicated M with three or more distinct prime factors. At M = 512, 2,048, 8,192 and 32,768, all 122, 728, 3,688 and 17,073 rows respectively matched for each of three shifts: x=M, x=10^24+271, and a window centered near the product of the primes below 150. The script checks each edge by integer division and all selected offsets for distinctness. Each of those 12 windows therefore admits at most 2|A| positions for every source subset with that maximum, because rank-one and rank-two sources can be repaired separately. These are finite checks at fixed shifts. The missing estimate is uniform over every shift and over input sizes, including n/M tending to zero. A macroscopic deficiency would refute this particular sufficient condition; the weighted matching and shared-position constructions could still succeed.
+
+## Compressing the obstruction to one price function
+
+For a target set T write C_j(T) for the number of rows a in A_j whose **entire** cofactor neighborhood is contained in T. Hall deficiency is equivalently max_T (C_j(T)−|T|): take T=N(S) in one direction and all rows trapped in T in the other. There are maximizing sets nested as T_3 ⊇ T_4 ⊇ ... . Indeed the indicator of N(a) ⊆ T is supermodular in T, and contributions from extra rows at the lower rank are increasing. Hence for i<j the sum of the objectives at T,S is at most the sum at T∪S,T∩S respectively. Taking T to be the largest maximizing set at level i forces S ⊆ T for any maximizer at level j. Largest maximizers exist by the same union argument at a single level.
+
+Equivalently let h(a)=(r(a)−2)_+. The total deficit has the single exact expression
+
+    max_z  [ sum_{a : h(a)>0} min(h(a), min_{b in N(a)} z(b)) − sum_{b in I} z(b) ],
+
+where z is nonnegative integer-valued and bounded by max h. Expand into superlevel sets to get the upper bound, and use the nested optimizing sets to attain it. Thus a sufficient analytic target is to bound this expression by o(n) uniformly. The target prices here count Hall obstructions and differ from the prime prices in the valuation relaxation.
+
+**Arithmetic test for trapped rows.** In any complete period of length a, the union of the multiples of a/q, over the full prime-power atoms q of a, has exactly 1+sum(q−1) positions. Each pair of distinct cofactors has lcm a. Therefore if N(a) is trapped in a set of size t, then
+
+    floor(M/a) [1 + sum_{q atom of a}(q−1)] ≤ t.
+
+Separately each cofactor bank must be trapped in full. This gives a shift-independent screen on every superlevel of z, including repeated prime powers; a proof must still control the union of the surviving banks. A single paid position is shared across ranks exactly as specified by z.
