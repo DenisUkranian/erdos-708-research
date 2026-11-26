@@ -1,0 +1,49 @@
+LOWER VERIFIED: tau(A,I)=12 for explicit n=9, M=1333.
+REDUCTION VERIFIED: only 65 possible hard maxima, all M<=250.
+ANALYTIC GATE SPOT-CHECK: all 11-smooth M<=300000 split at 12,13.
+   g++ /tmp/g9_upper13_smqdu5xf/hard13 
+   g++ /tmp/g9_upper13_smqdu5xf/pareto5 
+   g++ /tmp/g9_upper13_smqdu5xf/gcd13_5d 
+   g++ /tmp/g9_upper13_smqdu5xf/crt13_5d 
+   /tmp/g9_upper13_smqdu5xf/hard13 /tmp/g9_upper13_smqdu5xf/raw.txt ard_sources=13 vectors=286
+M=160 hard_sources=13 vectors=358
+M=162 hard_sources=14 vectors=672
+M=165 hard_sources=15 vectors=1228
+M=175 hard_sources=11 vectors=44
+M=176 hard_sources=12 vectors=144
+M=250 hard_sources=9 vectors=1
+ROWS=65 LAST=250 DEMANDS=658192
+MATCH: raw.txt dd3b9b905fe7de29
+   /tmp/g9_upper13_smqdu5xf/pareto5 /tmp/g9_upper13_smqdu5xf/frontier.txt 0 original=133 frontier=107
+154 original=286 frontier=181
+160 original=358 frontier=236
+162 original=672 frontier=390
+165 original=1228 frontier=678
+175 original=44 frontier=36
+176 original=144 frontier=99
+250 original=1 frontier=1
+TOTAL=658192 FRONTIER=89666
+MATCH: frontier.txt 47c76f9807217e49
+   /tmp/g9_upper13_smqdu5xf/gcd13_5d /tmp/g9_upper13_smqdu5xf/missing.txt misses=0 sec=0.465725
+M=175 demands=36 states=27300 total=27300 misses=0 sec=0.108072
+M=176 demands=99 states=51805 total=51870 misses=0 sec=0.249934
+M=250 demands=1 states=10560 total=10560 misses=0 sec=0.0351821
+TOTAL demands=89666 misses=5170 time=9.88516
+MATCH: missing.txt d1e7dac49a50a941
+   /tmp/g9_upper13_smqdu5xf/crt13_5d /tmp/g9_upper13_smqdu5xf/missing.txt 5167 M=56 nodes=265306 exact=11641 sec=1.31448
+PASS 5168 M=56 nodes=265307 exact=11641 sec=1.31455
+PASS 5169 M=56 nodes=265308 exact=11641 sec=1.31462
+PASS 5170 M=56 nodes=265309 exact=11641 sec=1.31469
+ALL_PASS rows=5170 nodes=265309 exact=11641 sec=1.31471
+ALL CHECKS PASS: g(9)>=12; g(9)<=13 conditional on verified previous g(8)<=11.
+THE EXACT VALUE (12 OR 13) IS NOT DETERMINED BY THIS PACKAGE.
+Verified: ERDOS708_g9_new_prime_group_lemmas.zip
+Verified: ERDOS708_g9_structural_tail_9450.zip
+Verified: ERDOS_708_g9_at_most_two_large_primes.zip
+Verified: ERDOS_708_g9_bounds_12_to_13_verified.zip
+Verified: ERDOS_708_g9_high_high_frontier.zip
+Verified: ERDOS_708_g9_new_partial_closures.zip
+Verified: ERDOS_708_g9_partial_new_reductions.zip
+Verified: erdos708_descent_attempt.zip
+Complete original archive restored: restored/erdos708_missing_original_packages_2026-11-25.zip
+g(9) upper-13 computation replayed; upstream finite-case dependencies still apply.

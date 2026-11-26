@@ -1,0 +1,22 @@
+# Choosing the coordinate order for the variable-rank Boolean proof
+
+This note extends the conditional-increment argument for Boolean knapsack moment transfer. The uniform-rank local theorem used by that argument is assumed here. Given that input, the telescoping proof works in any ordering of the coordinates. At each step the prior coordinates individually compatible with the current coordinate have to form a uniform-rank residual knapsack. Increasing cost is one convenient ordering.
+
+For a current coordinate \(j\), only earlier coordinates compatible with \(j\) can appear with it on an admissible source profile. In the target profile all additional earlier coordinates have nonnegative weights and may only increase the increment \(\Delta_1\). These are the two order-dependent facts in the proof, and they hold for every order. The conditional equal-rank theorem and telescoping of the increments require no comparison of the costs of two earlier coordinates. Thus the same inequality holds for any family admitting a qualifying order.
+
+There is a polynomial greedy recognition method. On the remaining set \(S\), call \(j\) eligible as the last coordinate if all individually compatible predecessors \(\{i\in S\setminus\{j\}:c_i+c_j\le1\}\) form a uniform-rank knapsack at budget \(1-c_j\). Compute the maximum feasible cardinality \(k\) by adding the cheapest compatible predecessors. Eligibility is then equivalent to the \(k\) most expensive compatible predecessors fitting in the budget. The empty and full cases are allowed. Delete any eligible coordinate as the last one and repeat.
+
+Eligibility is hereditary under taking subsets of predecessors. If a valid ordering of \(S\) exists and the algorithm deletes some eligible \(j\), remove \(j\) from that valid ordering to get a valid ordering of \(S\setminus\{j\}\). Thus any greedy choice preserves the existence of a valid completion. If the greedy procedure gets stuck, the remaining set cannot have a valid ordering, since the last coordinate of such an ordering would be eligible.
+
+For example, consider costs \((0.08,0.30,0.30,0.30,0.30)\). In increasing cost order, the final coordinate has residual budget \(0.70\). A predecessor triple of costs \((0.08,0.30,0.30)\) fits, while one of costs \((0.30,0.30,0.30)\) fails. If the cheap coordinate is last, every residual knapsack has equal individual predecessor costs. More generally, any number of equal-cost coordinates and one arbitrary outlier qualify by putting the outlier last. This extends the current theorem's directly checkable scope without changing its inequality or moment assumptions.
+
+
+## Allow arbitrary two-element residual knapsacks
+
+One can additionally delete a coordinate whenever the residual source has maximum feasible cardinality at most two, even if its feasible pairs depend on composition. Here is a conditional tail certificate for any such residual knapsack with budget \(B\). For a level \(s\in[0,1]\), count the active coordinates of cost at most \(B/2\) and weight strictly above \(s\). Call the counts \(Z_U,Z_V\). Their first and pair binomial moments agree, since all pairs in this chosen cheap group are feasible. On the source, \(Z_U\le2\). If source load exceeds \(1+s\), both selected weights exceed \(s\), and the source pair must contain at least one coordinate of cost at most \(B/2\). Therefore
+\[
+\boldsymbol1_{X(U)>1+s}\le Z_U-\binom{Z_U}{2}.
+\]
+On every target profile, \(Z_V-\binom{Z_V}{2}\le\boldsymbol1_{Z_V>0}\le\boldsymbol1_{X(V)>s}\). Taking expectations gives the exact shifted tail inequality needed by the increment proof. This extends the greedy elimination criterion to either uniform rank or arbitrary rank at most two. Both eligibility conditions are hereditary.
+
+For a strict example above global rank four, take costs \((11,21,22,22,22,26,30,47)/100\). The five cheapest sum to \(98/100\). The original uniform criterion has no eligible last coordinate. In the list order, the largest sums at the maximal feasible predecessor cardinality are \((125,125,125,125,125,99,95,56)/100\), all larger than the respective residual budgets. With the new rule an eligible order is \((22,22,22,21,11,30,26,47)/100\). Each prefix uses the uniform condition except the final 47, which sees a residual maximum cardinality of two at budget \(53/100\). The two cheapest predecessors cost \(32/100\), three cheapest cost \(54/100\), and the two most expensive cost \(56/100\). This proves the mixed-cost Boolean transfer on a family the original uniform-rank order cannot reach.

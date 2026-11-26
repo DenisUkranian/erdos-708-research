@@ -1,5 +1,7 @@
 # Erdős Problem 708 — Research Archive and Proof Certificates
 
+**26 November 2026 update.** [Publication audit, external results and proof target](research/audit_2026_11_26/README.md). The [density package](research/density_2026_11_26/PROOF-3960.md) gives a written eventual exact 2n bound for n/M ≥ 0.3960 with replayed arithmetic certificates. The general asymptotic remains open.
+
 **Status (25 November 2026): Open in general.** This repository collects our recovered work on the Erdős–Surányi interval-product problem, with historical experiments, exact finite certificates, full research reports, counterexamples to intermediate claims, and reproducible scripts. An archived claim is not automatically an established theorem.
 
 ## Problem

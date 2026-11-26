@@ -1,0 +1,4 @@
+{ threshold: '3376', lowMean: false, count: 3732245, fail: null }
+{ threshold: '3376', lowMean: true, count: 241113, fail: null }
+{ threshold: '3403', lowMean: false, count: 7098589, fail: null }
+{ threshold: '3403', lowMean: true, count: 324561, fail: null }

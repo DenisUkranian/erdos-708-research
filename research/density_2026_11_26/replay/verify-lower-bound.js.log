@@ -1,0 +1,19 @@
+{
+  lowBandUpper: 0.3854883535215986,
+  sourceUpperAt41: 0.3884296543738305,
+  targetMinusSourceAt41: 0.001814248065193945,
+  FEndpointLower: 1.5417973378893874,
+  smallAlphaLower: 1.613705638853761
+}
+{
+  n: 40,
+  cover: 42,
+  src: [
+    47, 22, 12, 8, 4,
+     3,  1,  1, 1
+  ],
+  dst: [
+    47, 22, 12, 8, 4,
+     3,  2,  1, 2
+  ]
+}
