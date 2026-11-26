@@ -6,6 +6,10 @@
 #include <cstdint>
 #include <cstdio>
 #include <cstdlib>
+#include <string_view>
+#ifdef _OPENMP
+#include <vector>
+#endif
 
 using Int = std::int64_t;
 using Box = std::array<Int, 10>;
@@ -47,9 +51,18 @@ Int minimumCost(Allocation& costs, Int demand) {
 struct Checker {
     Int densityLow, densityHigh, odds, goal;
     bool lowMean;
+    bool roundUpper;
     Int boxes = 0, schurBoxes = 0;
 
+#ifdef _OPENMP
+    bool passes(Box box, std::vector<Box>* frontier = nullptr, int depth = 0) {
+        if (frontier && depth == 22) {
+            frontier->push_back(box);
+            return true;
+        }
+#else
     bool passes(Box box) {
+#endif
         ++boxes;
         auto [nuLow, nuHigh, qLow, qHigh, offsetLow, offsetHigh,
               chargeLow, chargeHigh, prefixChargeLow, prefixChargeHigh] = box;
@@ -153,6 +166,15 @@ struct Checker {
             }
             Int extra = sourceOnA + floorProduct(2 * shift, forced) - ceilingProduct(unit - densityLow, ceilingProduct(shift, shift));
             if (std::max(baseline, jointGamma - source) + shiftedSource + extra >= goal) return true;
+
+            // Rounding both the high and upper labels charges their variances once.
+            // Every retained label now has weight one at its canonical row.
+            if (roundUpper) {
+                Int unitLoad = positive(odds + shift - posOffsetHigh);
+                Int unitSource = floorProduct(floorProduct(unitLoad, unitLoad), positive(p0));
+                Int allRounded = baseline + unitSource + extra + 2 * positive(g - posOffsetHigh);
+                if (allRounded >= goal) return true;
+            }
         }
 
         // Integer Schur envelope on the original, unrounded source prices.
@@ -182,22 +204,49 @@ struct Checker {
         Box right = box;
         box[axis + 1] = middle;
         right[axis] = middle;
+#ifdef _OPENMP
+        return passes(box, frontier, depth + 1) && passes(right, frontier, depth + 1);
+#else
         return passes(box) && passes(right);
+#endif
     }
 };
 
 int main(int argc, char** argv) {
-    if (argc != 4) return 2;
+    if (argc != 4 && argc != 5) return 2;
+    bool roundUpper = argc == 5;
+    if (roundUpper && std::string_view(argv[4]) != "--round-upper") return 2;
     long lo = std::strtol(argv[1], nullptr, 10), hi = std::strtol(argv[2], nullptr, 10);
     long lowMean = std::strtol(argv[3], nullptr, 10);
     if (lo < 3750 || hi > 3960 || lo > hi || (lowMean != 0 && lowMean != 1)) return 2;
     Int lower = lo * (unit / 10000), upper = hi * (unit / 10000);
     Checker checker{lower, upper, lower * unit / (unit - lower),
-                    ceilingRatio((unit - 2 * lower) * unit, unit - lower) + margin, lowMean != 0};
+                    ceilingRatio((unit - 2 * lower) * unit, unit - lower) + margin, lowMean != 0, roundUpper};
     Int nuMax = 0;
     while (nuMax * nuMax < checker.goal * unit) nuMax += unit / 1000;
     Int bound = checker.goal;
-    bool ok = checker.passes({0, nuMax, 0, rawCap, 0, bound, 0, bound, 0, bound});
+    Box initial = {0, nuMax, 0, rawCap, 0, bound, 0, bound, 0, bound};
+#ifdef _OPENMP
+    // Every frontier box is an uncounted root of a disjoint recursion subtree.
+    std::vector<Box> frontier;
+    bool ok = checker.passes(initial, &frontier);
+    Int boxCount = checker.boxes, schurCount = checker.schurBoxes;
+    int allPassed = ok ? 1 : 0;
+    #pragma omp parallel for schedule(dynamic, 1) reduction(+:boxCount,schurCount) reduction(&:allPassed)
+    for (std::size_t i = 0; i < frontier.size(); ++i) {
+        Checker local = checker;
+        local.boxes = 0;
+        local.schurBoxes = 0;
+        if (!local.passes(frontier[i])) allPassed = 0;
+        boxCount += local.boxes;
+        schurCount += local.schurBoxes;
+    }
+    ok = allPassed != 0;
+    checker.boxes = boxCount;
+    checker.schurBoxes = schurCount;
+#else
+    bool ok = checker.passes(initial);
+#endif
     std::printf("%s density=%ld..%ld low_mean=%ld nodes=%lld schur_nodes=%lld\n", ok ? "PASS" : "FAIL",
                 lo, hi, lowMean, static_cast<long long>(checker.boxes), static_cast<long long>(checker.schurBoxes));
     return ok ? 0 : 1;

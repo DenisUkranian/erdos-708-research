@@ -1,6 +1,6 @@
 # Lowering the coefficient-two density threshold in Erdős problem 708
 
-**Theorem.** Let $A\subseteq\{2,\dots,M\}$, $M=\max A$, $n=|A|$, and let $I$ consist of $M$ consecutive integers. If $n/M\ge0.3925$, then for every sufficiently large $M$, there are at most $2n$ distinct positions of $I$ whose product is divisible by $\prod_{a\in A}a$. The sufficiency threshold is uniform in $A,I$. The unrestricted asymptotic is open.
+**Theorem.** Let $A\subseteq\{2,\dots,M\}$, $M=\max A$, $n=|A|$, and let $I$ consist of $M$ consecutive integers. If $n/M\ge0.3920$, then for every sufficiently large $M$, there are at most $2n$ distinct positions of $I$ whose product is divisible by $\prod_{a\in A}a$. The sufficiency threshold is uniform in $A,I$. The unrestricted asymptotic is open.
 
 The previous [density certificate](../density_2026_11_26/PROOF-3960.md) proves this for $n/M\ge0.3960$. This note supplies the adjacent range. It uses the preceding proof's small-prime profile transfer, variance estimate and nested target bounds from [PROOF.md](../density_2026_11_26/PROOF.md) and [SPLIT-TRIPLES.md](../density_2026_11_26/SPLIT-TRIPLES.md). Its new bounds combine a Bernoulli rounding on the source, the forced conditional mean of a putative counterexample and the integer pair envelope.
 
@@ -99,9 +99,31 @@ The low-mean subproblem alone also passed on [.3900,.3930] in 8,085,999 boxes. T
 
 ## Additional adjacent bands
 
-The same verifier proves the low-mean branch on the full interval $[0.3920,0.3930]$. The high-mean branches in the replay below, together with the earlier bands, certify all densities from $0.3925$ upward. The endpoint is included.
+The same verifier proves the low-mean branch on the full interval $[0.3920,0.3930]$. The high-mean branches in the replay below, together with the earlier bands, certify all densities from $0.3920$ upward. The endpoint is included.
 
 | Density band | Mean branch | Boxes | Schur leaves |
 |---|---|---:|---:|
 | [0.3925, 0.3930] | High | 138,846,747 | 61,411 |
 | [0.3920, 0.3930] | Low | 1,732,323 | 11,776 |
+| [0.3920, 0.3925] | High | 315,279,893 | 49,594 |
+
+## Rounding the upper and high prime groups together
+
+The last high-mean band uses the additional verifier flag `--round-upper`. Conditional on a canonical row, replace every upper and every high price on that row by an independent Bernoulli variable of the same mean. Write $Y^{**}$ for the resulting centered residual. Its first moment conditional on the row is unchanged. Its second moment is $R+B_Q+B_\nu+o(1)$. Every retained upper or high label now contributes a whole unit. The same two-term inclusion-exclusion estimate, with all labels eligible, gives an event on the source complement of mass at least $[P(D)]_+-o(1)$ on which the rounded load is at least one.
+
+Write $B_0=m_0+x+\nu^2+D+b$, $r=\rho/(1-\rho)$, and let $v\ge0$ be a tested shift. Applying the conditional-mean argument of the preceding sections yields
+$$
+\Gamma \ge B_0+[1-\mu+r+v]_+^2[P(D)]_+
+ +\frac{(1-\rho)^2g^2}{\rho}
+ +2v(1-\rho)g-v^2(1-\rho)+2(g-x)-o(1).
+$$
+This consumes $B_Q$ and $B_\nu$ exactly once. The bound on $g$ from the earlier necessary upper estimate on $B_Q$ remains valid. On a box use its lower estimate for $P(D_0)$, its lower odds, the upper positive mean offset and $2[g_{\rm low}-x_{\rm high}]_+$. The implementation checks this extra estimate only when the flag is present. Each retained leaf uses the same strict integer margin as before.
+
+The last high-mean traversal was also distributed across independent subtrees of the binary recursion. To reproduce it, compile with `c++ -std=c++17 -O3 -fopenmp verify_density.cpp -o verify_density`, then run `OMP_NUM_THREADS=6 ./verify_density 3920 3925 0 --round-upper`. The default build without OpenMP checks the same tree sequentially. The earlier rows of the table use the default inequalities, without the extra flag.
+
+There is a closed form for the strongest shifted estimate just derived. Set $C_0=1-\rho$, $p=[P(D)]_+$ and $B=1-\mu+\rho/C_0$. If $B\ge0$ and $0\le p<C_0$, then
+$$
+R+B_Q+B_\nu\ge \frac{C_0}{\rho}g^2+
+\frac{C_0p}{C_0-p}(B+g)^2-o(1).
+$$
+Indeed on a complement subevent of mass $p$ the rounded residual is at least $B$. The total mean on the complement is at most $-C_0g+o(1)$. Cauchy's inequality on the subevent and the remainder gives $pB^2+(C_0g+pB)^2/(C_0-p)$. Adding the contribution $C_0^2g^2/\rho$ from $A$ proves the formula. If the event has larger mass, an auxiliary independent uniform variable selects a subset of the required mass. The published node counts use the finite set of shifts.

@@ -2,9 +2,9 @@
 
 Let $A$ consist of $n$ distinct positive integers in $[1,M]$. For any interval $I$ of $M$ consecutive positive integers write $\tau(A,I)$ for the least number of distinct positions whose product is a multiple of the source product. The stronger minimum $H(A,I)$ requires the level counts at every prime power to dominate those of $A$. All bounds below hold for each shift. The unrestricted estimate $g(n)\le(2+o(1))n$ remains open.
 
-## Exact coefficient two above 39.25 percent
+## Exact coefficient two above 39.20 percent
 
-For $n/M\ge0.3925$ and all sufficiently large $M$, every interval admits a product cover with at most $2n$ positions. The earlier bound in the project started at $0.3960$. The proof rounds the prices on primes above $\sqrt M$ into zero-one variables on the source side, derives a signed mean constraint on a putative counterexample, and uses a pair count when the variance estimate is insufficient. The final verifier checks both sides of the mean threshold using outward-rounded integer arithmetic. [Proof and coverage](DENSITY_THRESHOLD.md) · [C++17 verifier](verify_density.cpp)
+For $n/M\ge0.3920$ and all sufficiently large $M$, every interval admits a product cover with at most $2n$ positions. The earlier bound in the project started at $0.3960$. The proof rounds prime prices into zero-one variables on the source side, derives a signed mean constraint on a putative counterexample, and uses a pair count when the variance estimate is insufficient. For the last high-mean band it rounds the upper and high prime groups together. The final verifier checks both sides of the mean threshold using outward-rounded integer arithmetic. [Proof and coverage](DENSITY_THRESHOLD.md) · [C++17 verifier](verify_density.cpp)
 
 ## A residual set retaining an ordinary covering lower bound
 
@@ -34,7 +34,7 @@ Each constituent level also has density greater than $(1+\delta/64)n/M$. The int
 
 At positive density one can take actual primes in complete rectangular arrays. A positive fraction of the source is distributed among the cells of a collection of arrays, and each cell is more than twice as dense even when credited only with rows assigned exclusively to it. At logarithmic sparsity the assigned fraction has the explicit lower bound in the proof. Deleting near-terminal rows first guarantees many actual source rows per cell there. The density used after a deletion is always that of the surviving set in the original ambient interval. [Private source assignments and growing rectangles](GRIDS.md)
 
-At fixed source density $t\ge0.19625$, every collection of at most $M^\eta$ of these private cells has an **exact simultaneous level cover of size at most twice its actual number of sources**, for some fixed $\eta>0$. This covers arbitrary shared prime endpoints and all original sources lying on the chosen cells. For $t\ge1/4$, the strict half-occupancy margin pays for duplicate target credits. Down to $t=0.19625$, the proof uses the level-cover form of the 39.25% density estimate inside each quotient. A concentration on a single heavily divisible target is handled by capping the loss separately at each prime. The cost of adjoining a separate cover of the complement is still open. [Physical gluing theorem](PHYSICAL_GRIDS.md)
+At fixed source density $t\ge0.196$, every collection of at most $M^\eta$ of these private cells has an **exact simultaneous level cover of size at most twice its actual number of sources**, for some fixed $\eta>0$. This covers arbitrary shared prime endpoints and all original sources lying on the chosen cells. For $t\ge1/4$, the strict half-occupancy margin pays for duplicate target credits. Down to $t=0.196$, the proof uses the level-cover form of the 39.20% density estimate inside each quotient. A concentration on a single heavily divisible target is handled by capping the loss separately at each prime. The cost of adjoining a separate cover of the complement is still open. [Physical gluing theorem](PHYSICAL_GRIDS.md)
 
 ## Source classes with an actual two-position cover
 

@@ -84,3 +84,7 @@ PASS density=3950..3960 low_mean=1 nodes=453047 schur_nodes=5046
 PASS density=3925..3930 low_mean=0 nodes=138846747 schur_nodes=61411
 ./verify_density 3920 3930 1
 PASS density=3920..3930 low_mean=1 nodes=1732323 schur_nodes=11776
+
+c++ -std=c++17 -O3 -fopenmp verify_density.cpp -o verify_density
+OMP_NUM_THREADS=6 ./verify_density 3920 3925 0 --round-upper
+PASS density=3920..3925 low_mean=0 nodes=315279893 schur_nodes=49594
